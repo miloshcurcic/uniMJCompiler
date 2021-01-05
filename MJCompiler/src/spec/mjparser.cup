@@ -1,17 +1,19 @@
+
+
 package rs.ac.bg.etf.pp1;
 
 import java_cup.runtime.*;
 import org.apache.log4j.*;
-
-// import java.io.*;
 import rs.ac.bg.etf.pp1.ast.*;
-
 
 parser code {:
 
-	boolean errorDetected = false;
+	boolean errorDetected;
 
 	Logger log = Logger.getLogger(getClass());
+
+
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
 
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
@@ -34,13 +36,11 @@ parser code {:
         log.error(msg.toString());
     }
 
-    public void report_info(String message, Object info) {
-    	StringBuilder msg = new StringBuilder(message);
-    	if (info instanceof Symbol)
-            msg.append (" na liniji ").append(((Symbol)info).left);
-        log.info(msg.toString());
-    }
 
+:}
+
+init with {:
+	errorDetected = false;
 :}
 
 scan with {:
@@ -50,220 +50,290 @@ scan with {:
 	return s;
 :}
 
+ terminal
+ 	PROGRAM,
+ 	BREAK,
+ 	CLASS,
+ 	CONST,
+ 	IF,
+ 	ELSE,
+ 	SWITCH,
+ 	DO,
+ 	WHILE,
+ 	NEW,
+ 	PRINT,
+ 	READ,
+ 	RETURN,
+ 	VOID,
+ 	EXTENDS,
+ 	CONTINUE,
+ 	CASE
+ ;
 
-terminal 
-    PROGRAM,
-    BREAK,
-	CLASS,
-	ELSE,
-	CONST,
-	IF,
-	SWITCH,
-	DO,
-	WHILE,
-	NEW,
-	PRINT,
-	READ,
-	RETURN,
-	VOID,
-	EXTENDS,
-	CONTINUE,
-    CASE
+ terminal
+ 	PLUS,
+ 	MINUS,
+ 	MULTIPLY,
+ 	DIVIDE,
+ 	MODULO,
+ 	EQUALS,
+ 	PPLUS,
+ 	MMINUS
+ ;
+
+ terminal
+  	CEQUALS,
+ 	CNEQUALS,
+ 	GREATER,
+ 	GEQUALS,
+ 	LESS,
+ 	LEQUALS
+ ;
+
+ terminal
+ 	AND,
+ 	OR
+ ;
+
+ terminal
+ 	SEMICOLON,
+ 	COLON,
+ 	COMMA,
+ 	DOT,
+ 	LPAREN,
+ 	RPAREN,
+ 	LBRACE,
+ 	RBRACE,
+ 	LBRACKET,
+ 	RBRACKET,
+ 	QUESTION
+ ;
+
+ terminal Integer NUMBER ;
+ terminal String IDENT ;
+ terminal Boolean BOOL ;
+ terminal Char CHAR ;
+
+nonterminal Program,
+	DataDecls,
+	ConstDecl,
+	ConstNameValuePairs,
+	ConstNameValuePair,
+	VarDecls,
+	VarDecl,
+	VarIdents,
+	VarIdent,
+	ClassDecl,
+	MethodDecls,
+	MethodDecl,
+	MethodTypeNamePair,
+	FormPars,
+	FormPar,
+	Type,
+	Statements,
+	Statement,
+	ParenthesizedStatement,
+	ParenthesizedStatements,
+	SingleStatement,
+	MatchedStatement,
+	UnmatchedStatement,
+	SwitchCases,
+	SwitchCase,
+	DesignatorStatement,
+	ActPars,
+	Condition,
+	CondTerm,
+	CondFact,
+	Expr,
+	Expr1,
+	ExprPrefix,
+	TermExpr,
+	Term,
+	Factor,
+	Designator,
+	Assignop,
+	Relop,
+	Addop,
+	Mulop
 ;
 
-terminal
-    PLUS,
-	MINUS,
-	MULTIPLY,
-	DIVIDE,
-	MODULO,
-	EQUALS,
-	PPLUS,
-    MMINUS
+ Program ::= (Program) PROGRAM IDENT DataDecls LBRACE MethodDecls RBRACE ;
+
+ DataDecls ::= (ConstDataDecl) DataDecls ConstDecl
+         | (VarDataDecl) DataDecls VarDecl
+         | (ClassDataDecl) DataDecls ClassDecl
+         | (NoDataDecl)
+ ;
+
+ ConstDecl ::= (ConstDecl) CONST Type ConstNameValuePairs SEMICOLON ;
+
+ ConstNameValuePairs ::= (ConstNameValuePairs) ConstNameValuePairs COMMA ConstNameValuePair
+        | (ConstNameValuePair) ConstNameValuePair
 ;
 
-terminal
- 	CEQUALS,
-	CNEQUALS,
-	GREATER,
-	GEQUALS,
-	LESS,
-    LEQUALS
+ ConstNameValuePair ::= (NumberConstNameValuePair) IDENT EQUALS NUMBER
+                    | (CharConstNameValuePair) IDENT EQUALS CHAR
+                    | (BoolConstNameValuePair) IDENT EQUALS BOOL
 ;
 
-terminal
-    AND,
-    OR
+ VarDecls ::= (VarDecls) VarDecls VarDecl
+    | (NoVarDEcls)
 ;
 
-terminal
-    SEMICOLON,
-    COLON,
-    COMMA,
-    DOT,
-    LPAREN,
-    RPAREN,
-    LBRACE,
-    RBRACE,
-    LBRACKET,
-    RBRACKET,
-    QUESTION
+ VarDecl ::= (VarDecl) Type VarIdents SEMICOLON ;
+
+ VarIdents ::= (VarIdents) VarIdents COMMA VarIdent
+        | (VarIdent) VarIdent
 ;
 
-terminal Integer NUMBER ;
-
-terminal String IDENT ;
-
-nonterminal MethodDeclList MethodDeclList;
-nonterminal VarDecl VarDecl;
-nonterminal FormalParamList FormalParamList;
-nonterminal FormalParamDecl FormalParamDecl;
-nonterminal FormPars FormPars;
-nonterminal ActualPars ActualPars;
-nonterminal ActualParamList ActualParamList;
-nonterminal StatementList StatementList;
-nonterminal Statement Statement;
-nonterminal Addop Addop;
-nonterminal Unmatched Unmatched;
-nonterminal Matched Matched;
-
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName, Designator, MethodDecl, MethodTypeName;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Term, Expr, Factor, VarDeclList;
-
-Program ::= (Program) PROG IDENT ProgDeclList LBRACE MethodDeclList RBRACE ;
-
-ProgDeclList ::= (DeclList) ProgDeclList ConstDecl
-        | (DeclList) ProgDeclList VarDecl
-        | (DeclList) ProgDeclList ClassDecl
-        | (NoDecl)
+ VarIdent ::= (ScalarVarIdent) IDENT
+        | (ArrayVarIdent) IDENT LBRACKET RBRACKET
 ;
 
-ProgName ::= (ProgName) IDENT ;
+ ClassDecl ::= (ExtendedClassDecl) CLASS IDENT EXTENDS Type LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
+        | (ExtendedClassNoMethodDecl) CLASS IDENT EXTENDS Type LBRACE VarDecls RBRACE
+        | (ClassDecl) CLASS IDENT LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
+        | (NoMethodClassDecl) CLASS IDENT LBRACE VarDecls RBRACE
+ ;
 
-ConstDeclList ::= (ConstDeclList) ConstDeclList ConstDecl
-                | (NoConst
+ MethodDecls ::= (MethodDecls) MethodDecls MethodDecl
+                 | (NoMethodDecls)
+ ;
 
-ConstDecl ::= (ConstDecl) CONST Type IDENT EQUALS (NUMBER | CHAR | BOOL) {
+ MethodDecl ::= (NoParMethodDecl) MethodTypeNamePair LPAREN RPAREN VarDecls LBRACE Statements RBRACE
+             | (ParMethodDecl) MethodTypeNamePair LPAREN FormPars RPAREN VarDecls LBRACE Statements RBRACE
+ ;
 
-VarDecl ::= (VarDecl) Type IDENT [LBRACKET RBRACKET] {COMMA IDENT [LBRACKET RBRACKET]} SEMICOLON
+ MethodTypeNamePair ::= (MethodTypeNamePair) Type IDENT
+             | (VoidMethodTypeNamePair) VOID IDENT
+ ;
 
-ClassDecl ::= (ClassDecl) CLASS IDENT [EXTENDS Type] LBRACE {VarDecl} RBRACE [LBRACE MethodDecl RBRACE] RPAREN ;
+ FormPars ::= (FormPars) FormPars COMMA FormPar
+         | (FormPar) FormPar
+ ;
 
-MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
-                | (NoMethodDeclarations)
+ FormPar ::= (ScalarFormPar) Type IDENT
+             | (ArrayFormPar) Type IDENT LBRACKET RBRACKET
+ ;
+
+ Type ::= (Type) IDENT ;
+
+ Statements ::= (Statements) Statements Statement
+         | (NoStatements)
+ ;
+
+ Statement ::= (ParenthesizedStatement) ParenthesizedStatement
+         | (SingleStatement) SingleStatement
+ ;
+
+ ParenthesizedStatement ::= (ParenthesizedStatement) LPAREN ParenthesizedStatements RPAREN
+ ;
+
+ ParenthesizedStatements ::= (ParenthesizedStatements) ParenthesizedStatements SingleStatement
+         | (NoParenthesizedStatements)
+ ;
+
+ SingleStatement ::= (SingleMatchedStatement) MatchedStatement
+             | (SingleUnmatchedStatement) UnmatchedStatement
+ ;
+
+ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
+             | (MatchedIfStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
+             | (MatchedDoWhileStatement) DO Statement WHILE LPAREN Condition RPAREN SEMICOLON
+             | (MatchedSwitchStatement) SWITCH LPAREN Expr RPAREN LBRACE SwitchCases RBRACE
+             | (MatchedBreakStatement) BREAK SEMICOLON
+             | (MatchedContinueStatement) CONTINUE SEMICOLON
+             | (MatchedExprReturnStatement) RETURN Expr SEMICOLON
+             | (MatchedNoExprReturnStatement) RETURN SEMICOLON
+             | (MatchedReadStatement) READ LPAREN Designator RPAREN SEMICOLON
+             | (MatchedNoParPrintStatement) PRINT LPAREN Expr RPAREN SEMICOLON
+             | (MatchedParPrintStatement) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMICOLON
+ ;
+
+ UnmatchedStatement ::= (UnmatchedIfStatement) IF LPAREN Condition RPAREN Statement
+             | (UnmatchedIfElseStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
+ ;
+
+ SwitchCases ::= (SwitchCases) SwitchCases SwitchCase
+             | (NoSwitchCases)
+ ;
+
+ SwitchCase ::= CASE NUMBER COLON Statements ;
+
+ DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
+                     | (ParFuncCallDesignatorStatement) Designator LPAREN ActPars RPAREN
+                     | (NoParFuncCallDesignatorStatement) Designator LPAREN RPAREN
+                     | (PostIncDesignatorStatement) Designator PPLUS
+                     | (PostDecDesignatorStatement) Designator MMINUS
+ ;
+
+ ActPars ::= (ActPars) ActPars COMMA Expr
+         | (ActPar) Expr
+ ;
+
+ Condition ::= (OrCondition) Condition OR CondTerm
+         | (Condition) CondTerm
+ ;
+
+ CondTerm ::= (AndCondTerm) CondTerm AND CondFact
+         | (CondTerm) CondFact
+ ;
+
+ CondFact ::= (CmpCondFact) Expr Relop Expr
+     | (CondFact) Expr
+ ;
+
+ Expr ::= (TernaryExpr) Expr1 QUESTION Expr1 COLON Expr1
+    | (Expr) Expr1
 ;
 
-MethodDecl ::= (MethodDecl) MethodTypeName LPAREN [FormPars] RPAREN {VarDecl} LBRACE Statement RBRACE ;
+ Expr1 ::= (Expr1) ExprPrefix TermExpr ;
 
-MethodTypeName ::= (MethodTypeName) Type IDENT
-            | (MethodTypeName) VOID IDENT
+ ExprPrefix ::= (MinusExprPrefix) MINUS
+            | (NoExprPrefix)
 ;
 
-FormPars ::= (FormalParametersDecl) FormPars COMMA FormPar
-        | (FormalParameterDecl) FormPar
-;
+ TermExpr ::= (AddTermExpr) TermExpr Addop Term
+         | (TermExpr) Term
+ ;
 
-FormPar ::= (FormalParam) Type IDENT
-            | (ArrayFormalParam) Type IDENT LBRACKET RBRACKET
-;
+ Term ::= (MulTerm) Term Mulop Factor
+     | (Term) Factor
+ ;
 
-Type ::= (Type) IDENT ;
+ Factor ::= (VarFactor) Designator
+         | (ParFuncCallResultFactor) Designator LPAREN ActPars RPAREN
+         | (NoParFuncCallResultFactor) Designator LPAREN RPAREN
+         | (NumConstFactor) NUMBER
+         | (CharConstFactor) CHAR
+         | (BoolConstFactor) BOOL
+         | (NewObjectFactor) NEW Type
+         | (NewArrayObjectFactor) NEW Type LBRACKET Expr RBRACKET
+         | (ExprResultFactor) LPAREN Expr RPAREN
+ ;
 
-StatementList ::= (Statements) LPAREN StatementList Statement RPAREN
-            | (NoStatements)
-;
+ Designator ::= (ScalarDesignator) IDENT
+             | (ObjectAccessDesignator) Designator DOT IDENT
+             | (ArrayAccessDesignator) Designator LBRACKET Expr RBRACKET
+ ;
 
-Statement ::= (MatchedStatement) MatchedStatement
-            | (OpenStatement) OpenStatement
-;
+ Assignop ::= (Assignop) EQUALS ;
 
-MatchedStatement ::= (Assignment) DesignatorStatement SEMICOLON
-            | (MatchedStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
-            | () DO Statement WHILE LPAREN Condition RPAREN SEMICOLON
-            // | () SWITCH LPAREN Expr RPAREN LBRACE { CASE NUMBER COLON Statement } RBRACE
-            | (BreakStatement) BREAK SEMICOLON
-            | (ContinueStatement) CONTINUE SEMICOLON
-            | (ReturnExpr) RETURN Expr SEMICOLON
-            | (ReturnNoExpr) RETURN SEMICOLON
-            | (ReadStatement) READ LPAREN Designator RPAREN SEMICOLON
-            // | (PrintStatement) PRINT LPAREN Expr [COMMA NUMBER] RPAREN SEMICOLON
-;
+ Relop ::= (RelopCEquals) CEQUALS
+         | (RelopCNEquals) CNEQUALS
+         | (RelopGreater) GREATER
+         | (RelopGEquals) GEQUALS
+         | (RelopLess) LESS
+         | (RelopLEquals) LEQUALS
+ ;
 
-SwitchCaseList ::= (SwitchCaseList) CASE NUMBER COLON StatementList
+ Addop ::= (AddopPlus) PLUS
+         | (AddopMinus) MINUS
+ ;
 
-OpenStatement ::= (OpenIf) IF LPAREN Condition RPAREN THEN Statement
-            | (OpenIfElse) IF LPAREN Condition RPAREN THEN MatchedStatement ELSE OpenStatement
-;
+ Mulop ::= (MulopMultiply) MULTIPLY
+         | (MulopDivide) DIVIDE
+         | (MulopModulo) MODULO
+ ;
 
-DesignatorStatement ::= (Assignment) Designator Assignop Expr
-                    | (FuncCall) Designator LPAREN ActPars RPAREN
-                    | (PostIncStmt) Designator PPLUS
-                    | (PostDecStmt) Designator MMINUS
-;
 
-ActPars ::= (ActualParams) ActParList
-        | (NoActualParams)
-;
-
-ActParList ::= (ActParams) ActParList COMMA Expr
-            | (ActParam) Expr
-;
-
-Condition ::= (OrCondition) Condition OR CondTerm
-        | (Condition) CondTerm
-;
-
-CondTerm ::= (AndCondTerm) CondTerm AND CondFact
-        | (CondTerm) CondFact
-;
-
-CondFact ::= (CmpCondFact) Expr Relop Expr
-    | (CondFact) Expr
-;
-
-Expr ::= (Expr) TermExpr
-    | (NegExpr) MINUS TermExpr
-    | (TerExpr) Condition QUESTION Expr COLON Expr
-;
-
-TermExpr ::= (TermExpr) TermExpr Addop Term
-            (TermExpr) Term
-;
-
-Term ::= (MulTerm) Term Mulop Factor
-    | (Term) Factor
-;
-
-Factor ::= (Var) DESIGNATOR
-        | (FuncCall) DESIGNATOR LPAREN ActPars RPAREN
-        | (NumConst) NUMBER
-        | (CharConst) CHAR
-        | (BoolConst) BOOL
-        | (NewVar) NEW Type
-        | (NewArray) NEW Type LPAREN Expr RPAREN
-        | (ExprVar) LPAREN Expr RPAREN
-;
-
-Designator ::= (Designator) IDENT
-            | (ObjectDesignator) Designator DOT IDENT
-            | (ArrayDesignator) Designator LBRACKET Expr RBRACKET
-;
-
-Assignop ::= (Assignop) EQUALS ;
-
-Relop ::= (Relop) CEQUALS
-        | (Relop) CNEQUALS
-        | (Relop) GREATER
-        | (Relop) GEQUALS
-        | (Relop) LESS
-        | (Relop) LEQUALS
-;
-
-Addop ::= (Addop) PLUS
-        | (Addop) MINUS
-;
-
-Mulop ::= (Mulop) MULTIPLY
-        | (Mulop) DIVIDE
-        | (Mulop) MODULO
-;

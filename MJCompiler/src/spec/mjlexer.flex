@@ -37,9 +37,9 @@ import java_cup.runtime.Symbol;
 "program"   { return new_symbol(sym.PROGRAM); }
 "break" 	{ return new_symbol(sym.BREAK); }
 "class" 	{ return new_symbol(sym.CLASS); }
-"else" 	{ return new_symbol(sym.ELSE); }
 "const" 	{ return new_symbol(sym.CONST); }
 "if" 	{ return new_symbol(sym.IF); }
+"else" 	{ return new_symbol(sym.ELSE); }
 "switch" 	{ return new_symbol(sym.SWITCH); }
 "do" 	{ return new_symbol(sym.DO); }
 "while" 	{ return new_symbol(sym.WHILE); }
