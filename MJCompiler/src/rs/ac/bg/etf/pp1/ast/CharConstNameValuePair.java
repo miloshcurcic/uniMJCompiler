@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/0/2021 3:41:37
+// 6/0/2021 3:41:52
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,12 +8,11 @@ package rs.ac.bg.etf.pp1.ast;
 public class CharConstNameValuePair extends ConstNameValuePair {
 
     private String I1;
-    private Char C2;
+    private Character C2;
 
-    public CharConstNameValuePair (String I1, Char C2) {
+    public CharConstNameValuePair (String I1, Character C2) {
         this.I1=I1;
         this.C2=C2;
-        if(C2!=null) C2.setParent(this);
     }
 
     public String getI1() {
@@ -24,11 +23,11 @@ public class CharConstNameValuePair extends ConstNameValuePair {
         this.I1=I1;
     }
 
-    public Char getC2() {
+    public Character getC2() {
         return C2;
     }
 
-    public void setC2(Char C2) {
+    public void setC2(Character C2) {
         this.C2=C2;
     }
 
@@ -37,16 +36,13 @@ public class CharConstNameValuePair extends ConstNameValuePair {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(C2!=null) C2.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(C2!=null) C2.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(C2!=null) C2.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -58,10 +54,7 @@ public class CharConstNameValuePair extends ConstNameValuePair {
         buffer.append(" "+tab+I1);
         buffer.append("\n");
 
-        if(C2!=null)
-            buffer.append(C2.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
+        buffer.append(" "+tab+C2);
         buffer.append("\n");
 
         buffer.append(tab);

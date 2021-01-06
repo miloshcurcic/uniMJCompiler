@@ -1,28 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/0/2021 3:41:37
+// 6/0/2021 3:41:52
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Expr implements SyntaxNode {
+public abstract class Expr implements SyntaxNode {
 
     private SyntaxNode parent;
+
     private int line;
-    private Expr1 Expr1;
-
-    public Expr (Expr1 Expr1) {
-        this.Expr1=Expr1;
-        if(Expr1!=null) Expr1.setParent(this);
-    }
-
-    public Expr1 getExpr1() {
-        return Expr1;
-    }
-
-    public void setExpr1(Expr1 Expr1) {
-        this.Expr1=Expr1;
-    }
 
     public SyntaxNode getParent() {
         return parent;
@@ -40,37 +27,11 @@ public class Expr implements SyntaxNode {
         this.line=line;
     }
 
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
+    public abstract void accept(Visitor visitor);
+    public abstract void childrenAccept(Visitor visitor);
+    public abstract void traverseTopDown(Visitor visitor);
+    public abstract void traverseBottomUp(Visitor visitor);
 
-    public void childrenAccept(Visitor visitor) {
-        if(Expr1!=null) Expr1.accept(visitor);
-    }
-
-    public void traverseTopDown(Visitor visitor) {
-        accept(visitor);
-        if(Expr1!=null) Expr1.traverseTopDown(visitor);
-    }
-
-    public void traverseBottomUp(Visitor visitor) {
-        if(Expr1!=null) Expr1.traverseBottomUp(visitor);
-        accept(visitor);
-    }
-
-    public String toString(String tab) {
-        StringBuffer buffer=new StringBuffer();
-        buffer.append(tab);
-        buffer.append("Expr(\n");
-
-        if(Expr1!=null)
-            buffer.append(Expr1.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        buffer.append(tab);
-        buffer.append(") [Expr]");
-        return buffer.toString();
-    }
+    public String toString() { return toString(""); }
+    public abstract String toString(String tab);
 }

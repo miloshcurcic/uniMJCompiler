@@ -112,10 +112,11 @@ scan with {:
  terminal Integer NUMBER ;
  terminal String IDENT ;
  terminal Boolean BOOL ;
- terminal Char CHAR ;
+ terminal Character CHAR ;
 
 nonterminal Program,
 	DataDecls,
+	DataDecl,
 	ConstDecl,
 	ConstNameValuePairs,
 	ConstNameValuePair,
@@ -159,16 +160,19 @@ nonterminal Program,
 
  Program ::= (Program) PROGRAM IDENT DataDecls LBRACE MethodDecls RBRACE ;
 
- DataDecls ::= (ConstDataDecl) DataDecls ConstDecl
-         | (VarDataDecl) DataDecls VarDecl
-         | (ClassDataDecl) DataDecls ClassDecl
-         | (NoDataDecl)
+ DataDecls ::= (DataDeclListElement) DataDecls DataDecl
+         | (EmptyDataDeclListHead)
  ;
+
+ DataDecl ::= (ConstDataDecl) ConstDecl
+         | (VarDataDecl) VarDecl
+         | (ClassDataDecl) ClassDecl
+;
 
  ConstDecl ::= (ConstDecl) CONST Type ConstNameValuePairs SEMICOLON ;
 
- ConstNameValuePairs ::= (ConstNameValuePairs) ConstNameValuePairs COMMA ConstNameValuePair
-        | (ConstNameValuePair) ConstNameValuePair
+ ConstNameValuePairs ::= (ConstNameValuePairListElement) ConstNameValuePairs COMMA ConstNameValuePair
+        | (ConstNameValuePairListHead) ConstNameValuePair
 ;
 
  ConstNameValuePair ::= (NumberConstNameValuePair) IDENT EQUALS NUMBER
@@ -176,61 +180,61 @@ nonterminal Program,
                     | (BoolConstNameValuePair) IDENT EQUALS BOOL
 ;
 
- VarDecls ::= (VarDecls) VarDecls VarDecl
-    | (NoVarDEcls)
+ VarDecls ::= (VarDeclListElement) VarDecls VarDecl
+    | (EmptyVarDeclList)
 ;
 
  VarDecl ::= (VarDecl) Type VarIdents SEMICOLON ;
 
- VarIdents ::= (VarIdents) VarIdents COMMA VarIdent
-        | (VarIdent) VarIdent
+ VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
+        | (VarIdentListHead) VarIdent
 ;
 
  VarIdent ::= (ScalarVarIdent) IDENT
         | (ArrayVarIdent) IDENT LBRACKET RBRACKET
 ;
 
- ClassDecl ::= (ExtendedClassDecl) CLASS IDENT EXTENDS Type LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
-        | (ExtendedClassNoMethodDecl) CLASS IDENT EXTENDS Type LBRACE VarDecls RBRACE
-        | (ClassDecl) CLASS IDENT LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
-        | (NoMethodClassDecl) CLASS IDENT LBRACE VarDecls RBRACE
+ ClassDecl ::= (ExtendedClassDeclaration) CLASS IDENT EXTENDS Type LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
+        | (ExtendedClassNoMethodDeclaration) CLASS IDENT EXTENDS Type LBRACE VarDecls RBRACE
+        | (ClassDeclaration) CLASS IDENT LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
+        | (NoMethodClassDeclaration) CLASS IDENT LBRACE VarDecls RBRACE
  ;
 
- MethodDecls ::= (MethodDecls) MethodDecls MethodDecl
-                 | (NoMethodDecls)
+ MethodDecls ::= (MethodDeclarationListElement) MethodDecls MethodDecl
+                 | (EmptyMethodDeclarationListHead)
  ;
 
- MethodDecl ::= (NoParMethodDecl) MethodTypeNamePair LPAREN RPAREN VarDecls LBRACE Statements RBRACE
-             | (ParMethodDecl) MethodTypeNamePair LPAREN FormPars RPAREN VarDecls LBRACE Statements RBRACE
+ MethodDecl ::= (NoParMethodDeclaration) MethodTypeNamePair LPAREN RPAREN VarDecls LBRACE Statements RBRACE
+             | (ParMethodDeclaration) MethodTypeNamePair LPAREN FormPars RPAREN VarDecls LBRACE Statements RBRACE
  ;
 
- MethodTypeNamePair ::= (MethodTypeNamePair) Type IDENT
+ MethodTypeNamePair ::= (TypeMethodTypeNamePair) Type IDENT
              | (VoidMethodTypeNamePair) VOID IDENT
  ;
 
- FormPars ::= (FormPars) FormPars COMMA FormPar
-         | (FormPar) FormPar
+ FormPars ::= (FormalParametersListElement) FormPars COMMA FormPar
+         | (FormParametersListHead) FormPar
  ;
 
- FormPar ::= (ScalarFormPar) Type IDENT
-             | (ArrayFormPar) Type IDENT LBRACKET RBRACKET
+ FormPar ::= (ScalarFormalParameter) Type IDENT
+             | (ArrayFormalParameter) Type IDENT LBRACKET RBRACKET
  ;
 
  Type ::= (Type) IDENT ;
 
- Statements ::= (Statements) Statements Statement
-         | (NoStatements)
+ Statements ::= (StatementListElement) Statements Statement
+         | (EmptyStatementListHead)
  ;
 
- Statement ::= (ParenthesizedStatement) ParenthesizedStatement
-         | (SingleStatement) SingleStatement
+ Statement ::= (ParenthesizedStatementType) ParenthesizedStatement
+         | (SingleStatementType) SingleStatement
  ;
 
  ParenthesizedStatement ::= (ParenthesizedStatement) LPAREN ParenthesizedStatements RPAREN
  ;
 
- ParenthesizedStatements ::= (ParenthesizedStatements) ParenthesizedStatements SingleStatement
-         | (NoParenthesizedStatements)
+ ParenthesizedStatements ::= (ParenthesizedStatementListElement) ParenthesizedStatements SingleStatement
+         | (EmptyParenthesizedStatementListHead)
  ;
 
  SingleStatement ::= (SingleMatchedStatement) MatchedStatement
@@ -254,11 +258,11 @@ nonterminal Program,
              | (UnmatchedIfElseStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
  ;
 
- SwitchCases ::= (SwitchCases) SwitchCases SwitchCase
-             | (NoSwitchCases)
+ SwitchCases ::= (SwitchCaseListElement) SwitchCases SwitchCase
+             | (EmptySwitchCaseListHead)
  ;
 
- SwitchCase ::= CASE NUMBER COLON Statements ;
+ SwitchCase ::= (SwitchCase) CASE NUMBER COLON Statements ;
 
  DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                      | (ParFuncCallDesignatorStatement) Designator LPAREN ActPars RPAREN
@@ -267,38 +271,38 @@ nonterminal Program,
                      | (PostDecDesignatorStatement) Designator MMINUS
  ;
 
- ActPars ::= (ActPars) ActPars COMMA Expr
-         | (ActPar) Expr
+ ActPars ::= (ActualParametersListElement) ActPars COMMA Expr
+         | (ActualParametersListHead) Expr
  ;
 
- Condition ::= (OrCondition) Condition OR CondTerm
-         | (Condition) CondTerm
+ Condition ::= (ConditionListElement) Condition OR CondTerm
+         | (ConditionListHead) CondTerm
  ;
 
- CondTerm ::= (AndCondTerm) CondTerm AND CondFact
-         | (CondTerm) CondFact
+ CondTerm ::= (CondTermListElement) CondTerm AND CondFact
+         | (CondTermListHead) CondFact
  ;
 
- CondFact ::= (CmpCondFact) Expr Relop Expr
-     | (CondFact) Expr
+ CondFact ::= (RelationalCondFact) Expr Relop Expr
+     | (SingleCondFact) Expr
  ;
 
- Expr ::= (TernaryExpr) Expr1 QUESTION Expr1 COLON Expr1
-    | (Expr) Expr1
+ Expr ::= (TernaryExpression) Expr1 QUESTION Expr1 COLON Expr1
+    | (Expression) Expr1
 ;
 
  Expr1 ::= (Expr1) ExprPrefix TermExpr ;
 
- ExprPrefix ::= (MinusExprPrefix) MINUS
-            | (NoExprPrefix)
+ ExprPrefix ::= (NegativeExpressionPrefix) MINUS
+            | (NoExpressionPrefix)
 ;
 
- TermExpr ::= (AddTermExpr) TermExpr Addop Term
-         | (TermExpr) Term
+ TermExpr ::= (TermExprListElement) TermExpr Addop Term
+         | (TermExprListHead) Term
  ;
 
- Term ::= (MulTerm) Term Mulop Factor
-     | (Term) Factor
+ Term ::= (TermListElement) Term Mulop Factor
+     | (TermListHead) Factor
  ;
 
  Factor ::= (VarFactor) Designator

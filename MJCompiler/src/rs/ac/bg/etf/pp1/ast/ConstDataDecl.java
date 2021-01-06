@@ -1,28 +1,17 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/0/2021 3:41:37
+// 6/0/2021 3:41:52
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ConstDataDecl extends DataDecls {
+public class ConstDataDecl extends DataDecl {
 
-    private DataDecls DataDecls;
     private ConstDecl ConstDecl;
 
-    public ConstDataDecl (DataDecls DataDecls, ConstDecl ConstDecl) {
-        this.DataDecls=DataDecls;
-        if(DataDecls!=null) DataDecls.setParent(this);
+    public ConstDataDecl (ConstDecl ConstDecl) {
         this.ConstDecl=ConstDecl;
         if(ConstDecl!=null) ConstDecl.setParent(this);
-    }
-
-    public DataDecls getDataDecls() {
-        return DataDecls;
-    }
-
-    public void setDataDecls(DataDecls DataDecls) {
-        this.DataDecls=DataDecls;
     }
 
     public ConstDecl getConstDecl() {
@@ -38,18 +27,15 @@ public class ConstDataDecl extends DataDecls {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(DataDecls!=null) DataDecls.accept(visitor);
         if(ConstDecl!=null) ConstDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(DataDecls!=null) DataDecls.traverseTopDown(visitor);
         if(ConstDecl!=null) ConstDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(DataDecls!=null) DataDecls.traverseBottomUp(visitor);
         if(ConstDecl!=null) ConstDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -58,12 +44,6 @@ public class ConstDataDecl extends DataDecls {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("ConstDataDecl(\n");
-
-        if(DataDecls!=null)
-            buffer.append(DataDecls.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
 
         if(ConstDecl!=null)
             buffer.append(ConstDecl.toString("  "+tab));

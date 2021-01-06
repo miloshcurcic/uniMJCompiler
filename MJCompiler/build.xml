@@ -4,7 +4,10 @@
 	<target name="delete">
 		<delete>
 			<fileset dir="src/rs/ac/bg/etf/pp1">
+				<exclude name="Compiler.java"/>
+				<exclude name="SemanticAnalyzer.java"/>
 				<exclude name="CodeGenerator.java"/>
+				<exclude name="util/Log4JUtils.java" />
 			</fileset>
 		</delete>
 		<delete>
@@ -12,6 +15,9 @@
 				<exclude name="mjlexer.flex"/>
 				<exclude name="mjparser.cup"/>
 			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="bin/" />
 		</delete>
 	</target>
 
@@ -43,22 +49,39 @@
 	</target>
 
 	<target name="compile" depends="repackage">
-		<javac srcdir="src/rs/ac/bg/etf/pp1" includeantruntime="false">
+		<javac srcdir="src/rs/ac/bg/etf/pp1" destdir="bin" includeantruntime="false">
 			<classpath>
 				<pathelement path="lib/JFlex.jar"/>
 				<pathelement path="lib/cup_v10k.jar"/>
-				<pathelement path="lib/symboltable.jar"/>
+				<pathelement path="lib/symboltable-1-1.jar"/>
 				<pathelement path="lib/log4j-1.2.17.jar"/>
-				<pathelement path="lib/mj-runtime.jar"/>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
 			</classpath>
 		</javac>
+		<copy file="config/log4j.xml" tofile="bin/log4j.xml"></copy>
+	</target>
+
+	<target name="runCompiler">
+		<java classname="rs.ac.bg.etf.pp1.Compiler">
+			<classpath>
+				<pathelement location="bin/" />
+				<pathelement path="lib/JFlex.jar"/>
+				<pathelement path="lib/cup_v10k.jar"/>
+				<pathelement path="lib/symboltable-1-1.jar"/>
+				<pathelement path="lib/log4j-1.2.17.jar"/>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+
+			<arg value="test/test301.mj" />
+			<arg value="test/program.obj" />
+		</java>
 	</target>
 
 	<target name="disasm">
 		<java classname="rs.etf.pp1.mj.runtime.disasm">
 			<arg value="test/program.obj"/>
 			<classpath>
-				<pathelement location="lib/mj-runtime.jar"/>
+				<pathelement location="lib/mj-runtime-1.1.jar"/>
 			</classpath>
 		</java>
 	</target>
@@ -67,7 +90,7 @@
 		<java classname="rs.etf.pp1.mj.runtime.Run">
 			<arg value="test/program.obj"/>
 			<classpath>
-				<pathelement location="lib/mj-runtime.jar"/>
+				<pathelement location="lib/mj-runtime-1.1.jar"/>
 			</classpath>
 		</java>
 	</target>
