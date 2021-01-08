@@ -196,6 +196,167 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
+    // checks
+
+    public void visit(ScalarDesignator scalarDesignator) {
+        Obj scalarDesignatorObj = Tab.find(scalarDesignator.getName());
+
+        if (scalarDesignatorObj == Tab.noObj) {
+            report_error("Undeclared symbol \"" + scalarDesignator.getName() + "\"!", scalarDesignator);
+        }
+        else
+        {
+            if (scalarDesignatorObj.getKind() != Obj.Var) {
+                report_error("The symbol \"" + scalarDesignator.getName() + "\" is not a variable!", scalarDesignator);
+            } else {
+                scalarDesignator.obj = scalarDesignatorObj;
+            }
+        }
+    }
+
+    public void visit(ObjectAccessDesignator objectAccessDesignator) {
+        Struct objectDesignatorType = objectAccessDesignator.obj.getType();
+
+        if (objectDesignatorType.getKind() != Struct.Class) {
+            report_error("Invalid access, accessed designator \"" + objectAccessDesignator.obj.getName() + "\"is not a Class reference!", objectAccessDesignator);
+
+            return;
+        }
+
+        Obj fieldNameObj = objectDesignatorType.getMembersTable().searchKey(objectAccessDesignator.getFieldName());
+
+        if (fieldNameObj == Tab.noObj) {
+            report_error("Non existent Class member \"" + objectAccessDesignator.getFieldName() + "\"!", objectAccessDesignator);
+
+            return;
+        }
+
+        objectAccessDesignator.obj = fieldNameObj;
+    }
+
+    public void visit(ArrayAccessDesignator arrayAccessDesignator) {
+        Struct arrayDesignatorType = arrayAccessDesignator.obj.getType();
+
+        if (arrayDesignatorType.getKind() != Struct.Array) {
+            report_error("Invalid access, accessed designator \"" + arrayAccessDesignator.obj.getName() + "\" is not an Array reference!", arrayAccessDesignator);
+
+            return;
+        }
+
+        // ToDo: Check expression
+    }
+
+    public void visit(VarFactor varFactor) {
+
+    }
+
+    public  void visit(FunctionCallResultFactor functionCallResultFactor) {
+        Obj functionCallRDesignatorObj = functionCallResultFactor.getDesignator().obj;
+
+        if (functionCallRDesignatorObj.getKind() != Obj.Meth) {
+            report_error("Invalid access, accessed designator \"" + functionCallRDesignatorObj.getName() + "\" is not a method or a global function!", functionCallResultFactor);
+
+            return;
+        }
+
+        functionCallResultFactor.struct = functionCallRDesignatorObj.getType();
+    }
+
+    public void visit(NumConstFactor numConstFactor) {
+        numConstFactor.struct = Tab.intType;
+    }
+
+    public void visit(CharConstFactor charConstFactor) {
+        charConstFactor.struct = Tab.charType;
+    }
+
+    public void visit(BoolConstFactor boolConstFactor) {
+        // ToDo
+        boolConstFactor.struct = Tab.find("bool").getType();
+    }
+
+    public void visit(NewObjectFactor newObjectFactor) {
+        if (newObjectFactor.getType().struct.getKind() != Struct.Class) {
+            report_error("Invalid statement, \"" + newObjectFactor.getType().getName() +  "\" is not a Class type!", newObjectFactor);
+
+            return;
+        }
+
+        newObjectFactor.struct = newObjectFactor.getType().struct;
+    }
+
+    public void visit(NewArrayObjectFactor newArrayObjectFactor) {
+        if (newArrayObjectFactor.getExpr().struct != Tab.intType) {
+            report_error("Invalid statement, expression result is not an integer!", newArrayObjectFactor);
+
+            return;
+        }
+
+        // ToDo: New array?
+        newArrayObjectFactor.struct = new Struct(Struct.Array, newArrayObjectFactor.getType().struct);
+    }
+
+    public void visit(ExprResultFactor exprResultFactor) {
+        exprResultFactor.struct = exprResultFactor.getExpr().struct;
+    }
+
+    public void visit(TermListElement termListElement) {
+        if (termListElement.struct != Tab.intType || termListElement.getTerm().struct != Tab.intType) {
+            report_error("Invalid statement, expression result is not an integer!", termListElement);
+
+            return;
+        }
+
+        termListElement.struct = Tab.intType;
+    }
+
+    public void visit(TermListHead termListHead) {
+        termListHead.struct = termListHead.getFactor().struct;
+    }
+
+    public void visit(TermExprListElement termExprListElement) {
+        if (termExprListElement.struct != Tab.intType || termExprListElement.getTerm().struct != Tab.intType) {
+            report_error("Invalid statement, expression result is not an integer!", termExprListElement);
+
+            return;
+        }
+
+        termExprListElement.struct = Tab.intType;
+    }
+
+    public void visit(TermExprListHead termExprListHead) {
+        termExprListHead.struct = termExprListHead.getTerm().struct;
+    }
+
+    public void visit(Expr1 expr1) {
+        if (expr1.struct != Tab.intType || expr1.getTermExpr().struct != Tab.intType) {
+            report_error("Invalid statement, expression result is not an integer!", expr1);
+
+            return;
+        }
+
+        expr1.struct = Tab.intType;
+    }
+
+    public void visit(Expression expression) {
+        expression.struct = expression.getExpr1().struct;
+    }
+
+    public void visit(TernaryExpression ternaryExpression) {
+        Struct resultTypeIfTrue = ternaryExpression.getExpr11().struct;
+        Struct resultTypeIfFalse = ternaryExpression.getExpr12().struct;
+
+        if (resultTypeIfTrue != resultTypeIfFalse) {
+            report_error("Ternary expression result types must be same!", ternaryExpression);
+
+            return;
+        }
+    }
+
+
+
+    // Helper methods
+
     private int getVarKind() {
         int varKind = Obj.Var;
 

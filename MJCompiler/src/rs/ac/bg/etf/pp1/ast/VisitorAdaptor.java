@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/0/2021 23:41:32
+// 8/0/2021 2:57:42
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -12,6 +12,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MatchedStatement MatchedStatement) { }
     public void visit(VarIdent VarIdent) { }
     public void visit(Relop Relop) { }
+    public void visit(FuncCallActPars FuncCallActPars) { }
     public void visit(Addop Addop) { }
     public void visit(Factor Factor) { }
     public void visit(CondTerm CondTerm) { }
@@ -58,14 +59,15 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ArrayAccessDesignator ArrayAccessDesignator) { visit(); }
     public void visit(ObjectAccessDesignator ObjectAccessDesignator) { visit(); }
     public void visit(ScalarDesignator ScalarDesignator) { visit(); }
+    public void visit(NoFunctionCallActualParameters NoFunctionCallActualParameters) { visit(); }
+    public void visit(FunctionCallActualParameters FunctionCallActualParameters) { visit(); }
     public void visit(ExprResultFactor ExprResultFactor) { visit(); }
     public void visit(NewArrayObjectFactor NewArrayObjectFactor) { visit(); }
     public void visit(NewObjectFactor NewObjectFactor) { visit(); }
     public void visit(BoolConstFactor BoolConstFactor) { visit(); }
     public void visit(CharConstFactor CharConstFactor) { visit(); }
     public void visit(NumConstFactor NumConstFactor) { visit(); }
-    public void visit(NoParFuncCallResultFactor NoParFuncCallResultFactor) { visit(); }
-    public void visit(ParFuncCallResultFactor ParFuncCallResultFactor) { visit(); }
+    public void visit(FunctionCallResultFactor FunctionCallResultFactor) { visit(); }
     public void visit(VarFactor VarFactor) { visit(); }
     public void visit(TermListHead TermListHead) { visit(); }
     public void visit(TermListElement TermListElement) { visit(); }

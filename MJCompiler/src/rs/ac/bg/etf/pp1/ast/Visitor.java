@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/0/2021 23:41:32
+// 8/0/2021 2:57:42
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -12,6 +12,7 @@ public interface Visitor {
     public void visit(MatchedStatement MatchedStatement);
     public void visit(VarIdent VarIdent);
     public void visit(Relop Relop);
+    public void visit(FuncCallActPars FuncCallActPars);
     public void visit(Addop Addop);
     public void visit(Factor Factor);
     public void visit(CondTerm CondTerm);
@@ -58,14 +59,15 @@ public interface Visitor {
     public void visit(ArrayAccessDesignator ArrayAccessDesignator);
     public void visit(ObjectAccessDesignator ObjectAccessDesignator);
     public void visit(ScalarDesignator ScalarDesignator);
+    public void visit(NoFunctionCallActualParameters NoFunctionCallActualParameters);
+    public void visit(FunctionCallActualParameters FunctionCallActualParameters);
     public void visit(ExprResultFactor ExprResultFactor);
     public void visit(NewArrayObjectFactor NewArrayObjectFactor);
     public void visit(NewObjectFactor NewObjectFactor);
     public void visit(BoolConstFactor BoolConstFactor);
     public void visit(CharConstFactor CharConstFactor);
     public void visit(NumConstFactor NumConstFactor);
-    public void visit(NoParFuncCallResultFactor NoParFuncCallResultFactor);
-    public void visit(ParFuncCallResultFactor ParFuncCallResultFactor);
+    public void visit(FunctionCallResultFactor FunctionCallResultFactor);
     public void visit(VarFactor VarFactor);
     public void visit(TermListHead TermListHead);
     public void visit(TermListElement TermListElement);

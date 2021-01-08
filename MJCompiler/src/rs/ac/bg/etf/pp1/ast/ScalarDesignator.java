@@ -1,24 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/0/2021 23:41:32
+// 8/0/2021 2:57:42
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ScalarDesignator extends Designator {
 
-    private String I1;
+    private String name;
 
-    public ScalarDesignator (String I1) {
-        this.I1=I1;
+    public ScalarDesignator (String name) {
+        this.name=name;
     }
 
-    public String getI1() {
-        return I1;
+    public String getName() {
+        return name;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setName(String name) {
+        this.name=name;
     }
 
     public void accept(Visitor visitor) {
@@ -41,7 +41,7 @@ public class ScalarDesignator extends Designator {
         buffer.append(tab);
         buffer.append("ScalarDesignator(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
         buffer.append(tab);

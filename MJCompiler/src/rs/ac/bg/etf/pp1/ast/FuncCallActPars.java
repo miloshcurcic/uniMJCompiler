@@ -5,7 +5,7 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public abstract class DataDecls implements SyntaxNode {
+public abstract class FuncCallActPars implements SyntaxNode {
 
     private SyntaxNode parent;
 

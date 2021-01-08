@@ -184,25 +184,15 @@ nonterminal
 nonterminal
 	ActPars ActPars;
 nonterminal
+	FuncCallActPars FuncCallActPars;
+nonterminal
 	Condition Condition;
 nonterminal
 	CondTerm CondTerm;
 nonterminal
 	CondFact CondFact;
 nonterminal
-	Expr Expr;
-nonterminal
-	Expr1 Expr1;
-nonterminal
 	ExprPrefix ExprPrefix;
-nonterminal
-	TermExpr TermExpr;
-nonterminal
-	Term Term;
-nonterminal
-	Factor Factor;
-nonterminal
-	Designator Designator;
 nonterminal
 	Assignop Assignop;
 nonterminal
@@ -213,7 +203,10 @@ nonterminal
 	Mulop Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr1, Expr
+;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
 ;
 
  Program ::= (Program) PROGRAM ProgramName:P1 DataDecls:D2 LBRACE MethodDecls:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :} ;
@@ -362,7 +355,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
      | (SingleCondFact) Expr:E1 {: RESULT=new SingleCondFact(E1); RESULT.setLine(E1left); :}
  ;
 
- Expr ::= (TernaryExpression) Expr1:E1 QUESTION Expr1:E2 COLON Expr1:E3 {: RESULT=new TernaryExpression(E1, E2, E3); RESULT.setLine(E1left); :}
+ Expr ::= (TernaryExpression) Expr1:condition QUESTION Expr1:resultIfTrue COLON Expr1:resultIfFalse {: RESULT=new TernaryExpression(condition, resultIfTrue, resultIfFalse); RESULT.setLine(conditionleft); :}
     | (Expression) Expr1:E1 {: RESULT=new Expression(E1); RESULT.setLine(E1left); :}
 ;
 
@@ -381,8 +374,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
  ;
 
  Factor ::= (VarFactor) Designator:D1 {: RESULT=new VarFactor(D1); RESULT.setLine(D1left); :}
-         | (ParFuncCallResultFactor) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new ParFuncCallResultFactor(D1, A2); RESULT.setLine(D1left); :}
-         | (NoParFuncCallResultFactor) Designator:D1 LPAREN RPAREN {: RESULT=new NoParFuncCallResultFactor(D1); RESULT.setLine(D1left); :}
+         | (FunctionCallResultFactor) Designator:D1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCallResultFactor(D1, F2); RESULT.setLine(D1left); :}
          | (NumConstFactor) NUMBER:N1 {: RESULT=new NumConstFactor(N1); RESULT.setLine(N1left); :}
          | (CharConstFactor) CHAR:C1 {: RESULT=new CharConstFactor(C1); RESULT.setLine(C1left); :}
          | (BoolConstFactor) BOOL:B1 {: RESULT=new BoolConstFactor(B1); RESULT.setLine(B1left); :}
@@ -391,8 +383,12 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
          | (ExprResultFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ExprResultFactor(E1); RESULT.setLine(E1left); :}
  ;
 
- Designator ::= (ScalarDesignator) IDENT:I1 {: RESULT=new ScalarDesignator(I1); RESULT.setLine(I1left); :}
-             | (ObjectAccessDesignator) Designator:D1 DOT IDENT:I2 {: RESULT=new ObjectAccessDesignator(D1, I2); RESULT.setLine(D1left); :}
+ FuncCallActPars ::= (FunctionCallActualParameters) ActPars:A1 {: RESULT=new FunctionCallActualParameters(A1); RESULT.setLine(A1left); :}
+        | (NoFunctionCallActualParameters) {: RESULT=new NoFunctionCallActualParameters(); :}
+;
+
+ Designator ::= (ScalarDesignator) IDENT:name {: RESULT=new ScalarDesignator(name); RESULT.setLine(nameleft); :}
+             | (ObjectAccessDesignator) Designator:D1 DOT IDENT:fieldName {: RESULT=new ObjectAccessDesignator(D1, fieldName); RESULT.setLine(D1left); :}
              | (ArrayAccessDesignator) Designator:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new ArrayAccessDesignator(D1, E2); RESULT.setLine(D1left); :}
  ;
 

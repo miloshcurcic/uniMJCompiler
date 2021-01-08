@@ -5,9 +5,9 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class RelopLess extends Relop {
+public class NoFunctionCallActualParameters extends FuncCallActPars {
 
-    public RelopLess () {
+    public NoFunctionCallActualParameters () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class RelopLess extends Relop {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("RelopLess(\n");
+        buffer.append("NoFunctionCallActualParameters(\n");
 
         buffer.append(tab);
-        buffer.append(") [RelopLess]");
+        buffer.append(") [NoFunctionCallActualParameters]");
         return buffer.toString();
     }
 }
