@@ -116,13 +116,17 @@ scan with {:
 
 nonterminal Program Program;
 nonterminal
-	DataDecls DataDecls;
+    ProgramName ProgramName;
+nonterminal
+    DataDecls DataDecls;
 nonterminal
 	DataDecl DataDecl;
 nonterminal
 	ConstDecl ConstDecl;
 nonterminal
-	ConstNameValuePairs ConstNameValuePairs;
+	ConstDeclType ConstDeclType;
+nonterminal
+    ConstNameValuePairs ConstNameValuePairs;
 nonterminal
 	ConstNameValuePair ConstNameValuePair;
 nonterminal
@@ -130,15 +134,27 @@ nonterminal
 nonterminal
 	VarDecl VarDecl;
 nonterminal
-	VarIdents VarIdents;
+	VarDeclType VarDeclType;
+nonterminal
+    VarIdents VarIdents;
 nonterminal
 	VarIdent VarIdent;
 nonterminal
 	ClassDecl ClassDecl;
 nonterminal
+	ClassName ClassName;
+nonterminal
+	BaseClassName BaseClassName;
+nonterminal
+	ExtendedClassSplitter ExtendedClassSplitter;
+nonterminal
+	ClassMethodDecls ClassMethodDecls;
+nonterminal
 	MethodDecls MethodDecls;
 nonterminal
 	MethodDecl MethodDecl;
+nonterminal
+	MethodFormPars MethodFormPars;
 nonterminal
 	MethodTypeNamePair MethodTypeNamePair;
 nonterminal
@@ -146,15 +162,13 @@ nonterminal
 nonterminal
 	FormPar FormPar;
 nonterminal
-	Type Type;
-nonterminal
 	Statements Statements;
 nonterminal
 	Statement Statement;
 nonterminal
-	ParenthesizedStatement ParenthesizedStatement;
+	BracedStatement BracedStatement;
 nonterminal
-	ParenthesizedStatements ParenthesizedStatements;
+	BracedStatements BracedStatements;
 nonterminal
 	SingleStatement SingleStatement;
 nonterminal
@@ -199,7 +213,12 @@ nonterminal
 	Mulop Mulop
 ;
 
- Program ::= (Program) PROGRAM IDENT:I1 DataDecls:D2 LBRACE MethodDecls:M3 RBRACE {: RESULT=new Program(I1, D2, M3); RESULT.setLine(I1left); :} ;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
+;
+
+ Program ::= (Program) PROGRAM ProgramName:P1 DataDecls:D2 LBRACE MethodDecls:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :} ;
+
+ ProgramName ::= (ProgramName) IDENT:name {: RESULT=new ProgramName(name); RESULT.setLine(nameleft); :} ;
 
  DataDecls ::= (DataDeclListElement) DataDecls:D1 DataDecl:D2 {: RESULT=new DataDeclListElement(D1, D2); RESULT.setLine(D1left); :}
          | (EmptyDataDeclListHead) {: RESULT=new EmptyDataDeclListHead(); :}
@@ -210,72 +229,87 @@ nonterminal
          | (ClassDataDecl) ClassDecl:C1 {: RESULT=new ClassDataDecl(C1); RESULT.setLine(C1left); :}
 ;
 
- ConstDecl ::= (ConstDecl) CONST Type:T1 ConstNameValuePairs:C2 SEMICOLON {: RESULT=new ConstDecl(T1, C2); RESULT.setLine(T1left); :} ;
+ ConstDecl ::= (ConstDecl) CONST ConstDeclType:C1 ConstNameValuePairs:C2 SEMICOLON {: RESULT=new ConstDecl(C1, C2); RESULT.setLine(C1left); :} ;
+
+ ConstDeclType ::= (ConstDeclType) Type:T1 {: RESULT=new ConstDeclType(T1); RESULT.setLine(T1left); :} ;
 
  ConstNameValuePairs ::= (ConstNameValuePairListElement) ConstNameValuePairs:C1 COMMA ConstNameValuePair:C2 {: RESULT=new ConstNameValuePairListElement(C1, C2); RESULT.setLine(C1left); :}
         | (ConstNameValuePairListHead) ConstNameValuePair:C1 {: RESULT=new ConstNameValuePairListHead(C1); RESULT.setLine(C1left); :}
 ;
 
- ConstNameValuePair ::= (NumberConstNameValuePair) IDENT:I1 EQUALS NUMBER:N2 {: RESULT=new NumberConstNameValuePair(I1, N2); RESULT.setLine(I1left); :}
-                    | (CharConstNameValuePair) IDENT:I1 EQUALS CHAR:C2 {: RESULT=new CharConstNameValuePair(I1, C2); RESULT.setLine(I1left); :}
-                    | (BoolConstNameValuePair) IDENT:I1 EQUALS BOOL:B2 {: RESULT=new BoolConstNameValuePair(I1, B2); RESULT.setLine(I1left); :}
+ ConstNameValuePair ::= (NumberConstNameValuePair) IDENT:name EQUALS NUMBER:value {: RESULT=new NumberConstNameValuePair(name, value); RESULT.setLine(nameleft); :}
+                    | (CharConstNameValuePair) IDENT:name EQUALS CHAR:value {: RESULT=new CharConstNameValuePair(name, value); RESULT.setLine(nameleft); :}
+                    | (BoolConstNameValuePair) IDENT:name EQUALS BOOL:value {: RESULT=new BoolConstNameValuePair(name, value); RESULT.setLine(nameleft); :}
 ;
 
  VarDecls ::= (VarDeclListElement) VarDecls:V1 VarDecl:V2 {: RESULT=new VarDeclListElement(V1, V2); RESULT.setLine(V1left); :}
     | (EmptyVarDeclList) {: RESULT=new EmptyVarDeclList(); :}
 ;
 
- VarDecl ::= (VarDecl) Type:T1 VarIdents:V2 SEMICOLON {: RESULT=new VarDecl(T1, V2); RESULT.setLine(T1left); :} ;
+ VarDecl ::= (VarDecl) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VarDecl(V1, V2); RESULT.setLine(V1left); :} ;
+
+ VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
 
  VarIdents ::= (VarIdentListElement) VarIdents:V1 COMMA VarIdent:V2 {: RESULT=new VarIdentListElement(V1, V2); RESULT.setLine(V1left); :}
         | (VarIdentListHead) VarIdent:V1 {: RESULT=new VarIdentListHead(V1); RESULT.setLine(V1left); :}
 ;
 
- VarIdent ::= (ScalarVarIdent) IDENT:I1 {: RESULT=new ScalarVarIdent(I1); RESULT.setLine(I1left); :}
-        | (ArrayVarIdent) IDENT:I1 LBRACKET RBRACKET {: RESULT=new ArrayVarIdent(I1); RESULT.setLine(I1left); :}
+ VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RESULT.setLine(nameleft); :}
+        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayVarIdent(name); RESULT.setLine(nameleft); :}
 ;
 
- ClassDecl ::= (ExtendedClassDeclaration) CLASS IDENT:I1 EXTENDS Type:T2 LBRACE VarDecls:V3 LBRACE MethodDecls:M4 RBRACE RBRACE {: RESULT=new ExtendedClassDeclaration(I1, T2, V3, M4); RESULT.setLine(I1left); :}
-        | (ExtendedClassNoMethodDeclaration) CLASS IDENT:I1 EXTENDS Type:T2 LBRACE VarDecls:V3 RBRACE {: RESULT=new ExtendedClassNoMethodDeclaration(I1, T2, V3); RESULT.setLine(I1left); :}
-        | (ClassDeclaration) CLASS IDENT:I1 LBRACE VarDecls:V2 LBRACE MethodDecls:M3 RBRACE RBRACE {: RESULT=new ClassDeclaration(I1, V2, M3); RESULT.setLine(I1left); :}
-        | (NoMethodClassDeclaration) CLASS IDENT:I1 LBRACE VarDecls:V2 RBRACE {: RESULT=new NoMethodClassDeclaration(I1, V2); RESULT.setLine(I1left); :}
- ;
+ ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName:C1 EXTENDS BaseClassName:B2 LBRACE VarDecls:V3 ExtendedClassSplitter:E4 ClassMethodDecls:C5 RBRACE {: RESULT=new ExtendedClassDeclaration(C1, B2, V3, E4, C5); RESULT.setLine(C1left); :}
+        | (ClassDeclaration) CLASS ClassName:C1 LBRACE VarDecls:V2 ClassMethodDecls:C3 RBRACE {: RESULT=new ClassDeclaration(C1, V2, C3); RESULT.setLine(C1left); :}
+;
+
+ ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls:M1 RBRACE {: RESULT=new ClassMethodDeclarations(M1); RESULT.setLine(M1left); :}
+        | (NoClassMethodDeclarations) {: RESULT=new NoClassMethodDeclarations(); :}
+;
+
+ ClassName ::= (ClassName) IDENT:name {: RESULT=new ClassName(name); RESULT.setLine(nameleft); :} ;
+
+ BaseClassName ::= (BaseClassName) Type:T1 {: RESULT=new BaseClassName(T1); RESULT.setLine(T1left); :} ;
+
+ ExtendedClassSplitter ::= (ExtendedClassSplitter) {: RESULT=new ExtendedClassSplitter(); :} ;
 
  MethodDecls ::= (MethodDeclarationListElement) MethodDecls:M1 MethodDecl:M2 {: RESULT=new MethodDeclarationListElement(M1, M2); RESULT.setLine(M1left); :}
                  | (EmptyMethodDeclarationListHead) {: RESULT=new EmptyMethodDeclarationListHead(); :}
  ;
 
- MethodDecl ::= (NoParMethodDeclaration) MethodTypeNamePair:M1 LPAREN RPAREN VarDecls:V2 LBRACE Statements:S3 RBRACE {: RESULT=new NoParMethodDeclaration(M1, V2, S3); RESULT.setLine(M1left); :}
-             | (ParMethodDeclaration) MethodTypeNamePair:M1 LPAREN FormPars:F2 RPAREN VarDecls:V3 LBRACE Statements:S4 RBRACE {: RESULT=new ParMethodDeclaration(M1, F2, V3, S4); RESULT.setLine(M1left); :}
+ MethodDecl ::= (MethodDeclaration) MethodTypeNamePair:M1 LPAREN MethodFormPars:M2 RPAREN VarDecls:V3 LBRACE Statements:S4 RBRACE {: RESULT=new MethodDeclaration(M1, M2, V3, S4); RESULT.setLine(M1left); :}
  ;
 
- MethodTypeNamePair ::= (TypeMethodTypeNamePair) Type:T1 IDENT:I2 {: RESULT=new TypeMethodTypeNamePair(T1, I2); RESULT.setLine(T1left); :}
-             | (VoidMethodTypeNamePair) VOID IDENT:I1 {: RESULT=new VoidMethodTypeNamePair(I1); RESULT.setLine(I1left); :}
+ MethodFormPars ::= (MethodFormalParameters) FormPars:F1 {: RESULT=new MethodFormalParameters(F1); RESULT.setLine(F1left); :}
+        | (NoMethodFormalParameters) {: RESULT=new NoMethodFormalParameters(); :}
+;
+
+ MethodTypeNamePair ::= (TypeMethodTypeNamePair) Type:T1 IDENT:name {: RESULT=new TypeMethodTypeNamePair(T1, name); RESULT.setLine(T1left); :}
+             | (VoidMethodTypeNamePair) VOID IDENT:name {: RESULT=new VoidMethodTypeNamePair(name); RESULT.setLine(nameleft); :}
  ;
 
  FormPars ::= (FormalParametersListElement) FormPars:F1 COMMA FormPar:F2 {: RESULT=new FormalParametersListElement(F1, F2); RESULT.setLine(F1left); :}
          | (FormParametersListHead) FormPar:F1 {: RESULT=new FormParametersListHead(F1); RESULT.setLine(F1left); :}
  ;
 
- FormPar ::= (ScalarFormalParameter) Type:T1 IDENT:I2 {: RESULT=new ScalarFormalParameter(T1, I2); RESULT.setLine(T1left); :}
-             | (ArrayFormalParameter) Type:T1 IDENT:I2 LBRACKET RBRACKET {: RESULT=new ArrayFormalParameter(T1, I2); RESULT.setLine(T1left); :}
+ FormPar ::= (ScalarFormalParameter) Type:T1 IDENT:name {: RESULT=new ScalarFormalParameter(T1, name); RESULT.setLine(T1left); :}
+             | (ArrayFormalParameter) Type:T1 IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayFormalParameter(T1, name); RESULT.setLine(T1left); :}
  ;
 
- Type ::= (Type) IDENT:I1 {: RESULT=new Type(I1); RESULT.setLine(I1left); :} ;
+ Type ::= (Type) IDENT:name {: RESULT=new Type(name); RESULT.setLine(nameleft); :} ;
 
  Statements ::= (StatementListElement) Statements:S1 Statement:S2 {: RESULT=new StatementListElement(S1, S2); RESULT.setLine(S1left); :}
          | (EmptyStatementListHead) {: RESULT=new EmptyStatementListHead(); :}
  ;
 
- Statement ::= (ParenthesizedStatementType) ParenthesizedStatement:P1 {: RESULT=new ParenthesizedStatementType(P1); RESULT.setLine(P1left); :}
+ Statement ::= (BracedStatementType) BracedStatement:B1 {: RESULT=new BracedStatementType(B1); RESULT.setLine(B1left); :}
          | (SingleStatementType) SingleStatement:S1 {: RESULT=new SingleStatementType(S1); RESULT.setLine(S1left); :}
  ;
 
- ParenthesizedStatement ::= (ParenthesizedStatement) LPAREN ParenthesizedStatements:P1 RPAREN {: RESULT=new ParenthesizedStatement(P1); RESULT.setLine(P1left); :}
+ BracedStatement ::= (BracedStatement) LBRACE BracedStatements:B1 RBRACE {: RESULT=new BracedStatement(B1); RESULT.setLine(B1left); :}
  ;
 
- ParenthesizedStatements ::= (ParenthesizedStatementListElement) ParenthesizedStatements:P1 SingleStatement:S2 {: RESULT=new ParenthesizedStatementListElement(P1, S2); RESULT.setLine(P1left); :}
-         | (EmptyParenthesizedStatementListHead) {: RESULT=new EmptyParenthesizedStatementListHead(); :}
+ BracedStatements ::= (BracedStatementListElement) BracedStatements:B1 SingleStatement:S2 {: RESULT=new BracedStatementListElement(B1, S2); RESULT.setLine(B1left); :}
+         | (EmptyBracedStatementListHead) {: RESULT=new EmptyBracedStatementListHead(); :}
  ;
 
  SingleStatement ::= (SingleMatchedStatement) MatchedStatement:M1 {: RESULT=new SingleMatchedStatement(M1); RESULT.setLine(M1left); :}

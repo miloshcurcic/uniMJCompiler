@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2021 3:41:52
+// 7/0/2021 23:41:32
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -19,22 +19,24 @@ public interface Visitor {
     public void visit(Designator Designator);
     public void visit(Term Term);
     public void visit(Condition Condition);
+    public void visit(MethodFormPars MethodFormPars);
     public void visit(VarIdents VarIdents);
     public void visit(Statements Statements);
     public void visit(TermExpr TermExpr);
     public void visit(ConstNameValuePairs ConstNameValuePairs);
     public void visit(DataDecl DataDecl);
-    public void visit(SwitchCases SwitchCases);
     public void visit(Expr Expr);
+    public void visit(SwitchCases SwitchCases);
     public void visit(ExprPrefix ExprPrefix);
     public void visit(ActPars ActPars);
+    public void visit(ClassMethodDecls ClassMethodDecls);
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(VarDecls VarDecls);
     public void visit(UnmatchedStatement UnmatchedStatement);
-    public void visit(ParenthesizedStatements ParenthesizedStatements);
     public void visit(Statement Statement);
     public void visit(DataDecls DataDecls);
     public void visit(ClassDecl ClassDecl);
+    public void visit(BracedStatements BracedStatements);
     public void visit(CondFact CondFact);
     public void visit(FormPar FormPar);
     public void visit(SingleStatement SingleStatement);
@@ -105,11 +107,11 @@ public interface Visitor {
     public void visit(MatchedAssignmentStatement MatchedAssignmentStatement);
     public void visit(SingleUnmatchedStatement SingleUnmatchedStatement);
     public void visit(SingleMatchedStatement SingleMatchedStatement);
-    public void visit(EmptyParenthesizedStatementListHead EmptyParenthesizedStatementListHead);
-    public void visit(ParenthesizedStatementListElement ParenthesizedStatementListElement);
-    public void visit(ParenthesizedStatement ParenthesizedStatement);
+    public void visit(EmptyBracedStatementListHead EmptyBracedStatementListHead);
+    public void visit(BracedStatementListElement BracedStatementListElement);
+    public void visit(BracedStatement BracedStatement);
     public void visit(SingleStatementType SingleStatementType);
-    public void visit(ParenthesizedStatementType ParenthesizedStatementType);
+    public void visit(BracedStatementType BracedStatementType);
     public void visit(EmptyStatementListHead EmptyStatementListHead);
     public void visit(StatementListElement StatementListElement);
     public void visit(Type Type);
@@ -119,18 +121,23 @@ public interface Visitor {
     public void visit(FormalParametersListElement FormalParametersListElement);
     public void visit(VoidMethodTypeNamePair VoidMethodTypeNamePair);
     public void visit(TypeMethodTypeNamePair TypeMethodTypeNamePair);
-    public void visit(ParMethodDeclaration ParMethodDeclaration);
-    public void visit(NoParMethodDeclaration NoParMethodDeclaration);
+    public void visit(NoMethodFormalParameters NoMethodFormalParameters);
+    public void visit(MethodFormalParameters MethodFormalParameters);
+    public void visit(MethodDeclaration MethodDeclaration);
     public void visit(EmptyMethodDeclarationListHead EmptyMethodDeclarationListHead);
     public void visit(MethodDeclarationListElement MethodDeclarationListElement);
-    public void visit(NoMethodClassDeclaration NoMethodClassDeclaration);
+    public void visit(ExtendedClassSplitter ExtendedClassSplitter);
+    public void visit(BaseClassName BaseClassName);
+    public void visit(ClassName ClassName);
+    public void visit(NoClassMethodDeclarations NoClassMethodDeclarations);
+    public void visit(ClassMethodDeclarations ClassMethodDeclarations);
     public void visit(ClassDeclaration ClassDeclaration);
-    public void visit(ExtendedClassNoMethodDeclaration ExtendedClassNoMethodDeclaration);
     public void visit(ExtendedClassDeclaration ExtendedClassDeclaration);
     public void visit(ArrayVarIdent ArrayVarIdent);
     public void visit(ScalarVarIdent ScalarVarIdent);
     public void visit(VarIdentListHead VarIdentListHead);
     public void visit(VarIdentListElement VarIdentListElement);
+    public void visit(VarDeclType VarDeclType);
     public void visit(VarDecl VarDecl);
     public void visit(EmptyVarDeclList EmptyVarDeclList);
     public void visit(VarDeclListElement VarDeclListElement);
@@ -139,12 +146,14 @@ public interface Visitor {
     public void visit(NumberConstNameValuePair NumberConstNameValuePair);
     public void visit(ConstNameValuePairListHead ConstNameValuePairListHead);
     public void visit(ConstNameValuePairListElement ConstNameValuePairListElement);
+    public void visit(ConstDeclType ConstDeclType);
     public void visit(ConstDecl ConstDecl);
     public void visit(ClassDataDecl ClassDataDecl);
     public void visit(VarDataDecl VarDataDecl);
     public void visit(ConstDataDecl ConstDataDecl);
     public void visit(EmptyDataDeclListHead EmptyDataDeclListHead);
     public void visit(DataDeclListElement DataDeclListElement);
+    public void visit(ProgramName ProgramName);
     public void visit(Program Program);
 
 }

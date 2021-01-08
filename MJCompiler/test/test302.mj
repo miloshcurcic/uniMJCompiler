@@ -37,10 +37,10 @@ int niz[];
 			
 		ibool = false;
 		i = 0;
-		do{
+		do {
 			if(i == 2) ibool = true;
 			i++;
-		}while(i < 5);
+		} while(i < 5);
 		
 		if(ibool)
 			if(i == 5) print(1); 

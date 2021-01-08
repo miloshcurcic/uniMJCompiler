@@ -115,26 +115,33 @@ scan with {:
  terminal Character CHAR ;
 
 nonterminal Program,
-	DataDecls,
+    ProgramName,
+    DataDecls,
 	DataDecl,
 	ConstDecl,
-	ConstNameValuePairs,
+	ConstDeclType,
+    ConstNameValuePairs,
 	ConstNameValuePair,
 	VarDecls,
 	VarDecl,
-	VarIdents,
+	VarDeclType,
+    VarIdents,
 	VarIdent,
 	ClassDecl,
+	ClassName,
+	BaseClassName,
+	ExtendedClassSplitter,
+	ClassMethodDecls,
 	MethodDecls,
 	MethodDecl,
+	MethodFormPars,
 	MethodTypeNamePair,
 	FormPars,
 	FormPar,
-	Type,
 	Statements,
 	Statement,
-	ParenthesizedStatement,
-	ParenthesizedStatements,
+	BracedStatement,
+	BracedStatements,
 	SingleStatement,
 	MatchedStatement,
 	UnmatchedStatement,
@@ -158,7 +165,12 @@ nonterminal Program,
 	Mulop
 ;
 
- Program ::= (Program) PROGRAM IDENT DataDecls LBRACE MethodDecls RBRACE ;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
+;
+
+ Program ::= (Program) PROGRAM ProgramName DataDecls LBRACE MethodDecls RBRACE ;
+
+ ProgramName ::= (ProgramName) IDENT:name ;
 
  DataDecls ::= (DataDeclListElement) DataDecls DataDecl
          | (EmptyDataDeclListHead)
@@ -169,72 +181,87 @@ nonterminal Program,
          | (ClassDataDecl) ClassDecl
 ;
 
- ConstDecl ::= (ConstDecl) CONST Type ConstNameValuePairs SEMICOLON ;
+ ConstDecl ::= (ConstDecl) CONST ConstDeclType ConstNameValuePairs SEMICOLON ;
+
+ ConstDeclType ::= (ConstDeclType) Type ;
 
  ConstNameValuePairs ::= (ConstNameValuePairListElement) ConstNameValuePairs COMMA ConstNameValuePair
         | (ConstNameValuePairListHead) ConstNameValuePair
 ;
 
- ConstNameValuePair ::= (NumberConstNameValuePair) IDENT EQUALS NUMBER
-                    | (CharConstNameValuePair) IDENT EQUALS CHAR
-                    | (BoolConstNameValuePair) IDENT EQUALS BOOL
+ ConstNameValuePair ::= (NumberConstNameValuePair) IDENT:name EQUALS NUMBER:value
+                    | (CharConstNameValuePair) IDENT:name EQUALS CHAR:value
+                    | (BoolConstNameValuePair) IDENT:name EQUALS BOOL:value
 ;
 
  VarDecls ::= (VarDeclListElement) VarDecls VarDecl
     | (EmptyVarDeclList)
 ;
 
- VarDecl ::= (VarDecl) Type VarIdents SEMICOLON ;
+ VarDecl ::= (VarDecl) VarDeclType VarIdents SEMICOLON ;
+
+ VarDeclType ::= (VarDeclType) Type ;
 
  VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
         | (VarIdentListHead) VarIdent
 ;
 
- VarIdent ::= (ScalarVarIdent) IDENT
-        | (ArrayVarIdent) IDENT LBRACKET RBRACKET
+ VarIdent ::= (ScalarVarIdent) IDENT:name
+        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET
 ;
 
- ClassDecl ::= (ExtendedClassDeclaration) CLASS IDENT EXTENDS Type LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
-        | (ExtendedClassNoMethodDeclaration) CLASS IDENT EXTENDS Type LBRACE VarDecls RBRACE
-        | (ClassDeclaration) CLASS IDENT LBRACE VarDecls LBRACE MethodDecls RBRACE RBRACE
-        | (NoMethodClassDeclaration) CLASS IDENT LBRACE VarDecls RBRACE
- ;
+ ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassName LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
+        | (ClassDeclaration) CLASS ClassName LBRACE VarDecls ClassMethodDecls RBRACE
+;
+
+ ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls RBRACE
+        | (NoClassMethodDeclarations)
+;
+
+ ClassName ::= (ClassName) IDENT:name ;
+
+ BaseClassName ::= (BaseClassName) Type ;
+
+ ExtendedClassSplitter ::= (ExtendedClassSplitter) ;
 
  MethodDecls ::= (MethodDeclarationListElement) MethodDecls MethodDecl
                  | (EmptyMethodDeclarationListHead)
  ;
 
- MethodDecl ::= (NoParMethodDeclaration) MethodTypeNamePair LPAREN RPAREN VarDecls LBRACE Statements RBRACE
-             | (ParMethodDeclaration) MethodTypeNamePair LPAREN FormPars RPAREN VarDecls LBRACE Statements RBRACE
+ MethodDecl ::= (MethodDeclaration) MethodTypeNamePair LPAREN MethodFormPars RPAREN VarDecls LBRACE Statements RBRACE
  ;
 
- MethodTypeNamePair ::= (TypeMethodTypeNamePair) Type IDENT
-             | (VoidMethodTypeNamePair) VOID IDENT
+ MethodFormPars ::= (MethodFormalParameters) FormPars
+        | (NoMethodFormalParameters)
+;
+
+ MethodTypeNamePair ::= (TypeMethodTypeNamePair) Type IDENT:name
+             | (VoidMethodTypeNamePair) VOID IDENT:name
  ;
 
  FormPars ::= (FormalParametersListElement) FormPars COMMA FormPar
          | (FormParametersListHead) FormPar
  ;
 
- FormPar ::= (ScalarFormalParameter) Type IDENT
-             | (ArrayFormalParameter) Type IDENT LBRACKET RBRACKET
+ FormPar ::= (ScalarFormalParameter) Type IDENT:name
+             | (ArrayFormalParameter) Type IDENT:name LBRACKET RBRACKET
  ;
 
- Type ::= (Type) IDENT ;
+ Type ::= (Type) IDENT:name ;
 
  Statements ::= (StatementListElement) Statements Statement
          | (EmptyStatementListHead)
  ;
 
- Statement ::= (ParenthesizedStatementType) ParenthesizedStatement
+ Statement ::= (BracedStatementType) BracedStatement
          | (SingleStatementType) SingleStatement
  ;
 
- ParenthesizedStatement ::= (ParenthesizedStatement) LPAREN ParenthesizedStatements RPAREN
+ BracedStatement ::= (BracedStatement) LBRACE BracedStatements RBRACE
  ;
 
- ParenthesizedStatements ::= (ParenthesizedStatementListElement) ParenthesizedStatements SingleStatement
-         | (EmptyParenthesizedStatementListHead)
+ BracedStatements ::= (BracedStatementListElement) BracedStatements SingleStatement
+         | (EmptyBracedStatementListHead)
  ;
 
  SingleStatement ::= (SingleMatchedStatement) MatchedStatement
@@ -316,8 +343,8 @@ nonterminal Program,
          | (ExprResultFactor) LPAREN Expr RPAREN
  ;
 
- Designator ::= (ScalarDesignator) IDENT
-             | (ObjectAccessDesignator) Designator DOT IDENT
+ Designator ::= (ScalarDesignator) IDENT:name
+             | (ObjectAccessDesignator) Designator DOT IDENT:fieldName
              | (ArrayAccessDesignator) Designator LBRACKET Expr RBRACKET
  ;
 

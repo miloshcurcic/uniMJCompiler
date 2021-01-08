@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2021 3:41:52
+// 7/0/2021 23:41:32
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,24 +9,25 @@ public class Program implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private String I1;
+    private ProgramName ProgramName;
     private DataDecls DataDecls;
     private MethodDecls MethodDecls;
 
-    public Program (String I1, DataDecls DataDecls, MethodDecls MethodDecls) {
-        this.I1=I1;
+    public Program (ProgramName ProgramName, DataDecls DataDecls, MethodDecls MethodDecls) {
+        this.ProgramName=ProgramName;
+        if(ProgramName!=null) ProgramName.setParent(this);
         this.DataDecls=DataDecls;
         if(DataDecls!=null) DataDecls.setParent(this);
         this.MethodDecls=MethodDecls;
         if(MethodDecls!=null) MethodDecls.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public ProgramName getProgramName() {
+        return ProgramName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setProgramName(ProgramName ProgramName) {
+        this.ProgramName=ProgramName;
     }
 
     public DataDecls getDataDecls() {
@@ -66,17 +67,20 @@ public class Program implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(ProgramName!=null) ProgramName.accept(visitor);
         if(DataDecls!=null) DataDecls.accept(visitor);
         if(MethodDecls!=null) MethodDecls.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(ProgramName!=null) ProgramName.traverseTopDown(visitor);
         if(DataDecls!=null) DataDecls.traverseTopDown(visitor);
         if(MethodDecls!=null) MethodDecls.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(ProgramName!=null) ProgramName.traverseBottomUp(visitor);
         if(DataDecls!=null) DataDecls.traverseBottomUp(visitor);
         if(MethodDecls!=null) MethodDecls.traverseBottomUp(visitor);
         accept(visitor);
@@ -87,7 +91,10 @@ public class Program implements SyntaxNode {
         buffer.append(tab);
         buffer.append("Program(\n");
 
-        buffer.append(" "+tab+I1);
+        if(ProgramName!=null)
+            buffer.append(ProgramName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(DataDecls!=null)

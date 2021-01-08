@@ -8,6 +8,8 @@ import rs.ac.bg.etf.pp1.util.*;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,17 +35,25 @@ public class Compiler {
             return;
         }
 
+        log.info("===================================");
         log.info("Compiling source file: " + sourceCode.getAbsolutePath());
+        log.info("===================================");
 
         try (BufferedReader br = new BufferedReader(new FileReader(sourceCode))) {
             Yylex lexer = new Yylex(br);
             MJParser p = new MJParser(lexer);
             Symbol s = p.parse();  //pocetak parsiranja
-            SyntaxNode prog = (SyntaxNode)(s.value);
+            Program rootNode = (Program)(s.value);
 
             Tab.init(); // Universe scope
+            Tab.insert(Obj.Type, "bool", new Struct(Struct.Bool));
+
+            log.info("===================================");
+            log.info(rootNode.toString(""));
+            log.info("===================================");
+
             SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer();
-            prog.traverseBottomUp(semanticAnalyzer);
+            rootNode.traverseBottomUp(semanticAnalyzer);
 
             Tab.dump();
             /*

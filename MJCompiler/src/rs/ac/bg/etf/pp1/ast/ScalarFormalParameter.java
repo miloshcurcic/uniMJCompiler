@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2021 3:41:52
+// 7/0/2021 23:41:32
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,12 +8,12 @@ package rs.ac.bg.etf.pp1.ast;
 public class ScalarFormalParameter extends FormPar {
 
     private Type Type;
-    private String I2;
+    private String name;
 
-    public ScalarFormalParameter (Type Type, String I2) {
+    public ScalarFormalParameter (Type Type, String name) {
         this.Type=Type;
         if(Type!=null) Type.setParent(this);
-        this.I2=I2;
+        this.name=name;
     }
 
     public Type getType() {
@@ -24,12 +24,12 @@ public class ScalarFormalParameter extends FormPar {
         this.Type=Type;
     }
 
-    public String getI2() {
-        return I2;
+    public String getName() {
+        return name;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setName(String name) {
+        this.name=name;
     }
 
     public void accept(Visitor visitor) {
@@ -61,7 +61,7 @@ public class ScalarFormalParameter extends FormPar {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
         buffer.append(tab);

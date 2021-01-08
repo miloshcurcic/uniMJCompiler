@@ -1,30 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2021 3:41:52
+// 7/0/2021 23:41:32
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ClassDeclaration extends ClassDecl {
 
-    private String I1;
+    private ClassName ClassName;
     private VarDecls VarDecls;
-    private MethodDecls MethodDecls;
+    private ClassMethodDecls ClassMethodDecls;
 
-    public ClassDeclaration (String I1, VarDecls VarDecls, MethodDecls MethodDecls) {
-        this.I1=I1;
+    public ClassDeclaration (ClassName ClassName, VarDecls VarDecls, ClassMethodDecls ClassMethodDecls) {
+        this.ClassName=ClassName;
+        if(ClassName!=null) ClassName.setParent(this);
         this.VarDecls=VarDecls;
         if(VarDecls!=null) VarDecls.setParent(this);
-        this.MethodDecls=MethodDecls;
-        if(MethodDecls!=null) MethodDecls.setParent(this);
+        this.ClassMethodDecls=ClassMethodDecls;
+        if(ClassMethodDecls!=null) ClassMethodDecls.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public ClassName getClassName() {
+        return ClassName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setClassName(ClassName ClassName) {
+        this.ClassName=ClassName;
     }
 
     public VarDecls getVarDecls() {
@@ -35,12 +36,12 @@ public class ClassDeclaration extends ClassDecl {
         this.VarDecls=VarDecls;
     }
 
-    public MethodDecls getMethodDecls() {
-        return MethodDecls;
+    public ClassMethodDecls getClassMethodDecls() {
+        return ClassMethodDecls;
     }
 
-    public void setMethodDecls(MethodDecls MethodDecls) {
-        this.MethodDecls=MethodDecls;
+    public void setClassMethodDecls(ClassMethodDecls ClassMethodDecls) {
+        this.ClassMethodDecls=ClassMethodDecls;
     }
 
     public void accept(Visitor visitor) {
@@ -48,19 +49,22 @@ public class ClassDeclaration extends ClassDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(ClassName!=null) ClassName.accept(visitor);
         if(VarDecls!=null) VarDecls.accept(visitor);
-        if(MethodDecls!=null) MethodDecls.accept(visitor);
+        if(ClassMethodDecls!=null) ClassMethodDecls.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(ClassName!=null) ClassName.traverseTopDown(visitor);
         if(VarDecls!=null) VarDecls.traverseTopDown(visitor);
-        if(MethodDecls!=null) MethodDecls.traverseTopDown(visitor);
+        if(ClassMethodDecls!=null) ClassMethodDecls.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(ClassName!=null) ClassName.traverseBottomUp(visitor);
         if(VarDecls!=null) VarDecls.traverseBottomUp(visitor);
-        if(MethodDecls!=null) MethodDecls.traverseBottomUp(visitor);
+        if(ClassMethodDecls!=null) ClassMethodDecls.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -69,7 +73,10 @@ public class ClassDeclaration extends ClassDecl {
         buffer.append(tab);
         buffer.append("ClassDeclaration(\n");
 
-        buffer.append(" "+tab+I1);
+        if(ClassName!=null)
+            buffer.append(ClassName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(VarDecls!=null)
@@ -78,8 +85,8 @@ public class ClassDeclaration extends ClassDecl {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MethodDecls!=null)
-            buffer.append(MethodDecls.toString("  "+tab));
+        if(ClassMethodDecls!=null)
+            buffer.append(ClassMethodDecls.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

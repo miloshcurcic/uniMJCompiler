@@ -1,34 +1,34 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2021 3:41:52
+// 7/0/2021 23:41:32
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class BoolConstNameValuePair extends ConstNameValuePair {
 
-    private String I1;
-    private Boolean B2;
+    private String name;
+    private Boolean value;
 
-    public BoolConstNameValuePair (String I1, Boolean B2) {
-        this.I1=I1;
-        this.B2=B2;
+    public BoolConstNameValuePair (String name, Boolean value) {
+        this.name=name;
+        this.value=value;
     }
 
-    public String getI1() {
-        return I1;
+    public String getName() {
+        return name;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setName(String name) {
+        this.name=name;
     }
 
-    public Boolean getB2() {
-        return B2;
+    public Boolean getValue() {
+        return value;
     }
 
-    public void setB2(Boolean B2) {
-        this.B2=B2;
+    public void setValue(Boolean value) {
+        this.value=value;
     }
 
     public void accept(Visitor visitor) {
@@ -51,10 +51,10 @@ public class BoolConstNameValuePair extends ConstNameValuePair {
         buffer.append(tab);
         buffer.append("BoolConstNameValuePair(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
-        buffer.append(" "+tab+B2);
+        buffer.append(" "+tab+value);
         buffer.append("\n");
 
         buffer.append(tab);

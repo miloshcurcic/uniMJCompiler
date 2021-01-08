@@ -1,0 +1,1391 @@
+INFO  22:01:35,627 - ===================================
+INFO  22:01:35,632 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test301.mj
+INFO  22:01:35,633 - ===================================
+INFO  22:01:35,794 - #47 test301
+INFO  22:01:35,799 - #47 int
+INFO  22:01:35,799 - #47 nula
+INFO  22:01:35,804 - #46 0
+INFO  22:01:35,804 - #47 int
+INFO  22:01:35,804 - #47 jedan
+INFO  22:01:35,809 - #46 1
+INFO  22:01:35,809 - #47 int
+INFO  22:01:35,809 - #47 pet
+INFO  22:01:35,809 - #46 5
+INFO  22:01:35,809 - #47 int
+INFO  22:01:35,809 - #47 niz
+INFO  22:01:35,809 - #47 char
+INFO  22:01:35,814 - #47 nizch
+INFO  22:01:35,814 - #47 main
+INFO  22:01:35,814 - #47 int
+INFO  22:01:35,819 - #47 bodovi
+INFO  22:01:35,824 - #47 bool
+INFO  22:01:35,824 - #47 bt
+INFO  22:01:35,824 - #47 bodovi
+INFO  22:01:35,827 - #46 0
+INFO  22:01:35,832 - #47 bodovi
+INFO  22:01:35,832 - #47 bodovi
+INFO  22:01:35,832 - #47 bodovi
+INFO  22:01:35,832 - #47 jedan
+INFO  22:01:35,838 - #47 bodovi
+INFO  22:01:35,838 - #47 bodovi
+INFO  22:01:35,838 - #47 pet
+INFO  22:01:35,843 - #47 bodovi
+INFO  22:01:35,843 - #47 bodovi
+INFO  22:01:35,843 - #47 niz
+INFO  22:01:35,843 - #47 int
+INFO  22:01:35,843 - #46 3
+INFO  22:01:35,843 - #47 niz
+INFO  22:01:35,843 - #47 nula
+INFO  22:01:35,843 - #47 jedan
+INFO  22:01:35,843 - #47 niz
+INFO  22:01:35,848 - #46 1
+INFO  22:01:35,848 - #46 2
+INFO  22:01:35,848 - #47 niz
+INFO  22:01:35,848 - #47 niz
+INFO  22:01:35,848 - #47 jedan
+INFO  22:01:35,848 - #47 niz
+INFO  22:01:35,848 - #47 niz
+INFO  22:01:35,848 - #46 0
+INFO  22:01:35,848 - #46 3
+INFO  22:01:35,848 - #47 bodovi
+INFO  22:01:35,848 - #47 niz
+INFO  22:01:35,848 - #46 2
+INFO  22:01:35,848 - #47 niz
+INFO  22:01:35,848 - #46 0
+INFO  22:01:35,854 - #47 bodovi
+INFO  22:01:35,854 - #47 niz
+INFO  22:01:35,854 - #46 2
+INFO  22:01:35,854 - #47 nizch
+INFO  22:01:35,854 - #47 char
+INFO  22:01:35,854 - #46 3
+INFO  22:01:35,854 - #47 nizch
+INFO  22:01:35,854 - #46 0
+INFO  22:01:35,854 - #49 a
+INFO  22:01:35,854 - #47 nizch
+INFO  22:01:35,854 - #47 jedan
+INFO  22:01:35,859 - #49 b
+INFO  22:01:35,859 - #47 nizch
+INFO  22:01:35,859 - #47 pet
+INFO  22:01:35,859 - #46 3
+INFO  22:01:35,859 - #49 c
+INFO  22:01:35,859 - #47 nizch
+INFO  22:01:35,859 - #46 1
+INFO  22:01:35,859 - #47 nizch
+INFO  22:01:35,859 - #47 jedan
+INFO  22:01:35,859 - #46 2
+INFO  22:01:35,864 - #47 bodovi
+INFO  22:01:35,864 - #47 bodovi
+INFO  22:01:35,864 - #47 pet
+INFO  22:01:35,864 - #47 jedan
+INFO  22:01:35,864 - #46 1
+INFO  22:01:35,864 - #47 bodovi
+INFO  22:01:35,864 - #46 3
+INFO  22:01:35,864 - #46 2
+INFO  22:01:35,864 - #46 3
+INFO  22:01:35,869 - #46 2
+INFO  22:01:35,870 - #46 3
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #47 bt
+INFO  22:01:35,870 - #47 bt
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #46 10
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #46 20
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #46 30
+INFO  22:01:35,870 - #47 bodovi
+INFO  22:01:35,870 - #49 +
+INFO  22:01:35,870 - #49 -
+INFO  22:01:35,885 - ===================================
+INFO  22:01:35,895 - Program(
+  ProgramName(
+   test301
+  ) [ProgramName]
+  DataDeclListElement(
+    DataDeclListElement(
+      DataDeclListElement(
+        DataDeclListElement(
+          DataDeclListElement(
+            EmptyDataDeclListHead(
+            ) [EmptyDataDeclListHead]
+            ConstDataDecl(
+              ConstDecl(
+                ConstDeclType(
+                  Type(
+                   int
+                  ) [Type]
+                ) [ConstDeclType]
+                ConstNameValuePairListHead(
+                  NumberConstNameValuePair(
+                   nula
+                   0
+                  ) [NumberConstNameValuePair]
+                ) [ConstNameValuePairListHead]
+              ) [ConstDecl]
+            ) [ConstDataDecl]
+          ) [DataDeclListElement]
+          ConstDataDecl(
+            ConstDecl(
+              ConstDeclType(
+                Type(
+                 int
+                ) [Type]
+              ) [ConstDeclType]
+              ConstNameValuePairListHead(
+                NumberConstNameValuePair(
+                 jedan
+                 1
+                ) [NumberConstNameValuePair]
+              ) [ConstNameValuePairListHead]
+            ) [ConstDecl]
+          ) [ConstDataDecl]
+        ) [DataDeclListElement]
+        ConstDataDecl(
+          ConstDecl(
+            ConstDeclType(
+              Type(
+               int
+              ) [Type]
+            ) [ConstDeclType]
+            ConstNameValuePairListHead(
+              NumberConstNameValuePair(
+               pet
+               5
+              ) [NumberConstNameValuePair]
+            ) [ConstNameValuePairListHead]
+          ) [ConstDecl]
+        ) [ConstDataDecl]
+      ) [DataDeclListElement]
+      VarDataDecl(
+        VarDecl(
+          VarDeclType(
+            Type(
+             int
+            ) [Type]
+          ) [VarDeclType]
+          VarIdentListHead(
+            ArrayVarIdent(
+             niz
+            ) [ArrayVarIdent]
+          ) [VarIdentListHead]
+        ) [VarDecl]
+      ) [VarDataDecl]
+    ) [DataDeclListElement]
+    VarDataDecl(
+      VarDecl(
+        VarDeclType(
+          Type(
+           char
+          ) [Type]
+        ) [VarDeclType]
+        VarIdentListHead(
+          ArrayVarIdent(
+           nizch
+          ) [ArrayVarIdent]
+        ) [VarIdentListHead]
+      ) [VarDecl]
+    ) [VarDataDecl]
+  ) [DataDeclListElement]
+  MethodDeclarationListElement(
+    EmptyMethodDeclarationListHead(
+    ) [EmptyMethodDeclarationListHead]
+    MethodDeclaration(
+      VoidMethodTypeNamePair(
+       main
+      ) [VoidMethodTypeNamePair]
+      NoMethodFormalParameters(
+      ) [NoMethodFormalParameters]
+      VarDeclListElement(
+        VarDeclListElement(
+          EmptyVarDeclList(
+          ) [EmptyVarDeclList]
+          VarDecl(
+            VarDeclType(
+              Type(
+               int
+              ) [Type]
+            ) [VarDeclType]
+            VarIdentListHead(
+              ScalarVarIdent(
+               bodovi
+              ) [ScalarVarIdent]
+            ) [VarIdentListHead]
+          ) [VarDecl]
+        ) [VarDeclListElement]
+        VarDecl(
+          VarDeclType(
+            Type(
+             bool
+            ) [Type]
+          ) [VarDeclType]
+          VarIdentListHead(
+            ScalarVarIdent(
+             bt
+            ) [ScalarVarIdent]
+          ) [VarIdentListHead]
+        ) [VarDecl]
+      ) [VarDeclListElement]
+      StatementListElement(
+        StatementListElement(
+          StatementListElement(
+            StatementListElement(
+              StatementListElement(
+                StatementListElement(
+                  StatementListElement(
+                    StatementListElement(
+                      StatementListElement(
+                        StatementListElement(
+                          StatementListElement(
+                            StatementListElement(
+                              StatementListElement(
+                                StatementListElement(
+                                  StatementListElement(
+                                    StatementListElement(
+                                      StatementListElement(
+                                        StatementListElement(
+                                          StatementListElement(
+                                            StatementListElement(
+                                              StatementListElement(
+                                                StatementListElement(
+                                                  StatementListElement(
+                                                    StatementListElement(
+                                                      StatementListElement(
+                                                        StatementListElement(
+                                                          EmptyStatementListHead(
+                                                          ) [EmptyStatementListHead]
+                                                          SingleStatementType(
+                                                            SingleMatchedStatement(
+                                                              MatchedAssignmentStatement(
+                                                                AssignmentDesignatorStatement(
+                                                                  ScalarDesignator(
+                                                                   bodovi
+                                                                  ) [ScalarDesignator]
+                                                                  Assignop(
+                                                                  ) [Assignop]
+                                                                  Expression(
+                                                                    Expr1(
+                                                                      NoExpressionPrefix(
+                                                                      ) [NoExpressionPrefix]
+                                                                      TermExprListHead(
+                                                                        TermListHead(
+                                                                          NumConstFactor(
+                                                                           0
+                                                                          ) [NumConstFactor]
+                                                                        ) [TermListHead]
+                                                                      ) [TermExprListHead]
+                                                                    ) [Expr1]
+                                                                  ) [Expression]
+                                                                ) [AssignmentDesignatorStatement]
+                                                              ) [MatchedAssignmentStatement]
+                                                            ) [SingleMatchedStatement]
+                                                          ) [SingleStatementType]
+                                                        ) [StatementListElement]
+                                                        SingleStatementType(
+                                                          SingleMatchedStatement(
+                                                            MatchedAssignmentStatement(
+                                                              PostIncDesignatorStatement(
+                                                                ScalarDesignator(
+                                                                 bodovi
+                                                                ) [ScalarDesignator]
+                                                              ) [PostIncDesignatorStatement]
+                                                            ) [MatchedAssignmentStatement]
+                                                          ) [SingleMatchedStatement]
+                                                        ) [SingleStatementType]
+                                                      ) [StatementListElement]
+                                                      SingleStatementType(
+                                                        SingleMatchedStatement(
+                                                          MatchedAssignmentStatement(
+                                                            AssignmentDesignatorStatement(
+                                                              ScalarDesignator(
+                                                               bodovi
+                                                              ) [ScalarDesignator]
+                                                              Assignop(
+                                                              ) [Assignop]
+                                                              Expression(
+                                                                Expr1(
+                                                                  NoExpressionPrefix(
+                                                                  ) [NoExpressionPrefix]
+                                                                  TermExprListElement(
+                                                                    TermExprListHead(
+                                                                      TermListHead(
+                                                                        VarFactor(
+                                                                          ScalarDesignator(
+                                                                           bodovi
+                                                                          ) [ScalarDesignator]
+                                                                        ) [VarFactor]
+                                                                      ) [TermListHead]
+                                                                    ) [TermExprListHead]
+                                                                    AddopPlus(
+                                                                    ) [AddopPlus]
+                                                                    TermListHead(
+                                                                      VarFactor(
+                                                                        ScalarDesignator(
+                                                                         jedan
+                                                                        ) [ScalarDesignator]
+                                                                      ) [VarFactor]
+                                                                    ) [TermListHead]
+                                                                  ) [TermExprListElement]
+                                                                ) [Expr1]
+                                                              ) [Expression]
+                                                            ) [AssignmentDesignatorStatement]
+                                                          ) [MatchedAssignmentStatement]
+                                                        ) [SingleMatchedStatement]
+                                                      ) [SingleStatementType]
+                                                    ) [StatementListElement]
+                                                    SingleStatementType(
+                                                      SingleMatchedStatement(
+                                                        MatchedAssignmentStatement(
+                                                          AssignmentDesignatorStatement(
+                                                            ScalarDesignator(
+                                                             bodovi
+                                                            ) [ScalarDesignator]
+                                                            Assignop(
+                                                            ) [Assignop]
+                                                            Expression(
+                                                              Expr1(
+                                                                NoExpressionPrefix(
+                                                                ) [NoExpressionPrefix]
+                                                                TermExprListHead(
+                                                                  TermListElement(
+                                                                    TermListHead(
+                                                                      VarFactor(
+                                                                        ScalarDesignator(
+                                                                         bodovi
+                                                                        ) [ScalarDesignator]
+                                                                      ) [VarFactor]
+                                                                    ) [TermListHead]
+                                                                    MulopMultiply(
+                                                                    ) [MulopMultiply]
+                                                                    VarFactor(
+                                                                      ScalarDesignator(
+                                                                       pet
+                                                                      ) [ScalarDesignator]
+                                                                    ) [VarFactor]
+                                                                  ) [TermListElement]
+                                                                ) [TermExprListHead]
+                                                              ) [Expr1]
+                                                            ) [Expression]
+                                                          ) [AssignmentDesignatorStatement]
+                                                        ) [MatchedAssignmentStatement]
+                                                      ) [SingleMatchedStatement]
+                                                    ) [SingleStatementType]
+                                                  ) [StatementListElement]
+                                                  SingleStatementType(
+                                                    SingleMatchedStatement(
+                                                      MatchedAssignmentStatement(
+                                                        PostDecDesignatorStatement(
+                                                          ScalarDesignator(
+                                                           bodovi
+                                                          ) [ScalarDesignator]
+                                                        ) [PostDecDesignatorStatement]
+                                                      ) [MatchedAssignmentStatement]
+                                                    ) [SingleMatchedStatement]
+                                                  ) [SingleStatementType]
+                                                ) [StatementListElement]
+                                                SingleStatementType(
+                                                  SingleMatchedStatement(
+                                                    MatchedNoParPrintStatement(
+                                                      Expression(
+                                                        Expr1(
+                                                          NoExpressionPrefix(
+                                                          ) [NoExpressionPrefix]
+                                                          TermExprListHead(
+                                                            TermListHead(
+                                                              VarFactor(
+                                                                ScalarDesignator(
+                                                                 bodovi
+                                                                ) [ScalarDesignator]
+                                                              ) [VarFactor]
+                                                            ) [TermListHead]
+                                                          ) [TermExprListHead]
+                                                        ) [Expr1]
+                                                      ) [Expression]
+                                                    ) [MatchedNoParPrintStatement]
+                                                  ) [SingleMatchedStatement]
+                                                ) [SingleStatementType]
+                                              ) [StatementListElement]
+                                              SingleStatementType(
+                                                SingleMatchedStatement(
+                                                  MatchedAssignmentStatement(
+                                                    AssignmentDesignatorStatement(
+                                                      ScalarDesignator(
+                                                       niz
+                                                      ) [ScalarDesignator]
+                                                      Assignop(
+                                                      ) [Assignop]
+                                                      Expression(
+                                                        Expr1(
+                                                          NoExpressionPrefix(
+                                                          ) [NoExpressionPrefix]
+                                                          TermExprListHead(
+                                                            TermListHead(
+                                                              NewArrayObjectFactor(
+                                                                Type(
+                                                                 int
+                                                                ) [Type]
+                                                                Expression(
+                                                                  Expr1(
+                                                                    NoExpressionPrefix(
+                                                                    ) [NoExpressionPrefix]
+                                                                    TermExprListHead(
+                                                                      TermListHead(
+                                                                        NumConstFactor(
+                                                                         3
+                                                                        ) [NumConstFactor]
+                                                                      ) [TermListHead]
+                                                                    ) [TermExprListHead]
+                                                                  ) [Expr1]
+                                                                ) [Expression]
+                                                              ) [NewArrayObjectFactor]
+                                                            ) [TermListHead]
+                                                          ) [TermExprListHead]
+                                                        ) [Expr1]
+                                                      ) [Expression]
+                                                    ) [AssignmentDesignatorStatement]
+                                                  ) [MatchedAssignmentStatement]
+                                                ) [SingleMatchedStatement]
+                                              ) [SingleStatementType]
+                                            ) [StatementListElement]
+                                            SingleStatementType(
+                                              SingleMatchedStatement(
+                                                MatchedAssignmentStatement(
+                                                  AssignmentDesignatorStatement(
+                                                    ArrayAccessDesignator(
+                                                      ScalarDesignator(
+                                                       niz
+                                                      ) [ScalarDesignator]
+                                                      Expression(
+                                                        Expr1(
+                                                          NoExpressionPrefix(
+                                                          ) [NoExpressionPrefix]
+                                                          TermExprListHead(
+                                                            TermListHead(
+                                                              VarFactor(
+                                                                ScalarDesignator(
+                                                                 nula
+                                                                ) [ScalarDesignator]
+                                                              ) [VarFactor]
+                                                            ) [TermListHead]
+                                                          ) [TermExprListHead]
+                                                        ) [Expr1]
+                                                      ) [Expression]
+                                                    ) [ArrayAccessDesignator]
+                                                    Assignop(
+                                                    ) [Assignop]
+                                                    Expression(
+                                                      Expr1(
+                                                        NoExpressionPrefix(
+                                                        ) [NoExpressionPrefix]
+                                                        TermExprListHead(
+                                                          TermListHead(
+                                                            VarFactor(
+                                                              ScalarDesignator(
+                                                               jedan
+                                                              ) [ScalarDesignator]
+                                                            ) [VarFactor]
+                                                          ) [TermListHead]
+                                                        ) [TermExprListHead]
+                                                      ) [Expr1]
+                                                    ) [Expression]
+                                                  ) [AssignmentDesignatorStatement]
+                                                ) [MatchedAssignmentStatement]
+                                              ) [SingleMatchedStatement]
+                                            ) [SingleStatementType]
+                                          ) [StatementListElement]
+                                          SingleStatementType(
+                                            SingleMatchedStatement(
+                                              MatchedAssignmentStatement(
+                                                AssignmentDesignatorStatement(
+                                                  ArrayAccessDesignator(
+                                                    ScalarDesignator(
+                                                     niz
+                                                    ) [ScalarDesignator]
+                                                    Expression(
+                                                      Expr1(
+                                                        NoExpressionPrefix(
+                                                        ) [NoExpressionPrefix]
+                                                        TermExprListHead(
+                                                          TermListHead(
+                                                            NumConstFactor(
+                                                             1
+                                                            ) [NumConstFactor]
+                                                          ) [TermListHead]
+                                                        ) [TermExprListHead]
+                                                      ) [Expr1]
+                                                    ) [Expression]
+                                                  ) [ArrayAccessDesignator]
+                                                  Assignop(
+                                                  ) [Assignop]
+                                                  Expression(
+                                                    Expr1(
+                                                      NoExpressionPrefix(
+                                                      ) [NoExpressionPrefix]
+                                                      TermExprListHead(
+                                                        TermListHead(
+                                                          NumConstFactor(
+                                                           2
+                                                          ) [NumConstFactor]
+                                                        ) [TermListHead]
+                                                      ) [TermExprListHead]
+                                                    ) [Expr1]
+                                                  ) [Expression]
+                                                ) [AssignmentDesignatorStatement]
+                                              ) [MatchedAssignmentStatement]
+                                            ) [SingleMatchedStatement]
+                                          ) [SingleStatementType]
+                                        ) [StatementListElement]
+                                        SingleStatementType(
+                                          SingleMatchedStatement(
+                                            MatchedAssignmentStatement(
+                                              AssignmentDesignatorStatement(
+                                                ArrayAccessDesignator(
+                                                  ScalarDesignator(
+                                                   niz
+                                                  ) [ScalarDesignator]
+                                                  Expression(
+                                                    Expr1(
+                                                      NoExpressionPrefix(
+                                                      ) [NoExpressionPrefix]
+                                                      TermExprListHead(
+                                                        TermListHead(
+                                                          VarFactor(
+                                                            ArrayAccessDesignator(
+                                                              ScalarDesignator(
+                                                               niz
+                                                              ) [ScalarDesignator]
+                                                              Expression(
+                                                                Expr1(
+                                                                  NoExpressionPrefix(
+                                                                  ) [NoExpressionPrefix]
+                                                                  TermExprListHead(
+                                                                    TermListHead(
+                                                                      VarFactor(
+                                                                        ScalarDesignator(
+                                                                         jedan
+                                                                        ) [ScalarDesignator]
+                                                                      ) [VarFactor]
+                                                                    ) [TermListHead]
+                                                                  ) [TermExprListHead]
+                                                                ) [Expr1]
+                                                              ) [Expression]
+                                                            ) [ArrayAccessDesignator]
+                                                          ) [VarFactor]
+                                                        ) [TermListHead]
+                                                      ) [TermExprListHead]
+                                                    ) [Expr1]
+                                                  ) [Expression]
+                                                ) [ArrayAccessDesignator]
+                                                Assignop(
+                                                ) [Assignop]
+                                                Expression(
+                                                  Expr1(
+                                                    NoExpressionPrefix(
+                                                    ) [NoExpressionPrefix]
+                                                    TermExprListHead(
+                                                      TermListElement(
+                                                        TermListHead(
+                                                          VarFactor(
+                                                            ArrayAccessDesignator(
+                                                              ScalarDesignator(
+                                                               niz
+                                                              ) [ScalarDesignator]
+                                                              Expression(
+                                                                Expr1(
+                                                                  NoExpressionPrefix(
+                                                                  ) [NoExpressionPrefix]
+                                                                  TermExprListHead(
+                                                                    TermListHead(
+                                                                      VarFactor(
+                                                                        ArrayAccessDesignator(
+                                                                          ScalarDesignator(
+                                                                           niz
+                                                                          ) [ScalarDesignator]
+                                                                          Expression(
+                                                                            Expr1(
+                                                                              NoExpressionPrefix(
+                                                                              ) [NoExpressionPrefix]
+                                                                              TermExprListHead(
+                                                                                TermListHead(
+                                                                                  NumConstFactor(
+                                                                                   0
+                                                                                  ) [NumConstFactor]
+                                                                                ) [TermListHead]
+                                                                              ) [TermExprListHead]
+                                                                            ) [Expr1]
+                                                                          ) [Expression]
+                                                                        ) [ArrayAccessDesignator]
+                                                                      ) [VarFactor]
+                                                                    ) [TermListHead]
+                                                                  ) [TermExprListHead]
+                                                                ) [Expr1]
+                                                              ) [Expression]
+                                                            ) [ArrayAccessDesignator]
+                                                          ) [VarFactor]
+                                                        ) [TermListHead]
+                                                        MulopMultiply(
+                                                        ) [MulopMultiply]
+                                                        NumConstFactor(
+                                                         3
+                                                        ) [NumConstFactor]
+                                                      ) [TermListElement]
+                                                    ) [TermExprListHead]
+                                                  ) [Expr1]
+                                                ) [Expression]
+                                              ) [AssignmentDesignatorStatement]
+                                            ) [MatchedAssignmentStatement]
+                                          ) [SingleMatchedStatement]
+                                        ) [SingleStatementType]
+                                      ) [StatementListElement]
+                                      SingleStatementType(
+                                        SingleMatchedStatement(
+                                          MatchedAssignmentStatement(
+                                            AssignmentDesignatorStatement(
+                                              ScalarDesignator(
+                                               bodovi
+                                              ) [ScalarDesignator]
+                                              Assignop(
+                                              ) [Assignop]
+                                              Expression(
+                                                Expr1(
+                                                  NoExpressionPrefix(
+                                                  ) [NoExpressionPrefix]
+                                                  TermExprListHead(
+                                                    TermListElement(
+                                                      TermListHead(
+                                                        VarFactor(
+                                                          ArrayAccessDesignator(
+                                                            ScalarDesignator(
+                                                             niz
+                                                            ) [ScalarDesignator]
+                                                            Expression(
+                                                              Expr1(
+                                                                NoExpressionPrefix(
+                                                                ) [NoExpressionPrefix]
+                                                                TermExprListHead(
+                                                                  TermListHead(
+                                                                    NumConstFactor(
+                                                                     2
+                                                                    ) [NumConstFactor]
+                                                                  ) [TermListHead]
+                                                                ) [TermExprListHead]
+                                                              ) [Expr1]
+                                                            ) [Expression]
+                                                          ) [ArrayAccessDesignator]
+                                                        ) [VarFactor]
+                                                      ) [TermListHead]
+                                                      MulopDivide(
+                                                      ) [MulopDivide]
+                                                      VarFactor(
+                                                        ArrayAccessDesignator(
+                                                          ScalarDesignator(
+                                                           niz
+                                                          ) [ScalarDesignator]
+                                                          Expression(
+                                                            Expr1(
+                                                              NoExpressionPrefix(
+                                                              ) [NoExpressionPrefix]
+                                                              TermExprListHead(
+                                                                TermListHead(
+                                                                  NumConstFactor(
+                                                                   0
+                                                                  ) [NumConstFactor]
+                                                                ) [TermListHead]
+                                                              ) [TermExprListHead]
+                                                            ) [Expr1]
+                                                          ) [Expression]
+                                                        ) [ArrayAccessDesignator]
+                                                      ) [VarFactor]
+                                                    ) [TermListElement]
+                                                  ) [TermExprListHead]
+                                                ) [Expr1]
+                                              ) [Expression]
+                                            ) [AssignmentDesignatorStatement]
+                                          ) [MatchedAssignmentStatement]
+                                        ) [SingleMatchedStatement]
+                                      ) [SingleStatementType]
+                                    ) [StatementListElement]
+                                    SingleStatementType(
+                                      SingleMatchedStatement(
+                                        MatchedNoParPrintStatement(
+                                          Expression(
+                                            Expr1(
+                                              NoExpressionPrefix(
+                                              ) [NoExpressionPrefix]
+                                              TermExprListHead(
+                                                TermListHead(
+                                                  VarFactor(
+                                                    ScalarDesignator(
+                                                     bodovi
+                                                    ) [ScalarDesignator]
+                                                  ) [VarFactor]
+                                                ) [TermListHead]
+                                              ) [TermExprListHead]
+                                            ) [Expr1]
+                                          ) [Expression]
+                                        ) [MatchedNoParPrintStatement]
+                                      ) [SingleMatchedStatement]
+                                    ) [SingleStatementType]
+                                  ) [StatementListElement]
+                                  SingleStatementType(
+                                    SingleMatchedStatement(
+                                      MatchedNoParPrintStatement(
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListHead(
+                                                VarFactor(
+                                                  ArrayAccessDesignator(
+                                                    ScalarDesignator(
+                                                     niz
+                                                    ) [ScalarDesignator]
+                                                    Expression(
+                                                      Expr1(
+                                                        NoExpressionPrefix(
+                                                        ) [NoExpressionPrefix]
+                                                        TermExprListHead(
+                                                          TermListHead(
+                                                            NumConstFactor(
+                                                             2
+                                                            ) [NumConstFactor]
+                                                          ) [TermListHead]
+                                                        ) [TermExprListHead]
+                                                      ) [Expr1]
+                                                    ) [Expression]
+                                                  ) [ArrayAccessDesignator]
+                                                ) [VarFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [MatchedNoParPrintStatement]
+                                    ) [SingleMatchedStatement]
+                                  ) [SingleStatementType]
+                                ) [StatementListElement]
+                                SingleStatementType(
+                                  SingleMatchedStatement(
+                                    MatchedAssignmentStatement(
+                                      AssignmentDesignatorStatement(
+                                        ScalarDesignator(
+                                         nizch
+                                        ) [ScalarDesignator]
+                                        Assignop(
+                                        ) [Assignop]
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListHead(
+                                                NewArrayObjectFactor(
+                                                  Type(
+                                                   char
+                                                  ) [Type]
+                                                  Expression(
+                                                    Expr1(
+                                                      NoExpressionPrefix(
+                                                      ) [NoExpressionPrefix]
+                                                      TermExprListHead(
+                                                        TermListHead(
+                                                          NumConstFactor(
+                                                           3
+                                                          ) [NumConstFactor]
+                                                        ) [TermListHead]
+                                                      ) [TermExprListHead]
+                                                    ) [Expr1]
+                                                  ) [Expression]
+                                                ) [NewArrayObjectFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [AssignmentDesignatorStatement]
+                                    ) [MatchedAssignmentStatement]
+                                  ) [SingleMatchedStatement]
+                                ) [SingleStatementType]
+                              ) [StatementListElement]
+                              SingleStatementType(
+                                SingleMatchedStatement(
+                                  MatchedAssignmentStatement(
+                                    AssignmentDesignatorStatement(
+                                      ArrayAccessDesignator(
+                                        ScalarDesignator(
+                                         nizch
+                                        ) [ScalarDesignator]
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListHead(
+                                                NumConstFactor(
+                                                 0
+                                                ) [NumConstFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [ArrayAccessDesignator]
+                                      Assignop(
+                                      ) [Assignop]
+                                      Expression(
+                                        Expr1(
+                                          NoExpressionPrefix(
+                                          ) [NoExpressionPrefix]
+                                          TermExprListHead(
+                                            TermListHead(
+                                              CharConstFactor(
+                                               a
+                                              ) [CharConstFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [Expr1]
+                                      ) [Expression]
+                                    ) [AssignmentDesignatorStatement]
+                                  ) [MatchedAssignmentStatement]
+                                ) [SingleMatchedStatement]
+                              ) [SingleStatementType]
+                            ) [StatementListElement]
+                            SingleStatementType(
+                              SingleMatchedStatement(
+                                MatchedAssignmentStatement(
+                                  AssignmentDesignatorStatement(
+                                    ArrayAccessDesignator(
+                                      ScalarDesignator(
+                                       nizch
+                                      ) [ScalarDesignator]
+                                      Expression(
+                                        Expr1(
+                                          NoExpressionPrefix(
+                                          ) [NoExpressionPrefix]
+                                          TermExprListHead(
+                                            TermListHead(
+                                              VarFactor(
+                                                ScalarDesignator(
+                                                 jedan
+                                                ) [ScalarDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [Expr1]
+                                      ) [Expression]
+                                    ) [ArrayAccessDesignator]
+                                    Assignop(
+                                    ) [Assignop]
+                                    Expression(
+                                      Expr1(
+                                        NoExpressionPrefix(
+                                        ) [NoExpressionPrefix]
+                                        TermExprListHead(
+                                          TermListHead(
+                                            CharConstFactor(
+                                             b
+                                            ) [CharConstFactor]
+                                          ) [TermListHead]
+                                        ) [TermExprListHead]
+                                      ) [Expr1]
+                                    ) [Expression]
+                                  ) [AssignmentDesignatorStatement]
+                                ) [MatchedAssignmentStatement]
+                              ) [SingleMatchedStatement]
+                            ) [SingleStatementType]
+                          ) [StatementListElement]
+                          SingleStatementType(
+                            SingleMatchedStatement(
+                              MatchedAssignmentStatement(
+                                AssignmentDesignatorStatement(
+                                  ArrayAccessDesignator(
+                                    ScalarDesignator(
+                                     nizch
+                                    ) [ScalarDesignator]
+                                    Expression(
+                                      Expr1(
+                                        NoExpressionPrefix(
+                                        ) [NoExpressionPrefix]
+                                        TermExprListElement(
+                                          TermExprListHead(
+                                            TermListHead(
+                                              VarFactor(
+                                                ScalarDesignator(
+                                                 pet
+                                                ) [ScalarDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                          AddopMinus(
+                                          ) [AddopMinus]
+                                          TermListHead(
+                                            NumConstFactor(
+                                             3
+                                            ) [NumConstFactor]
+                                          ) [TermListHead]
+                                        ) [TermExprListElement]
+                                      ) [Expr1]
+                                    ) [Expression]
+                                  ) [ArrayAccessDesignator]
+                                  Assignop(
+                                  ) [Assignop]
+                                  Expression(
+                                    Expr1(
+                                      NoExpressionPrefix(
+                                      ) [NoExpressionPrefix]
+                                      TermExprListHead(
+                                        TermListHead(
+                                          CharConstFactor(
+                                           c
+                                          ) [CharConstFactor]
+                                        ) [TermListHead]
+                                      ) [TermExprListHead]
+                                    ) [Expr1]
+                                  ) [Expression]
+                                ) [AssignmentDesignatorStatement]
+                              ) [MatchedAssignmentStatement]
+                            ) [SingleMatchedStatement]
+                          ) [SingleStatementType]
+                        ) [StatementListElement]
+                        SingleStatementType(
+                          SingleMatchedStatement(
+                            MatchedNoParPrintStatement(
+                              Expression(
+                                Expr1(
+                                  NoExpressionPrefix(
+                                  ) [NoExpressionPrefix]
+                                  TermExprListHead(
+                                    TermListHead(
+                                      VarFactor(
+                                        ArrayAccessDesignator(
+                                          ScalarDesignator(
+                                           nizch
+                                          ) [ScalarDesignator]
+                                          Expression(
+                                            Expr1(
+                                              NoExpressionPrefix(
+                                              ) [NoExpressionPrefix]
+                                              TermExprListHead(
+                                                TermListHead(
+                                                  NumConstFactor(
+                                                   1
+                                                  ) [NumConstFactor]
+                                                ) [TermListHead]
+                                              ) [TermExprListHead]
+                                            ) [Expr1]
+                                          ) [Expression]
+                                        ) [ArrayAccessDesignator]
+                                      ) [VarFactor]
+                                    ) [TermListHead]
+                                  ) [TermExprListHead]
+                                ) [Expr1]
+                              ) [Expression]
+                            ) [MatchedNoParPrintStatement]
+                          ) [SingleMatchedStatement]
+                        ) [SingleStatementType]
+                      ) [StatementListElement]
+                      SingleStatementType(
+                        SingleMatchedStatement(
+                          MatchedNoParPrintStatement(
+                            Expression(
+                              Expr1(
+                                NoExpressionPrefix(
+                                ) [NoExpressionPrefix]
+                                TermExprListHead(
+                                  TermListHead(
+                                    VarFactor(
+                                      ArrayAccessDesignator(
+                                        ScalarDesignator(
+                                         nizch
+                                        ) [ScalarDesignator]
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListElement(
+                                                TermListHead(
+                                                  VarFactor(
+                                                    ScalarDesignator(
+                                                     jedan
+                                                    ) [ScalarDesignator]
+                                                  ) [VarFactor]
+                                                ) [TermListHead]
+                                                MulopMultiply(
+                                                ) [MulopMultiply]
+                                                NumConstFactor(
+                                                 2
+                                                ) [NumConstFactor]
+                                              ) [TermListElement]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [ArrayAccessDesignator]
+                                    ) [VarFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [Expr1]
+                            ) [Expression]
+                          ) [MatchedNoParPrintStatement]
+                        ) [SingleMatchedStatement]
+                      ) [SingleStatementType]
+                    ) [StatementListElement]
+                    SingleStatementType(
+                      SingleMatchedStatement(
+                        MatchedAssignmentStatement(
+                          AssignmentDesignatorStatement(
+                            ScalarDesignator(
+                             bodovi
+                            ) [ScalarDesignator]
+                            Assignop(
+                            ) [Assignop]
+                            Expression(
+                              Expr1(
+                                NoExpressionPrefix(
+                                ) [NoExpressionPrefix]
+                                TermExprListElement(
+                                  TermExprListElement(
+                                    TermExprListHead(
+                                      TermListHead(
+                                        VarFactor(
+                                          ScalarDesignator(
+                                           bodovi
+                                          ) [ScalarDesignator]
+                                        ) [VarFactor]
+                                      ) [TermListHead]
+                                    ) [TermExprListHead]
+                                    AddopPlus(
+                                    ) [AddopPlus]
+                                    TermListElement(
+                                      TermListHead(
+                                        ExprResultFactor(
+                                          Expression(
+                                            Expr1(
+                                              NoExpressionPrefix(
+                                              ) [NoExpressionPrefix]
+                                              TermExprListElement(
+                                                TermExprListHead(
+                                                  TermListElement(
+                                                    TermListHead(
+                                                      VarFactor(
+                                                        ScalarDesignator(
+                                                         pet
+                                                        ) [ScalarDesignator]
+                                                      ) [VarFactor]
+                                                    ) [TermListHead]
+                                                    MulopMultiply(
+                                                    ) [MulopMultiply]
+                                                    VarFactor(
+                                                      ScalarDesignator(
+                                                       jedan
+                                                      ) [ScalarDesignator]
+                                                    ) [VarFactor]
+                                                  ) [TermListElement]
+                                                ) [TermExprListHead]
+                                                AddopMinus(
+                                                ) [AddopMinus]
+                                                TermListHead(
+                                                  NumConstFactor(
+                                                   1
+                                                  ) [NumConstFactor]
+                                                ) [TermListHead]
+                                              ) [TermExprListElement]
+                                            ) [Expr1]
+                                          ) [Expression]
+                                        ) [ExprResultFactor]
+                                      ) [TermListHead]
+                                      MulopMultiply(
+                                      ) [MulopMultiply]
+                                      VarFactor(
+                                        ScalarDesignator(
+                                         bodovi
+                                        ) [ScalarDesignator]
+                                      ) [VarFactor]
+                                    ) [TermListElement]
+                                  ) [TermExprListElement]
+                                  AddopMinus(
+                                  ) [AddopMinus]
+                                  TermListHead(
+                                    ExprResultFactor(
+                                      Expression(
+                                        Expr1(
+                                          NoExpressionPrefix(
+                                          ) [NoExpressionPrefix]
+                                          TermExprListElement(
+                                            TermExprListElement(
+                                              TermExprListHead(
+                                                TermListElement(
+                                                  TermListHead(
+                                                    NumConstFactor(
+                                                     3
+                                                    ) [NumConstFactor]
+                                                  ) [TermListHead]
+                                                  MulopModulo(
+                                                  ) [MulopModulo]
+                                                  NumConstFactor(
+                                                   2
+                                                  ) [NumConstFactor]
+                                                ) [TermListElement]
+                                              ) [TermExprListHead]
+                                              AddopPlus(
+                                              ) [AddopPlus]
+                                              TermListElement(
+                                                TermListHead(
+                                                  NumConstFactor(
+                                                   3
+                                                  ) [NumConstFactor]
+                                                ) [TermListHead]
+                                                MulopMultiply(
+                                                ) [MulopMultiply]
+                                                NumConstFactor(
+                                                 2
+                                                ) [NumConstFactor]
+                                              ) [TermListElement]
+                                            ) [TermExprListElement]
+                                            AddopMinus(
+                                            ) [AddopMinus]
+                                            TermListHead(
+                                              NumConstFactor(
+                                               3
+                                              ) [NumConstFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListElement]
+                                        ) [Expr1]
+                                      ) [Expression]
+                                    ) [ExprResultFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListElement]
+                              ) [Expr1]
+                            ) [Expression]
+                          ) [AssignmentDesignatorStatement]
+                        ) [MatchedAssignmentStatement]
+                      ) [SingleMatchedStatement]
+                    ) [SingleStatementType]
+                  ) [StatementListElement]
+                  SingleStatementType(
+                    SingleMatchedStatement(
+                      MatchedNoParPrintStatement(
+                        Expression(
+                          Expr1(
+                            NoExpressionPrefix(
+                            ) [NoExpressionPrefix]
+                            TermExprListHead(
+                              TermListHead(
+                                VarFactor(
+                                  ScalarDesignator(
+                                   bodovi
+                                  ) [ScalarDesignator]
+                                ) [VarFactor]
+                              ) [TermListHead]
+                            ) [TermExprListHead]
+                          ) [Expr1]
+                        ) [Expression]
+                      ) [MatchedNoParPrintStatement]
+                    ) [SingleMatchedStatement]
+                  ) [SingleStatementType]
+                ) [StatementListElement]
+                SingleStatementType(
+                  SingleMatchedStatement(
+                    MatchedReadStatement(
+                      ScalarDesignator(
+                       bodovi
+                      ) [ScalarDesignator]
+                    ) [MatchedReadStatement]
+                  ) [SingleMatchedStatement]
+                ) [SingleStatementType]
+              ) [StatementListElement]
+              SingleStatementType(
+                SingleMatchedStatement(
+                  MatchedAssignmentStatement(
+                    AssignmentDesignatorStatement(
+                      ScalarDesignator(
+                       bt
+                      ) [ScalarDesignator]
+                      Assignop(
+                      ) [Assignop]
+                      Expression(
+                        Expr1(
+                          NoExpressionPrefix(
+                          ) [NoExpressionPrefix]
+                          TermExprListHead(
+                            TermListHead(
+                              BoolConstFactor(
+                               null
+                              ) [BoolConstFactor]
+                            ) [TermListHead]
+                          ) [TermExprListHead]
+                        ) [Expr1]
+                      ) [Expression]
+                    ) [AssignmentDesignatorStatement]
+                  ) [MatchedAssignmentStatement]
+                ) [SingleMatchedStatement]
+              ) [SingleStatementType]
+            ) [StatementListElement]
+            SingleStatementType(
+              SingleMatchedStatement(
+                MatchedNoParPrintStatement(
+                  TernaryExpression(
+                    Expr1(
+                      NoExpressionPrefix(
+                      ) [NoExpressionPrefix]
+                      TermExprListHead(
+                        TermListHead(
+                          VarFactor(
+                            ScalarDesignator(
+                             bt
+                            ) [ScalarDesignator]
+                          ) [VarFactor]
+                        ) [TermListHead]
+                      ) [TermExprListHead]
+                    ) [Expr1]
+                    Expr1(
+                      NoExpressionPrefix(
+                      ) [NoExpressionPrefix]
+                      TermExprListHead(
+                        TermListHead(
+                          VarFactor(
+                            ScalarDesignator(
+                             bodovi
+                            ) [ScalarDesignator]
+                          ) [VarFactor]
+                        ) [TermListHead]
+                      ) [TermExprListHead]
+                    ) [Expr1]
+                    Expr1(
+                      NoExpressionPrefix(
+                      ) [NoExpressionPrefix]
+                      TermExprListElement(
+                        TermExprListHead(
+                          TermListHead(
+                            VarFactor(
+                              ScalarDesignator(
+                               bodovi
+                              ) [ScalarDesignator]
+                            ) [VarFactor]
+                          ) [TermListHead]
+                        ) [TermExprListHead]
+                        AddopPlus(
+                        ) [AddopPlus]
+                        TermListHead(
+                          NumConstFactor(
+                           10
+                          ) [NumConstFactor]
+                        ) [TermListHead]
+                      ) [TermExprListElement]
+                    ) [Expr1]
+                  ) [TernaryExpression]
+                ) [MatchedNoParPrintStatement]
+              ) [SingleMatchedStatement]
+            ) [SingleStatementType]
+          ) [StatementListElement]
+          SingleStatementType(
+            SingleMatchedStatement(
+              MatchedNoParPrintStatement(
+                TernaryExpression(
+                  Expr1(
+                    NoExpressionPrefix(
+                    ) [NoExpressionPrefix]
+                    TermExprListHead(
+                      TermListHead(
+                        BoolConstFactor(
+                         null
+                        ) [BoolConstFactor]
+                      ) [TermListHead]
+                    ) [TermExprListHead]
+                  ) [Expr1]
+                  Expr1(
+                    NoExpressionPrefix(
+                    ) [NoExpressionPrefix]
+                    TermExprListElement(
+                      TermExprListHead(
+                        TermListHead(
+                          VarFactor(
+                            ScalarDesignator(
+                             bodovi
+                            ) [ScalarDesignator]
+                          ) [VarFactor]
+                        ) [TermListHead]
+                      ) [TermExprListHead]
+                      AddopPlus(
+                      ) [AddopPlus]
+                      TermListHead(
+                        NumConstFactor(
+                         20
+                        ) [NumConstFactor]
+                      ) [TermListHead]
+                    ) [TermExprListElement]
+                  ) [Expr1]
+                  Expr1(
+                    NoExpressionPrefix(
+                    ) [NoExpressionPrefix]
+                    TermExprListElement(
+                      TermExprListHead(
+                        TermListHead(
+                          VarFactor(
+                            ScalarDesignator(
+                             bodovi
+                            ) [ScalarDesignator]
+                          ) [VarFactor]
+                        ) [TermListHead]
+                      ) [TermExprListHead]
+                      AddopPlus(
+                      ) [AddopPlus]
+                      TermListHead(
+                        NumConstFactor(
+                         30
+                        ) [NumConstFactor]
+                      ) [TermListHead]
+                    ) [TermExprListElement]
+                  ) [Expr1]
+                ) [TernaryExpression]
+              ) [MatchedNoParPrintStatement]
+            ) [SingleMatchedStatement]
+          ) [SingleStatementType]
+        ) [StatementListElement]
+        SingleStatementType(
+          SingleMatchedStatement(
+            MatchedNoParPrintStatement(
+              TernaryExpression(
+                Expr1(
+                  NoExpressionPrefix(
+                  ) [NoExpressionPrefix]
+                  TermExprListHead(
+                    TermListHead(
+                      VarFactor(
+                        ScalarDesignator(
+                         bodovi
+                        ) [ScalarDesignator]
+                      ) [VarFactor]
+                    ) [TermListHead]
+                  ) [TermExprListHead]
+                ) [Expr1]
+                Expr1(
+                  NoExpressionPrefix(
+                  ) [NoExpressionPrefix]
+                  TermExprListHead(
+                    TermListHead(
+                      CharConstFactor(
+                       +
+                      ) [CharConstFactor]
+                    ) [TermListHead]
+                  ) [TermExprListHead]
+                ) [Expr1]
+                Expr1(
+                  NoExpressionPrefix(
+                  ) [NoExpressionPrefix]
+                  TermExprListHead(
+                    TermListHead(
+                      CharConstFactor(
+                       -
+                      ) [CharConstFactor]
+                    ) [TermListHead]
+                  ) [TermExprListHead]
+                ) [Expr1]
+              ) [TernaryExpression]
+            ) [MatchedNoParPrintStatement]
+          ) [SingleMatchedStatement]
+        ) [SingleStatementType]
+      ) [StatementListElement]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListElement]
+) [Program]
+INFO  22:01:36,237 - ===================================
