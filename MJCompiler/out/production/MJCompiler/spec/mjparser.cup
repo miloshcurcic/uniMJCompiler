@@ -149,23 +149,21 @@ nonterminal Program,
 	SwitchCase,
 	DesignatorStatement,
 	ActPars,
+	FuncCallActPars,
 	Condition,
 	CondTerm,
 	CondFact,
-	Expr,
-	Expr1,
 	ExprPrefix,
-	TermExpr,
-	Term,
-	Factor,
-	Designator,
 	Assignop,
 	Relop,
 	Addop,
 	Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr1, Expr
+;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
 ;
 
  Program ::= (Program) PROGRAM ProgramName DataDecls LBRACE MethodDecls RBRACE ;
@@ -243,8 +241,8 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
          | (FormParametersListHead) FormPar
  ;
 
- FormPar ::= (ScalarFormalParameter) Type IDENT
-             | (ArrayFormalParameter) Type IDENT LBRACKET RBRACKET
+ FormPar ::= (ScalarFormalParameter) Type IDENT:name
+             | (ArrayFormalParameter) Type IDENT:name LBRACKET RBRACKET
  ;
 
  Type ::= (Type) IDENT:name ;
@@ -314,7 +312,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
      | (SingleCondFact) Expr
  ;
 
- Expr ::= (TernaryExpression) Expr1 QUESTION Expr1 COLON Expr1
+ Expr ::= (TernaryExpression) Expr1:condition QUESTION Expr1:resultIfTrue COLON Expr1:resultIfFalse
     | (Expression) Expr1
 ;
 
@@ -333,8 +331,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
  ;
 
  Factor ::= (VarFactor) Designator
-         | (ParFuncCallResultFactor) Designator LPAREN ActPars RPAREN
-         | (NoParFuncCallResultFactor) Designator LPAREN RPAREN
+         | (FunctionCallResultFactor) Designator LPAREN FuncCallActPars RPAREN
          | (NumConstFactor) NUMBER
          | (CharConstFactor) CHAR
          | (BoolConstFactor) BOOL
@@ -343,8 +340,12 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct Type
          | (ExprResultFactor) LPAREN Expr RPAREN
  ;
 
- Designator ::= (ScalarDesignator) IDENT
-             | (ObjectAccessDesignator) Designator DOT IDENT
+ FuncCallActPars ::= (FunctionCallActualParameters) ActPars
+        | (NoFunctionCallActualParameters)
+;
+
+ Designator ::= (ScalarDesignator) IDENT:name
+             | (ObjectAccessDesignator) Designator DOT IDENT:fieldName
              | (ArrayAccessDesignator) Designator LBRACKET Expr RBRACKET
  ;
 

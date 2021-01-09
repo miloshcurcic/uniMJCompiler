@@ -1,307 +1,307 @@
-INFO  23:46:55,215 - ===================================
-INFO  23:46:55,220 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
-INFO  23:46:55,220 - ===================================
-INFO  23:46:55,395 - #47 test_303
-INFO  23:46:55,395 - #47 int
-INFO  23:46:55,400 - #47 cinilac
-INFO  23:46:55,400 - #46 4
-INFO  23:46:55,400 - #47 delilac
-INFO  23:46:55,400 - #46 3
-INFO  23:46:55,407 - #47 Predmet
-INFO  23:46:55,407 - #47 int
-INFO  23:46:55,410 - #47 tezina
-INFO  23:46:55,410 - #47 char
-INFO  23:46:55,415 - #47 vrsta
-INFO  23:46:55,415 - #47 postaviTezinu
-INFO  23:46:55,415 - #47 int
-INFO  23:46:55,420 - #47 tezina
-INFO  23:46:55,420 - #47 this
-INFO  23:46:55,420 - #47 tezina
-INFO  23:46:55,430 - #47 tezina
-INFO  23:46:55,435 - #47 ucitajTezinu
-INFO  23:46:55,440 - #47 tezina
-INFO  23:46:55,440 - #47 int
-INFO  23:46:55,440 - #47 zapremina
-INFO  23:46:55,440 - #46 0
-INFO  23:46:55,440 - #47 int
-INFO  23:46:55,440 - #47 Q
-INFO  23:46:55,440 - #47 zapremina
-INFO  23:46:55,440 - #47 tezina
-INFO  23:46:55,445 - #47 postaviVrstu
-INFO  23:46:55,445 - #47 char
-INFO  23:46:55,445 - #47 vrsta
-INFO  23:46:55,445 - #47 this
-INFO  23:46:55,450 - #47 vrsta
-INFO  23:46:55,450 - #47 vrsta
-INFO  23:46:55,450 - #47 char
-INFO  23:46:55,450 - #47 dohvVrstu
-INFO  23:46:55,450 - #47 vrsta
-INFO  23:46:55,450 - #47 int
-INFO  23:46:55,450 - #47 dohvTezinu
-INFO  23:46:55,450 - #47 tezina
-INFO  23:46:55,450 - #47 Sfera
-INFO  23:46:55,450 - #47 Predmet
-INFO  23:46:55,455 - #47 int
-INFO  23:46:55,455 - #47 r
-INFO  23:46:55,455 - #47 postaviTezinu
-INFO  23:46:55,455 - #47 int
-INFO  23:46:55,455 - #47 tezina
-INFO  23:46:55,455 - #47 this
-INFO  23:46:55,455 - #47 tezina
-INFO  23:46:55,455 - #47 tezina
-INFO  23:46:55,455 - #47 vrsta
-INFO  23:46:55,460 - #49 s
-INFO  23:46:55,460 - #47 postaviPoluprecnik
-INFO  23:46:55,460 - #47 int
-INFO  23:46:55,460 - #47 r
-INFO  23:46:55,460 - #47 this
-INFO  23:46:55,460 - #47 r
-INFO  23:46:55,460 - #47 r
-INFO  23:46:55,460 - #47 postaviVrstu
-INFO  23:46:55,460 - #49 s
-INFO  23:46:55,460 - #47 int
-INFO  23:46:55,460 - #47 zapremina
-INFO  23:46:55,460 - #47 int
-INFO  23:46:55,460 - #47 z
-INFO  23:46:55,460 - #47 z
-INFO  23:46:55,460 - #47 cinilac
-INFO  23:46:55,465 - #47 z
-INFO  23:46:55,465 - #47 r
-INFO  23:46:55,465 - #47 delilac
-INFO  23:46:55,465 - #47 Kvadar
-INFO  23:46:55,465 - #47 Predmet
-INFO  23:46:55,465 - #47 int
-INFO  23:46:55,465 - #47 a
-INFO  23:46:55,465 - #47 b
-INFO  23:46:55,470 - #47 c
-INFO  23:46:55,470 - #47 postaviTezinu
-INFO  23:46:55,470 - #47 int
-INFO  23:46:55,470 - #47 tezina
-INFO  23:46:55,470 - #47 this
-INFO  23:46:55,470 - #47 tezina
-INFO  23:46:55,470 - #47 tezina
-INFO  23:46:55,470 - #47 vrsta
-INFO  23:46:55,470 - #49 k
-INFO  23:46:55,470 - #47 postaviStranice
-INFO  23:46:55,470 - #47 int
-INFO  23:46:55,470 - #47 a
-INFO  23:46:55,470 - #47 int
-INFO  23:46:55,470 - #47 b
-INFO  23:46:55,470 - #47 int
-INFO  23:46:55,470 - #47 c
-INFO  23:46:55,470 - #47 this
-INFO  23:46:55,475 - #47 a
-INFO  23:46:55,475 - #47 a
-INFO  23:46:55,475 - #47 this
-INFO  23:46:55,475 - #47 b
-INFO  23:46:55,475 - #47 b
-INFO  23:46:55,475 - #47 this
-INFO  23:46:55,475 - #47 c
-INFO  23:46:55,475 - #47 c
-INFO  23:46:55,475 - #47 vrsta
-INFO  23:46:55,475 - #49 k
-INFO  23:46:55,475 - #47 int
-INFO  23:46:55,475 - #47 zapremina
-INFO  23:46:55,475 - #47 int
-INFO  23:46:55,475 - #47 z
-INFO  23:46:55,475 - #47 z
-INFO  23:46:55,475 - #47 a
-INFO  23:46:55,475 - #47 b
-INFO  23:46:55,480 - #47 c
-INFO  23:46:55,481 - #47 z
-INFO  23:46:55,482 - #47 int
-INFO  23:46:55,482 - #47 zapreminaK
-INFO  23:46:55,482 - #47 zapreminaS
-INFO  23:46:55,482 - #47 int
-INFO  23:46:55,482 - #47 tezinaK
-INFO  23:46:55,482 - #47 tezinaS
-INFO  23:46:55,482 - #47 ispis
-INFO  23:46:55,482 - #47 Predmet
-INFO  23:46:55,482 - #47 p
-INFO  23:46:55,482 - #47 p
-INFO  23:46:55,485 - #47 dohvVrstu
-INFO  23:46:55,485 - #49 s
-INFO  23:46:55,485 - #49 S
-INFO  23:46:55,490 - #47 p
-INFO  23:46:55,490 - #47 dohvVrstu
-INFO  23:46:55,490 - #49 k
-INFO  23:46:55,490 - #49 K
-INFO  23:46:55,490 - #47 eol
-INFO  23:46:55,494 - #47 p
-INFO  23:46:55,494 - #47 dohvTezinu
-INFO  23:46:55,494 - #47 main
-INFO  23:46:55,494 - #47 Predmet
-INFO  23:46:55,495 - #47 predmeti
-INFO  23:46:55,496 - #47 int
-INFO  23:46:55,496 - #47 i
-INFO  23:46:55,496 - #47 Sfera
-INFO  23:46:55,496 - #47 s1
-INFO  23:46:55,496 - #47 s2
-INFO  23:46:55,496 - #47 s3
-INFO  23:46:55,496 - #47 Kvadar
-INFO  23:46:55,496 - #47 k1
-INFO  23:46:55,496 - #47 k2
-INFO  23:46:55,496 - #47 k3
-INFO  23:46:55,496 - #47 int
-INFO  23:46:55,496 - #47 t
-INFO  23:46:55,500 - #47 predmeti
-INFO  23:46:55,500 - #47 Predmet
-INFO  23:46:55,500 - #46 6
-INFO  23:46:55,500 - #47 s1
-INFO  23:46:55,500 - #47 Sfera
-INFO  23:46:55,500 - #47 s2
-INFO  23:46:55,500 - #47 Sfera
-INFO  23:46:55,500 - #47 s3
-INFO  23:46:55,500 - #47 Sfera
-INFO  23:46:55,500 - #47 k1
-INFO  23:46:55,500 - #47 Kvadar
-INFO  23:46:55,500 - #47 k2
-INFO  23:46:55,500 - #47 Kvadar
-INFO  23:46:55,500 - #47 k3
-INFO  23:46:55,500 - #47 Kvadar
-INFO  23:46:55,500 - #47 s1
-INFO  23:46:55,505 - #47 postaviPoluprecnik
-INFO  23:46:55,505 - #46 1
-INFO  23:46:55,506 - #47 s2
-INFO  23:46:55,506 - #47 postaviPoluprecnik
-INFO  23:46:55,506 - #46 2
-INFO  23:46:55,506 - #47 s3
-INFO  23:46:55,506 - #47 postaviPoluprecnik
-INFO  23:46:55,506 - #46 3
-INFO  23:46:55,506 - #47 k1
-INFO  23:46:55,506 - #47 postaviStranice
-INFO  23:46:55,506 - #46 1
-INFO  23:46:55,506 - #46 2
-INFO  23:46:55,506 - #46 3
-INFO  23:46:55,506 - #47 k2
-INFO  23:46:55,510 - #47 postaviStranice
-INFO  23:46:55,513 - #46 2
-INFO  23:46:55,513 - #46 3
-INFO  23:46:55,514 - #46 4
-INFO  23:46:55,514 - #47 k3
-INFO  23:46:55,514 - #47 postaviStranice
-INFO  23:46:55,514 - #46 3
-INFO  23:46:55,515 - #46 4
-INFO  23:46:55,516 - #46 5
-INFO  23:46:55,516 - #47 predmeti
-INFO  23:46:55,516 - #46 0
-INFO  23:46:55,516 - #47 s1
-INFO  23:46:55,516 - #47 predmeti
-INFO  23:46:55,516 - #46 2
-INFO  23:46:55,516 - #47 s2
-INFO  23:46:55,516 - #47 predmeti
-INFO  23:46:55,516 - #46 4
-INFO  23:46:55,516 - #47 s3
-INFO  23:46:55,516 - #47 predmeti
-INFO  23:46:55,516 - #46 1
-INFO  23:46:55,516 - #47 k1
-INFO  23:46:55,516 - #47 predmeti
-INFO  23:46:55,516 - #46 3
-INFO  23:46:55,516 - #47 k2
-INFO  23:46:55,516 - #47 predmeti
-INFO  23:46:55,520 - #46 5
-INFO  23:46:55,520 - #47 k3
-INFO  23:46:55,520 - #47 t
-INFO  23:46:55,520 - #47 i
-INFO  23:46:55,520 - #46 0
-INFO  23:46:55,520 - #47 predmeti
-INFO  23:46:55,520 - #47 i
-INFO  23:46:55,520 - #47 postaviTezinu
-INFO  23:46:55,520 - #47 t
-INFO  23:46:55,520 - #47 i
-INFO  23:46:55,526 - #47 i
-INFO  23:46:55,526 - #46 6
-INFO  23:46:55,526 - #47 zapreminaS
-INFO  23:46:55,530 - #46 0
-INFO  23:46:55,530 - #47 tezinaS
-INFO  23:46:55,530 - #46 0
-INFO  23:46:55,530 - #47 i
-INFO  23:46:55,530 - #46 1
-INFO  23:46:55,530 - #47 i
-INFO  23:46:55,530 - #46 2
-INFO  23:46:55,530 - #46 0
-INFO  23:46:55,530 - #47 i
-INFO  23:46:55,535 - #47 zapreminaS
-INFO  23:46:55,535 - #47 zapreminaS
-INFO  23:46:55,535 - #47 predmeti
-INFO  23:46:55,535 - #47 i
-INFO  23:46:55,535 - #46 1
-INFO  23:46:55,535 - #47 zapremina
-INFO  23:46:55,535 - #47 tezinaS
-INFO  23:46:55,535 - #47 tezinaS
-INFO  23:46:55,535 - #47 predmeti
-INFO  23:46:55,540 - #47 i
-INFO  23:46:55,540 - #46 1
-INFO  23:46:55,540 - #47 Q
-INFO  23:46:55,540 - #47 ispis
-INFO  23:46:55,540 - #47 predmeti
-INFO  23:46:55,540 - #47 i
-INFO  23:46:55,540 - #46 1
-INFO  23:46:55,540 - #47 i
-INFO  23:46:55,540 - #47 i
-INFO  23:46:55,540 - #46 6
-INFO  23:46:55,540 - #47 zapreminaK
-INFO  23:46:55,545 - #46 0
-INFO  23:46:55,545 - #47 tezinaK
-INFO  23:46:55,545 - #46 0
-INFO  23:46:55,545 - #47 i
-INFO  23:46:55,545 - #46 1
-INFO  23:46:55,545 - #47 i
-INFO  23:46:55,545 - #46 2
-INFO  23:46:55,545 - #46 1
-INFO  23:46:55,545 - #47 i
-INFO  23:46:55,545 - #47 zapreminaS
-INFO  23:46:55,545 - #47 zapreminaS
-INFO  23:46:55,545 - #47 predmeti
-INFO  23:46:55,545 - #47 i
-INFO  23:46:55,545 - #46 1
-INFO  23:46:55,545 - #47 zapremina
-INFO  23:46:55,545 - #47 tezinaS
-INFO  23:46:55,545 - #47 tezinaS
-INFO  23:46:55,545 - #47 predmeti
-INFO  23:46:55,545 - #47 i
-INFO  23:46:55,550 - #46 1
-INFO  23:46:55,550 - #47 Q
-INFO  23:46:55,550 - #47 ispis
-INFO  23:46:55,550 - #47 predmeti
-INFO  23:46:55,550 - #47 i
-INFO  23:46:55,550 - #46 1
-INFO  23:46:55,550 - #47 i
-INFO  23:46:55,550 - #47 i
-INFO  23:46:55,550 - #46 6
-INFO  23:46:55,550 - #47 zapreminaS
-INFO  23:46:55,550 - #47 eol
-INFO  23:46:55,550 - #47 zapreminaK
-INFO  23:46:55,550 - #47 eol
-INFO  23:46:55,550 - #47 tezinaS
-INFO  23:46:55,550 - #47 eol
-INFO  23:46:55,550 - #47 tezinaK
-INFO  23:46:55,550 - #47 eol
-INFO  23:46:55,550 - #47 i
-INFO  23:46:55,550 - #46 0
-INFO  23:46:55,550 - #47 i
-INFO  23:46:55,550 - #46 1
-INFO  23:46:55,550 - #46 1
-INFO  23:46:55,555 - #46 1
-INFO  23:46:55,556 - #46 3
-INFO  23:46:55,556 - #46 3
-INFO  23:46:55,556 - #46 2
-INFO  23:46:55,556 - #46 2
-INFO  23:46:55,556 - #46 5
-INFO  23:46:55,556 - #46 5
-INFO  23:46:55,556 - #47 i
-INFO  23:46:55,556 - #47 i
-INFO  23:46:55,556 - #46 2
-INFO  23:46:55,556 - #46 6
-INFO  23:46:55,556 - #46 6
-INFO  23:46:55,556 - #46 9
-INFO  23:46:55,560 - #46 9
-INFO  23:46:55,560 - #47 eol
-INFO  23:46:55,560 - #47 i
-INFO  23:46:55,560 - #47 i
-INFO  23:46:55,560 - #46 10
-INFO  23:46:55,575 - ===================================
-INFO  23:46:55,600 - Program(
+INFO  02:03:16,550 - ===================================
+INFO  02:03:16,551 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  02:03:16,551 - ===================================
+INFO  02:03:16,678 - #47 test_303
+INFO  02:03:16,681 - #47 int
+INFO  02:03:16,681 - #47 cinilac
+INFO  02:03:16,685 - #46 4
+INFO  02:03:16,686 - #47 delilac
+INFO  02:03:16,686 - #46 3
+INFO  02:03:16,689 - #47 Predmet
+INFO  02:03:16,690 - #47 int
+INFO  02:03:16,691 - #47 tezina
+INFO  02:03:16,693 - #47 char
+INFO  02:03:16,695 - #47 vrsta
+INFO  02:03:16,696 - #47 postaviTezinu
+INFO  02:03:16,697 - #47 int
+INFO  02:03:16,697 - #47 tezina
+INFO  02:03:16,698 - #47 this
+INFO  02:03:16,700 - #47 tezina
+INFO  02:03:16,705 - #47 tezina
+INFO  02:03:16,715 - #47 ucitajTezinu
+INFO  02:03:16,717 - #47 tezina
+INFO  02:03:16,717 - #47 int
+INFO  02:03:16,717 - #47 zapremina
+INFO  02:03:16,718 - #46 0
+INFO  02:03:16,718 - #47 int
+INFO  02:03:16,718 - #47 Q
+INFO  02:03:16,718 - #47 zapremina
+INFO  02:03:16,720 - #47 tezina
+INFO  02:03:16,722 - #47 postaviVrstu
+INFO  02:03:16,722 - #47 char
+INFO  02:03:16,723 - #47 vrsta
+INFO  02:03:16,723 - #47 this
+INFO  02:03:16,723 - #47 vrsta
+INFO  02:03:16,723 - #47 vrsta
+INFO  02:03:16,723 - #47 char
+INFO  02:03:16,723 - #47 dohvVrstu
+INFO  02:03:16,724 - #47 vrsta
+INFO  02:03:16,724 - #47 int
+INFO  02:03:16,724 - #47 dohvTezinu
+INFO  02:03:16,724 - #47 tezina
+INFO  02:03:16,726 - #47 Sfera
+INFO  02:03:16,726 - #47 Predmet
+INFO  02:03:16,728 - #47 int
+INFO  02:03:16,728 - #47 r
+INFO  02:03:16,729 - #47 postaviTezinu
+INFO  02:03:16,729 - #47 int
+INFO  02:03:16,729 - #47 tezina
+INFO  02:03:16,729 - #47 this
+INFO  02:03:16,730 - #47 tezina
+INFO  02:03:16,730 - #47 tezina
+INFO  02:03:16,730 - #47 vrsta
+INFO  02:03:16,733 - #49 s
+INFO  02:03:16,733 - #47 postaviPoluprecnik
+INFO  02:03:16,733 - #47 int
+INFO  02:03:16,733 - #47 r
+INFO  02:03:16,734 - #47 this
+INFO  02:03:16,734 - #47 r
+INFO  02:03:16,734 - #47 r
+INFO  02:03:16,734 - #47 postaviVrstu
+INFO  02:03:16,734 - #49 s
+INFO  02:03:16,735 - #47 int
+INFO  02:03:16,736 - #47 zapremina
+INFO  02:03:16,736 - #47 int
+INFO  02:03:16,736 - #47 z
+INFO  02:03:16,736 - #47 z
+INFO  02:03:16,736 - #47 cinilac
+INFO  02:03:16,737 - #47 z
+INFO  02:03:16,737 - #47 r
+INFO  02:03:16,737 - #47 delilac
+INFO  02:03:16,739 - #47 Kvadar
+INFO  02:03:16,740 - #47 Predmet
+INFO  02:03:16,740 - #47 int
+INFO  02:03:16,740 - #47 a
+INFO  02:03:16,740 - #47 b
+INFO  02:03:16,741 - #47 c
+INFO  02:03:16,741 - #47 postaviTezinu
+INFO  02:03:16,741 - #47 int
+INFO  02:03:16,741 - #47 tezina
+INFO  02:03:16,741 - #47 this
+INFO  02:03:16,742 - #47 tezina
+INFO  02:03:16,742 - #47 tezina
+INFO  02:03:16,742 - #47 vrsta
+INFO  02:03:16,742 - #49 k
+INFO  02:03:16,742 - #47 postaviStranice
+INFO  02:03:16,742 - #47 int
+INFO  02:03:16,743 - #47 a
+INFO  02:03:16,743 - #47 int
+INFO  02:03:16,743 - #47 b
+INFO  02:03:16,744 - #47 int
+INFO  02:03:16,744 - #47 c
+INFO  02:03:16,744 - #47 this
+INFO  02:03:16,744 - #47 a
+INFO  02:03:16,744 - #47 a
+INFO  02:03:16,744 - #47 this
+INFO  02:03:16,744 - #47 b
+INFO  02:03:16,745 - #47 b
+INFO  02:03:16,745 - #47 this
+INFO  02:03:16,745 - #47 c
+INFO  02:03:16,745 - #47 c
+INFO  02:03:16,745 - #47 vrsta
+INFO  02:03:16,745 - #49 k
+INFO  02:03:16,745 - #47 int
+INFO  02:03:16,745 - #47 zapremina
+INFO  02:03:16,745 - #47 int
+INFO  02:03:16,746 - #47 z
+INFO  02:03:16,746 - #47 z
+INFO  02:03:16,746 - #47 a
+INFO  02:03:16,746 - #47 b
+INFO  02:03:16,746 - #47 c
+INFO  02:03:16,746 - #47 z
+INFO  02:03:16,746 - #47 int
+INFO  02:03:16,746 - #47 zapreminaK
+INFO  02:03:16,746 - #47 zapreminaS
+INFO  02:03:16,747 - #47 int
+INFO  02:03:16,747 - #47 tezinaK
+INFO  02:03:16,747 - #47 tezinaS
+INFO  02:03:16,747 - #47 ispis
+INFO  02:03:16,747 - #47 Predmet
+INFO  02:03:16,747 - #47 p
+INFO  02:03:16,747 - #47 p
+INFO  02:03:16,747 - #47 dohvVrstu
+INFO  02:03:16,750 - #49 s
+INFO  02:03:16,752 - #49 S
+INFO  02:03:16,753 - #47 p
+INFO  02:03:16,753 - #47 dohvVrstu
+INFO  02:03:16,753 - #49 k
+INFO  02:03:16,753 - #49 K
+INFO  02:03:16,754 - #47 eol
+INFO  02:03:16,754 - #47 p
+INFO  02:03:16,754 - #47 dohvTezinu
+INFO  02:03:16,755 - #47 main
+INFO  02:03:16,755 - #47 Predmet
+INFO  02:03:16,755 - #47 predmeti
+INFO  02:03:16,755 - #47 int
+INFO  02:03:16,755 - #47 i
+INFO  02:03:16,755 - #47 Sfera
+INFO  02:03:16,755 - #47 s1
+INFO  02:03:16,755 - #47 s2
+INFO  02:03:16,756 - #47 s3
+INFO  02:03:16,756 - #47 Kvadar
+INFO  02:03:16,756 - #47 k1
+INFO  02:03:16,756 - #47 k2
+INFO  02:03:16,756 - #47 k3
+INFO  02:03:16,756 - #47 int
+INFO  02:03:16,756 - #47 t
+INFO  02:03:16,756 - #47 predmeti
+INFO  02:03:16,756 - #47 Predmet
+INFO  02:03:16,756 - #46 6
+INFO  02:03:16,757 - #47 s1
+INFO  02:03:16,757 - #47 Sfera
+INFO  02:03:16,757 - #47 s2
+INFO  02:03:16,757 - #47 Sfera
+INFO  02:03:16,757 - #47 s3
+INFO  02:03:16,757 - #47 Sfera
+INFO  02:03:16,758 - #47 k1
+INFO  02:03:16,759 - #47 Kvadar
+INFO  02:03:16,759 - #47 k2
+INFO  02:03:16,759 - #47 Kvadar
+INFO  02:03:16,759 - #47 k3
+INFO  02:03:16,759 - #47 Kvadar
+INFO  02:03:16,760 - #47 s1
+INFO  02:03:16,760 - #47 postaviPoluprecnik
+INFO  02:03:16,760 - #46 1
+INFO  02:03:16,760 - #47 s2
+INFO  02:03:16,760 - #47 postaviPoluprecnik
+INFO  02:03:16,760 - #46 2
+INFO  02:03:16,760 - #47 s3
+INFO  02:03:16,760 - #47 postaviPoluprecnik
+INFO  02:03:16,761 - #46 3
+INFO  02:03:16,761 - #47 k1
+INFO  02:03:16,761 - #47 postaviStranice
+INFO  02:03:16,761 - #46 1
+INFO  02:03:16,761 - #46 2
+INFO  02:03:16,761 - #46 3
+INFO  02:03:16,761 - #47 k2
+INFO  02:03:16,762 - #47 postaviStranice
+INFO  02:03:16,762 - #46 2
+INFO  02:03:16,762 - #46 3
+INFO  02:03:16,762 - #46 4
+INFO  02:03:16,762 - #47 k3
+INFO  02:03:16,762 - #47 postaviStranice
+INFO  02:03:16,762 - #46 3
+INFO  02:03:16,762 - #46 4
+INFO  02:03:16,762 - #46 5
+INFO  02:03:16,762 - #47 predmeti
+INFO  02:03:16,763 - #46 0
+INFO  02:03:16,763 - #47 s1
+INFO  02:03:16,763 - #47 predmeti
+INFO  02:03:16,763 - #46 2
+INFO  02:03:16,763 - #47 s2
+INFO  02:03:16,763 - #47 predmeti
+INFO  02:03:16,764 - #46 4
+INFO  02:03:16,764 - #47 s3
+INFO  02:03:16,764 - #47 predmeti
+INFO  02:03:16,764 - #46 1
+INFO  02:03:16,764 - #47 k1
+INFO  02:03:16,764 - #47 predmeti
+INFO  02:03:16,764 - #46 3
+INFO  02:03:16,764 - #47 k2
+INFO  02:03:16,764 - #47 predmeti
+INFO  02:03:16,764 - #46 5
+INFO  02:03:16,765 - #47 k3
+INFO  02:03:16,765 - #47 t
+INFO  02:03:16,765 - #47 i
+INFO  02:03:16,765 - #46 0
+INFO  02:03:16,765 - #47 predmeti
+INFO  02:03:16,766 - #47 i
+INFO  02:03:16,767 - #47 postaviTezinu
+INFO  02:03:16,767 - #47 t
+INFO  02:03:16,767 - #47 i
+INFO  02:03:16,769 - #47 i
+INFO  02:03:16,769 - #46 6
+INFO  02:03:16,770 - #47 zapreminaS
+INFO  02:03:16,770 - #46 0
+INFO  02:03:16,771 - #47 tezinaS
+INFO  02:03:16,771 - #46 0
+INFO  02:03:16,771 - #47 i
+INFO  02:03:16,771 - #46 1
+INFO  02:03:16,771 - #47 i
+INFO  02:03:16,771 - #46 2
+INFO  02:03:16,772 - #46 0
+INFO  02:03:16,772 - #47 i
+INFO  02:03:16,773 - #47 zapreminaS
+INFO  02:03:16,773 - #47 zapreminaS
+INFO  02:03:16,773 - #47 predmeti
+INFO  02:03:16,776 - #47 i
+INFO  02:03:16,777 - #46 1
+INFO  02:03:16,779 - #47 zapremina
+INFO  02:03:16,779 - #47 tezinaS
+INFO  02:03:16,780 - #47 tezinaS
+INFO  02:03:16,780 - #47 predmeti
+INFO  02:03:16,780 - #47 i
+INFO  02:03:16,780 - #46 1
+INFO  02:03:16,780 - #47 Q
+INFO  02:03:16,780 - #47 ispis
+INFO  02:03:16,780 - #47 predmeti
+INFO  02:03:16,780 - #47 i
+INFO  02:03:16,780 - #46 1
+INFO  02:03:16,780 - #47 i
+INFO  02:03:16,781 - #47 i
+INFO  02:03:16,781 - #46 6
+INFO  02:03:16,782 - #47 zapreminaK
+INFO  02:03:16,782 - #46 0
+INFO  02:03:16,782 - #47 tezinaK
+INFO  02:03:16,782 - #46 0
+INFO  02:03:16,782 - #47 i
+INFO  02:03:16,782 - #46 1
+INFO  02:03:16,783 - #47 i
+INFO  02:03:16,783 - #46 2
+INFO  02:03:16,783 - #46 1
+INFO  02:03:16,783 - #47 i
+INFO  02:03:16,783 - #47 zapreminaS
+INFO  02:03:16,783 - #47 zapreminaS
+INFO  02:03:16,783 - #47 predmeti
+INFO  02:03:16,783 - #47 i
+INFO  02:03:16,784 - #46 1
+INFO  02:03:16,784 - #47 zapremina
+INFO  02:03:16,784 - #47 tezinaS
+INFO  02:03:16,784 - #47 tezinaS
+INFO  02:03:16,784 - #47 predmeti
+INFO  02:03:16,785 - #47 i
+INFO  02:03:16,785 - #46 1
+INFO  02:03:16,785 - #47 Q
+INFO  02:03:16,785 - #47 ispis
+INFO  02:03:16,785 - #47 predmeti
+INFO  02:03:16,785 - #47 i
+INFO  02:03:16,785 - #46 1
+INFO  02:03:16,785 - #47 i
+INFO  02:03:16,785 - #47 i
+INFO  02:03:16,785 - #46 6
+INFO  02:03:16,785 - #47 zapreminaS
+INFO  02:03:16,786 - #47 eol
+INFO  02:03:16,786 - #47 zapreminaK
+INFO  02:03:16,786 - #47 eol
+INFO  02:03:16,786 - #47 tezinaS
+INFO  02:03:16,786 - #47 eol
+INFO  02:03:16,786 - #47 tezinaK
+INFO  02:03:16,786 - #47 eol
+INFO  02:03:16,786 - #47 i
+INFO  02:03:16,786 - #46 0
+INFO  02:03:16,786 - #47 i
+INFO  02:03:16,786 - #46 1
+INFO  02:03:16,788 - #46 1
+INFO  02:03:16,788 - #46 1
+INFO  02:03:16,791 - #46 3
+INFO  02:03:16,791 - #46 3
+INFO  02:03:16,791 - #46 2
+INFO  02:03:16,791 - #46 2
+INFO  02:03:16,792 - #46 5
+INFO  02:03:16,792 - #46 5
+INFO  02:03:16,792 - #47 i
+INFO  02:03:16,792 - #47 i
+INFO  02:03:16,792 - #46 2
+INFO  02:03:16,792 - #46 6
+INFO  02:03:16,792 - #46 6
+INFO  02:03:16,793 - #46 9
+INFO  02:03:16,793 - #46 9
+INFO  02:03:16,793 - #47 eol
+INFO  02:03:16,793 - #47 i
+INFO  02:03:16,793 - #47 i
+INFO  02:03:16,793 - #46 10
+INFO  02:03:16,813 - ===================================
+INFO  02:03:16,882 - Program(
   ProgramName(
    test_303
   ) [ProgramName]
@@ -516,11 +516,13 @@ INFO  23:46:55,600 - Program(
                                         TermExprListHead(
                                           TermListElement(
                                             TermListHead(
-                                              NoParFuncCallResultFactor(
+                                              FunctionCallResultFactor(
                                                 ScalarDesignator(
                                                  zapremina
                                                 ) [ScalarDesignator]
-                                              ) [NoParFuncCallResultFactor]
+                                                NoFunctionCallActualParameters(
+                                                ) [NoFunctionCallActualParameters]
+                                              ) [FunctionCallResultFactor]
                                             ) [TermListHead]
                                             MulopMultiply(
                                             ) [MulopMultiply]
@@ -1453,14 +1455,16 @@ INFO  23:46:55,600 - Program(
                               ) [NoExpressionPrefix]
                               TermExprListHead(
                                 TermListHead(
-                                  NoParFuncCallResultFactor(
+                                  FunctionCallResultFactor(
                                     ObjectAccessDesignator(
                                       ScalarDesignator(
                                        p
                                       ) [ScalarDesignator]
                                      dohvVrstu
                                     ) [ObjectAccessDesignator]
-                                  ) [NoParFuncCallResultFactor]
+                                    NoFunctionCallActualParameters(
+                                    ) [NoFunctionCallActualParameters]
+                                  ) [FunctionCallResultFactor]
                                 ) [TermListHead]
                               ) [TermExprListHead]
                             ) [Expr1]
@@ -1508,14 +1512,16 @@ INFO  23:46:55,600 - Program(
                                 ) [NoExpressionPrefix]
                                 TermExprListHead(
                                   TermListHead(
-                                    NoParFuncCallResultFactor(
+                                    FunctionCallResultFactor(
                                       ObjectAccessDesignator(
                                         ScalarDesignator(
                                          p
                                         ) [ScalarDesignator]
                                        dohvVrstu
                                       ) [ObjectAccessDesignator]
-                                    ) [NoParFuncCallResultFactor]
+                                      NoFunctionCallActualParameters(
+                                      ) [NoFunctionCallActualParameters]
+                                    ) [FunctionCallResultFactor]
                                   ) [TermListHead]
                                 ) [TermExprListHead]
                               ) [Expr1]
@@ -1593,14 +1599,16 @@ INFO  23:46:55,600 - Program(
                     ) [NoExpressionPrefix]
                     TermExprListHead(
                       TermListHead(
-                        NoParFuncCallResultFactor(
+                        FunctionCallResultFactor(
                           ObjectAccessDesignator(
                             ScalarDesignator(
                              p
                             ) [ScalarDesignator]
                            dohvTezinu
                           ) [ObjectAccessDesignator]
-                        ) [NoParFuncCallResultFactor]
+                          NoFunctionCallActualParameters(
+                          ) [NoFunctionCallActualParameters]
+                        ) [FunctionCallResultFactor]
                       ) [TermListHead]
                     ) [TermExprListHead]
                   ) [Expr1]
@@ -2835,7 +2843,7 @@ INFO  23:46:55,600 - Program(
                                                                   AddopPlus(
                                                                   ) [AddopPlus]
                                                                   TermListHead(
-                                                                    NoParFuncCallResultFactor(
+                                                                    FunctionCallResultFactor(
                                                                       ObjectAccessDesignator(
                                                                         ArrayAccessDesignator(
                                                                           ScalarDesignator(
@@ -2868,7 +2876,9 @@ INFO  23:46:55,600 - Program(
                                                                         ) [ArrayAccessDesignator]
                                                                        zapremina
                                                                       ) [ObjectAccessDesignator]
-                                                                    ) [NoParFuncCallResultFactor]
+                                                                      NoFunctionCallActualParameters(
+                                                                      ) [NoFunctionCallActualParameters]
+                                                                    ) [FunctionCallResultFactor]
                                                                   ) [TermListHead]
                                                                 ) [TermExprListElement]
                                                               ) [Expr1]
@@ -2902,7 +2912,7 @@ INFO  23:46:55,600 - Program(
                                                                 AddopPlus(
                                                                 ) [AddopPlus]
                                                                 TermListHead(
-                                                                  NoParFuncCallResultFactor(
+                                                                  FunctionCallResultFactor(
                                                                     ObjectAccessDesignator(
                                                                       ArrayAccessDesignator(
                                                                         ScalarDesignator(
@@ -2935,7 +2945,9 @@ INFO  23:46:55,600 - Program(
                                                                       ) [ArrayAccessDesignator]
                                                                      Q
                                                                     ) [ObjectAccessDesignator]
-                                                                  ) [NoParFuncCallResultFactor]
+                                                                    NoFunctionCallActualParameters(
+                                                                    ) [NoFunctionCallActualParameters]
+                                                                  ) [FunctionCallResultFactor]
                                                                 ) [TermListHead]
                                                               ) [TermExprListElement]
                                                             ) [Expr1]
@@ -3238,7 +3250,7 @@ INFO  23:46:55,600 - Program(
                                                           AddopPlus(
                                                           ) [AddopPlus]
                                                           TermListHead(
-                                                            NoParFuncCallResultFactor(
+                                                            FunctionCallResultFactor(
                                                               ObjectAccessDesignator(
                                                                 ArrayAccessDesignator(
                                                                   ScalarDesignator(
@@ -3271,7 +3283,9 @@ INFO  23:46:55,600 - Program(
                                                                 ) [ArrayAccessDesignator]
                                                                zapremina
                                                               ) [ObjectAccessDesignator]
-                                                            ) [NoParFuncCallResultFactor]
+                                                              NoFunctionCallActualParameters(
+                                                              ) [NoFunctionCallActualParameters]
+                                                            ) [FunctionCallResultFactor]
                                                           ) [TermListHead]
                                                         ) [TermExprListElement]
                                                       ) [Expr1]
@@ -3305,7 +3319,7 @@ INFO  23:46:55,600 - Program(
                                                         AddopPlus(
                                                         ) [AddopPlus]
                                                         TermListHead(
-                                                          NoParFuncCallResultFactor(
+                                                          FunctionCallResultFactor(
                                                             ObjectAccessDesignator(
                                                               ArrayAccessDesignator(
                                                                 ScalarDesignator(
@@ -3338,7 +3352,9 @@ INFO  23:46:55,600 - Program(
                                                               ) [ArrayAccessDesignator]
                                                              Q
                                                             ) [ObjectAccessDesignator]
-                                                          ) [NoParFuncCallResultFactor]
+                                                            NoFunctionCallActualParameters(
+                                                            ) [NoFunctionCallActualParameters]
+                                                          ) [FunctionCallResultFactor]
                                                         ) [TermListHead]
                                                       ) [TermExprListElement]
                                                     ) [Expr1]
@@ -4002,4 +4018,4 @@ INFO  23:46:55,600 - Program(
     ) [MethodDeclaration]
   ) [MethodDeclarationListElement]
 ) [Program]
-INFO  23:46:56,698 - ===================================
+INFO  02:03:16,896 - ===================================
