@@ -7,13 +7,9 @@ import org.apache.log4j.*;
 import rs.ac.bg.etf.pp1.ast.*;
 
 parser code {:
-
 	boolean errorDetected;
 
 	Logger log = Logger.getLogger(getClass());
-
-
-    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
 
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
@@ -31,12 +27,13 @@ parser code {:
     public void report_error(String message, Object info) {
     	errorDetected = true;
     	StringBuilder msg = new StringBuilder(message);
-    	if (info instanceof Symbol)
+
+    	if (info instanceof Symbol) {
             msg.append (" na liniji ").append(((Symbol)info).left);
+        }
+
         log.error(msg.toString());
     }
-
-
 :}
 
 init with {:
@@ -196,12 +193,15 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
     | (EmptyVarDeclList)
 ;
 
- VarDecl ::= (VarDecl) VarDeclType VarIdents SEMICOLON ;
+ VarDecl ::= (VariableDeclaration) VarDeclType VarIdents SEMICOLON
+        | (VariableDeclarationError) error VarIdents SEMICOLON
+;
 
  VarDeclType ::= (VarDeclType) Type ;
 
  VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
         | (VarIdentListHead) VarIdent
+        | (VarIdentError) error
 ;
 
  VarIdent ::= (ScalarVarIdent) IDENT:name

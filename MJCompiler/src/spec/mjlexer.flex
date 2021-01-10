@@ -1,10 +1,17 @@
 package rs.ac.bg.etf.pp1;
 
 import java_cup.runtime.Symbol;
+import org.apache.log4j.*;
 
 %%
 
 %{
+	Logger log = Logger.getLogger(getClass());
+
+    public void report_error(String message) {
+        log.error(message);
+    }
+
 	private Symbol new_symbol(int type) {
 		return new Symbol(type, yyline+1, yycolumn);
 	}
@@ -94,8 +101,8 @@ import java_cup.runtime.Symbol;
 <COMMENT> "\r\n" { yybegin(YYINITIAL); }
 
 '.' { return new_symbol(sym.CHAR, yytext().charAt(1)); }
-("true" | "false") { return new_symbol(sym.BOOL); }
+("true" | "false") { return new_symbol(sym.BOOL, Boolean.parseBoolean(yytext())); }
 [0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
 ([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
 
-. { System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }
+. { report_error("Lexical analysis error for text \"" + yytext()+ "\" on line " + (yyline+1) + ":" + (yycolumn + 1) + "!"); }

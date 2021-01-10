@@ -55,7 +55,7 @@ public class Compiler {
             SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer();
             rootNode.traverseBottomUp(semanticAnalyzer);
 
-            Tab.dump();
+            Tab.dump(new CustomDumpSymbolTableVisitor());
             /*
             if (!p.errorDetected && semanticAnalyzer.passed()) {
                 File objFile = new File(args[1]);

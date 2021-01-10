@@ -41,6 +41,4 @@ public class Log4JUtils {
         fAppender.activateOptions();
     }
 
-
-
 }

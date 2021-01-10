@@ -1,307 +1,314 @@
-INFO  02:03:16,550 - ===================================
-INFO  02:03:16,551 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
-INFO  02:03:16,551 - ===================================
-INFO  02:03:16,678 - #47 test_303
-INFO  02:03:16,681 - #47 int
-INFO  02:03:16,681 - #47 cinilac
-INFO  02:03:16,685 - #46 4
-INFO  02:03:16,686 - #47 delilac
-INFO  02:03:16,686 - #46 3
-INFO  02:03:16,689 - #47 Predmet
-INFO  02:03:16,690 - #47 int
-INFO  02:03:16,691 - #47 tezina
-INFO  02:03:16,693 - #47 char
-INFO  02:03:16,695 - #47 vrsta
-INFO  02:03:16,696 - #47 postaviTezinu
-INFO  02:03:16,697 - #47 int
-INFO  02:03:16,697 - #47 tezina
-INFO  02:03:16,698 - #47 this
-INFO  02:03:16,700 - #47 tezina
-INFO  02:03:16,705 - #47 tezina
-INFO  02:03:16,715 - #47 ucitajTezinu
-INFO  02:03:16,717 - #47 tezina
-INFO  02:03:16,717 - #47 int
-INFO  02:03:16,717 - #47 zapremina
-INFO  02:03:16,718 - #46 0
-INFO  02:03:16,718 - #47 int
-INFO  02:03:16,718 - #47 Q
-INFO  02:03:16,718 - #47 zapremina
-INFO  02:03:16,720 - #47 tezina
-INFO  02:03:16,722 - #47 postaviVrstu
-INFO  02:03:16,722 - #47 char
-INFO  02:03:16,723 - #47 vrsta
-INFO  02:03:16,723 - #47 this
-INFO  02:03:16,723 - #47 vrsta
-INFO  02:03:16,723 - #47 vrsta
-INFO  02:03:16,723 - #47 char
-INFO  02:03:16,723 - #47 dohvVrstu
-INFO  02:03:16,724 - #47 vrsta
-INFO  02:03:16,724 - #47 int
-INFO  02:03:16,724 - #47 dohvTezinu
-INFO  02:03:16,724 - #47 tezina
-INFO  02:03:16,726 - #47 Sfera
-INFO  02:03:16,726 - #47 Predmet
-INFO  02:03:16,728 - #47 int
-INFO  02:03:16,728 - #47 r
-INFO  02:03:16,729 - #47 postaviTezinu
-INFO  02:03:16,729 - #47 int
-INFO  02:03:16,729 - #47 tezina
-INFO  02:03:16,729 - #47 this
-INFO  02:03:16,730 - #47 tezina
-INFO  02:03:16,730 - #47 tezina
-INFO  02:03:16,730 - #47 vrsta
-INFO  02:03:16,733 - #49 s
-INFO  02:03:16,733 - #47 postaviPoluprecnik
-INFO  02:03:16,733 - #47 int
-INFO  02:03:16,733 - #47 r
-INFO  02:03:16,734 - #47 this
-INFO  02:03:16,734 - #47 r
-INFO  02:03:16,734 - #47 r
-INFO  02:03:16,734 - #47 postaviVrstu
-INFO  02:03:16,734 - #49 s
-INFO  02:03:16,735 - #47 int
-INFO  02:03:16,736 - #47 zapremina
-INFO  02:03:16,736 - #47 int
-INFO  02:03:16,736 - #47 z
-INFO  02:03:16,736 - #47 z
-INFO  02:03:16,736 - #47 cinilac
-INFO  02:03:16,737 - #47 z
-INFO  02:03:16,737 - #47 r
-INFO  02:03:16,737 - #47 delilac
-INFO  02:03:16,739 - #47 Kvadar
-INFO  02:03:16,740 - #47 Predmet
-INFO  02:03:16,740 - #47 int
-INFO  02:03:16,740 - #47 a
-INFO  02:03:16,740 - #47 b
-INFO  02:03:16,741 - #47 c
-INFO  02:03:16,741 - #47 postaviTezinu
-INFO  02:03:16,741 - #47 int
-INFO  02:03:16,741 - #47 tezina
-INFO  02:03:16,741 - #47 this
-INFO  02:03:16,742 - #47 tezina
-INFO  02:03:16,742 - #47 tezina
-INFO  02:03:16,742 - #47 vrsta
-INFO  02:03:16,742 - #49 k
-INFO  02:03:16,742 - #47 postaviStranice
-INFO  02:03:16,742 - #47 int
-INFO  02:03:16,743 - #47 a
-INFO  02:03:16,743 - #47 int
-INFO  02:03:16,743 - #47 b
-INFO  02:03:16,744 - #47 int
-INFO  02:03:16,744 - #47 c
-INFO  02:03:16,744 - #47 this
-INFO  02:03:16,744 - #47 a
-INFO  02:03:16,744 - #47 a
-INFO  02:03:16,744 - #47 this
-INFO  02:03:16,744 - #47 b
-INFO  02:03:16,745 - #47 b
-INFO  02:03:16,745 - #47 this
-INFO  02:03:16,745 - #47 c
-INFO  02:03:16,745 - #47 c
-INFO  02:03:16,745 - #47 vrsta
-INFO  02:03:16,745 - #49 k
-INFO  02:03:16,745 - #47 int
-INFO  02:03:16,745 - #47 zapremina
-INFO  02:03:16,745 - #47 int
-INFO  02:03:16,746 - #47 z
-INFO  02:03:16,746 - #47 z
-INFO  02:03:16,746 - #47 a
-INFO  02:03:16,746 - #47 b
-INFO  02:03:16,746 - #47 c
-INFO  02:03:16,746 - #47 z
-INFO  02:03:16,746 - #47 int
-INFO  02:03:16,746 - #47 zapreminaK
-INFO  02:03:16,746 - #47 zapreminaS
-INFO  02:03:16,747 - #47 int
-INFO  02:03:16,747 - #47 tezinaK
-INFO  02:03:16,747 - #47 tezinaS
-INFO  02:03:16,747 - #47 ispis
-INFO  02:03:16,747 - #47 Predmet
-INFO  02:03:16,747 - #47 p
-INFO  02:03:16,747 - #47 p
-INFO  02:03:16,747 - #47 dohvVrstu
-INFO  02:03:16,750 - #49 s
-INFO  02:03:16,752 - #49 S
-INFO  02:03:16,753 - #47 p
-INFO  02:03:16,753 - #47 dohvVrstu
-INFO  02:03:16,753 - #49 k
-INFO  02:03:16,753 - #49 K
-INFO  02:03:16,754 - #47 eol
-INFO  02:03:16,754 - #47 p
-INFO  02:03:16,754 - #47 dohvTezinu
-INFO  02:03:16,755 - #47 main
-INFO  02:03:16,755 - #47 Predmet
-INFO  02:03:16,755 - #47 predmeti
-INFO  02:03:16,755 - #47 int
-INFO  02:03:16,755 - #47 i
-INFO  02:03:16,755 - #47 Sfera
-INFO  02:03:16,755 - #47 s1
-INFO  02:03:16,755 - #47 s2
-INFO  02:03:16,756 - #47 s3
-INFO  02:03:16,756 - #47 Kvadar
-INFO  02:03:16,756 - #47 k1
-INFO  02:03:16,756 - #47 k2
-INFO  02:03:16,756 - #47 k3
-INFO  02:03:16,756 - #47 int
-INFO  02:03:16,756 - #47 t
-INFO  02:03:16,756 - #47 predmeti
-INFO  02:03:16,756 - #47 Predmet
-INFO  02:03:16,756 - #46 6
-INFO  02:03:16,757 - #47 s1
-INFO  02:03:16,757 - #47 Sfera
-INFO  02:03:16,757 - #47 s2
-INFO  02:03:16,757 - #47 Sfera
-INFO  02:03:16,757 - #47 s3
-INFO  02:03:16,757 - #47 Sfera
-INFO  02:03:16,758 - #47 k1
-INFO  02:03:16,759 - #47 Kvadar
-INFO  02:03:16,759 - #47 k2
-INFO  02:03:16,759 - #47 Kvadar
-INFO  02:03:16,759 - #47 k3
-INFO  02:03:16,759 - #47 Kvadar
-INFO  02:03:16,760 - #47 s1
-INFO  02:03:16,760 - #47 postaviPoluprecnik
-INFO  02:03:16,760 - #46 1
-INFO  02:03:16,760 - #47 s2
-INFO  02:03:16,760 - #47 postaviPoluprecnik
-INFO  02:03:16,760 - #46 2
-INFO  02:03:16,760 - #47 s3
-INFO  02:03:16,760 - #47 postaviPoluprecnik
-INFO  02:03:16,761 - #46 3
-INFO  02:03:16,761 - #47 k1
-INFO  02:03:16,761 - #47 postaviStranice
-INFO  02:03:16,761 - #46 1
-INFO  02:03:16,761 - #46 2
-INFO  02:03:16,761 - #46 3
-INFO  02:03:16,761 - #47 k2
-INFO  02:03:16,762 - #47 postaviStranice
-INFO  02:03:16,762 - #46 2
-INFO  02:03:16,762 - #46 3
-INFO  02:03:16,762 - #46 4
-INFO  02:03:16,762 - #47 k3
-INFO  02:03:16,762 - #47 postaviStranice
-INFO  02:03:16,762 - #46 3
-INFO  02:03:16,762 - #46 4
-INFO  02:03:16,762 - #46 5
-INFO  02:03:16,762 - #47 predmeti
-INFO  02:03:16,763 - #46 0
-INFO  02:03:16,763 - #47 s1
-INFO  02:03:16,763 - #47 predmeti
-INFO  02:03:16,763 - #46 2
-INFO  02:03:16,763 - #47 s2
-INFO  02:03:16,763 - #47 predmeti
-INFO  02:03:16,764 - #46 4
-INFO  02:03:16,764 - #47 s3
-INFO  02:03:16,764 - #47 predmeti
-INFO  02:03:16,764 - #46 1
-INFO  02:03:16,764 - #47 k1
-INFO  02:03:16,764 - #47 predmeti
-INFO  02:03:16,764 - #46 3
-INFO  02:03:16,764 - #47 k2
-INFO  02:03:16,764 - #47 predmeti
-INFO  02:03:16,764 - #46 5
-INFO  02:03:16,765 - #47 k3
-INFO  02:03:16,765 - #47 t
-INFO  02:03:16,765 - #47 i
-INFO  02:03:16,765 - #46 0
-INFO  02:03:16,765 - #47 predmeti
-INFO  02:03:16,766 - #47 i
-INFO  02:03:16,767 - #47 postaviTezinu
-INFO  02:03:16,767 - #47 t
-INFO  02:03:16,767 - #47 i
-INFO  02:03:16,769 - #47 i
-INFO  02:03:16,769 - #46 6
-INFO  02:03:16,770 - #47 zapreminaS
-INFO  02:03:16,770 - #46 0
-INFO  02:03:16,771 - #47 tezinaS
-INFO  02:03:16,771 - #46 0
-INFO  02:03:16,771 - #47 i
-INFO  02:03:16,771 - #46 1
-INFO  02:03:16,771 - #47 i
-INFO  02:03:16,771 - #46 2
-INFO  02:03:16,772 - #46 0
-INFO  02:03:16,772 - #47 i
-INFO  02:03:16,773 - #47 zapreminaS
-INFO  02:03:16,773 - #47 zapreminaS
-INFO  02:03:16,773 - #47 predmeti
-INFO  02:03:16,776 - #47 i
-INFO  02:03:16,777 - #46 1
-INFO  02:03:16,779 - #47 zapremina
-INFO  02:03:16,779 - #47 tezinaS
-INFO  02:03:16,780 - #47 tezinaS
-INFO  02:03:16,780 - #47 predmeti
-INFO  02:03:16,780 - #47 i
-INFO  02:03:16,780 - #46 1
-INFO  02:03:16,780 - #47 Q
-INFO  02:03:16,780 - #47 ispis
-INFO  02:03:16,780 - #47 predmeti
-INFO  02:03:16,780 - #47 i
-INFO  02:03:16,780 - #46 1
-INFO  02:03:16,780 - #47 i
-INFO  02:03:16,781 - #47 i
-INFO  02:03:16,781 - #46 6
-INFO  02:03:16,782 - #47 zapreminaK
-INFO  02:03:16,782 - #46 0
-INFO  02:03:16,782 - #47 tezinaK
-INFO  02:03:16,782 - #46 0
-INFO  02:03:16,782 - #47 i
-INFO  02:03:16,782 - #46 1
-INFO  02:03:16,783 - #47 i
-INFO  02:03:16,783 - #46 2
-INFO  02:03:16,783 - #46 1
-INFO  02:03:16,783 - #47 i
-INFO  02:03:16,783 - #47 zapreminaS
-INFO  02:03:16,783 - #47 zapreminaS
-INFO  02:03:16,783 - #47 predmeti
-INFO  02:03:16,783 - #47 i
-INFO  02:03:16,784 - #46 1
-INFO  02:03:16,784 - #47 zapremina
-INFO  02:03:16,784 - #47 tezinaS
-INFO  02:03:16,784 - #47 tezinaS
-INFO  02:03:16,784 - #47 predmeti
-INFO  02:03:16,785 - #47 i
-INFO  02:03:16,785 - #46 1
-INFO  02:03:16,785 - #47 Q
-INFO  02:03:16,785 - #47 ispis
-INFO  02:03:16,785 - #47 predmeti
-INFO  02:03:16,785 - #47 i
-INFO  02:03:16,785 - #46 1
-INFO  02:03:16,785 - #47 i
-INFO  02:03:16,785 - #47 i
-INFO  02:03:16,785 - #46 6
-INFO  02:03:16,785 - #47 zapreminaS
-INFO  02:03:16,786 - #47 eol
-INFO  02:03:16,786 - #47 zapreminaK
-INFO  02:03:16,786 - #47 eol
-INFO  02:03:16,786 - #47 tezinaS
-INFO  02:03:16,786 - #47 eol
-INFO  02:03:16,786 - #47 tezinaK
-INFO  02:03:16,786 - #47 eol
-INFO  02:03:16,786 - #47 i
-INFO  02:03:16,786 - #46 0
-INFO  02:03:16,786 - #47 i
-INFO  02:03:16,786 - #46 1
-INFO  02:03:16,788 - #46 1
-INFO  02:03:16,788 - #46 1
-INFO  02:03:16,791 - #46 3
-INFO  02:03:16,791 - #46 3
-INFO  02:03:16,791 - #46 2
-INFO  02:03:16,791 - #46 2
-INFO  02:03:16,792 - #46 5
-INFO  02:03:16,792 - #46 5
-INFO  02:03:16,792 - #47 i
-INFO  02:03:16,792 - #47 i
-INFO  02:03:16,792 - #46 2
-INFO  02:03:16,792 - #46 6
-INFO  02:03:16,792 - #46 6
-INFO  02:03:16,793 - #46 9
-INFO  02:03:16,793 - #46 9
-INFO  02:03:16,793 - #47 eol
-INFO  02:03:16,793 - #47 i
-INFO  02:03:16,793 - #47 i
-INFO  02:03:16,793 - #46 10
-INFO  02:03:16,813 - ===================================
-INFO  02:03:16,882 - Program(
+INFO  03:17:00,778 - ===================================
+INFO  03:17:00,782 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  03:17:00,783 - ===================================
+INFO  03:17:00,958 - #47 test_303
+INFO  03:17:00,961 - #47 int
+INFO  03:17:00,962 - #47 cinilac
+INFO  03:17:00,966 - #46 4
+INFO  03:17:00,968 - #47 delilac
+INFO  03:17:00,968 - #46 3
+INFO  03:17:00,971 - #47 bool
+INFO  03:17:00,971 - #47 a
+INFO  03:17:00,972 - #48 true
+INFO  03:17:00,972 - #47 Predmet
+ERROR 03:17:00,974 - Lexical analysis error for text "@" on line 10:3!
+INFO  03:17:00,974 - #47 sdkak
+ERROR 03:17:00,977 - 
+Sintaksna greska na liniji 10
+INFO  03:17:00,977 - #47 int
+INFO  03:17:00,978 - #47 tezina
+INFO  03:17:00,983 - #47 char
+INFO  03:17:00,983 - #47 vrsta
+INFO  03:17:00,988 - #47 postaviTezinu
+INFO  03:17:00,989 - #47 int
+INFO  03:17:00,989 - #47 tezina
+INFO  03:17:00,990 - #47 this
+INFO  03:17:00,991 - #47 tezina
+INFO  03:17:00,992 - #47 tezina
+INFO  03:17:01,001 - #47 ucitajTezinu
+INFO  03:17:01,002 - #47 tezina
+INFO  03:17:01,003 - #47 int
+INFO  03:17:01,004 - #47 zapremina
+INFO  03:17:01,004 - #46 0
+INFO  03:17:01,005 - #47 int
+INFO  03:17:01,006 - #47 Q
+INFO  03:17:01,006 - #47 zapremina
+INFO  03:17:01,008 - #47 tezina
+INFO  03:17:01,012 - #47 postaviVrstu
+INFO  03:17:01,012 - #47 char
+INFO  03:17:01,013 - #47 vrsta
+INFO  03:17:01,013 - #47 this
+INFO  03:17:01,013 - #47 vrsta
+INFO  03:17:01,014 - #47 vrsta
+INFO  03:17:01,014 - #47 char
+INFO  03:17:01,015 - #47 dohvVrstu
+INFO  03:17:01,015 - #47 vrsta
+INFO  03:17:01,015 - #47 int
+INFO  03:17:01,015 - #47 dohvTezinu
+INFO  03:17:01,016 - #47 tezina
+INFO  03:17:01,018 - #47 Sfera
+INFO  03:17:01,018 - #47 Predmet
+INFO  03:17:01,020 - #47 int
+INFO  03:17:01,021 - #47 r
+INFO  03:17:01,023 - #47 postaviTezinu
+INFO  03:17:01,024 - #47 int
+INFO  03:17:01,024 - #47 tezina
+INFO  03:17:01,024 - #47 this
+INFO  03:17:01,025 - #47 tezina
+INFO  03:17:01,025 - #47 tezina
+INFO  03:17:01,026 - #47 vrsta
+INFO  03:17:01,026 - #49 s
+INFO  03:17:01,027 - #47 postaviPoluprecnik
+INFO  03:17:01,028 - #47 int
+INFO  03:17:01,028 - #47 r
+INFO  03:17:01,028 - #47 this
+INFO  03:17:01,029 - #47 r
+INFO  03:17:01,029 - #47 r
+INFO  03:17:01,029 - #47 postaviVrstu
+INFO  03:17:01,030 - #49 s
+INFO  03:17:01,030 - #47 int
+INFO  03:17:01,031 - #47 zapremina
+INFO  03:17:01,031 - #47 int
+INFO  03:17:01,031 - #47 z
+INFO  03:17:01,031 - #47 z
+INFO  03:17:01,032 - #47 cinilac
+INFO  03:17:01,032 - #47 z
+INFO  03:17:01,032 - #47 r
+INFO  03:17:01,032 - #47 delilac
+INFO  03:17:01,035 - #47 Kvadar
+INFO  03:17:01,035 - #47 Predmet
+INFO  03:17:01,036 - #47 int
+INFO  03:17:01,036 - #47 a
+INFO  03:17:01,036 - #47 b
+INFO  03:17:01,037 - #47 c
+INFO  03:17:01,037 - #47 postaviTezinu
+INFO  03:17:01,038 - #47 int
+INFO  03:17:01,038 - #47 tezina
+INFO  03:17:01,039 - #47 this
+INFO  03:17:01,039 - #47 tezina
+INFO  03:17:01,039 - #47 tezina
+INFO  03:17:01,040 - #47 vrsta
+INFO  03:17:01,040 - #49 k
+INFO  03:17:01,041 - #47 postaviStranice
+INFO  03:17:01,042 - #47 int
+INFO  03:17:01,042 - #47 a
+INFO  03:17:01,042 - #47 int
+INFO  03:17:01,043 - #47 b
+INFO  03:17:01,043 - #47 int
+INFO  03:17:01,043 - #47 c
+INFO  03:17:01,044 - #47 this
+INFO  03:17:01,044 - #47 a
+INFO  03:17:01,044 - #47 a
+INFO  03:17:01,044 - #47 this
+INFO  03:17:01,044 - #47 b
+INFO  03:17:01,045 - #47 b
+INFO  03:17:01,045 - #47 this
+INFO  03:17:01,045 - #47 c
+INFO  03:17:01,045 - #47 c
+INFO  03:17:01,046 - #47 vrsta
+INFO  03:17:01,046 - #49 k
+INFO  03:17:01,046 - #47 int
+INFO  03:17:01,046 - #47 zapremina
+INFO  03:17:01,047 - #47 int
+INFO  03:17:01,047 - #47 z
+INFO  03:17:01,047 - #47 z
+INFO  03:17:01,047 - #47 a
+INFO  03:17:01,048 - #47 b
+INFO  03:17:01,048 - #47 c
+INFO  03:17:01,048 - #47 z
+INFO  03:17:01,048 - #47 int
+INFO  03:17:01,048 - #47 zapreminaK
+INFO  03:17:01,049 - #47 zapreminaS
+INFO  03:17:01,049 - #47 int
+INFO  03:17:01,049 - #47 tezinaK
+INFO  03:17:01,049 - #47 tezinaS
+INFO  03:17:01,050 - #47 ispis
+INFO  03:17:01,050 - #47 Predmet
+INFO  03:17:01,050 - #47 p
+INFO  03:17:01,051 - #47 p
+INFO  03:17:01,051 - #47 dohvVrstu
+INFO  03:17:01,051 - #49 s
+INFO  03:17:01,054 - #49 S
+INFO  03:17:01,054 - #47 p
+INFO  03:17:01,055 - #47 dohvVrstu
+INFO  03:17:01,055 - #49 k
+INFO  03:17:01,055 - #49 K
+INFO  03:17:01,057 - #47 eol
+INFO  03:17:01,057 - #47 p
+INFO  03:17:01,057 - #47 dohvTezinu
+INFO  03:17:01,058 - #47 main
+INFO  03:17:01,058 - #47 Predmet
+INFO  03:17:01,058 - #47 predmeti
+INFO  03:17:01,058 - #47 int
+INFO  03:17:01,059 - #47 i
+INFO  03:17:01,059 - #47 Sfera
+INFO  03:17:01,059 - #47 s1
+INFO  03:17:01,059 - #47 s2
+INFO  03:17:01,059 - #47 s3
+INFO  03:17:01,060 - #47 Kvadar
+INFO  03:17:01,060 - #47 k1
+INFO  03:17:01,060 - #47 k2
+INFO  03:17:01,060 - #47 k3
+INFO  03:17:01,060 - #47 int
+INFO  03:17:01,061 - #47 t
+INFO  03:17:01,061 - #47 predmeti
+INFO  03:17:01,061 - #47 Predmet
+INFO  03:17:01,061 - #46 6
+INFO  03:17:01,062 - #47 s1
+INFO  03:17:01,062 - #47 Sfera
+INFO  03:17:01,062 - #47 s2
+INFO  03:17:01,063 - #47 Sfera
+INFO  03:17:01,063 - #47 s3
+INFO  03:17:01,063 - #47 Sfera
+INFO  03:17:01,063 - #47 k1
+INFO  03:17:01,064 - #47 Kvadar
+INFO  03:17:01,064 - #47 k2
+INFO  03:17:01,064 - #47 Kvadar
+INFO  03:17:01,064 - #47 k3
+INFO  03:17:01,064 - #47 Kvadar
+INFO  03:17:01,065 - #47 s1
+INFO  03:17:01,065 - #47 postaviPoluprecnik
+INFO  03:17:01,065 - #46 1
+INFO  03:17:01,066 - #47 s2
+INFO  03:17:01,066 - #47 postaviPoluprecnik
+INFO  03:17:01,066 - #46 2
+INFO  03:17:01,066 - #47 s3
+INFO  03:17:01,066 - #47 postaviPoluprecnik
+INFO  03:17:01,067 - #46 3
+INFO  03:17:01,068 - #47 k1
+INFO  03:17:01,068 - #47 postaviStranice
+INFO  03:17:01,068 - #46 1
+INFO  03:17:01,068 - #46 2
+INFO  03:17:01,069 - #46 3
+INFO  03:17:01,069 - #47 k2
+INFO  03:17:01,069 - #47 postaviStranice
+INFO  03:17:01,070 - #46 2
+INFO  03:17:01,070 - #46 3
+INFO  03:17:01,070 - #46 4
+INFO  03:17:01,070 - #47 k3
+INFO  03:17:01,071 - #47 postaviStranice
+INFO  03:17:01,071 - #46 3
+INFO  03:17:01,072 - #46 4
+INFO  03:17:01,072 - #46 5
+INFO  03:17:01,072 - #47 predmeti
+INFO  03:17:01,072 - #46 0
+INFO  03:17:01,073 - #47 s1
+INFO  03:17:01,073 - #47 predmeti
+INFO  03:17:01,074 - #46 2
+INFO  03:17:01,074 - #47 s2
+INFO  03:17:01,074 - #47 predmeti
+INFO  03:17:01,074 - #46 4
+INFO  03:17:01,074 - #47 s3
+INFO  03:17:01,074 - #47 predmeti
+INFO  03:17:01,075 - #46 1
+INFO  03:17:01,075 - #47 k1
+INFO  03:17:01,075 - #47 predmeti
+INFO  03:17:01,075 - #46 3
+INFO  03:17:01,075 - #47 k2
+INFO  03:17:01,076 - #47 predmeti
+INFO  03:17:01,076 - #46 5
+INFO  03:17:01,076 - #47 k3
+INFO  03:17:01,076 - #47 t
+INFO  03:17:01,076 - #47 i
+INFO  03:17:01,076 - #46 0
+INFO  03:17:01,077 - #47 predmeti
+INFO  03:17:01,078 - #47 i
+INFO  03:17:01,078 - #47 postaviTezinu
+INFO  03:17:01,079 - #47 t
+INFO  03:17:01,079 - #47 i
+INFO  03:17:01,082 - #47 i
+INFO  03:17:01,082 - #46 6
+INFO  03:17:01,082 - #47 zapreminaS
+INFO  03:17:01,084 - #46 0
+INFO  03:17:01,084 - #47 tezinaS
+INFO  03:17:01,084 - #46 0
+INFO  03:17:01,084 - #47 i
+INFO  03:17:01,084 - #46 1
+INFO  03:17:01,084 - #47 i
+INFO  03:17:01,084 - #46 2
+INFO  03:17:01,086 - #46 0
+INFO  03:17:01,087 - #47 i
+INFO  03:17:01,088 - #47 zapreminaS
+INFO  03:17:01,088 - #47 zapreminaS
+INFO  03:17:01,089 - #47 predmeti
+INFO  03:17:01,092 - #47 i
+INFO  03:17:01,093 - #46 1
+INFO  03:17:01,094 - #47 zapremina
+INFO  03:17:01,095 - #47 tezinaS
+INFO  03:17:01,095 - #47 tezinaS
+INFO  03:17:01,095 - #47 predmeti
+INFO  03:17:01,095 - #47 i
+INFO  03:17:01,096 - #46 1
+INFO  03:17:01,096 - #47 Q
+INFO  03:17:01,096 - #47 ispis
+INFO  03:17:01,096 - #47 predmeti
+INFO  03:17:01,096 - #47 i
+INFO  03:17:01,097 - #46 1
+INFO  03:17:01,097 - #47 i
+INFO  03:17:01,097 - #47 i
+INFO  03:17:01,098 - #46 6
+INFO  03:17:01,099 - #47 zapreminaK
+INFO  03:17:01,100 - #46 0
+INFO  03:17:01,100 - #47 tezinaK
+INFO  03:17:01,100 - #46 0
+INFO  03:17:01,100 - #47 i
+INFO  03:17:01,101 - #46 1
+INFO  03:17:01,101 - #47 i
+INFO  03:17:01,101 - #46 2
+INFO  03:17:01,101 - #46 1
+INFO  03:17:01,101 - #47 i
+INFO  03:17:01,103 - #47 zapreminaS
+INFO  03:17:01,103 - #47 zapreminaS
+INFO  03:17:01,103 - #47 predmeti
+INFO  03:17:01,104 - #47 i
+INFO  03:17:01,104 - #46 1
+INFO  03:17:01,104 - #47 zapremina
+INFO  03:17:01,105 - #47 tezinaS
+INFO  03:17:01,105 - #47 tezinaS
+INFO  03:17:01,105 - #47 predmeti
+INFO  03:17:01,105 - #47 i
+INFO  03:17:01,106 - #46 1
+INFO  03:17:01,106 - #47 Q
+INFO  03:17:01,106 - #47 ispis
+INFO  03:17:01,106 - #47 predmeti
+INFO  03:17:01,108 - #47 i
+INFO  03:17:01,109 - #46 1
+INFO  03:17:01,109 - #47 i
+INFO  03:17:01,109 - #47 i
+INFO  03:17:01,109 - #46 6
+INFO  03:17:01,110 - #47 zapreminaS
+INFO  03:17:01,110 - #47 eol
+INFO  03:17:01,110 - #47 zapreminaK
+INFO  03:17:01,110 - #47 eol
+INFO  03:17:01,110 - #47 tezinaS
+INFO  03:17:01,111 - #47 eol
+INFO  03:17:01,111 - #47 tezinaK
+INFO  03:17:01,111 - #47 eol
+INFO  03:17:01,111 - #47 i
+INFO  03:17:01,111 - #46 0
+INFO  03:17:01,111 - #47 i
+INFO  03:17:01,112 - #46 1
+INFO  03:17:01,113 - #46 1
+INFO  03:17:01,113 - #46 1
+INFO  03:17:01,116 - #46 3
+INFO  03:17:01,117 - #46 3
+INFO  03:17:01,117 - #46 2
+INFO  03:17:01,117 - #46 2
+INFO  03:17:01,117 - #46 5
+INFO  03:17:01,118 - #46 5
+INFO  03:17:01,118 - #47 i
+INFO  03:17:01,118 - #47 i
+INFO  03:17:01,118 - #46 2
+INFO  03:17:01,118 - #46 6
+INFO  03:17:01,118 - #46 6
+INFO  03:17:01,118 - #46 9
+INFO  03:17:01,119 - #46 9
+INFO  03:17:01,120 - #47 eol
+INFO  03:17:01,120 - #47 i
+INFO  03:17:01,120 - #47 i
+INFO  03:17:01,120 - #46 10
+INFO  03:17:01,134 - ===================================
+INFO  03:17:01,162 - Program(
   ProgramName(
    test_303
   ) [ProgramName]
@@ -311,27 +318,44 @@ INFO  02:03:16,882 - Program(
         DataDeclListElement(
           DataDeclListElement(
             DataDeclListElement(
-              EmptyDataDeclListHead(
-              ) [EmptyDataDeclListHead]
+              DataDeclListElement(
+                EmptyDataDeclListHead(
+                ) [EmptyDataDeclListHead]
+                ConstDataDecl(
+                  ConstDecl(
+                    ConstDeclType(
+                      Type(
+                       int
+                      ) [Type]
+                    ) [ConstDeclType]
+                    ConstNameValuePairListElement(
+                      ConstNameValuePairListHead(
+                        NumberConstNameValuePair(
+                         cinilac
+                         4
+                        ) [NumberConstNameValuePair]
+                      ) [ConstNameValuePairListHead]
+                      NumberConstNameValuePair(
+                       delilac
+                       3
+                      ) [NumberConstNameValuePair]
+                    ) [ConstNameValuePairListElement]
+                  ) [ConstDecl]
+                ) [ConstDataDecl]
+              ) [DataDeclListElement]
               ConstDataDecl(
                 ConstDecl(
                   ConstDeclType(
                     Type(
-                     int
+                     bool
                     ) [Type]
                   ) [ConstDeclType]
-                  ConstNameValuePairListElement(
-                    ConstNameValuePairListHead(
-                      NumberConstNameValuePair(
-                       cinilac
-                       4
-                      ) [NumberConstNameValuePair]
-                    ) [ConstNameValuePairListHead]
-                    NumberConstNameValuePair(
-                     delilac
-                     3
-                    ) [NumberConstNameValuePair]
-                  ) [ConstNameValuePairListElement]
+                  ConstNameValuePairListHead(
+                    BoolConstNameValuePair(
+                     a
+                     true
+                    ) [BoolConstNameValuePair]
+                  ) [ConstNameValuePairListHead]
                 ) [ConstDecl]
               ) [ConstDataDecl]
             ) [DataDeclListElement]
@@ -344,20 +368,15 @@ INFO  02:03:16,882 - Program(
                   VarDeclListElement(
                     EmptyVarDeclList(
                     ) [EmptyVarDeclList]
-                    VarDecl(
-                      VarDeclType(
-                        Type(
-                         int
-                        ) [Type]
-                      ) [VarDeclType]
+                    VariableDeclarationError(
                       VarIdentListHead(
                         ScalarVarIdent(
                          tezina
                         ) [ScalarVarIdent]
                       ) [VarIdentListHead]
-                    ) [VarDecl]
+                    ) [VariableDeclarationError]
                   ) [VarDeclListElement]
-                  VarDecl(
+                  VariableDeclaration(
                     VarDeclType(
                       Type(
                        char
@@ -368,7 +387,7 @@ INFO  02:03:16,882 - Program(
                        vrsta
                       ) [ScalarVarIdent]
                     ) [VarIdentListHead]
-                  ) [VarDecl]
+                  ) [VariableDeclaration]
                 ) [VarDeclListElement]
                 ClassMethodDeclarations(
                   MethodDeclarationListElement(
@@ -687,7 +706,7 @@ INFO  02:03:16,882 - Program(
               VarDeclListElement(
                 EmptyVarDeclList(
                 ) [EmptyVarDeclList]
-                VarDecl(
+                VariableDeclaration(
                   VarDeclType(
                     Type(
                      int
@@ -698,7 +717,7 @@ INFO  02:03:16,882 - Program(
                      r
                     ) [ScalarVarIdent]
                   ) [VarIdentListHead]
-                ) [VarDecl]
+                ) [VariableDeclaration]
               ) [VarDeclListElement]
               ExtendedClassSplitter(
               ) [ExtendedClassSplitter]
@@ -882,7 +901,7 @@ INFO  02:03:16,882 - Program(
                     VarDeclListElement(
                       EmptyVarDeclList(
                       ) [EmptyVarDeclList]
-                      VarDecl(
+                      VariableDeclaration(
                         VarDeclType(
                           Type(
                            int
@@ -893,7 +912,7 @@ INFO  02:03:16,882 - Program(
                            z
                           ) [ScalarVarIdent]
                         ) [VarIdentListHead]
-                      ) [VarDecl]
+                      ) [VariableDeclaration]
                     ) [VarDeclListElement]
                     StatementListElement(
                       StatementListElement(
@@ -999,7 +1018,7 @@ INFO  02:03:16,882 - Program(
             VarDeclListElement(
               EmptyVarDeclList(
               ) [EmptyVarDeclList]
-              VarDecl(
+              VariableDeclaration(
                 VarDeclType(
                   Type(
                    int
@@ -1020,7 +1039,7 @@ INFO  02:03:16,882 - Program(
                    c
                   ) [ScalarVarIdent]
                 ) [VarIdentListElement]
-              ) [VarDecl]
+              ) [VariableDeclaration]
             ) [VarDeclListElement]
             ExtendedClassSplitter(
             ) [ExtendedClassSplitter]
@@ -1286,7 +1305,7 @@ INFO  02:03:16,882 - Program(
                   VarDeclListElement(
                     EmptyVarDeclList(
                     ) [EmptyVarDeclList]
-                    VarDecl(
+                    VariableDeclaration(
                       VarDeclType(
                         Type(
                          int
@@ -1297,7 +1316,7 @@ INFO  02:03:16,882 - Program(
                          z
                         ) [ScalarVarIdent]
                       ) [VarIdentListHead]
-                    ) [VarDecl]
+                    ) [VariableDeclaration]
                   ) [VarDeclListElement]
                   StatementListElement(
                     StatementListElement(
@@ -1379,7 +1398,7 @@ INFO  02:03:16,882 - Program(
         ) [ClassDataDecl]
       ) [DataDeclListElement]
       VarDataDecl(
-        VarDecl(
+        VariableDeclaration(
           VarDeclType(
             Type(
              int
@@ -1395,11 +1414,11 @@ INFO  02:03:16,882 - Program(
              zapreminaS
             ) [ScalarVarIdent]
           ) [VarIdentListElement]
-        ) [VarDecl]
+        ) [VariableDeclaration]
       ) [VarDataDecl]
     ) [DataDeclListElement]
     VarDataDecl(
-      VarDecl(
+      VariableDeclaration(
         VarDeclType(
           Type(
            int
@@ -1415,7 +1434,7 @@ INFO  02:03:16,882 - Program(
            tezinaS
           ) [ScalarVarIdent]
         ) [VarIdentListElement]
-      ) [VarDecl]
+      ) [VariableDeclaration]
     ) [VarDataDecl]
   ) [DataDeclListElement]
   MethodDeclarationListElement(
@@ -1632,7 +1651,7 @@ INFO  02:03:16,882 - Program(
               VarDeclListElement(
                 EmptyVarDeclList(
                 ) [EmptyVarDeclList]
-                VarDecl(
+                VariableDeclaration(
                   VarDeclType(
                     Type(
                      Predmet
@@ -1643,9 +1662,9 @@ INFO  02:03:16,882 - Program(
                      predmeti
                     ) [ArrayVarIdent]
                   ) [VarIdentListHead]
-                ) [VarDecl]
+                ) [VariableDeclaration]
               ) [VarDeclListElement]
-              VarDecl(
+              VariableDeclaration(
                 VarDeclType(
                   Type(
                    int
@@ -1656,9 +1675,9 @@ INFO  02:03:16,882 - Program(
                    i
                   ) [ScalarVarIdent]
                 ) [VarIdentListHead]
-              ) [VarDecl]
+              ) [VariableDeclaration]
             ) [VarDeclListElement]
-            VarDecl(
+            VariableDeclaration(
               VarDeclType(
                 Type(
                  Sfera
@@ -1679,9 +1698,9 @@ INFO  02:03:16,882 - Program(
                  s3
                 ) [ScalarVarIdent]
               ) [VarIdentListElement]
-            ) [VarDecl]
+            ) [VariableDeclaration]
           ) [VarDeclListElement]
-          VarDecl(
+          VariableDeclaration(
             VarDeclType(
               Type(
                Kvadar
@@ -1702,9 +1721,9 @@ INFO  02:03:16,882 - Program(
                k3
               ) [ScalarVarIdent]
             ) [VarIdentListElement]
-          ) [VarDecl]
+          ) [VariableDeclaration]
         ) [VarDeclListElement]
-        VarDecl(
+        VariableDeclaration(
           VarDeclType(
             Type(
              int
@@ -1715,7 +1734,7 @@ INFO  02:03:16,882 - Program(
              t
             ) [ScalarVarIdent]
           ) [VarIdentListHead]
-        ) [VarDecl]
+        ) [VariableDeclaration]
       ) [VarDeclListElement]
       StatementListElement(
         StatementListElement(
@@ -4018,4 +4037,5 @@ INFO  02:03:16,882 - Program(
     ) [MethodDeclaration]
   ) [MethodDeclarationListElement]
 ) [Program]
-INFO  02:03:16,896 - ===================================
+INFO  03:17:02,259 - ===================================
+ERROR 03:17:02,277 - Line: 11 - Corrected variable declaration error!

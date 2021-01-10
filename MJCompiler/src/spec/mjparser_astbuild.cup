@@ -7,13 +7,9 @@ import org.apache.log4j.*;
 import rs.ac.bg.etf.pp1.ast.*;
 
 parser code {:
-
 	boolean errorDetected;
 
 	Logger log = Logger.getLogger(getClass());
-
-
-    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
 
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
@@ -31,12 +27,13 @@ parser code {:
     public void report_error(String message, Object info) {
     	errorDetected = true;
     	StringBuilder msg = new StringBuilder(message);
-    	if (info instanceof Symbol)
+
+    	if (info instanceof Symbol) {
             msg.append (" na liniji ").append(((Symbol)info).left);
+        }
+
         log.error(msg.toString());
     }
-
-
 :}
 
 init with {:
@@ -239,12 +236,15 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
     | (EmptyVarDeclList) {: RESULT=new EmptyVarDeclList(); :}
 ;
 
- VarDecl ::= (VarDecl) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VarDecl(V1, V2); RESULT.setLine(V1left); :} ;
+ VarDecl ::= (VariableDeclaration) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VariableDeclaration(V1, V2); RESULT.setLine(V1left); :}
+        | (VariableDeclarationError) error VarIdents:V1 SEMICOLON {: RESULT=new VariableDeclarationError(V1); RESULT.setLine(V1left); :}
+;
 
  VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
 
  VarIdents ::= (VarIdentListElement) VarIdents:V1 COMMA VarIdent:V2 {: RESULT=new VarIdentListElement(V1, V2); RESULT.setLine(V1left); :}
         | (VarIdentListHead) VarIdent:V1 {: RESULT=new VarIdentListHead(V1); RESULT.setLine(V1left); :}
+        | (VarIdentError) error {: RESULT=new VarIdentError(); :}
 ;
 
  VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RESULT.setLine(nameleft); :}

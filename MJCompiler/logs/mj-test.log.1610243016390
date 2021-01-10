@@ -1,0 +1,12 @@
+INFO  02:39:32,974 - ===================================
+INFO  02:39:32,979 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  02:39:32,979 - ===================================
+INFO  02:39:33,127 - #47 test_303
+INFO  02:39:33,130 - #47 int
+INFO  02:39:33,130 - #47 cinilac
+INFO  02:39:33,133 - #46 4
+INFO  02:39:33,134 - #47 delilac
+INFO  02:39:33,134 - #46 3
+ERROR 02:39:33,135 - 
+Sintaksna greska na liniji 6
+ERROR 02:39:33,135 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6

@@ -8,6 +8,7 @@
 				<exclude name="SemanticAnalyzer.java"/>
 				<exclude name="CodeGenerator.java"/>
 				<exclude name="util/Log4JUtils.java" />
+				<exclude name="util/CustomDumpSymbolTableVisitor.java" />
 			</fileset>
 		</delete>
 		<delete>

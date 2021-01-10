@@ -70,7 +70,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         structTemporaries.put(StructConstants.CurrentVarDeclTypeName, varDeclType.getType().struct);
     }
 
-    public void visit(VarDecl varDecl) {
+    public void visit(VariableDeclaration variableDeclaration) {
         structTemporaries.remove(StructConstants.CurrentVarDeclTypeName);
     }
 
@@ -95,19 +95,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     public void visit(NumberConstNameValuePair numberConstNameValuePair) {
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
-        Tab.insert(Obj.Con, numberConstNameValuePair.getName(), constType);
+        Obj constant = Tab.insert(Obj.Con, numberConstNameValuePair.getName(), constType);
+        constant.setAdr(numberConstNameValuePair.getValue());
     }
 
     public void visit(CharConstNameValuePair charConstNameValuePair) {
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
-        Tab.insert(Obj.Con, charConstNameValuePair.getName(), constType);
+        Obj constant = Tab.insert(Obj.Con, charConstNameValuePair.getName(), constType);
+        constant.setAdr(charConstNameValuePair.getValue());
     }
 
     public void visit(BoolConstNameValuePair boolConstNameValuePair) {
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
-        Tab.insert(Obj.Con, boolConstNameValuePair.getName(), constType);
+        Obj constant = Tab.insert(Obj.Con, boolConstNameValuePair.getName(), constType);
+        constant.setAdr(boolConstNameValuePair.getValue() ? 1 : 0);
     }
 
     // Method
@@ -449,6 +452,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
+    // Handler error correction
+
+    public void visit(VariableDeclarationError variableDeclarationError) {
+        report_error("Corrected variable declaration error!", variableDeclarationError);
+    }
+
+    public void visit(VarIdentError varIdentError) {
+        report_error("Corrected variable identifier declaration error!", varIdentError);
+    }
+
 
     // Helper methods
 
@@ -476,19 +489,28 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void report_error(String message, SyntaxNode info) {
-        StringBuilder msg = new StringBuilder(message);
+        StringBuilder msg = new StringBuilder();
         int line = (info == null) ? 0: info.getLine();
-        if (line != 0)
-            msg.append (" na liniji ").append(line);
+
+        if (line != 0) {
+            msg.append("Line: ").append(line).append(" - ");
+        }
+
+        msg.append(message);
+
         log.error(msg.toString());
     }
 
     public void report_info(String message, SyntaxNode info) {
-        StringBuilder msg = new StringBuilder(message);
+        StringBuilder msg = new StringBuilder();
         int line = (info == null) ? 0: info.getLine();
-        if (line != 0)
-            msg.append (" na liniji ").append(line);
+
+        if (line != 0) {
+            msg.append("Line: ").append(line).append(" - ");
+        }
+
+        msg.append(message);
+
         log.info(msg.toString());
     }
-
 }
