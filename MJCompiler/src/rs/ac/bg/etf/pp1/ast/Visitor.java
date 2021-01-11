@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -30,8 +30,8 @@ public interface Visitor {
     public void visit(SwitchCases SwitchCases);
     public void visit(ExprPrefix ExprPrefix);
     public void visit(ActPars ActPars);
-    public void visit(ClassMethodDecls ClassMethodDecls);
     public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(ClassMethodDecls ClassMethodDecls);
     public void visit(VarDecls VarDecls);
     public void visit(UnmatchedStatement UnmatchedStatement);
     public void visit(Statement Statement);
@@ -41,6 +41,7 @@ public interface Visitor {
     public void visit(BracedStatements BracedStatements);
     public void visit(CondFact CondFact);
     public void visit(FormPar FormPar);
+    public void visit(ActPar ActPar);
     public void visit(SingleStatement SingleStatement);
     public void visit(MethodTypeNamePair MethodTypeNamePair);
     public void visit(FormPars FormPars);
@@ -60,8 +61,6 @@ public interface Visitor {
     public void visit(ArrayAccessDesignator ArrayAccessDesignator);
     public void visit(ObjectAccessDesignator ObjectAccessDesignator);
     public void visit(ScalarDesignator ScalarDesignator);
-    public void visit(NoFunctionCallActualParameters NoFunctionCallActualParameters);
-    public void visit(FunctionCallActualParameters FunctionCallActualParameters);
     public void visit(ExprResultFactor ExprResultFactor);
     public void visit(NewArrayObjectFactor NewArrayObjectFactor);
     public void visit(NewObjectFactor NewObjectFactor);
@@ -85,16 +84,21 @@ public interface Visitor {
     public void visit(CondTermListElement CondTermListElement);
     public void visit(ConditionListHead ConditionListHead);
     public void visit(ConditionListElement ConditionListElement);
+    public void visit(ActualParameter ActualParameter);
     public void visit(ActualParametersListHead ActualParametersListHead);
     public void visit(ActualParametersListElement ActualParametersListElement);
+    public void visit(NoFunctionCallActualParameters NoFunctionCallActualParameters);
+    public void visit(FunctionCallActualParameters FunctionCallActualParameters);
+    public void visit(FunctionCallDesignator FunctionCallDesignator);
+    public void visit(FunctionCall FunctionCall);
     public void visit(PostDecDesignatorStatement PostDecDesignatorStatement);
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement);
-    public void visit(NoParFuncCallDesignatorStatement NoParFuncCallDesignatorStatement);
-    public void visit(ParFuncCallDesignatorStatement ParFuncCallDesignatorStatement);
+    public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement);
     public void visit(AssignmentDesignatorStatement AssignmentDesignatorStatement);
     public void visit(SwitchCase SwitchCase);
     public void visit(EmptySwitchCaseListHead EmptySwitchCaseListHead);
     public void visit(SwitchCaseListElement SwitchCaseListElement);
+    public void visit(SwitchExpression SwitchExpression);
     public void visit(UnmatchedIfElseStatement UnmatchedIfElseStatement);
     public void visit(UnmatchedIfStatement UnmatchedIfStatement);
     public void visit(MatchedParPrintStatement MatchedParPrintStatement);

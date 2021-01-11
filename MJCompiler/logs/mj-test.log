@@ -1,314 +1,314 @@
-INFO  03:17:00,778 - ===================================
-INFO  03:17:00,782 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
-INFO  03:17:00,783 - ===================================
-INFO  03:17:00,958 - #47 test_303
-INFO  03:17:00,961 - #47 int
-INFO  03:17:00,962 - #47 cinilac
-INFO  03:17:00,966 - #46 4
-INFO  03:17:00,968 - #47 delilac
-INFO  03:17:00,968 - #46 3
-INFO  03:17:00,971 - #47 bool
-INFO  03:17:00,971 - #47 a
-INFO  03:17:00,972 - #48 true
-INFO  03:17:00,972 - #47 Predmet
-ERROR 03:17:00,974 - Lexical analysis error for text "@" on line 10:3!
-INFO  03:17:00,974 - #47 sdkak
-ERROR 03:17:00,977 - 
-Sintaksna greska na liniji 10
-INFO  03:17:00,977 - #47 int
-INFO  03:17:00,978 - #47 tezina
-INFO  03:17:00,983 - #47 char
-INFO  03:17:00,983 - #47 vrsta
-INFO  03:17:00,988 - #47 postaviTezinu
-INFO  03:17:00,989 - #47 int
-INFO  03:17:00,989 - #47 tezina
-INFO  03:17:00,990 - #47 this
-INFO  03:17:00,991 - #47 tezina
-INFO  03:17:00,992 - #47 tezina
-INFO  03:17:01,001 - #47 ucitajTezinu
-INFO  03:17:01,002 - #47 tezina
-INFO  03:17:01,003 - #47 int
-INFO  03:17:01,004 - #47 zapremina
-INFO  03:17:01,004 - #46 0
-INFO  03:17:01,005 - #47 int
-INFO  03:17:01,006 - #47 Q
-INFO  03:17:01,006 - #47 zapremina
-INFO  03:17:01,008 - #47 tezina
-INFO  03:17:01,012 - #47 postaviVrstu
-INFO  03:17:01,012 - #47 char
-INFO  03:17:01,013 - #47 vrsta
-INFO  03:17:01,013 - #47 this
-INFO  03:17:01,013 - #47 vrsta
-INFO  03:17:01,014 - #47 vrsta
-INFO  03:17:01,014 - #47 char
-INFO  03:17:01,015 - #47 dohvVrstu
-INFO  03:17:01,015 - #47 vrsta
-INFO  03:17:01,015 - #47 int
-INFO  03:17:01,015 - #47 dohvTezinu
-INFO  03:17:01,016 - #47 tezina
-INFO  03:17:01,018 - #47 Sfera
-INFO  03:17:01,018 - #47 Predmet
-INFO  03:17:01,020 - #47 int
-INFO  03:17:01,021 - #47 r
-INFO  03:17:01,023 - #47 postaviTezinu
-INFO  03:17:01,024 - #47 int
-INFO  03:17:01,024 - #47 tezina
-INFO  03:17:01,024 - #47 this
-INFO  03:17:01,025 - #47 tezina
-INFO  03:17:01,025 - #47 tezina
-INFO  03:17:01,026 - #47 vrsta
-INFO  03:17:01,026 - #49 s
-INFO  03:17:01,027 - #47 postaviPoluprecnik
-INFO  03:17:01,028 - #47 int
-INFO  03:17:01,028 - #47 r
-INFO  03:17:01,028 - #47 this
-INFO  03:17:01,029 - #47 r
-INFO  03:17:01,029 - #47 r
-INFO  03:17:01,029 - #47 postaviVrstu
-INFO  03:17:01,030 - #49 s
-INFO  03:17:01,030 - #47 int
-INFO  03:17:01,031 - #47 zapremina
-INFO  03:17:01,031 - #47 int
-INFO  03:17:01,031 - #47 z
-INFO  03:17:01,031 - #47 z
-INFO  03:17:01,032 - #47 cinilac
-INFO  03:17:01,032 - #47 z
-INFO  03:17:01,032 - #47 r
-INFO  03:17:01,032 - #47 delilac
-INFO  03:17:01,035 - #47 Kvadar
-INFO  03:17:01,035 - #47 Predmet
-INFO  03:17:01,036 - #47 int
-INFO  03:17:01,036 - #47 a
-INFO  03:17:01,036 - #47 b
-INFO  03:17:01,037 - #47 c
-INFO  03:17:01,037 - #47 postaviTezinu
-INFO  03:17:01,038 - #47 int
-INFO  03:17:01,038 - #47 tezina
-INFO  03:17:01,039 - #47 this
-INFO  03:17:01,039 - #47 tezina
-INFO  03:17:01,039 - #47 tezina
-INFO  03:17:01,040 - #47 vrsta
-INFO  03:17:01,040 - #49 k
-INFO  03:17:01,041 - #47 postaviStranice
-INFO  03:17:01,042 - #47 int
-INFO  03:17:01,042 - #47 a
-INFO  03:17:01,042 - #47 int
-INFO  03:17:01,043 - #47 b
-INFO  03:17:01,043 - #47 int
-INFO  03:17:01,043 - #47 c
-INFO  03:17:01,044 - #47 this
-INFO  03:17:01,044 - #47 a
-INFO  03:17:01,044 - #47 a
-INFO  03:17:01,044 - #47 this
-INFO  03:17:01,044 - #47 b
-INFO  03:17:01,045 - #47 b
-INFO  03:17:01,045 - #47 this
-INFO  03:17:01,045 - #47 c
-INFO  03:17:01,045 - #47 c
-INFO  03:17:01,046 - #47 vrsta
-INFO  03:17:01,046 - #49 k
-INFO  03:17:01,046 - #47 int
-INFO  03:17:01,046 - #47 zapremina
-INFO  03:17:01,047 - #47 int
-INFO  03:17:01,047 - #47 z
-INFO  03:17:01,047 - #47 z
-INFO  03:17:01,047 - #47 a
-INFO  03:17:01,048 - #47 b
-INFO  03:17:01,048 - #47 c
-INFO  03:17:01,048 - #47 z
-INFO  03:17:01,048 - #47 int
-INFO  03:17:01,048 - #47 zapreminaK
-INFO  03:17:01,049 - #47 zapreminaS
-INFO  03:17:01,049 - #47 int
-INFO  03:17:01,049 - #47 tezinaK
-INFO  03:17:01,049 - #47 tezinaS
-INFO  03:17:01,050 - #47 ispis
-INFO  03:17:01,050 - #47 Predmet
-INFO  03:17:01,050 - #47 p
-INFO  03:17:01,051 - #47 p
-INFO  03:17:01,051 - #47 dohvVrstu
-INFO  03:17:01,051 - #49 s
-INFO  03:17:01,054 - #49 S
-INFO  03:17:01,054 - #47 p
-INFO  03:17:01,055 - #47 dohvVrstu
-INFO  03:17:01,055 - #49 k
-INFO  03:17:01,055 - #49 K
-INFO  03:17:01,057 - #47 eol
-INFO  03:17:01,057 - #47 p
-INFO  03:17:01,057 - #47 dohvTezinu
-INFO  03:17:01,058 - #47 main
-INFO  03:17:01,058 - #47 Predmet
-INFO  03:17:01,058 - #47 predmeti
-INFO  03:17:01,058 - #47 int
-INFO  03:17:01,059 - #47 i
-INFO  03:17:01,059 - #47 Sfera
-INFO  03:17:01,059 - #47 s1
-INFO  03:17:01,059 - #47 s2
-INFO  03:17:01,059 - #47 s3
-INFO  03:17:01,060 - #47 Kvadar
-INFO  03:17:01,060 - #47 k1
-INFO  03:17:01,060 - #47 k2
-INFO  03:17:01,060 - #47 k3
-INFO  03:17:01,060 - #47 int
-INFO  03:17:01,061 - #47 t
-INFO  03:17:01,061 - #47 predmeti
-INFO  03:17:01,061 - #47 Predmet
-INFO  03:17:01,061 - #46 6
-INFO  03:17:01,062 - #47 s1
-INFO  03:17:01,062 - #47 Sfera
-INFO  03:17:01,062 - #47 s2
-INFO  03:17:01,063 - #47 Sfera
-INFO  03:17:01,063 - #47 s3
-INFO  03:17:01,063 - #47 Sfera
-INFO  03:17:01,063 - #47 k1
-INFO  03:17:01,064 - #47 Kvadar
-INFO  03:17:01,064 - #47 k2
-INFO  03:17:01,064 - #47 Kvadar
-INFO  03:17:01,064 - #47 k3
-INFO  03:17:01,064 - #47 Kvadar
-INFO  03:17:01,065 - #47 s1
-INFO  03:17:01,065 - #47 postaviPoluprecnik
-INFO  03:17:01,065 - #46 1
-INFO  03:17:01,066 - #47 s2
-INFO  03:17:01,066 - #47 postaviPoluprecnik
-INFO  03:17:01,066 - #46 2
-INFO  03:17:01,066 - #47 s3
-INFO  03:17:01,066 - #47 postaviPoluprecnik
-INFO  03:17:01,067 - #46 3
-INFO  03:17:01,068 - #47 k1
-INFO  03:17:01,068 - #47 postaviStranice
-INFO  03:17:01,068 - #46 1
-INFO  03:17:01,068 - #46 2
-INFO  03:17:01,069 - #46 3
-INFO  03:17:01,069 - #47 k2
-INFO  03:17:01,069 - #47 postaviStranice
-INFO  03:17:01,070 - #46 2
-INFO  03:17:01,070 - #46 3
-INFO  03:17:01,070 - #46 4
-INFO  03:17:01,070 - #47 k3
-INFO  03:17:01,071 - #47 postaviStranice
-INFO  03:17:01,071 - #46 3
-INFO  03:17:01,072 - #46 4
-INFO  03:17:01,072 - #46 5
-INFO  03:17:01,072 - #47 predmeti
-INFO  03:17:01,072 - #46 0
-INFO  03:17:01,073 - #47 s1
-INFO  03:17:01,073 - #47 predmeti
-INFO  03:17:01,074 - #46 2
-INFO  03:17:01,074 - #47 s2
-INFO  03:17:01,074 - #47 predmeti
-INFO  03:17:01,074 - #46 4
-INFO  03:17:01,074 - #47 s3
-INFO  03:17:01,074 - #47 predmeti
-INFO  03:17:01,075 - #46 1
-INFO  03:17:01,075 - #47 k1
-INFO  03:17:01,075 - #47 predmeti
-INFO  03:17:01,075 - #46 3
-INFO  03:17:01,075 - #47 k2
-INFO  03:17:01,076 - #47 predmeti
-INFO  03:17:01,076 - #46 5
-INFO  03:17:01,076 - #47 k3
-INFO  03:17:01,076 - #47 t
-INFO  03:17:01,076 - #47 i
-INFO  03:17:01,076 - #46 0
-INFO  03:17:01,077 - #47 predmeti
-INFO  03:17:01,078 - #47 i
-INFO  03:17:01,078 - #47 postaviTezinu
-INFO  03:17:01,079 - #47 t
-INFO  03:17:01,079 - #47 i
-INFO  03:17:01,082 - #47 i
-INFO  03:17:01,082 - #46 6
-INFO  03:17:01,082 - #47 zapreminaS
-INFO  03:17:01,084 - #46 0
-INFO  03:17:01,084 - #47 tezinaS
-INFO  03:17:01,084 - #46 0
-INFO  03:17:01,084 - #47 i
-INFO  03:17:01,084 - #46 1
-INFO  03:17:01,084 - #47 i
-INFO  03:17:01,084 - #46 2
-INFO  03:17:01,086 - #46 0
-INFO  03:17:01,087 - #47 i
-INFO  03:17:01,088 - #47 zapreminaS
-INFO  03:17:01,088 - #47 zapreminaS
-INFO  03:17:01,089 - #47 predmeti
-INFO  03:17:01,092 - #47 i
-INFO  03:17:01,093 - #46 1
-INFO  03:17:01,094 - #47 zapremina
-INFO  03:17:01,095 - #47 tezinaS
-INFO  03:17:01,095 - #47 tezinaS
-INFO  03:17:01,095 - #47 predmeti
-INFO  03:17:01,095 - #47 i
-INFO  03:17:01,096 - #46 1
-INFO  03:17:01,096 - #47 Q
-INFO  03:17:01,096 - #47 ispis
-INFO  03:17:01,096 - #47 predmeti
-INFO  03:17:01,096 - #47 i
-INFO  03:17:01,097 - #46 1
-INFO  03:17:01,097 - #47 i
-INFO  03:17:01,097 - #47 i
-INFO  03:17:01,098 - #46 6
-INFO  03:17:01,099 - #47 zapreminaK
-INFO  03:17:01,100 - #46 0
-INFO  03:17:01,100 - #47 tezinaK
-INFO  03:17:01,100 - #46 0
-INFO  03:17:01,100 - #47 i
-INFO  03:17:01,101 - #46 1
-INFO  03:17:01,101 - #47 i
-INFO  03:17:01,101 - #46 2
-INFO  03:17:01,101 - #46 1
-INFO  03:17:01,101 - #47 i
-INFO  03:17:01,103 - #47 zapreminaS
-INFO  03:17:01,103 - #47 zapreminaS
-INFO  03:17:01,103 - #47 predmeti
-INFO  03:17:01,104 - #47 i
-INFO  03:17:01,104 - #46 1
-INFO  03:17:01,104 - #47 zapremina
-INFO  03:17:01,105 - #47 tezinaS
-INFO  03:17:01,105 - #47 tezinaS
-INFO  03:17:01,105 - #47 predmeti
-INFO  03:17:01,105 - #47 i
-INFO  03:17:01,106 - #46 1
-INFO  03:17:01,106 - #47 Q
-INFO  03:17:01,106 - #47 ispis
-INFO  03:17:01,106 - #47 predmeti
-INFO  03:17:01,108 - #47 i
-INFO  03:17:01,109 - #46 1
-INFO  03:17:01,109 - #47 i
-INFO  03:17:01,109 - #47 i
-INFO  03:17:01,109 - #46 6
-INFO  03:17:01,110 - #47 zapreminaS
-INFO  03:17:01,110 - #47 eol
-INFO  03:17:01,110 - #47 zapreminaK
-INFO  03:17:01,110 - #47 eol
-INFO  03:17:01,110 - #47 tezinaS
-INFO  03:17:01,111 - #47 eol
-INFO  03:17:01,111 - #47 tezinaK
-INFO  03:17:01,111 - #47 eol
-INFO  03:17:01,111 - #47 i
-INFO  03:17:01,111 - #46 0
-INFO  03:17:01,111 - #47 i
-INFO  03:17:01,112 - #46 1
-INFO  03:17:01,113 - #46 1
-INFO  03:17:01,113 - #46 1
-INFO  03:17:01,116 - #46 3
-INFO  03:17:01,117 - #46 3
-INFO  03:17:01,117 - #46 2
-INFO  03:17:01,117 - #46 2
-INFO  03:17:01,117 - #46 5
-INFO  03:17:01,118 - #46 5
-INFO  03:17:01,118 - #47 i
-INFO  03:17:01,118 - #47 i
-INFO  03:17:01,118 - #46 2
-INFO  03:17:01,118 - #46 6
-INFO  03:17:01,118 - #46 6
-INFO  03:17:01,118 - #46 9
-INFO  03:17:01,119 - #46 9
-INFO  03:17:01,120 - #47 eol
-INFO  03:17:01,120 - #47 i
-INFO  03:17:01,120 - #47 i
-INFO  03:17:01,120 - #46 10
-INFO  03:17:01,134 - ===================================
-INFO  03:17:01,162 - Program(
+INFO  01:27:54,549 - ===================================
+INFO  01:27:54,549 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  01:27:54,549 - ===================================
+INFO  01:27:54,695 - #47 test_303
+INFO  01:27:54,695 - #47 int
+INFO  01:27:54,695 - #47 cinilac
+INFO  01:27:54,695 - #46 4
+INFO  01:27:54,695 - #47 delilac
+INFO  01:27:54,695 - #46 3
+INFO  01:27:54,695 - #47 bool
+INFO  01:27:54,695 - #47 a
+INFO  01:27:54,695 - #48 true
+INFO  01:27:54,695 - #47 int
+INFO  01:27:54,695 - #47 zik
+ERROR 01:27:54,695 - Lexical analysis error for text "@" on line 7:8!
+INFO  01:27:54,695 - #47 pera
+INFO  01:27:54,695 - #47 Predmet
+INFO  01:27:54,711 - #47 int
+INFO  01:27:54,711 - #47 tezina
+INFO  01:27:54,718 - #47 char
+INFO  01:27:54,718 - #47 vrsta
+INFO  01:27:54,718 - #47 postaviTezinu
+INFO  01:27:54,718 - #47 int
+INFO  01:27:54,718 - #47 tezina
+INFO  01:27:54,718 - #47 this
+INFO  01:27:54,718 - #47 tezina
+INFO  01:27:54,718 - #47 tezina
+INFO  01:27:54,718 - #47 ucitajTezinu
+INFO  01:27:54,732 - #47 tezina
+INFO  01:27:54,733 - #47 int
+INFO  01:27:54,733 - #47 zapremina
+INFO  01:27:54,733 - #46 0
+INFO  01:27:54,733 - #47 int
+INFO  01:27:54,733 - #47 Q
+INFO  01:27:54,733 - #47 zapremina
+INFO  01:27:54,733 - #47 tezina
+INFO  01:27:54,733 - #47 postaviVrstu
+INFO  01:27:54,733 - #47 char
+INFO  01:27:54,733 - #47 vrsta
+INFO  01:27:54,733 - #47 this
+INFO  01:27:54,733 - #47 vrsta
+INFO  01:27:54,733 - #47 vrsta
+INFO  01:27:54,733 - #47 char
+INFO  01:27:54,733 - #47 dohvVrstu
+INFO  01:27:54,733 - #47 vrsta
+INFO  01:27:54,733 - #47 int
+INFO  01:27:54,733 - #47 dohvTezinu
+INFO  01:27:54,733 - #47 tezina
+INFO  01:27:54,733 - #47 Sfera
+INFO  01:27:54,733 - #47 Predmet
+INFO  01:27:54,733 - #47 int
+INFO  01:27:54,733 - #47 r
+INFO  01:27:54,749 - #47 postaviTezinu
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 tezina
+INFO  01:27:54,749 - #47 this
+INFO  01:27:54,749 - #47 tezina
+INFO  01:27:54,749 - #47 tezina
+INFO  01:27:54,749 - #47 vrsta
+INFO  01:27:54,749 - #49 s
+INFO  01:27:54,749 - #47 postaviPoluprecnik
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 r
+INFO  01:27:54,749 - #47 this
+INFO  01:27:54,749 - #47 r
+INFO  01:27:54,749 - #47 r
+INFO  01:27:54,749 - #47 postaviVrstu
+INFO  01:27:54,749 - #49 s
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 zapremina
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 z
+INFO  01:27:54,749 - #47 z
+INFO  01:27:54,749 - #47 cinilac
+INFO  01:27:54,749 - #47 z
+INFO  01:27:54,749 - #47 r
+INFO  01:27:54,749 - #47 delilac
+INFO  01:27:54,749 - #47 Kvadar
+INFO  01:27:54,749 - #47 Predmet
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 a
+INFO  01:27:54,749 - #47 b
+INFO  01:27:54,749 - #47 c
+INFO  01:27:54,749 - #47 postaviTezinu
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 tezina
+INFO  01:27:54,749 - #47 this
+INFO  01:27:54,749 - #47 tezina
+INFO  01:27:54,749 - #47 tezina
+INFO  01:27:54,749 - #47 vrsta
+INFO  01:27:54,749 - #49 k
+INFO  01:27:54,749 - #47 postaviStranice
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 a
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 b
+INFO  01:27:54,749 - #47 int
+INFO  01:27:54,749 - #47 c
+INFO  01:27:54,749 - #47 this
+INFO  01:27:54,749 - #47 a
+INFO  01:27:54,749 - #47 a
+INFO  01:27:54,749 - #47 this
+INFO  01:27:54,749 - #47 b
+INFO  01:27:54,749 - #47 b
+INFO  01:27:54,765 - #47 this
+INFO  01:27:54,765 - #47 c
+INFO  01:27:54,765 - #47 c
+INFO  01:27:54,765 - #47 vrsta
+INFO  01:27:54,765 - #49 k
+INFO  01:27:54,765 - #47 int
+INFO  01:27:54,765 - #47 zapremina
+INFO  01:27:54,765 - #47 int
+INFO  01:27:54,765 - #47 z
+INFO  01:27:54,765 - #47 z
+INFO  01:27:54,765 - #47 a
+INFO  01:27:54,765 - #47 b
+INFO  01:27:54,765 - #47 c
+INFO  01:27:54,765 - #47 z
+INFO  01:27:54,765 - #47 int
+INFO  01:27:54,765 - #47 zapreminaK
+INFO  01:27:54,765 - #47 zapreminaS
+INFO  01:27:54,765 - #47 int
+INFO  01:27:54,765 - #47 tezinaK
+INFO  01:27:54,765 - #47 tezinaS
+INFO  01:27:54,765 - #47 ispis
+INFO  01:27:54,765 - #47 Predmet
+INFO  01:27:54,765 - #47 p
+INFO  01:27:54,765 - #47 p
+INFO  01:27:54,765 - #47 dohvVrstu
+INFO  01:27:54,765 - #49 s
+INFO  01:27:54,765 - #49 S
+INFO  01:27:54,765 - #47 p
+INFO  01:27:54,765 - #47 dohvVrstu
+INFO  01:27:54,765 - #49 k
+INFO  01:27:54,780 - #49 K
+INFO  01:27:54,780 - #47 eol
+INFO  01:27:54,780 - #47 p
+INFO  01:27:54,780 - #47 dohvTezinu
+INFO  01:27:54,780 - #47 main
+INFO  01:27:54,780 - #47 Predmet
+INFO  01:27:54,780 - #47 predmeti
+INFO  01:27:54,780 - #47 int
+INFO  01:27:54,780 - #47 i
+INFO  01:27:54,780 - #47 Sfera
+INFO  01:27:54,780 - #47 s1
+INFO  01:27:54,780 - #47 s2
+INFO  01:27:54,780 - #47 s3
+INFO  01:27:54,780 - #47 Kvadar
+INFO  01:27:54,780 - #47 k1
+INFO  01:27:54,780 - #47 k2
+INFO  01:27:54,780 - #47 k3
+INFO  01:27:54,780 - #47 int
+INFO  01:27:54,780 - #47 t
+INFO  01:27:54,780 - #47 predmeti
+INFO  01:27:54,780 - #47 Predmet
+INFO  01:27:54,780 - #46 6
+INFO  01:27:54,780 - #47 s1
+INFO  01:27:54,780 - #47 Sfera
+INFO  01:27:54,780 - #47 s2
+INFO  01:27:54,780 - #47 Sfera
+INFO  01:27:54,780 - #47 s3
+INFO  01:27:54,780 - #47 Sfera
+INFO  01:27:54,780 - #47 k1
+INFO  01:27:54,780 - #47 Kvadar
+INFO  01:27:54,780 - #47 k2
+INFO  01:27:54,780 - #47 Kvadar
+INFO  01:27:54,780 - #47 k3
+INFO  01:27:54,780 - #47 Kvadar
+INFO  01:27:54,780 - #47 s1
+INFO  01:27:54,780 - #47 postaviPoluprecnik
+INFO  01:27:54,780 - #46 1
+INFO  01:27:54,780 - #47 s2
+INFO  01:27:54,780 - #47 postaviPoluprecnik
+INFO  01:27:54,780 - #46 2
+INFO  01:27:54,780 - #47 s3
+INFO  01:27:54,780 - #47 postaviPoluprecnik
+INFO  01:27:54,780 - #46 3
+INFO  01:27:54,780 - #47 k1
+INFO  01:27:54,780 - #47 postaviStranice
+INFO  01:27:54,780 - #46 1
+INFO  01:27:54,780 - #46 2
+INFO  01:27:54,780 - #46 3
+INFO  01:27:54,780 - #47 k2
+INFO  01:27:54,780 - #47 postaviStranice
+INFO  01:27:54,780 - #46 2
+INFO  01:27:54,780 - #46 3
+INFO  01:27:54,780 - #46 4
+INFO  01:27:54,780 - #47 k3
+INFO  01:27:54,780 - #47 postaviStranice
+INFO  01:27:54,780 - #46 3
+INFO  01:27:54,780 - #46 4
+INFO  01:27:54,780 - #46 5
+INFO  01:27:54,780 - #47 predmeti
+INFO  01:27:54,780 - #46 0
+INFO  01:27:54,780 - #47 s1
+INFO  01:27:54,780 - #47 predmeti
+INFO  01:27:54,780 - #46 2
+INFO  01:27:54,780 - #47 s2
+INFO  01:27:54,780 - #47 predmeti
+INFO  01:27:54,797 - #46 4
+INFO  01:27:54,797 - #47 s3
+INFO  01:27:54,797 - #47 predmeti
+INFO  01:27:54,797 - #46 1
+INFO  01:27:54,797 - #47 k1
+INFO  01:27:54,797 - #47 predmeti
+INFO  01:27:54,797 - #46 3
+INFO  01:27:54,797 - #47 k2
+INFO  01:27:54,797 - #47 predmeti
+INFO  01:27:54,797 - #46 5
+INFO  01:27:54,797 - #47 k3
+INFO  01:27:54,797 - #47 t
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #46 0
+INFO  01:27:54,797 - #47 predmeti
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #47 postaviTezinu
+INFO  01:27:54,797 - #47 t
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #46 6
+INFO  01:27:54,797 - #47 zapreminaS
+INFO  01:27:54,797 - #46 0
+INFO  01:27:54,797 - #47 tezinaS
+INFO  01:27:54,797 - #46 0
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #46 1
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #46 2
+INFO  01:27:54,797 - #46 0
+INFO  01:27:54,797 - #47 i
+INFO  01:27:54,797 - #47 zapreminaS
+INFO  01:27:54,797 - #47 zapreminaS
+INFO  01:27:54,797 - #47 predmeti
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 zapremina
+INFO  01:27:54,814 - #47 tezinaS
+INFO  01:27:54,814 - #47 tezinaS
+INFO  01:27:54,814 - #47 predmeti
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 Q
+INFO  01:27:54,814 - #47 ispis
+INFO  01:27:54,814 - #47 predmeti
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 6
+INFO  01:27:54,814 - #47 zapreminaK
+INFO  01:27:54,814 - #46 0
+INFO  01:27:54,814 - #47 tezinaK
+INFO  01:27:54,814 - #46 0
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 2
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #47 zapreminaS
+INFO  01:27:54,814 - #47 zapreminaS
+INFO  01:27:54,814 - #47 predmeti
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 zapremina
+INFO  01:27:54,814 - #47 tezinaS
+INFO  01:27:54,814 - #47 tezinaS
+INFO  01:27:54,814 - #47 predmeti
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 Q
+INFO  01:27:54,814 - #47 ispis
+INFO  01:27:54,814 - #47 predmeti
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 6
+INFO  01:27:54,814 - #47 zapreminaS
+INFO  01:27:54,814 - #47 eol
+INFO  01:27:54,814 - #47 zapreminaK
+INFO  01:27:54,814 - #47 eol
+INFO  01:27:54,814 - #47 tezinaS
+INFO  01:27:54,814 - #47 eol
+INFO  01:27:54,814 - #47 tezinaK
+INFO  01:27:54,814 - #47 eol
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 0
+INFO  01:27:54,814 - #47 i
+INFO  01:27:54,814 - #46 1
+INFO  01:27:54,830 - #46 1
+INFO  01:27:54,830 - #46 1
+INFO  01:27:54,832 - #46 3
+INFO  01:27:54,832 - #46 3
+INFO  01:27:54,832 - #46 2
+INFO  01:27:54,832 - #46 2
+INFO  01:27:54,832 - #46 5
+INFO  01:27:54,832 - #46 5
+INFO  01:27:54,832 - #47 i
+INFO  01:27:54,832 - #47 i
+INFO  01:27:54,832 - #46 2
+INFO  01:27:54,832 - #46 6
+INFO  01:27:54,832 - #46 6
+INFO  01:27:54,832 - #46 9
+INFO  01:27:54,832 - #46 9
+INFO  01:27:54,832 - #47 eol
+INFO  01:27:54,832 - #47 i
+INFO  01:27:54,832 - #47 i
+INFO  01:27:54,832 - #46 10
+INFO  01:27:54,849 - ===================================
+INFO  01:27:54,885 - Program(
   ProgramName(
    test_303
   ) [ProgramName]
@@ -319,45 +319,66 @@ INFO  03:17:01,162 - Program(
           DataDeclListElement(
             DataDeclListElement(
               DataDeclListElement(
-                EmptyDataDeclListHead(
-                ) [EmptyDataDeclListHead]
+                DataDeclListElement(
+                  EmptyDataDeclListHead(
+                  ) [EmptyDataDeclListHead]
+                  ConstDataDecl(
+                    ConstDecl(
+                      ConstDeclType(
+                        Type(
+                         int
+                        ) [Type]
+                      ) [ConstDeclType]
+                      ConstNameValuePairListElement(
+                        ConstNameValuePairListHead(
+                          NumberConstNameValuePair(
+                           cinilac
+                           4
+                          ) [NumberConstNameValuePair]
+                        ) [ConstNameValuePairListHead]
+                        NumberConstNameValuePair(
+                         delilac
+                         3
+                        ) [NumberConstNameValuePair]
+                      ) [ConstNameValuePairListElement]
+                    ) [ConstDecl]
+                  ) [ConstDataDecl]
+                ) [DataDeclListElement]
                 ConstDataDecl(
                   ConstDecl(
                     ConstDeclType(
                       Type(
-                       int
+                       bool
                       ) [Type]
                     ) [ConstDeclType]
-                    ConstNameValuePairListElement(
-                      ConstNameValuePairListHead(
-                        NumberConstNameValuePair(
-                         cinilac
-                         4
-                        ) [NumberConstNameValuePair]
-                      ) [ConstNameValuePairListHead]
-                      NumberConstNameValuePair(
-                       delilac
-                       3
-                      ) [NumberConstNameValuePair]
-                    ) [ConstNameValuePairListElement]
+                    ConstNameValuePairListHead(
+                      BoolConstNameValuePair(
+                       a
+                       true
+                      ) [BoolConstNameValuePair]
+                    ) [ConstNameValuePairListHead]
                   ) [ConstDecl]
                 ) [ConstDataDecl]
               ) [DataDeclListElement]
-              ConstDataDecl(
-                ConstDecl(
-                  ConstDeclType(
+              VarDataDecl(
+                VariableDeclaration(
+                  VarDeclType(
                     Type(
-                     bool
+                     int
                     ) [Type]
-                  ) [ConstDeclType]
-                  ConstNameValuePairListHead(
-                    BoolConstNameValuePair(
-                     a
-                     true
-                    ) [BoolConstNameValuePair]
-                  ) [ConstNameValuePairListHead]
-                ) [ConstDecl]
-              ) [ConstDataDecl]
+                  ) [VarDeclType]
+                  VarIdentListElement(
+                    VarIdentListHead(
+                      ScalarVarIdent(
+                       zik
+                      ) [ScalarVarIdent]
+                    ) [VarIdentListHead]
+                    ScalarVarIdent(
+                     pera
+                    ) [ScalarVarIdent]
+                  ) [VarIdentListElement]
+                ) [VariableDeclaration]
+              ) [VarDataDecl]
             ) [DataDeclListElement]
             ClassDataDecl(
               ClassDeclaration(
@@ -368,13 +389,18 @@ INFO  03:17:01,162 - Program(
                   VarDeclListElement(
                     EmptyVarDeclList(
                     ) [EmptyVarDeclList]
-                    VariableDeclarationError(
+                    VariableDeclaration(
+                      VarDeclType(
+                        Type(
+                         int
+                        ) [Type]
+                      ) [VarDeclType]
                       VarIdentListHead(
                         ScalarVarIdent(
                          tezina
                         ) [ScalarVarIdent]
                       ) [VarIdentListHead]
-                    ) [VariableDeclarationError]
+                    ) [VariableDeclaration]
                   ) [VarDeclListElement]
                   VariableDeclaration(
                     VarDeclType(
@@ -536,11 +562,15 @@ INFO  03:17:01,162 - Program(
                                           TermListElement(
                                             TermListHead(
                                               FunctionCallResultFactor(
-                                                ScalarDesignator(
-                                                 zapremina
-                                                ) [ScalarDesignator]
-                                                NoFunctionCallActualParameters(
-                                                ) [NoFunctionCallActualParameters]
+                                                FunctionCall(
+                                                  FunctionCallDesignator(
+                                                    ScalarDesignator(
+                                                     zapremina
+                                                    ) [ScalarDesignator]
+                                                  ) [FunctionCallDesignator]
+                                                  NoFunctionCallActualParameters(
+                                                  ) [NoFunctionCallActualParameters]
+                                                ) [FunctionCall]
                                               ) [FunctionCallResultFactor]
                                             ) [TermListHead]
                                             MulopMultiply(
@@ -863,26 +893,34 @@ INFO  03:17:01,162 - Program(
                         SingleStatementType(
                           SingleMatchedStatement(
                             MatchedAssignmentStatement(
-                              ParFuncCallDesignatorStatement(
-                                ScalarDesignator(
-                                 postaviVrstu
-                                ) [ScalarDesignator]
-                                ActualParametersListHead(
-                                  Expression(
-                                    Expr1(
-                                      NoExpressionPrefix(
-                                      ) [NoExpressionPrefix]
-                                      TermExprListHead(
-                                        TermListHead(
-                                          CharConstFactor(
-                                           s
-                                          ) [CharConstFactor]
-                                        ) [TermListHead]
-                                      ) [TermExprListHead]
-                                    ) [Expr1]
-                                  ) [Expression]
-                                ) [ActualParametersListHead]
-                              ) [ParFuncCallDesignatorStatement]
+                              FuncCallDesignatorStatement(
+                                FunctionCall(
+                                  FunctionCallDesignator(
+                                    ScalarDesignator(
+                                     postaviVrstu
+                                    ) [ScalarDesignator]
+                                  ) [FunctionCallDesignator]
+                                  FunctionCallActualParameters(
+                                    ActualParametersListHead(
+                                      ActualParameter(
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListHead(
+                                                CharConstFactor(
+                                                 s
+                                                ) [CharConstFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [ActualParameter]
+                                    ) [ActualParametersListHead]
+                                  ) [FunctionCallActualParameters]
+                                ) [FunctionCall]
+                              ) [FuncCallDesignatorStatement]
                             ) [MatchedAssignmentStatement]
                           ) [SingleMatchedStatement]
                         ) [SingleStatementType]
@@ -1475,14 +1513,18 @@ INFO  03:17:01,162 - Program(
                               TermExprListHead(
                                 TermListHead(
                                   FunctionCallResultFactor(
-                                    ObjectAccessDesignator(
-                                      ScalarDesignator(
-                                       p
-                                      ) [ScalarDesignator]
-                                     dohvVrstu
-                                    ) [ObjectAccessDesignator]
-                                    NoFunctionCallActualParameters(
-                                    ) [NoFunctionCallActualParameters]
+                                    FunctionCall(
+                                      FunctionCallDesignator(
+                                        ObjectAccessDesignator(
+                                          ScalarDesignator(
+                                           p
+                                          ) [ScalarDesignator]
+                                         dohvVrstu
+                                        ) [ObjectAccessDesignator]
+                                      ) [FunctionCallDesignator]
+                                      NoFunctionCallActualParameters(
+                                      ) [NoFunctionCallActualParameters]
+                                    ) [FunctionCall]
                                   ) [FunctionCallResultFactor]
                                 ) [TermListHead]
                               ) [TermExprListHead]
@@ -1532,14 +1574,18 @@ INFO  03:17:01,162 - Program(
                                 TermExprListHead(
                                   TermListHead(
                                     FunctionCallResultFactor(
-                                      ObjectAccessDesignator(
-                                        ScalarDesignator(
-                                         p
-                                        ) [ScalarDesignator]
-                                       dohvVrstu
-                                      ) [ObjectAccessDesignator]
-                                      NoFunctionCallActualParameters(
-                                      ) [NoFunctionCallActualParameters]
+                                      FunctionCall(
+                                        FunctionCallDesignator(
+                                          ObjectAccessDesignator(
+                                            ScalarDesignator(
+                                             p
+                                            ) [ScalarDesignator]
+                                           dohvVrstu
+                                          ) [ObjectAccessDesignator]
+                                        ) [FunctionCallDesignator]
+                                        NoFunctionCallActualParameters(
+                                        ) [NoFunctionCallActualParameters]
+                                      ) [FunctionCall]
                                     ) [FunctionCallResultFactor]
                                   ) [TermListHead]
                                 ) [TermExprListHead]
@@ -1619,14 +1665,18 @@ INFO  03:17:01,162 - Program(
                     TermExprListHead(
                       TermListHead(
                         FunctionCallResultFactor(
-                          ObjectAccessDesignator(
-                            ScalarDesignator(
-                             p
-                            ) [ScalarDesignator]
-                           dohvTezinu
-                          ) [ObjectAccessDesignator]
-                          NoFunctionCallActualParameters(
-                          ) [NoFunctionCallActualParameters]
+                          FunctionCall(
+                            FunctionCallDesignator(
+                              ObjectAccessDesignator(
+                                ScalarDesignator(
+                                 p
+                                ) [ScalarDesignator]
+                               dohvTezinu
+                              ) [ObjectAccessDesignator]
+                            ) [FunctionCallDesignator]
+                            NoFunctionCallActualParameters(
+                            ) [NoFunctionCallActualParameters]
+                          ) [FunctionCall]
                         ) [FunctionCallResultFactor]
                       ) [TermListHead]
                     ) [TermExprListHead]
@@ -1997,29 +2047,37 @@ INFO  03:17:01,162 - Program(
                                                                         SingleStatementType(
                                                                           SingleMatchedStatement(
                                                                             MatchedAssignmentStatement(
-                                                                              ParFuncCallDesignatorStatement(
-                                                                                ObjectAccessDesignator(
-                                                                                  ScalarDesignator(
-                                                                                   s1
-                                                                                  ) [ScalarDesignator]
-                                                                                 postaviPoluprecnik
-                                                                                ) [ObjectAccessDesignator]
-                                                                                ActualParametersListHead(
-                                                                                  Expression(
-                                                                                    Expr1(
-                                                                                      NoExpressionPrefix(
-                                                                                      ) [NoExpressionPrefix]
-                                                                                      TermExprListHead(
-                                                                                        TermListHead(
-                                                                                          NumConstFactor(
-                                                                                           1
-                                                                                          ) [NumConstFactor]
-                                                                                        ) [TermListHead]
-                                                                                      ) [TermExprListHead]
-                                                                                    ) [Expr1]
-                                                                                  ) [Expression]
-                                                                                ) [ActualParametersListHead]
-                                                                              ) [ParFuncCallDesignatorStatement]
+                                                                              FuncCallDesignatorStatement(
+                                                                                FunctionCall(
+                                                                                  FunctionCallDesignator(
+                                                                                    ObjectAccessDesignator(
+                                                                                      ScalarDesignator(
+                                                                                       s1
+                                                                                      ) [ScalarDesignator]
+                                                                                     postaviPoluprecnik
+                                                                                    ) [ObjectAccessDesignator]
+                                                                                  ) [FunctionCallDesignator]
+                                                                                  FunctionCallActualParameters(
+                                                                                    ActualParametersListHead(
+                                                                                      ActualParameter(
+                                                                                        Expression(
+                                                                                          Expr1(
+                                                                                            NoExpressionPrefix(
+                                                                                            ) [NoExpressionPrefix]
+                                                                                            TermExprListHead(
+                                                                                              TermListHead(
+                                                                                                NumConstFactor(
+                                                                                                 1
+                                                                                                ) [NumConstFactor]
+                                                                                              ) [TermListHead]
+                                                                                            ) [TermExprListHead]
+                                                                                          ) [Expr1]
+                                                                                        ) [Expression]
+                                                                                      ) [ActualParameter]
+                                                                                    ) [ActualParametersListHead]
+                                                                                  ) [FunctionCallActualParameters]
+                                                                                ) [FunctionCall]
+                                                                              ) [FuncCallDesignatorStatement]
                                                                             ) [MatchedAssignmentStatement]
                                                                           ) [SingleMatchedStatement]
                                                                         ) [SingleStatementType]
@@ -2027,29 +2085,37 @@ INFO  03:17:01,162 - Program(
                                                                       SingleStatementType(
                                                                         SingleMatchedStatement(
                                                                           MatchedAssignmentStatement(
-                                                                            ParFuncCallDesignatorStatement(
-                                                                              ObjectAccessDesignator(
-                                                                                ScalarDesignator(
-                                                                                 s2
-                                                                                ) [ScalarDesignator]
-                                                                               postaviPoluprecnik
-                                                                              ) [ObjectAccessDesignator]
-                                                                              ActualParametersListHead(
-                                                                                Expression(
-                                                                                  Expr1(
-                                                                                    NoExpressionPrefix(
-                                                                                    ) [NoExpressionPrefix]
-                                                                                    TermExprListHead(
-                                                                                      TermListHead(
-                                                                                        NumConstFactor(
-                                                                                         2
-                                                                                        ) [NumConstFactor]
-                                                                                      ) [TermListHead]
-                                                                                    ) [TermExprListHead]
-                                                                                  ) [Expr1]
-                                                                                ) [Expression]
-                                                                              ) [ActualParametersListHead]
-                                                                            ) [ParFuncCallDesignatorStatement]
+                                                                            FuncCallDesignatorStatement(
+                                                                              FunctionCall(
+                                                                                FunctionCallDesignator(
+                                                                                  ObjectAccessDesignator(
+                                                                                    ScalarDesignator(
+                                                                                     s2
+                                                                                    ) [ScalarDesignator]
+                                                                                   postaviPoluprecnik
+                                                                                  ) [ObjectAccessDesignator]
+                                                                                ) [FunctionCallDesignator]
+                                                                                FunctionCallActualParameters(
+                                                                                  ActualParametersListHead(
+                                                                                    ActualParameter(
+                                                                                      Expression(
+                                                                                        Expr1(
+                                                                                          NoExpressionPrefix(
+                                                                                          ) [NoExpressionPrefix]
+                                                                                          TermExprListHead(
+                                                                                            TermListHead(
+                                                                                              NumConstFactor(
+                                                                                               2
+                                                                                              ) [NumConstFactor]
+                                                                                            ) [TermListHead]
+                                                                                          ) [TermExprListHead]
+                                                                                        ) [Expr1]
+                                                                                      ) [Expression]
+                                                                                    ) [ActualParameter]
+                                                                                  ) [ActualParametersListHead]
+                                                                                ) [FunctionCallActualParameters]
+                                                                              ) [FunctionCall]
+                                                                            ) [FuncCallDesignatorStatement]
                                                                           ) [MatchedAssignmentStatement]
                                                                         ) [SingleMatchedStatement]
                                                                       ) [SingleStatementType]
@@ -2057,29 +2123,37 @@ INFO  03:17:01,162 - Program(
                                                                     SingleStatementType(
                                                                       SingleMatchedStatement(
                                                                         MatchedAssignmentStatement(
-                                                                          ParFuncCallDesignatorStatement(
-                                                                            ObjectAccessDesignator(
-                                                                              ScalarDesignator(
-                                                                               s3
-                                                                              ) [ScalarDesignator]
-                                                                             postaviPoluprecnik
-                                                                            ) [ObjectAccessDesignator]
-                                                                            ActualParametersListHead(
-                                                                              Expression(
-                                                                                Expr1(
-                                                                                  NoExpressionPrefix(
-                                                                                  ) [NoExpressionPrefix]
-                                                                                  TermExprListHead(
-                                                                                    TermListHead(
-                                                                                      NumConstFactor(
-                                                                                       3
-                                                                                      ) [NumConstFactor]
-                                                                                    ) [TermListHead]
-                                                                                  ) [TermExprListHead]
-                                                                                ) [Expr1]
-                                                                              ) [Expression]
-                                                                            ) [ActualParametersListHead]
-                                                                          ) [ParFuncCallDesignatorStatement]
+                                                                          FuncCallDesignatorStatement(
+                                                                            FunctionCall(
+                                                                              FunctionCallDesignator(
+                                                                                ObjectAccessDesignator(
+                                                                                  ScalarDesignator(
+                                                                                   s3
+                                                                                  ) [ScalarDesignator]
+                                                                                 postaviPoluprecnik
+                                                                                ) [ObjectAccessDesignator]
+                                                                              ) [FunctionCallDesignator]
+                                                                              FunctionCallActualParameters(
+                                                                                ActualParametersListHead(
+                                                                                  ActualParameter(
+                                                                                    Expression(
+                                                                                      Expr1(
+                                                                                        NoExpressionPrefix(
+                                                                                        ) [NoExpressionPrefix]
+                                                                                        TermExprListHead(
+                                                                                          TermListHead(
+                                                                                            NumConstFactor(
+                                                                                             3
+                                                                                            ) [NumConstFactor]
+                                                                                          ) [TermListHead]
+                                                                                        ) [TermExprListHead]
+                                                                                      ) [Expr1]
+                                                                                    ) [Expression]
+                                                                                  ) [ActualParameter]
+                                                                                ) [ActualParametersListHead]
+                                                                              ) [FunctionCallActualParameters]
+                                                                            ) [FunctionCall]
+                                                                          ) [FuncCallDesignatorStatement]
                                                                         ) [MatchedAssignmentStatement]
                                                                       ) [SingleMatchedStatement]
                                                                     ) [SingleStatementType]
@@ -2087,59 +2161,71 @@ INFO  03:17:01,162 - Program(
                                                                   SingleStatementType(
                                                                     SingleMatchedStatement(
                                                                       MatchedAssignmentStatement(
-                                                                        ParFuncCallDesignatorStatement(
-                                                                          ObjectAccessDesignator(
-                                                                            ScalarDesignator(
-                                                                             k1
-                                                                            ) [ScalarDesignator]
-                                                                           postaviStranice
-                                                                          ) [ObjectAccessDesignator]
-                                                                          ActualParametersListElement(
-                                                                            ActualParametersListElement(
-                                                                              ActualParametersListHead(
-                                                                                Expression(
-                                                                                  Expr1(
-                                                                                    NoExpressionPrefix(
-                                                                                    ) [NoExpressionPrefix]
-                                                                                    TermExprListHead(
-                                                                                      TermListHead(
-                                                                                        NumConstFactor(
-                                                                                         1
-                                                                                        ) [NumConstFactor]
-                                                                                      ) [TermListHead]
-                                                                                    ) [TermExprListHead]
-                                                                                  ) [Expr1]
-                                                                                ) [Expression]
-                                                                              ) [ActualParametersListHead]
-                                                                              Expression(
-                                                                                Expr1(
-                                                                                  NoExpressionPrefix(
-                                                                                  ) [NoExpressionPrefix]
-                                                                                  TermExprListHead(
-                                                                                    TermListHead(
-                                                                                      NumConstFactor(
-                                                                                       2
-                                                                                      ) [NumConstFactor]
-                                                                                    ) [TermListHead]
-                                                                                  ) [TermExprListHead]
-                                                                                ) [Expr1]
-                                                                              ) [Expression]
-                                                                            ) [ActualParametersListElement]
-                                                                            Expression(
-                                                                              Expr1(
-                                                                                NoExpressionPrefix(
-                                                                                ) [NoExpressionPrefix]
-                                                                                TermExprListHead(
-                                                                                  TermListHead(
-                                                                                    NumConstFactor(
-                                                                                     3
-                                                                                    ) [NumConstFactor]
-                                                                                  ) [TermListHead]
-                                                                                ) [TermExprListHead]
-                                                                              ) [Expr1]
-                                                                            ) [Expression]
-                                                                          ) [ActualParametersListElement]
-                                                                        ) [ParFuncCallDesignatorStatement]
+                                                                        FuncCallDesignatorStatement(
+                                                                          FunctionCall(
+                                                                            FunctionCallDesignator(
+                                                                              ObjectAccessDesignator(
+                                                                                ScalarDesignator(
+                                                                                 k1
+                                                                                ) [ScalarDesignator]
+                                                                               postaviStranice
+                                                                              ) [ObjectAccessDesignator]
+                                                                            ) [FunctionCallDesignator]
+                                                                            FunctionCallActualParameters(
+                                                                              ActualParametersListElement(
+                                                                                ActualParametersListElement(
+                                                                                  ActualParametersListHead(
+                                                                                    ActualParameter(
+                                                                                      Expression(
+                                                                                        Expr1(
+                                                                                          NoExpressionPrefix(
+                                                                                          ) [NoExpressionPrefix]
+                                                                                          TermExprListHead(
+                                                                                            TermListHead(
+                                                                                              NumConstFactor(
+                                                                                               1
+                                                                                              ) [NumConstFactor]
+                                                                                            ) [TermListHead]
+                                                                                          ) [TermExprListHead]
+                                                                                        ) [Expr1]
+                                                                                      ) [Expression]
+                                                                                    ) [ActualParameter]
+                                                                                  ) [ActualParametersListHead]
+                                                                                  ActualParameter(
+                                                                                    Expression(
+                                                                                      Expr1(
+                                                                                        NoExpressionPrefix(
+                                                                                        ) [NoExpressionPrefix]
+                                                                                        TermExprListHead(
+                                                                                          TermListHead(
+                                                                                            NumConstFactor(
+                                                                                             2
+                                                                                            ) [NumConstFactor]
+                                                                                          ) [TermListHead]
+                                                                                        ) [TermExprListHead]
+                                                                                      ) [Expr1]
+                                                                                    ) [Expression]
+                                                                                  ) [ActualParameter]
+                                                                                ) [ActualParametersListElement]
+                                                                                ActualParameter(
+                                                                                  Expression(
+                                                                                    Expr1(
+                                                                                      NoExpressionPrefix(
+                                                                                      ) [NoExpressionPrefix]
+                                                                                      TermExprListHead(
+                                                                                        TermListHead(
+                                                                                          NumConstFactor(
+                                                                                           3
+                                                                                          ) [NumConstFactor]
+                                                                                        ) [TermListHead]
+                                                                                      ) [TermExprListHead]
+                                                                                    ) [Expr1]
+                                                                                  ) [Expression]
+                                                                                ) [ActualParameter]
+                                                                              ) [ActualParametersListElement]
+                                                                            ) [FunctionCallActualParameters]
+                                                                          ) [FunctionCall]
+                                                                        ) [FuncCallDesignatorStatement]
                                                                       ) [MatchedAssignmentStatement]
                                                                     ) [SingleMatchedStatement]
                                                                   ) [SingleStatementType]
@@ -2147,59 +2233,71 @@ INFO  03:17:01,162 - Program(
                                                                 SingleStatementType(
                                                                   SingleMatchedStatement(
                                                                     MatchedAssignmentStatement(
-                                                                      ParFuncCallDesignatorStatement(
-                                                                        ObjectAccessDesignator(
-                                                                          ScalarDesignator(
-                                                                           k2
-                                                                          ) [ScalarDesignator]
-                                                                         postaviStranice
-                                                                        ) [ObjectAccessDesignator]
-                                                                        ActualParametersListElement(
-                                                                          ActualParametersListElement(
-                                                                            ActualParametersListHead(
-                                                                              Expression(
-                                                                                Expr1(
-                                                                                  NoExpressionPrefix(
-                                                                                  ) [NoExpressionPrefix]
-                                                                                  TermExprListHead(
-                                                                                    TermListHead(
-                                                                                      NumConstFactor(
-                                                                                       2
-                                                                                      ) [NumConstFactor]
-                                                                                    ) [TermListHead]
-                                                                                  ) [TermExprListHead]
-                                                                                ) [Expr1]
-                                                                              ) [Expression]
-                                                                            ) [ActualParametersListHead]
-                                                                            Expression(
-                                                                              Expr1(
-                                                                                NoExpressionPrefix(
-                                                                                ) [NoExpressionPrefix]
-                                                                                TermExprListHead(
-                                                                                  TermListHead(
-                                                                                    NumConstFactor(
-                                                                                     3
-                                                                                    ) [NumConstFactor]
-                                                                                  ) [TermListHead]
-                                                                                ) [TermExprListHead]
-                                                                              ) [Expr1]
-                                                                            ) [Expression]
-                                                                          ) [ActualParametersListElement]
-                                                                          Expression(
-                                                                            Expr1(
-                                                                              NoExpressionPrefix(
-                                                                              ) [NoExpressionPrefix]
-                                                                              TermExprListHead(
-                                                                                TermListHead(
-                                                                                  NumConstFactor(
-                                                                                   4
-                                                                                  ) [NumConstFactor]
-                                                                                ) [TermListHead]
-                                                                              ) [TermExprListHead]
-                                                                            ) [Expr1]
-                                                                          ) [Expression]
-                                                                        ) [ActualParametersListElement]
-                                                                      ) [ParFuncCallDesignatorStatement]
+                                                                      FuncCallDesignatorStatement(
+                                                                        FunctionCall(
+                                                                          FunctionCallDesignator(
+                                                                            ObjectAccessDesignator(
+                                                                              ScalarDesignator(
+                                                                               k2
+                                                                              ) [ScalarDesignator]
+                                                                             postaviStranice
+                                                                            ) [ObjectAccessDesignator]
+                                                                          ) [FunctionCallDesignator]
+                                                                          FunctionCallActualParameters(
+                                                                            ActualParametersListElement(
+                                                                              ActualParametersListElement(
+                                                                                ActualParametersListHead(
+                                                                                  ActualParameter(
+                                                                                    Expression(
+                                                                                      Expr1(
+                                                                                        NoExpressionPrefix(
+                                                                                        ) [NoExpressionPrefix]
+                                                                                        TermExprListHead(
+                                                                                          TermListHead(
+                                                                                            NumConstFactor(
+                                                                                             2
+                                                                                            ) [NumConstFactor]
+                                                                                          ) [TermListHead]
+                                                                                        ) [TermExprListHead]
+                                                                                      ) [Expr1]
+                                                                                    ) [Expression]
+                                                                                  ) [ActualParameter]
+                                                                                ) [ActualParametersListHead]
+                                                                                ActualParameter(
+                                                                                  Expression(
+                                                                                    Expr1(
+                                                                                      NoExpressionPrefix(
+                                                                                      ) [NoExpressionPrefix]
+                                                                                      TermExprListHead(
+                                                                                        TermListHead(
+                                                                                          NumConstFactor(
+                                                                                           3
+                                                                                          ) [NumConstFactor]
+                                                                                        ) [TermListHead]
+                                                                                      ) [TermExprListHead]
+                                                                                    ) [Expr1]
+                                                                                  ) [Expression]
+                                                                                ) [ActualParameter]
+                                                                              ) [ActualParametersListElement]
+                                                                              ActualParameter(
+                                                                                Expression(
+                                                                                  Expr1(
+                                                                                    NoExpressionPrefix(
+                                                                                    ) [NoExpressionPrefix]
+                                                                                    TermExprListHead(
+                                                                                      TermListHead(
+                                                                                        NumConstFactor(
+                                                                                         4
+                                                                                        ) [NumConstFactor]
+                                                                                      ) [TermListHead]
+                                                                                    ) [TermExprListHead]
+                                                                                  ) [Expr1]
+                                                                                ) [Expression]
+                                                                              ) [ActualParameter]
+                                                                            ) [ActualParametersListElement]
+                                                                          ) [FunctionCallActualParameters]
+                                                                        ) [FunctionCall]
+                                                                      ) [FuncCallDesignatorStatement]
                                                                     ) [MatchedAssignmentStatement]
                                                                   ) [SingleMatchedStatement]
                                                                 ) [SingleStatementType]
@@ -2207,59 +2305,71 @@ INFO  03:17:01,162 - Program(
                                                               SingleStatementType(
                                                                 SingleMatchedStatement(
                                                                   MatchedAssignmentStatement(
-                                                                    ParFuncCallDesignatorStatement(
-                                                                      ObjectAccessDesignator(
-                                                                        ScalarDesignator(
-                                                                         k3
-                                                                        ) [ScalarDesignator]
-                                                                       postaviStranice
-                                                                      ) [ObjectAccessDesignator]
-                                                                      ActualParametersListElement(
-                                                                        ActualParametersListElement(
-                                                                          ActualParametersListHead(
-                                                                            Expression(
-                                                                              Expr1(
-                                                                                NoExpressionPrefix(
-                                                                                ) [NoExpressionPrefix]
-                                                                                TermExprListHead(
-                                                                                  TermListHead(
-                                                                                    NumConstFactor(
-                                                                                     3
-                                                                                    ) [NumConstFactor]
-                                                                                  ) [TermListHead]
-                                                                                ) [TermExprListHead]
-                                                                              ) [Expr1]
-                                                                            ) [Expression]
-                                                                          ) [ActualParametersListHead]
-                                                                          Expression(
-                                                                            Expr1(
-                                                                              NoExpressionPrefix(
-                                                                              ) [NoExpressionPrefix]
-                                                                              TermExprListHead(
-                                                                                TermListHead(
-                                                                                  NumConstFactor(
-                                                                                   4
-                                                                                  ) [NumConstFactor]
-                                                                                ) [TermListHead]
-                                                                              ) [TermExprListHead]
-                                                                            ) [Expr1]
-                                                                          ) [Expression]
-                                                                        ) [ActualParametersListElement]
-                                                                        Expression(
-                                                                          Expr1(
-                                                                            NoExpressionPrefix(
-                                                                            ) [NoExpressionPrefix]
-                                                                            TermExprListHead(
-                                                                              TermListHead(
-                                                                                NumConstFactor(
-                                                                                 5
-                                                                                ) [NumConstFactor]
-                                                                              ) [TermListHead]
-                                                                            ) [TermExprListHead]
-                                                                          ) [Expr1]
-                                                                        ) [Expression]
-                                                                      ) [ActualParametersListElement]
-                                                                    ) [ParFuncCallDesignatorStatement]
+                                                                    FuncCallDesignatorStatement(
+                                                                      FunctionCall(
+                                                                        FunctionCallDesignator(
+                                                                          ObjectAccessDesignator(
+                                                                            ScalarDesignator(
+                                                                             k3
+                                                                            ) [ScalarDesignator]
+                                                                           postaviStranice
+                                                                          ) [ObjectAccessDesignator]
+                                                                        ) [FunctionCallDesignator]
+                                                                        FunctionCallActualParameters(
+                                                                          ActualParametersListElement(
+                                                                            ActualParametersListElement(
+                                                                              ActualParametersListHead(
+                                                                                ActualParameter(
+                                                                                  Expression(
+                                                                                    Expr1(
+                                                                                      NoExpressionPrefix(
+                                                                                      ) [NoExpressionPrefix]
+                                                                                      TermExprListHead(
+                                                                                        TermListHead(
+                                                                                          NumConstFactor(
+                                                                                           3
+                                                                                          ) [NumConstFactor]
+                                                                                        ) [TermListHead]
+                                                                                      ) [TermExprListHead]
+                                                                                    ) [Expr1]
+                                                                                  ) [Expression]
+                                                                                ) [ActualParameter]
+                                                                              ) [ActualParametersListHead]
+                                                                              ActualParameter(
+                                                                                Expression(
+                                                                                  Expr1(
+                                                                                    NoExpressionPrefix(
+                                                                                    ) [NoExpressionPrefix]
+                                                                                    TermExprListHead(
+                                                                                      TermListHead(
+                                                                                        NumConstFactor(
+                                                                                         4
+                                                                                        ) [NumConstFactor]
+                                                                                      ) [TermListHead]
+                                                                                    ) [TermExprListHead]
+                                                                                  ) [Expr1]
+                                                                                ) [Expression]
+                                                                              ) [ActualParameter]
+                                                                            ) [ActualParametersListElement]
+                                                                            ActualParameter(
+                                                                              Expression(
+                                                                                Expr1(
+                                                                                  NoExpressionPrefix(
+                                                                                  ) [NoExpressionPrefix]
+                                                                                  TermExprListHead(
+                                                                                    TermListHead(
+                                                                                      NumConstFactor(
+                                                                                       5
+                                                                                      ) [NumConstFactor]
+                                                                                    ) [TermListHead]
+                                                                                  ) [TermExprListHead]
+                                                                                ) [Expr1]
+                                                                              ) [Expression]
+                                                                            ) [ActualParameter]
+                                                                          ) [ActualParametersListElement]
+                                                                        ) [FunctionCallActualParameters]
+                                                                      ) [FunctionCall]
+                                                                    ) [FuncCallDesignatorStatement]
                                                                   ) [MatchedAssignmentStatement]
                                                                 ) [SingleMatchedStatement]
                                                               ) [SingleStatementType]
@@ -2576,48 +2686,56 @@ INFO  03:17:01,162 - Program(
                                                           ) [EmptyBracedStatementListHead]
                                                           SingleMatchedStatement(
                                                             MatchedAssignmentStatement(
-                                                              ParFuncCallDesignatorStatement(
-                                                                ObjectAccessDesignator(
-                                                                  ArrayAccessDesignator(
-                                                                    ScalarDesignator(
-                                                                     predmeti
-                                                                    ) [ScalarDesignator]
-                                                                    Expression(
-                                                                      Expr1(
-                                                                        NoExpressionPrefix(
-                                                                        ) [NoExpressionPrefix]
-                                                                        TermExprListHead(
-                                                                          TermListHead(
-                                                                            VarFactor(
-                                                                              ScalarDesignator(
-                                                                               i
-                                                                              ) [ScalarDesignator]
-                                                                            ) [VarFactor]
-                                                                          ) [TermListHead]
-                                                                        ) [TermExprListHead]
-                                                                      ) [Expr1]
-                                                                    ) [Expression]
-                                                                  ) [ArrayAccessDesignator]
-                                                                 postaviTezinu
-                                                                ) [ObjectAccessDesignator]
-                                                                ActualParametersListHead(
-                                                                  Expression(
-                                                                    Expr1(
-                                                                      NoExpressionPrefix(
-                                                                      ) [NoExpressionPrefix]
-                                                                      TermExprListHead(
-                                                                        TermListHead(
-                                                                          VarFactor(
-                                                                            ScalarDesignator(
-                                                                             t
-                                                                            ) [ScalarDesignator]
-                                                                          ) [VarFactor]
-                                                                        ) [TermListHead]
-                                                                      ) [TermExprListHead]
-                                                                    ) [Expr1]
-                                                                  ) [Expression]
-                                                                ) [ActualParametersListHead]
-                                                              ) [ParFuncCallDesignatorStatement]
+                                                              FuncCallDesignatorStatement(
+                                                                FunctionCall(
+                                                                  FunctionCallDesignator(
+                                                                    ObjectAccessDesignator(
+                                                                      ArrayAccessDesignator(
+                                                                        ScalarDesignator(
+                                                                         predmeti
+                                                                        ) [ScalarDesignator]
+                                                                        Expression(
+                                                                          Expr1(
+                                                                            NoExpressionPrefix(
+                                                                            ) [NoExpressionPrefix]
+                                                                            TermExprListHead(
+                                                                              TermListHead(
+                                                                                VarFactor(
+                                                                                  ScalarDesignator(
+                                                                                   i
+                                                                                  ) [ScalarDesignator]
+                                                                                ) [VarFactor]
+                                                                              ) [TermListHead]
+                                                                            ) [TermExprListHead]
+                                                                          ) [Expr1]
+                                                                        ) [Expression]
+                                                                      ) [ArrayAccessDesignator]
+                                                                     postaviTezinu
+                                                                    ) [ObjectAccessDesignator]
+                                                                  ) [FunctionCallDesignator]
+                                                                  FunctionCallActualParameters(
+                                                                    ActualParametersListHead(
+                                                                      ActualParameter(
+                                                                        Expression(
+                                                                          Expr1(
+                                                                            NoExpressionPrefix(
+                                                                            ) [NoExpressionPrefix]
+                                                                            TermExprListHead(
+                                                                              TermListHead(
+                                                                                VarFactor(
+                                                                                  ScalarDesignator(
+                                                                                   t
+                                                                                  ) [ScalarDesignator]
+                                                                                ) [VarFactor]
+                                                                              ) [TermListHead]
+                                                                            ) [TermExprListHead]
+                                                                          ) [Expr1]
+                                                                        ) [Expression]
+                                                                      ) [ActualParameter]
+                                                                    ) [ActualParametersListHead]
+                                                                  ) [FunctionCallActualParameters]
+                                                                ) [FunctionCall]
+                                                              ) [FuncCallDesignatorStatement]
                                                             ) [MatchedAssignmentStatement]
                                                           ) [SingleMatchedStatement]
                                                         ) [BracedStatementListElement]
@@ -2863,40 +2981,44 @@ INFO  03:17:01,162 - Program(
                                                                   ) [AddopPlus]
                                                                   TermListHead(
                                                                     FunctionCallResultFactor(
-                                                                      ObjectAccessDesignator(
-                                                                        ArrayAccessDesignator(
-                                                                          ScalarDesignator(
-                                                                           predmeti
-                                                                          ) [ScalarDesignator]
-                                                                          Expression(
-                                                                            Expr1(
-                                                                              NoExpressionPrefix(
-                                                                              ) [NoExpressionPrefix]
-                                                                              TermExprListElement(
-                                                                                TermExprListHead(
-                                                                                  TermListHead(
-                                                                                    VarFactor(
-                                                                                      ScalarDesignator(
-                                                                                       i
-                                                                                      ) [ScalarDesignator]
-                                                                                    ) [VarFactor]
-                                                                                  ) [TermListHead]
-                                                                                ) [TermExprListHead]
-                                                                                AddopMinus(
-                                                                                ) [AddopMinus]
-                                                                                TermListHead(
-                                                                                  NumConstFactor(
-                                                                                   1
-                                                                                  ) [NumConstFactor]
-                                                                                ) [TermListHead]
-                                                                              ) [TermExprListElement]
-                                                                            ) [Expr1]
-                                                                          ) [Expression]
-                                                                        ) [ArrayAccessDesignator]
-                                                                       zapremina
-                                                                      ) [ObjectAccessDesignator]
-                                                                      NoFunctionCallActualParameters(
-                                                                      ) [NoFunctionCallActualParameters]
+                                                                      FunctionCall(
+                                                                        FunctionCallDesignator(
+                                                                          ObjectAccessDesignator(
+                                                                            ArrayAccessDesignator(
+                                                                              ScalarDesignator(
+                                                                               predmeti
+                                                                              ) [ScalarDesignator]
+                                                                              Expression(
+                                                                                Expr1(
+                                                                                  NoExpressionPrefix(
+                                                                                  ) [NoExpressionPrefix]
+                                                                                  TermExprListElement(
+                                                                                    TermExprListHead(
+                                                                                      TermListHead(
+                                                                                        VarFactor(
+                                                                                          ScalarDesignator(
+                                                                                           i
+                                                                                          ) [ScalarDesignator]
+                                                                                        ) [VarFactor]
+                                                                                      ) [TermListHead]
+                                                                                    ) [TermExprListHead]
+                                                                                    AddopMinus(
+                                                                                    ) [AddopMinus]
+                                                                                    TermListHead(
+                                                                                      NumConstFactor(
+                                                                                       1
+                                                                                      ) [NumConstFactor]
+                                                                                    ) [TermListHead]
+                                                                                  ) [TermExprListElement]
+                                                                                ) [Expr1]
+                                                                              ) [Expression]
+                                                                            ) [ArrayAccessDesignator]
+                                                                           zapremina
+                                                                          ) [ObjectAccessDesignator]
+                                                                        ) [FunctionCallDesignator]
+                                                                        NoFunctionCallActualParameters(
+                                                                        ) [NoFunctionCallActualParameters]
+                                                                      ) [FunctionCall]
                                                                     ) [FunctionCallResultFactor]
                                                                   ) [TermListHead]
                                                                 ) [TermExprListElement]
@@ -2932,40 +3054,44 @@ INFO  03:17:01,162 - Program(
                                                                 ) [AddopPlus]
                                                                 TermListHead(
                                                                   FunctionCallResultFactor(
-                                                                    ObjectAccessDesignator(
-                                                                      ArrayAccessDesignator(
-                                                                        ScalarDesignator(
-                                                                         predmeti
-                                                                        ) [ScalarDesignator]
-                                                                        Expression(
-                                                                          Expr1(
-                                                                            NoExpressionPrefix(
-                                                                            ) [NoExpressionPrefix]
-                                                                            TermExprListElement(
-                                                                              TermExprListHead(
-                                                                                TermListHead(
-                                                                                  VarFactor(
-                                                                                    ScalarDesignator(
-                                                                                     i
-                                                                                    ) [ScalarDesignator]
-                                                                                  ) [VarFactor]
-                                                                                ) [TermListHead]
-                                                                              ) [TermExprListHead]
-                                                                              AddopMinus(
-                                                                              ) [AddopMinus]
-                                                                              TermListHead(
-                                                                                NumConstFactor(
-                                                                                 1
-                                                                                ) [NumConstFactor]
-                                                                              ) [TermListHead]
-                                                                            ) [TermExprListElement]
-                                                                          ) [Expr1]
-                                                                        ) [Expression]
-                                                                      ) [ArrayAccessDesignator]
-                                                                     Q
-                                                                    ) [ObjectAccessDesignator]
-                                                                    NoFunctionCallActualParameters(
-                                                                    ) [NoFunctionCallActualParameters]
+                                                                    FunctionCall(
+                                                                      FunctionCallDesignator(
+                                                                        ObjectAccessDesignator(
+                                                                          ArrayAccessDesignator(
+                                                                            ScalarDesignator(
+                                                                             predmeti
+                                                                            ) [ScalarDesignator]
+                                                                            Expression(
+                                                                              Expr1(
+                                                                                NoExpressionPrefix(
+                                                                                ) [NoExpressionPrefix]
+                                                                                TermExprListElement(
+                                                                                  TermExprListHead(
+                                                                                    TermListHead(
+                                                                                      VarFactor(
+                                                                                        ScalarDesignator(
+                                                                                         i
+                                                                                        ) [ScalarDesignator]
+                                                                                      ) [VarFactor]
+                                                                                    ) [TermListHead]
+                                                                                  ) [TermExprListHead]
+                                                                                  AddopMinus(
+                                                                                  ) [AddopMinus]
+                                                                                  TermListHead(
+                                                                                    NumConstFactor(
+                                                                                     1
+                                                                                    ) [NumConstFactor]
+                                                                                  ) [TermListHead]
+                                                                                ) [TermExprListElement]
+                                                                              ) [Expr1]
+                                                                            ) [Expression]
+                                                                          ) [ArrayAccessDesignator]
+                                                                         Q
+                                                                        ) [ObjectAccessDesignator]
+                                                                      ) [FunctionCallDesignator]
+                                                                      NoFunctionCallActualParameters(
+                                                                      ) [NoFunctionCallActualParameters]
+                                                                    ) [FunctionCall]
                                                                   ) [FunctionCallResultFactor]
                                                                 ) [TermListHead]
                                                               ) [TermExprListElement]
@@ -2977,54 +3103,62 @@ INFO  03:17:01,162 - Program(
                                                   ) [BracedStatementListElement]
                                                   SingleMatchedStatement(
                                                     MatchedAssignmentStatement(
-                                                      ParFuncCallDesignatorStatement(
-                                                        ScalarDesignator(
-                                                         ispis
-                                                        ) [ScalarDesignator]
-                                                        ActualParametersListHead(
-                                                          Expression(
-                                                            Expr1(
-                                                              NoExpressionPrefix(
-                                                              ) [NoExpressionPrefix]
-                                                              TermExprListHead(
-                                                                TermListHead(
-                                                                  VarFactor(
-                                                                    ArrayAccessDesignator(
-                                                                      ScalarDesignator(
-                                                                       predmeti
-                                                                      ) [ScalarDesignator]
-                                                                      Expression(
-                                                                        Expr1(
-                                                                          NoExpressionPrefix(
-                                                                          ) [NoExpressionPrefix]
-                                                                          TermExprListElement(
-                                                                            TermExprListHead(
-                                                                              TermListHead(
-                                                                                VarFactor(
-                                                                                  ScalarDesignator(
-                                                                                   i
-                                                                                  ) [ScalarDesignator]
-                                                                                ) [VarFactor]
-                                                                              ) [TermListHead]
-                                                                            ) [TermExprListHead]
-                                                                            AddopMinus(
-                                                                            ) [AddopMinus]
-                                                                            TermListHead(
-                                                                              NumConstFactor(
-                                                                               1
-                                                                              ) [NumConstFactor]
-                                                                            ) [TermListHead]
-                                                                          ) [TermExprListElement]
-                                                                        ) [Expr1]
-                                                                      ) [Expression]
-                                                                    ) [ArrayAccessDesignator]
-                                                                  ) [VarFactor]
-                                                                ) [TermListHead]
-                                                              ) [TermExprListHead]
-                                                            ) [Expr1]
-                                                          ) [Expression]
-                                                        ) [ActualParametersListHead]
-                                                      ) [ParFuncCallDesignatorStatement]
+                                                      FuncCallDesignatorStatement(
+                                                        FunctionCall(
+                                                          FunctionCallDesignator(
+                                                            ScalarDesignator(
+                                                             ispis
+                                                            ) [ScalarDesignator]
+                                                          ) [FunctionCallDesignator]
+                                                          FunctionCallActualParameters(
+                                                            ActualParametersListHead(
+                                                              ActualParameter(
+                                                                Expression(
+                                                                  Expr1(
+                                                                    NoExpressionPrefix(
+                                                                    ) [NoExpressionPrefix]
+                                                                    TermExprListHead(
+                                                                      TermListHead(
+                                                                        VarFactor(
+                                                                          ArrayAccessDesignator(
+                                                                            ScalarDesignator(
+                                                                             predmeti
+                                                                            ) [ScalarDesignator]
+                                                                            Expression(
+                                                                              Expr1(
+                                                                                NoExpressionPrefix(
+                                                                                ) [NoExpressionPrefix]
+                                                                                TermExprListElement(
+                                                                                  TermExprListHead(
+                                                                                    TermListHead(
+                                                                                      VarFactor(
+                                                                                        ScalarDesignator(
+                                                                                         i
+                                                                                        ) [ScalarDesignator]
+                                                                                      ) [VarFactor]
+                                                                                    ) [TermListHead]
+                                                                                  ) [TermExprListHead]
+                                                                                  AddopMinus(
+                                                                                  ) [AddopMinus]
+                                                                                  TermListHead(
+                                                                                    NumConstFactor(
+                                                                                     1
+                                                                                    ) [NumConstFactor]
+                                                                                  ) [TermListHead]
+                                                                                ) [TermExprListElement]
+                                                                              ) [Expr1]
+                                                                            ) [Expression]
+                                                                          ) [ArrayAccessDesignator]
+                                                                        ) [VarFactor]
+                                                                      ) [TermListHead]
+                                                                    ) [TermExprListHead]
+                                                                  ) [Expr1]
+                                                                ) [Expression]
+                                                              ) [ActualParameter]
+                                                            ) [ActualParametersListHead]
+                                                          ) [FunctionCallActualParameters]
+                                                        ) [FunctionCall]
+                                                      ) [FuncCallDesignatorStatement]
                                                     ) [MatchedAssignmentStatement]
                                                   ) [SingleMatchedStatement]
                                                 ) [BracedStatementListElement]
@@ -3270,40 +3404,44 @@ INFO  03:17:01,162 - Program(
                                                           ) [AddopPlus]
                                                           TermListHead(
                                                             FunctionCallResultFactor(
-                                                              ObjectAccessDesignator(
-                                                                ArrayAccessDesignator(
-                                                                  ScalarDesignator(
-                                                                   predmeti
-                                                                  ) [ScalarDesignator]
-                                                                  Expression(
-                                                                    Expr1(
-                                                                      NoExpressionPrefix(
-                                                                      ) [NoExpressionPrefix]
-                                                                      TermExprListElement(
-                                                                        TermExprListHead(
-                                                                          TermListHead(
-                                                                            VarFactor(
-                                                                              ScalarDesignator(
-                                                                               i
-                                                                              ) [ScalarDesignator]
-                                                                            ) [VarFactor]
-                                                                          ) [TermListHead]
-                                                                        ) [TermExprListHead]
-                                                                        AddopMinus(
-                                                                        ) [AddopMinus]
-                                                                        TermListHead(
-                                                                          NumConstFactor(
-                                                                           1
-                                                                          ) [NumConstFactor]
-                                                                        ) [TermListHead]
-                                                                      ) [TermExprListElement]
-                                                                    ) [Expr1]
-                                                                  ) [Expression]
-                                                                ) [ArrayAccessDesignator]
-                                                               zapremina
-                                                              ) [ObjectAccessDesignator]
-                                                              NoFunctionCallActualParameters(
-                                                              ) [NoFunctionCallActualParameters]
+                                                              FunctionCall(
+                                                                FunctionCallDesignator(
+                                                                  ObjectAccessDesignator(
+                                                                    ArrayAccessDesignator(
+                                                                      ScalarDesignator(
+                                                                       predmeti
+                                                                      ) [ScalarDesignator]
+                                                                      Expression(
+                                                                        Expr1(
+                                                                          NoExpressionPrefix(
+                                                                          ) [NoExpressionPrefix]
+                                                                          TermExprListElement(
+                                                                            TermExprListHead(
+                                                                              TermListHead(
+                                                                                VarFactor(
+                                                                                  ScalarDesignator(
+                                                                                   i
+                                                                                  ) [ScalarDesignator]
+                                                                                ) [VarFactor]
+                                                                              ) [TermListHead]
+                                                                            ) [TermExprListHead]
+                                                                            AddopMinus(
+                                                                            ) [AddopMinus]
+                                                                            TermListHead(
+                                                                              NumConstFactor(
+                                                                               1
+                                                                              ) [NumConstFactor]
+                                                                            ) [TermListHead]
+                                                                          ) [TermExprListElement]
+                                                                        ) [Expr1]
+                                                                      ) [Expression]
+                                                                    ) [ArrayAccessDesignator]
+                                                                   zapremina
+                                                                  ) [ObjectAccessDesignator]
+                                                                ) [FunctionCallDesignator]
+                                                                NoFunctionCallActualParameters(
+                                                                ) [NoFunctionCallActualParameters]
+                                                              ) [FunctionCall]
                                                             ) [FunctionCallResultFactor]
                                                           ) [TermListHead]
                                                         ) [TermExprListElement]
@@ -3339,40 +3477,44 @@ INFO  03:17:01,162 - Program(
                                                         ) [AddopPlus]
                                                         TermListHead(
                                                           FunctionCallResultFactor(
-                                                            ObjectAccessDesignator(
-                                                              ArrayAccessDesignator(
-                                                                ScalarDesignator(
-                                                                 predmeti
-                                                                ) [ScalarDesignator]
-                                                                Expression(
-                                                                  Expr1(
-                                                                    NoExpressionPrefix(
-                                                                    ) [NoExpressionPrefix]
-                                                                    TermExprListElement(
-                                                                      TermExprListHead(
-                                                                        TermListHead(
-                                                                          VarFactor(
-                                                                            ScalarDesignator(
-                                                                             i
-                                                                            ) [ScalarDesignator]
-                                                                          ) [VarFactor]
-                                                                        ) [TermListHead]
-                                                                      ) [TermExprListHead]
-                                                                      AddopMinus(
-                                                                      ) [AddopMinus]
-                                                                      TermListHead(
-                                                                        NumConstFactor(
-                                                                         1
-                                                                        ) [NumConstFactor]
-                                                                      ) [TermListHead]
-                                                                    ) [TermExprListElement]
-                                                                  ) [Expr1]
-                                                                ) [Expression]
-                                                              ) [ArrayAccessDesignator]
-                                                             Q
-                                                            ) [ObjectAccessDesignator]
-                                                            NoFunctionCallActualParameters(
-                                                            ) [NoFunctionCallActualParameters]
+                                                            FunctionCall(
+                                                              FunctionCallDesignator(
+                                                                ObjectAccessDesignator(
+                                                                  ArrayAccessDesignator(
+                                                                    ScalarDesignator(
+                                                                     predmeti
+                                                                    ) [ScalarDesignator]
+                                                                    Expression(
+                                                                      Expr1(
+                                                                        NoExpressionPrefix(
+                                                                        ) [NoExpressionPrefix]
+                                                                        TermExprListElement(
+                                                                          TermExprListHead(
+                                                                            TermListHead(
+                                                                              VarFactor(
+                                                                                ScalarDesignator(
+                                                                                 i
+                                                                                ) [ScalarDesignator]
+                                                                              ) [VarFactor]
+                                                                            ) [TermListHead]
+                                                                          ) [TermExprListHead]
+                                                                          AddopMinus(
+                                                                          ) [AddopMinus]
+                                                                          TermListHead(
+                                                                            NumConstFactor(
+                                                                             1
+                                                                            ) [NumConstFactor]
+                                                                          ) [TermListHead]
+                                                                        ) [TermExprListElement]
+                                                                      ) [Expr1]
+                                                                    ) [Expression]
+                                                                  ) [ArrayAccessDesignator]
+                                                                 Q
+                                                                ) [ObjectAccessDesignator]
+                                                              ) [FunctionCallDesignator]
+                                                              NoFunctionCallActualParameters(
+                                                              ) [NoFunctionCallActualParameters]
+                                                            ) [FunctionCall]
                                                           ) [FunctionCallResultFactor]
                                                         ) [TermListHead]
                                                       ) [TermExprListElement]
@@ -3384,54 +3526,62 @@ INFO  03:17:01,162 - Program(
                                           ) [BracedStatementListElement]
                                           SingleMatchedStatement(
                                             MatchedAssignmentStatement(
-                                              ParFuncCallDesignatorStatement(
-                                                ScalarDesignator(
-                                                 ispis
-                                                ) [ScalarDesignator]
-                                                ActualParametersListHead(
-                                                  Expression(
-                                                    Expr1(
-                                                      NoExpressionPrefix(
-                                                      ) [NoExpressionPrefix]
-                                                      TermExprListHead(
-                                                        TermListHead(
-                                                          VarFactor(
-                                                            ArrayAccessDesignator(
-                                                              ScalarDesignator(
-                                                               predmeti
-                                                              ) [ScalarDesignator]
-                                                              Expression(
-                                                                Expr1(
-                                                                  NoExpressionPrefix(
-                                                                  ) [NoExpressionPrefix]
-                                                                  TermExprListElement(
-                                                                    TermExprListHead(
-                                                                      TermListHead(
-                                                                        VarFactor(
-                                                                          ScalarDesignator(
-                                                                           i
-                                                                          ) [ScalarDesignator]
-                                                                        ) [VarFactor]
-                                                                      ) [TermListHead]
-                                                                    ) [TermExprListHead]
-                                                                    AddopMinus(
-                                                                    ) [AddopMinus]
-                                                                    TermListHead(
-                                                                      NumConstFactor(
-                                                                       1
-                                                                      ) [NumConstFactor]
-                                                                    ) [TermListHead]
-                                                                  ) [TermExprListElement]
-                                                                ) [Expr1]
-                                                              ) [Expression]
-                                                            ) [ArrayAccessDesignator]
-                                                          ) [VarFactor]
-                                                        ) [TermListHead]
-                                                      ) [TermExprListHead]
-                                                    ) [Expr1]
-                                                  ) [Expression]
-                                                ) [ActualParametersListHead]
-                                              ) [ParFuncCallDesignatorStatement]
+                                              FuncCallDesignatorStatement(
+                                                FunctionCall(
+                                                  FunctionCallDesignator(
+                                                    ScalarDesignator(
+                                                     ispis
+                                                    ) [ScalarDesignator]
+                                                  ) [FunctionCallDesignator]
+                                                  FunctionCallActualParameters(
+                                                    ActualParametersListHead(
+                                                      ActualParameter(
+                                                        Expression(
+                                                          Expr1(
+                                                            NoExpressionPrefix(
+                                                            ) [NoExpressionPrefix]
+                                                            TermExprListHead(
+                                                              TermListHead(
+                                                                VarFactor(
+                                                                  ArrayAccessDesignator(
+                                                                    ScalarDesignator(
+                                                                     predmeti
+                                                                    ) [ScalarDesignator]
+                                                                    Expression(
+                                                                      Expr1(
+                                                                        NoExpressionPrefix(
+                                                                        ) [NoExpressionPrefix]
+                                                                        TermExprListElement(
+                                                                          TermExprListHead(
+                                                                            TermListHead(
+                                                                              VarFactor(
+                                                                                ScalarDesignator(
+                                                                                 i
+                                                                                ) [ScalarDesignator]
+                                                                              ) [VarFactor]
+                                                                            ) [TermListHead]
+                                                                          ) [TermExprListHead]
+                                                                          AddopMinus(
+                                                                          ) [AddopMinus]
+                                                                          TermListHead(
+                                                                            NumConstFactor(
+                                                                             1
+                                                                            ) [NumConstFactor]
+                                                                          ) [TermListHead]
+                                                                        ) [TermExprListElement]
+                                                                      ) [Expr1]
+                                                                    ) [Expression]
+                                                                  ) [ArrayAccessDesignator]
+                                                                ) [VarFactor]
+                                                              ) [TermListHead]
+                                                            ) [TermExprListHead]
+                                                          ) [Expr1]
+                                                        ) [Expression]
+                                                      ) [ActualParameter]
+                                                    ) [ActualParametersListHead]
+                                                  ) [FunctionCallActualParameters]
+                                                ) [FunctionCall]
+                                              ) [FuncCallDesignatorStatement]
                                             ) [MatchedAssignmentStatement]
                                           ) [SingleMatchedStatement]
                                         ) [BracedStatementListElement]
@@ -3702,30 +3852,32 @@ INFO  03:17:01,162 - Program(
                         ) [EmptyBracedStatementListHead]
                         SingleMatchedStatement(
                           MatchedSwitchStatement(
-                            Expression(
-                              Expr1(
-                                NoExpressionPrefix(
-                                ) [NoExpressionPrefix]
-                                TermExprListElement(
-                                  TermExprListHead(
+                            SwitchExpression(
+                              Expression(
+                                Expr1(
+                                  NoExpressionPrefix(
+                                  ) [NoExpressionPrefix]
+                                  TermExprListElement(
+                                    TermExprListHead(
+                                      TermListHead(
+                                        VarFactor(
+                                          ScalarDesignator(
+                                           i
+                                          ) [ScalarDesignator]
+                                        ) [VarFactor]
+                                      ) [TermListHead]
+                                    ) [TermExprListHead]
+                                    AddopPlus(
+                                    ) [AddopPlus]
                                     TermListHead(
-                                      VarFactor(
-                                        ScalarDesignator(
-                                         i
-                                        ) [ScalarDesignator]
-                                      ) [VarFactor]
+                                      NumConstFactor(
+                                       1
+                                      ) [NumConstFactor]
                                     ) [TermListHead]
-                                  ) [TermExprListHead]
-                                  AddopPlus(
-                                  ) [AddopPlus]
-                                  TermListHead(
-                                    NumConstFactor(
-                                     1
-                                    ) [NumConstFactor]
-                                  ) [TermListHead]
-                                ) [TermExprListElement]
-                              ) [Expr1]
-                            ) [Expression]
+                                  ) [TermExprListElement]
+                                ) [Expr1]
+                              ) [Expression]
+                            ) [SwitchExpression]
                             SwitchCaseListElement(
                               SwitchCaseListElement(
                                 SwitchCaseListElement(
@@ -4037,5 +4189,4 @@ INFO  03:17:01,162 - Program(
     ) [MethodDeclaration]
   ) [MethodDeclarationListElement]
 ) [Program]
-INFO  03:17:02,259 - ===================================
-ERROR 03:17:02,277 - Line: 11 - Corrected variable declaration error!
+INFO  01:27:56,131 - ===================================

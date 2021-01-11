@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ActualParametersListHead extends ActPars {
 
-    private Expr Expr;
+    private ActPar ActPar;
 
-    public ActualParametersListHead (Expr Expr) {
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
+    public ActualParametersListHead (ActPar ActPar) {
+        this.ActPar=ActPar;
+        if(ActPar!=null) ActPar.setParent(this);
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public ActPar getActPar() {
+        return ActPar;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
+    public void setActPar(ActPar ActPar) {
+        this.ActPar=ActPar;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class ActualParametersListHead extends ActPars {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Expr!=null) Expr.accept(visitor);
+        if(ActPar!=null) ActPar.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(ActPar!=null) ActPar.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(ActPar!=null) ActPar.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class ActualParametersListHead extends ActPars {
         buffer.append(tab);
         buffer.append("ActualParametersListHead(\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
+        if(ActPar!=null)
+            buffer.append(ActPar.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -1,36 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class FunctionCallResultFactor extends Factor {
 
-    private Designator Designator;
-    private FuncCallActPars FuncCallActPars;
+    private FunctionCall FunctionCall;
 
-    public FunctionCallResultFactor (Designator Designator, FuncCallActPars FuncCallActPars) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
-        this.FuncCallActPars=FuncCallActPars;
-        if(FuncCallActPars!=null) FuncCallActPars.setParent(this);
+    public FunctionCallResultFactor (FunctionCall FunctionCall) {
+        this.FunctionCall=FunctionCall;
+        if(FunctionCall!=null) FunctionCall.setParent(this);
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public FunctionCall getFunctionCall() {
+        return FunctionCall;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
-    }
-
-    public FuncCallActPars getFuncCallActPars() {
-        return FuncCallActPars;
-    }
-
-    public void setFuncCallActPars(FuncCallActPars FuncCallActPars) {
-        this.FuncCallActPars=FuncCallActPars;
+    public void setFunctionCall(FunctionCall FunctionCall) {
+        this.FunctionCall=FunctionCall;
     }
 
     public void accept(Visitor visitor) {
@@ -38,19 +27,16 @@ public class FunctionCallResultFactor extends Factor {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
-        if(FuncCallActPars!=null) FuncCallActPars.accept(visitor);
+        if(FunctionCall!=null) FunctionCall.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
-        if(FuncCallActPars!=null) FuncCallActPars.traverseTopDown(visitor);
+        if(FunctionCall!=null) FunctionCall.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
-        if(FuncCallActPars!=null) FuncCallActPars.traverseBottomUp(visitor);
+        if(FunctionCall!=null) FunctionCall.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +45,8 @@ public class FunctionCallResultFactor extends Factor {
         buffer.append(tab);
         buffer.append("FunctionCallResultFactor(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(FuncCallActPars!=null)
-            buffer.append(FuncCallActPars.toString("  "+tab));
+        if(FunctionCall!=null)
+            buffer.append(FunctionCall.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

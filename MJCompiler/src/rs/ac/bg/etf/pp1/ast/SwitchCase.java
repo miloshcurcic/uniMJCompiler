@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,21 +9,21 @@ public class SwitchCase implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private Integer N1;
+    private Integer number;
     private Statements Statements;
 
-    public SwitchCase (Integer N1, Statements Statements) {
-        this.N1=N1;
+    public SwitchCase (Integer number, Statements Statements) {
+        this.number=number;
         this.Statements=Statements;
         if(Statements!=null) Statements.setParent(this);
     }
 
-    public Integer getN1() {
-        return N1;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setN1(Integer N1) {
-        this.N1=N1;
+    public void setNumber(Integer number) {
+        this.number=number;
     }
 
     public Statements getStatements() {
@@ -73,7 +73,7 @@ public class SwitchCase implements SyntaxNode {
         buffer.append(tab);
         buffer.append("SwitchCase(\n");
 
-        buffer.append(" "+tab+N1);
+        buffer.append(" "+tab+number);
         buffer.append("\n");
 
         if(Statements!=null)

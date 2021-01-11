@@ -1,20 +1,21 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ParFuncCallDesignatorStatement extends DesignatorStatement {
+public class FunctionCallDesignator implements SyntaxNode {
+
+    private SyntaxNode parent;
+    private int line;
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
     private Designator Designator;
-    private ActPars ActPars;
 
-    public ParFuncCallDesignatorStatement (Designator Designator, ActPars ActPars) {
+    public FunctionCallDesignator (Designator Designator) {
         this.Designator=Designator;
         if(Designator!=null) Designator.setParent(this);
-        this.ActPars=ActPars;
-        if(ActPars!=null) ActPars.setParent(this);
     }
 
     public Designator getDesignator() {
@@ -25,12 +26,20 @@ public class ParFuncCallDesignatorStatement extends DesignatorStatement {
         this.Designator=Designator;
     }
 
-    public ActPars getActPars() {
-        return ActPars;
+    public SyntaxNode getParent() {
+        return parent;
     }
 
-    public void setActPars(ActPars ActPars) {
-        this.ActPars=ActPars;
+    public void setParent(SyntaxNode parent) {
+        this.parent=parent;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line=line;
     }
 
     public void accept(Visitor visitor) {
@@ -39,25 +48,22 @@ public class ParFuncCallDesignatorStatement extends DesignatorStatement {
 
     public void childrenAccept(Visitor visitor) {
         if(Designator!=null) Designator.accept(visitor);
-        if(ActPars!=null) ActPars.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Designator!=null) Designator.traverseTopDown(visitor);
-        if(ActPars!=null) ActPars.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Designator!=null) Designator.traverseBottomUp(visitor);
-        if(ActPars!=null) ActPars.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ParFuncCallDesignatorStatement(\n");
+        buffer.append("FunctionCallDesignator(\n");
 
         if(Designator!=null)
             buffer.append(Designator.toString("  "+tab));
@@ -65,14 +71,8 @@ public class ParFuncCallDesignatorStatement extends DesignatorStatement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ActPars!=null)
-            buffer.append(ActPars.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [ParFuncCallDesignatorStatement]");
+        buffer.append(") [FunctionCallDesignator]");
         return buffer.toString();
     }
 }

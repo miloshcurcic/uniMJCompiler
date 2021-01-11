@@ -60,32 +60,66 @@ public class CustomDumpSymbolTableVisitor extends SymbolTableVisitor {
 		output.append(objToVisit.getName());
 		output.append(": ");
 
-		if ((objToVisit.getKind() == Obj.Var) && "this".equalsIgnoreCase(objToVisit.getName())) {
-			output.append("this");
+		if (objToVisit.getKind() != Obj.Prog) {
+			if ((objToVisit.getKind() == Obj.Var) && "this".equalsIgnoreCase(objToVisit.getName())) {
+				output.append("this");
+			} else {
+				if (objToVisit.getKind() != Obj.Type) {
+					if (objToVisit.getType().getKind() != Struct.Class) {
+						objToVisit.getType().accept(this);
+					}
+					else
+					{
+						output.append("Class");
+					}
+				} else {
+					if (objToVisit.getType().getKind() == Struct.Class) {
+						output.append("Class");
+					}
+					else
+					{
+						objToVisit.getType().accept(this);
+					}
+				}
+			}
+
+			if (objToVisit.getKind() == Obj.Con) {
+				output.append(", Value: ").append(objToVisit.getAdr());
+			} else if (objToVisit.getKind() != Obj.Type) {
+				output.append(", Offset: ").append(objToVisit.getAdr());
+			}
+
+			if (objToVisit.getKind() == Obj.Var) {
+				output.append(", Scope: ");
+
+				if (objToVisit.getLevel() == 1) {
+					output.append("local");
+				} else {
+					output.append("global");
+				}
+			} else {
+				if (objToVisit.getKind() == Obj.Meth) {
+					output.append(", Formal params: ").append(objToVisit.getLevel());
+				}
+			}
+
+			if (objToVisit.getKind() == Obj.Var) {
+				output.append(", Formal param position: ").append(objToVisit.getFpPos());
+			}
+
+			if ((objToVisit.getKind() == Obj.Type) && (objToVisit.getType().getKind() == Struct.Class)) {
+				output.append(", Num fields: ").append(objToVisit.getType().getNumberOfFields()).append("\n");
+
+				objToVisit.getType().accept(this);
+			}
+			else
+			{
+				output.append("\n");
+			}
 		}
 		else
 		{
-			if (objToVisit.getKind() != Obj.Type) {
-				if (objToVisit.getType().getKind() != Struct.Class) {
-					objToVisit.getType().accept(this);
-				}
-			} else {
-				if (objToVisit.getType().getKind() == Struct.Class) {
-					output.append("Class");
-				}
-			}
-		}
-
-		output.append(", Adr: ");
-		output.append(objToVisit.getAdr());
-		output.append(", Level: ");
-		output.append(objToVisit.getLevel());
-		output.append(", FpPos: ");
-		output.append(objToVisit.getFpPos());
-		output.append("\n");
-
-		if (objToVisit.getKind() == Obj.Type) {
-			objToVisit.getType().accept(this);
+			output.append("\n");
 		}
 
 		if (objToVisit.getKind() == Obj.Prog || objToVisit.getKind() == Obj.Meth) {
@@ -113,40 +147,59 @@ public class CustomDumpSymbolTableVisitor extends SymbolTableVisitor {
 	@Override
 	public void visitStructNode(Struct structToVisit) {
 		switch (structToVisit.getKind()) {
-		case Struct.None:
-			output.append("notype");
-			break;
-		case Struct.Int:
-			output.append("int");
-			break;
-		case Struct.Char:
-			output.append("char");
-			break;
-		case Struct.Array:
-			output.append("Array of ");
-			
-			switch (structToVisit.getElemType().getKind()) {
-			case Struct.None:
+			case Struct.None: {
 				output.append("notype");
 				break;
-			case Struct.Int:
+			}
+			case Struct.Int: {
 				output.append("int");
 				break;
-			case Struct.Char:
+			}
+			case Struct.Char: {
 				output.append("char");
 				break;
-			case Struct.Class:
-				output.append("Class");
+			}
+			case Struct.Bool: {
+				output.append("bool");
 				break;
 			}
-			break;
-		case Struct.Class:
-			nextIndentationLevel();
-			for (Obj obj : structToVisit.getMembers()) {
-				obj.accept(this);
+			case Struct.Array: {
+				output.append("Array of ");
+
+				switch (structToVisit.getElemType().getKind()) {
+					case Struct.None: {
+						output.append("notype");
+						break;
+					}
+					case Struct.Int: {
+						output.append("int");
+						break;
+					}
+					case Struct.Char: {
+						output.append("char");
+						break;
+					}
+					case Struct.Bool: {
+						output.append("bool");
+						break;
+					}
+					case Struct.Class: {
+						output.append("Class");
+						break;
+					}
+				}
+				break;
 			}
-			previousIndentationLevel();
-			break;
+			case Struct.Class: {
+				nextIndentationLevel();
+
+				for (Obj obj : structToVisit.getMembers()) {
+					obj.accept(this);
+				}
+
+				previousIndentationLevel();
+				break;
+			}
 		}
 
 	}

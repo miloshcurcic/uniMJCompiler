@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -30,8 +30,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SwitchCases SwitchCases) { }
     public void visit(ExprPrefix ExprPrefix) { }
     public void visit(ActPars ActPars) { }
-    public void visit(ClassMethodDecls ClassMethodDecls) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
+    public void visit(ClassMethodDecls ClassMethodDecls) { }
     public void visit(VarDecls VarDecls) { }
     public void visit(UnmatchedStatement UnmatchedStatement) { }
     public void visit(Statement Statement) { }
@@ -41,6 +41,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(BracedStatements BracedStatements) { }
     public void visit(CondFact CondFact) { }
     public void visit(FormPar FormPar) { }
+    public void visit(ActPar ActPar) { }
     public void visit(SingleStatement SingleStatement) { }
     public void visit(MethodTypeNamePair MethodTypeNamePair) { }
     public void visit(FormPars FormPars) { }
@@ -60,8 +61,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ArrayAccessDesignator ArrayAccessDesignator) { visit(); }
     public void visit(ObjectAccessDesignator ObjectAccessDesignator) { visit(); }
     public void visit(ScalarDesignator ScalarDesignator) { visit(); }
-    public void visit(NoFunctionCallActualParameters NoFunctionCallActualParameters) { visit(); }
-    public void visit(FunctionCallActualParameters FunctionCallActualParameters) { visit(); }
     public void visit(ExprResultFactor ExprResultFactor) { visit(); }
     public void visit(NewArrayObjectFactor NewArrayObjectFactor) { visit(); }
     public void visit(NewObjectFactor NewObjectFactor) { visit(); }
@@ -85,16 +84,21 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondTermListElement CondTermListElement) { visit(); }
     public void visit(ConditionListHead ConditionListHead) { visit(); }
     public void visit(ConditionListElement ConditionListElement) { visit(); }
+    public void visit(ActualParameter ActualParameter) { visit(); }
     public void visit(ActualParametersListHead ActualParametersListHead) { visit(); }
     public void visit(ActualParametersListElement ActualParametersListElement) { visit(); }
+    public void visit(NoFunctionCallActualParameters NoFunctionCallActualParameters) { visit(); }
+    public void visit(FunctionCallActualParameters FunctionCallActualParameters) { visit(); }
+    public void visit(FunctionCallDesignator FunctionCallDesignator) { visit(); }
+    public void visit(FunctionCall FunctionCall) { visit(); }
     public void visit(PostDecDesignatorStatement PostDecDesignatorStatement) { visit(); }
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement) { visit(); }
-    public void visit(NoParFuncCallDesignatorStatement NoParFuncCallDesignatorStatement) { visit(); }
-    public void visit(ParFuncCallDesignatorStatement ParFuncCallDesignatorStatement) { visit(); }
+    public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement) { visit(); }
     public void visit(AssignmentDesignatorStatement AssignmentDesignatorStatement) { visit(); }
     public void visit(SwitchCase SwitchCase) { visit(); }
     public void visit(EmptySwitchCaseListHead EmptySwitchCaseListHead) { visit(); }
     public void visit(SwitchCaseListElement SwitchCaseListElement) { visit(); }
+    public void visit(SwitchExpression SwitchExpression) { visit(); }
     public void visit(UnmatchedIfElseStatement UnmatchedIfElseStatement) { visit(); }
     public void visit(UnmatchedIfStatement UnmatchedIfStatement) { visit(); }
     public void visit(MatchedParPrintStatement MatchedParPrintStatement) { visit(); }

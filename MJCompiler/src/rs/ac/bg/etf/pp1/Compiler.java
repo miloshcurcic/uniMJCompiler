@@ -45,8 +45,7 @@ public class Compiler {
             Symbol s = p.parse();  //pocetak parsiranja
             Program rootNode = (Program)(s.value);
 
-            Tab.init(); // Universe scope
-            Tab.insert(Obj.Type, "bool", new Struct(Struct.Bool));
+            SemanticAnalyzer.initUniverseScope();
 
             log.info("===================================");
             log.info(rootNode.toString(""));

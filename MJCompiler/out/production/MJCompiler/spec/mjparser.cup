@@ -7,13 +7,9 @@ import org.apache.log4j.*;
 import rs.ac.bg.etf.pp1.ast.*;
 
 parser code {:
-
 	boolean errorDetected;
 
 	Logger log = Logger.getLogger(getClass());
-
-
-    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
 
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
@@ -31,12 +27,13 @@ parser code {:
     public void report_error(String message, Object info) {
     	errorDetected = true;
     	StringBuilder msg = new StringBuilder(message);
-    	if (info instanceof Symbol)
+
+    	if (info instanceof Symbol) {
             msg.append (" na liniji ").append(((Symbol)info).left);
+        }
+
         log.error(msg.toString());
     }
-
-
 :}
 
 init with {:
@@ -146,9 +143,11 @@ nonterminal Program,
 	MatchedStatement,
 	UnmatchedStatement,
 	SwitchCases,
+	SwitchExpression,
 	SwitchCase,
 	DesignatorStatement,
 	ActPars,
+	ActPar,
 	FuncCallActPars,
 	Condition,
 	CondTerm,
@@ -160,10 +159,10 @@ nonterminal Program,
 	Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr1, Expr
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr1, Expr, FunctionCall
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignator
 ;
 
  Program ::= (Program) PROGRAM ProgramName DataDecls LBRACE MethodDecls RBRACE ;
@@ -196,12 +195,15 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
     | (EmptyVarDeclList)
 ;
 
- VarDecl ::= (VarDecl) VarDeclType VarIdents SEMICOLON ;
+ VarDecl ::= (VariableDeclaration) VarDeclType VarIdents SEMICOLON
+        | (VariableDeclarationError) error VarIdents SEMICOLON
+;
 
  VarDeclType ::= (VarDeclType) Type ;
 
  VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
         | (VarIdentListHead) VarIdent
+        | (VarIdentError) error
 ;
 
  VarIdent ::= (ScalarVarIdent) IDENT:name
@@ -269,7 +271,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
  MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
              | (MatchedIfStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
              | (MatchedDoWhileStatement) DO Statement WHILE LPAREN Condition RPAREN SEMICOLON
-             | (MatchedSwitchStatement) SWITCH LPAREN Expr RPAREN LBRACE SwitchCases RBRACE
+             | (MatchedSwitchStatement) SWITCH LPAREN SwitchExpression RPAREN LBRACE SwitchCases RBRACE
              | (MatchedBreakStatement) BREAK SEMICOLON
              | (MatchedContinueStatement) CONTINUE SEMICOLON
              | (MatchedExprReturnStatement) RETURN Expr SEMICOLON
@@ -283,22 +285,35 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
              | (UnmatchedIfElseStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
  ;
 
+SwitchExpression ::= (SwitchExpression) Expr ;
+
  SwitchCases ::= (SwitchCaseListElement) SwitchCases SwitchCase
              | (EmptySwitchCaseListHead)
  ;
 
- SwitchCase ::= (SwitchCase) CASE NUMBER COLON Statements ;
+
+ SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements ;
 
  DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
-                     | (ParFuncCallDesignatorStatement) Designator LPAREN ActPars RPAREN
-                     | (NoParFuncCallDesignatorStatement) Designator LPAREN RPAREN
+                     | (FuncCallDesignatorStatement) FunctionCall
                      | (PostIncDesignatorStatement) Designator PPLUS
                      | (PostDecDesignatorStatement) Designator MMINUS
  ;
 
- ActPars ::= (ActualParametersListElement) ActPars COMMA Expr
-         | (ActualParametersListHead) Expr
+ FunctionCall ::= (FunctionCall) FunctionCallDesignator LPAREN FuncCallActPars RPAREN ;
+
+ FunctionCallDesignator ::= (FunctionCallDesignator) Designator ;
+
+
+ FuncCallActPars ::= (FunctionCallActualParameters) ActPars
+        | (NoFunctionCallActualParameters)
+;
+
+ ActPars ::= (ActualParametersListElement) ActPars COMMA ActPar
+         | (ActualParametersListHead) ActPar
  ;
+
+ ActPar ::= (ActualParameter) Expr ;
 
  Condition ::= (ConditionListElement) Condition OR CondTerm
          | (ConditionListHead) CondTerm
@@ -331,7 +346,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
  ;
 
  Factor ::= (VarFactor) Designator
-         | (FunctionCallResultFactor) Designator LPAREN FuncCallActPars RPAREN
+         | (FunctionCallResultFactor) FunctionCall
          | (NumConstFactor) NUMBER
          | (CharConstFactor) CHAR
          | (BoolConstFactor) BOOL
@@ -339,10 +354,6 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
          | (NewArrayObjectFactor) NEW Type LBRACKET Expr RBRACKET
          | (ExprResultFactor) LPAREN Expr RPAREN
  ;
-
- FuncCallActPars ::= (FunctionCallActualParameters) ActPars
-        | (NoFunctionCallActualParameters)
-;
 
  Designator ::= (ScalarDesignator) IDENT:name
              | (ObjectAccessDesignator) Designator DOT IDENT:fieldName

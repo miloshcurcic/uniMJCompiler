@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2021 3:13:34
+// 11/0/2021 1:27:33
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MatchedSwitchStatement extends MatchedStatement {
 
-    private Expr Expr;
+    private SwitchExpression SwitchExpression;
     private SwitchCases SwitchCases;
 
-    public MatchedSwitchStatement (Expr Expr, SwitchCases SwitchCases) {
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
+    public MatchedSwitchStatement (SwitchExpression SwitchExpression, SwitchCases SwitchCases) {
+        this.SwitchExpression=SwitchExpression;
+        if(SwitchExpression!=null) SwitchExpression.setParent(this);
         this.SwitchCases=SwitchCases;
         if(SwitchCases!=null) SwitchCases.setParent(this);
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public SwitchExpression getSwitchExpression() {
+        return SwitchExpression;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
+    public void setSwitchExpression(SwitchExpression SwitchExpression) {
+        this.SwitchExpression=SwitchExpression;
     }
 
     public SwitchCases getSwitchCases() {
@@ -38,18 +38,18 @@ public class MatchedSwitchStatement extends MatchedStatement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Expr!=null) Expr.accept(visitor);
+        if(SwitchExpression!=null) SwitchExpression.accept(visitor);
         if(SwitchCases!=null) SwitchCases.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(SwitchExpression!=null) SwitchExpression.traverseTopDown(visitor);
         if(SwitchCases!=null) SwitchCases.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(SwitchExpression!=null) SwitchExpression.traverseBottomUp(visitor);
         if(SwitchCases!=null) SwitchCases.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,8 +59,8 @@ public class MatchedSwitchStatement extends MatchedStatement {
         buffer.append(tab);
         buffer.append("MatchedSwitchStatement(\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
+        if(SwitchExpression!=null)
+            buffer.append(SwitchExpression.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

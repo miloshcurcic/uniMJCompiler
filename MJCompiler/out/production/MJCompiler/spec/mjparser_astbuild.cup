@@ -7,13 +7,9 @@ import org.apache.log4j.*;
 import rs.ac.bg.etf.pp1.ast.*;
 
 parser code {:
-
 	boolean errorDetected;
 
 	Logger log = Logger.getLogger(getClass());
-
-
-    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
 
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
@@ -31,12 +27,13 @@ parser code {:
     public void report_error(String message, Object info) {
     	errorDetected = true;
     	StringBuilder msg = new StringBuilder(message);
-    	if (info instanceof Symbol)
+
+    	if (info instanceof Symbol) {
             msg.append (" na liniji ").append(((Symbol)info).left);
+        }
+
         log.error(msg.toString());
     }
-
-
 :}
 
 init with {:
@@ -178,11 +175,15 @@ nonterminal
 nonterminal
 	SwitchCases SwitchCases;
 nonterminal
+	SwitchExpression SwitchExpression;
+nonterminal
 	SwitchCase SwitchCase;
 nonterminal
 	DesignatorStatement DesignatorStatement;
 nonterminal
 	ActPars ActPars;
+nonterminal
+	ActPar ActPar;
 nonterminal
 	FuncCallActPars FuncCallActPars;
 nonterminal
@@ -203,10 +204,10 @@ nonterminal
 	Mulop Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr1, Expr
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr1, Expr, FunctionCall
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignator
 ;
 
  Program ::= (Program) PROGRAM ProgramName:P1 DataDecls:D2 LBRACE MethodDecls:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :} ;
@@ -239,12 +240,15 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
     | (EmptyVarDeclList) {: RESULT=new EmptyVarDeclList(); :}
 ;
 
- VarDecl ::= (VarDecl) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VarDecl(V1, V2); RESULT.setLine(V1left); :} ;
+ VarDecl ::= (VariableDeclaration) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VariableDeclaration(V1, V2); RESULT.setLine(V1left); :}
+        | (VariableDeclarationError) error VarIdents:V1 SEMICOLON {: RESULT=new VariableDeclarationError(V1); RESULT.setLine(V1left); :}
+;
 
  VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
 
  VarIdents ::= (VarIdentListElement) VarIdents:V1 COMMA VarIdent:V2 {: RESULT=new VarIdentListElement(V1, V2); RESULT.setLine(V1left); :}
         | (VarIdentListHead) VarIdent:V1 {: RESULT=new VarIdentListHead(V1); RESULT.setLine(V1left); :}
+        | (VarIdentError) error {: RESULT=new VarIdentError(); :}
 ;
 
  VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RESULT.setLine(nameleft); :}
@@ -312,7 +316,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
  MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedAssignmentStatement(D1); RESULT.setLine(D1left); :}
              | (MatchedIfStatement) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new MatchedIfStatement(C1, M2, M3); RESULT.setLine(C1left); :}
              | (MatchedDoWhileStatement) DO Statement:S1 WHILE LPAREN Condition:C2 RPAREN SEMICOLON {: RESULT=new MatchedDoWhileStatement(S1, C2); RESULT.setLine(S1left); :}
-             | (MatchedSwitchStatement) SWITCH LPAREN Expr:E1 RPAREN LBRACE SwitchCases:S2 RBRACE {: RESULT=new MatchedSwitchStatement(E1, S2); RESULT.setLine(E1left); :}
+             | (MatchedSwitchStatement) SWITCH LPAREN SwitchExpression:S1 RPAREN LBRACE SwitchCases:S2 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2); RESULT.setLine(S1left); :}
              | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
              | (MatchedContinueStatement) CONTINUE SEMICOLON {: RESULT=new MatchedContinueStatement(); :}
              | (MatchedExprReturnStatement) RETURN Expr:E1 SEMICOLON {: RESULT=new MatchedExprReturnStatement(E1); RESULT.setLine(E1left); :}
@@ -326,22 +330,35 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
              | (UnmatchedIfElseStatement) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new UnmatchedIfElseStatement(C1, M2, U3); RESULT.setLine(C1left); :}
  ;
 
+SwitchExpression ::= (SwitchExpression) Expr:E1 {: RESULT=new SwitchExpression(E1); RESULT.setLine(E1left); :} ;
+
  SwitchCases ::= (SwitchCaseListElement) SwitchCases:S1 SwitchCase:S2 {: RESULT=new SwitchCaseListElement(S1, S2); RESULT.setLine(S1left); :}
              | (EmptySwitchCaseListHead) {: RESULT=new EmptySwitchCaseListHead(); :}
  ;
 
- SwitchCase ::= (SwitchCase) CASE NUMBER:N1 COLON Statements:S2 {: RESULT=new SwitchCase(N1, S2); RESULT.setLine(N1left); :} ;
+
+ SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements:S1 {: RESULT=new SwitchCase(number, S1); RESULT.setLine(numberleft); :} ;
 
  DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new AssignmentDesignatorStatement(D1, A2, E3); RESULT.setLine(D1left); :}
-                     | (ParFuncCallDesignatorStatement) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new ParFuncCallDesignatorStatement(D1, A2); RESULT.setLine(D1left); :}
-                     | (NoParFuncCallDesignatorStatement) Designator:D1 LPAREN RPAREN {: RESULT=new NoParFuncCallDesignatorStatement(D1); RESULT.setLine(D1left); :}
+                     | (FuncCallDesignatorStatement) FunctionCall:F1 {: RESULT=new FuncCallDesignatorStatement(F1); RESULT.setLine(F1left); :}
                      | (PostIncDesignatorStatement) Designator:D1 PPLUS {: RESULT=new PostIncDesignatorStatement(D1); RESULT.setLine(D1left); :}
                      | (PostDecDesignatorStatement) Designator:D1 MMINUS {: RESULT=new PostDecDesignatorStatement(D1); RESULT.setLine(D1left); :}
  ;
 
- ActPars ::= (ActualParametersListElement) ActPars:A1 COMMA Expr:E2 {: RESULT=new ActualParametersListElement(A1, E2); RESULT.setLine(A1left); :}
-         | (ActualParametersListHead) Expr:E1 {: RESULT=new ActualParametersListHead(E1); RESULT.setLine(E1left); :}
+ FunctionCall ::= (FunctionCall) FunctionCallDesignator:F1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCall(F1, F2); RESULT.setLine(F1left); :} ;
+
+ FunctionCallDesignator ::= (FunctionCallDesignator) Designator:D1 {: RESULT=new FunctionCallDesignator(D1); RESULT.setLine(D1left); :} ;
+
+
+ FuncCallActPars ::= (FunctionCallActualParameters) ActPars:A1 {: RESULT=new FunctionCallActualParameters(A1); RESULT.setLine(A1left); :}
+        | (NoFunctionCallActualParameters) {: RESULT=new NoFunctionCallActualParameters(); :}
+;
+
+ ActPars ::= (ActualParametersListElement) ActPars:A1 COMMA ActPar:A2 {: RESULT=new ActualParametersListElement(A1, A2); RESULT.setLine(A1left); :}
+         | (ActualParametersListHead) ActPar:A1 {: RESULT=new ActualParametersListHead(A1); RESULT.setLine(A1left); :}
  ;
+
+ ActPar ::= (ActualParameter) Expr:E1 {: RESULT=new ActualParameter(E1); RESULT.setLine(E1left); :} ;
 
  Condition ::= (ConditionListElement) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionListElement(C1, C2); RESULT.setLine(C1left); :}
          | (ConditionListHead) CondTerm:C1 {: RESULT=new ConditionListHead(C1); RESULT.setLine(C1left); :}
@@ -374,7 +391,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
  ;
 
  Factor ::= (VarFactor) Designator:D1 {: RESULT=new VarFactor(D1); RESULT.setLine(D1left); :}
-         | (FunctionCallResultFactor) Designator:D1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCallResultFactor(D1, F2); RESULT.setLine(D1left); :}
+         | (FunctionCallResultFactor) FunctionCall:F1 {: RESULT=new FunctionCallResultFactor(F1); RESULT.setLine(F1left); :}
          | (NumConstFactor) NUMBER:N1 {: RESULT=new NumConstFactor(N1); RESULT.setLine(N1left); :}
          | (CharConstFactor) CHAR:C1 {: RESULT=new CharConstFactor(C1); RESULT.setLine(C1left); :}
          | (BoolConstFactor) BOOL:B1 {: RESULT=new BoolConstFactor(B1); RESULT.setLine(B1left); :}
@@ -382,10 +399,6 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator
          | (NewArrayObjectFactor) NEW Type:T1 LBRACKET Expr:E2 RBRACKET {: RESULT=new NewArrayObjectFactor(T1, E2); RESULT.setLine(T1left); :}
          | (ExprResultFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ExprResultFactor(E1); RESULT.setLine(E1left); :}
  ;
-
- FuncCallActPars ::= (FunctionCallActualParameters) ActPars:A1 {: RESULT=new FunctionCallActualParameters(A1); RESULT.setLine(A1left); :}
-        | (NoFunctionCallActualParameters) {: RESULT=new NoFunctionCallActualParameters(); :}
-;
 
  Designator ::= (ScalarDesignator) IDENT:name {: RESULT=new ScalarDesignator(name); RESULT.setLine(nameleft); :}
              | (ObjectAccessDesignator) Designator:D1 DOT IDENT:fieldName {: RESULT=new ObjectAccessDesignator(D1, fieldName); RESULT.setLine(D1left); :}

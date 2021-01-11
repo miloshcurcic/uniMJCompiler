@@ -4,6 +4,7 @@ program test_303
 
 const int cinilac = 4, delilac = 3;
 const bool a = true;
+int zik@, pera;
 
 class Predmet
 {

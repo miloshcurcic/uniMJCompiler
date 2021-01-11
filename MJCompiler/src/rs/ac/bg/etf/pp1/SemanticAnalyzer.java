@@ -4,16 +4,12 @@ import org.apache.log4j.Logger;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
-import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
-import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
-import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 
 public class SemanticAnalyzer extends VisitorAdaptor {
+    public static final Struct boolType = new Struct(Struct.Bool);
+
     private final Map<String, Obj> objTemporaries = new HashMap<>();
     private final Map<String, Struct> structTemporaries = new HashMap<>();
     private static final String ThisReferenceName = "this";
@@ -23,6 +19,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     private static class ObjConstants {
         public static final String CurrentProgramName = "CurrentProgram";
         public static final String CurrentMethodName = "CurrentMethod";
+        public static final String CurrentInvokedFunctionName = "CurrentInvokedFunction";
     }
 
     private static class StructConstants {
@@ -31,6 +28,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         public static final String CurrentClassTypeName = "CurrentClassType";
         public static final String CurrentBaseClassTypeName = "CurrentBaseClassType";
         public static final String CurrentMethodReturnTypeName = "CurrentMethodReturnTypeName";
+    }
+
+    private Set<Integer> switchCurrentCases = new HashSet<>();
+    private int functionNumFormalParameters = 0;
+    private int functionCallCurrentParameter = 0;
+    private int functionCallNumFormalParameters = 0;
+
+    public static void initUniverseScope() {
+        Tab.init();
+        Tab.insert(Obj.Type, "bool", boolType);
+
     }
 
     public void visit(Program program) {
@@ -138,6 +146,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         // Insert a reference to "this"
         if (currentlyProcessingClass()) {
             Tab.insert(Obj.Var, ThisReferenceName, structTemporaries.get(StructConstants.CurrentClassTypeName));
+            functionNumFormalParameters = 1;
         }
 
         structTemporaries.put(StructConstants.CurrentMethodReturnTypeName, returnType);
@@ -167,6 +176,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         // Insert a reference to "this"
         if (currentlyProcessingClass()) {
             Tab.insert(Obj.Var, ThisReferenceName, structTemporaries.get(StructConstants.CurrentClassTypeName));
+            functionNumFormalParameters = 1;
         }
 
         structTemporaries.put(StructConstants.CurrentMethodReturnTypeName, returnType);
@@ -175,6 +185,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(ScalarFormalParameter scalarFormalParameter) {
         Tab.insert(Obj.Var, scalarFormalParameter.getName(), scalarFormalParameter.getType().struct);
+        functionNumFormalParameters++;
     }
 
     public void visit(ArrayFormalParameter arrayFormalParameter) {
@@ -182,10 +193,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Struct arrayFormalParameterStruct = new Struct(Struct.Array, arrayFormalParameter.getType().struct);
 
         Tab.insert(Obj.Var, arrayFormalParameter.getName(), arrayFormalParameterStruct);
+        functionNumFormalParameters++;
     }
 
     public void visit(MethodDeclaration methodDeclaration) {
         Obj currentMethod = objTemporaries.get(ObjConstants.CurrentMethodName);
+        currentMethod.setLevel(functionNumFormalParameters);
+        functionNumFormalParameters = 0;
 
         Tab.chainLocalSymbols(currentMethod);
         Tab.closeScope();
@@ -235,18 +249,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(ExtendedClassSplitter extendedClassSplitter) {
         Struct baseClass = structTemporaries.get(StructConstants.CurrentBaseClassTypeName);
+        Struct currentClass = structTemporaries.get(StructConstants.CurrentClassTypeName);
 
         for (Obj baseClassMember : baseClass.getMembers()) {
             if (baseClassMember.getKind() == Obj.Meth) {
                 Obj currentMethod = Tab.insert(baseClassMember.getKind(), baseClassMember.getName(), baseClassMember.getType());
+                currentMethod.setLevel(baseClassMember.getLevel());
 
                 Tab.openScope();
 
                 // Copy method parameters (formal parameters and local symbols)
-                for (Obj localParam : currentMethod.getLocalSymbols()) {
+                for (Obj localParam : baseClassMember.getLocalSymbols()) {
                     // Correct type for "this" reference
                     if (localParam.getName() == ThisReferenceName) {
-                        Tab.insert(localParam.getKind(), localParam.getName(), structTemporaries.get(StructConstants.CurrentClassTypeName));
+                        Tab.insert(localParam.getKind(), localParam.getName(), currentClass);
                     }
                     else
                     {
@@ -331,15 +347,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public  void visit(FunctionCallResultFactor functionCallResultFactor) {
-        Obj functionCallRDesignatorObj = functionCallResultFactor.getDesignator().obj;
-
-        if (functionCallRDesignatorObj.getKind() != Obj.Meth) {
-            report_error("Invalid access, accessed designator \"" + functionCallRDesignatorObj.getName() + "\" is not a method or a global function!", functionCallResultFactor);
-
-            return;
-        }
-
-        functionCallResultFactor.struct = functionCallRDesignatorObj.getType();
+        functionCallResultFactor.struct = functionCallResultFactor.getFunctionCall().struct;
     }
 
     public void visit(NumConstFactor numConstFactor) {
@@ -415,7 +423,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             return;
         }
 
-        expr1.struct = Tab.intType;
+        expr1.struct = expr1.getTermExpr().struct;
     }
 
     public void visit(Expression expression) {
@@ -451,6 +459,89 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             return;
         }
     }
+
+    public void visit(SwitchExpression switchExpression) {
+        if (!switchExpression.getExpr().struct.equals(Tab.intType)) {
+            report_error("Invalid statement, expression result is not an integer!", switchExpression);
+
+            return;
+        }
+    }
+
+    public void visit(MatchedSwitchStatement matchedSwitchStatement) {
+        switchCurrentCases.clear();
+    }
+
+    public void visit(SwitchCase switchCase) {
+        if (switchCurrentCases.contains(switchCase.getNumber())) {
+            report_error("Duplicate switch statement case!", switchCase);
+
+            return;
+        }
+
+        switchCurrentCases.add(switchCase.getNumber());
+    }
+
+    public void visit(ActualParameter actualParameter) {
+        Obj currentInvokedFunction = objTemporaries.get(ObjConstants.CurrentInvokedFunctionName);
+
+        if (functionCallCurrentParameter == functionCallNumFormalParameters) {
+            report_error("Invalid function call, too many actual parameters!", actualParameter);
+
+            return;
+        }
+
+        Struct currentInvokedFunctionParameterType = actualParameter.getExpr().struct;
+        Struct currentInvokedFunctionFormalParameterType = ((Obj)currentInvokedFunction.getLocalSymbols().toArray()[functionCallCurrentParameter]).getType();
+
+        if (!currentInvokedFunctionFormalParameterType.compatibleWith(currentInvokedFunctionParameterType)) {
+            report_error("Incompatable function call parameter types!", actualParameter);
+
+            return;
+        }
+
+        functionCallCurrentParameter++;
+    }
+
+    public void visit(FunctionCall functionCall) {
+        if (functionCallCurrentParameter != functionCallNumFormalParameters) {
+            report_error("Invalid function call, not enough parameters!", functionCall);
+
+            return;
+        }
+
+        functionCallNumFormalParameters = 0;
+        functionCallCurrentParameter = 0;
+        objTemporaries.remove(ObjConstants.CurrentInvokedFunctionName);
+
+        functionCall.struct = functionCall.getFunctionCallDesignator().obj.getType();
+    }
+
+    public void visit(FunctionCallDesignator functionCallDesignator) {
+        Obj functionCallDesignatorObj = functionCallDesignator.getDesignator().obj;
+
+        if (functionCallDesignatorObj.getKind() != Obj.Meth) {
+            report_error("Invalid access, accessed designator \"" + functionCallDesignatorObj.getName() + "\" is not a method or a global function!", functionCallDesignator);
+
+            return;
+        }
+
+        functionCallNumFormalParameters = functionCallDesignatorObj.getLevel();
+        objTemporaries.put(ObjConstants.CurrentInvokedFunctionName, functionCallDesignatorObj);
+
+        // Skip implicit 'this' reference
+        if (functionCallNumFormalParameters != 0) {
+            Obj currentInvokedFunctionFormalParameterObj = (Obj) functionCallDesignatorObj.getLocalSymbols().toArray()[functionCallCurrentParameter];
+
+            if (currentInvokedFunctionFormalParameterObj.getName().equals(ThisReferenceName)) {
+                functionCallCurrentParameter++;
+            }
+        }
+
+        functionCallDesignator.obj = functionCallDesignatorObj;
+    }
+
+
 
     // Handler error correction
 
