@@ -1,314 +1,314 @@
-INFO  01:27:54,549 - ===================================
-INFO  01:27:54,549 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
-INFO  01:27:54,549 - ===================================
-INFO  01:27:54,695 - #47 test_303
-INFO  01:27:54,695 - #47 int
-INFO  01:27:54,695 - #47 cinilac
-INFO  01:27:54,695 - #46 4
-INFO  01:27:54,695 - #47 delilac
-INFO  01:27:54,695 - #46 3
-INFO  01:27:54,695 - #47 bool
-INFO  01:27:54,695 - #47 a
-INFO  01:27:54,695 - #48 true
-INFO  01:27:54,695 - #47 int
-INFO  01:27:54,695 - #47 zik
-ERROR 01:27:54,695 - Lexical analysis error for text "@" on line 7:8!
-INFO  01:27:54,695 - #47 pera
-INFO  01:27:54,695 - #47 Predmet
-INFO  01:27:54,711 - #47 int
-INFO  01:27:54,711 - #47 tezina
-INFO  01:27:54,718 - #47 char
-INFO  01:27:54,718 - #47 vrsta
-INFO  01:27:54,718 - #47 postaviTezinu
-INFO  01:27:54,718 - #47 int
-INFO  01:27:54,718 - #47 tezina
-INFO  01:27:54,718 - #47 this
-INFO  01:27:54,718 - #47 tezina
-INFO  01:27:54,718 - #47 tezina
-INFO  01:27:54,718 - #47 ucitajTezinu
-INFO  01:27:54,732 - #47 tezina
-INFO  01:27:54,733 - #47 int
-INFO  01:27:54,733 - #47 zapremina
-INFO  01:27:54,733 - #46 0
-INFO  01:27:54,733 - #47 int
-INFO  01:27:54,733 - #47 Q
-INFO  01:27:54,733 - #47 zapremina
-INFO  01:27:54,733 - #47 tezina
-INFO  01:27:54,733 - #47 postaviVrstu
-INFO  01:27:54,733 - #47 char
-INFO  01:27:54,733 - #47 vrsta
-INFO  01:27:54,733 - #47 this
-INFO  01:27:54,733 - #47 vrsta
-INFO  01:27:54,733 - #47 vrsta
-INFO  01:27:54,733 - #47 char
-INFO  01:27:54,733 - #47 dohvVrstu
-INFO  01:27:54,733 - #47 vrsta
-INFO  01:27:54,733 - #47 int
-INFO  01:27:54,733 - #47 dohvTezinu
-INFO  01:27:54,733 - #47 tezina
-INFO  01:27:54,733 - #47 Sfera
-INFO  01:27:54,733 - #47 Predmet
-INFO  01:27:54,733 - #47 int
-INFO  01:27:54,733 - #47 r
-INFO  01:27:54,749 - #47 postaviTezinu
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 tezina
-INFO  01:27:54,749 - #47 this
-INFO  01:27:54,749 - #47 tezina
-INFO  01:27:54,749 - #47 tezina
-INFO  01:27:54,749 - #47 vrsta
-INFO  01:27:54,749 - #49 s
-INFO  01:27:54,749 - #47 postaviPoluprecnik
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 r
-INFO  01:27:54,749 - #47 this
-INFO  01:27:54,749 - #47 r
-INFO  01:27:54,749 - #47 r
-INFO  01:27:54,749 - #47 postaviVrstu
-INFO  01:27:54,749 - #49 s
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 zapremina
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 z
-INFO  01:27:54,749 - #47 z
-INFO  01:27:54,749 - #47 cinilac
-INFO  01:27:54,749 - #47 z
-INFO  01:27:54,749 - #47 r
-INFO  01:27:54,749 - #47 delilac
-INFO  01:27:54,749 - #47 Kvadar
-INFO  01:27:54,749 - #47 Predmet
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 a
-INFO  01:27:54,749 - #47 b
-INFO  01:27:54,749 - #47 c
-INFO  01:27:54,749 - #47 postaviTezinu
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 tezina
-INFO  01:27:54,749 - #47 this
-INFO  01:27:54,749 - #47 tezina
-INFO  01:27:54,749 - #47 tezina
-INFO  01:27:54,749 - #47 vrsta
-INFO  01:27:54,749 - #49 k
-INFO  01:27:54,749 - #47 postaviStranice
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 a
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 b
-INFO  01:27:54,749 - #47 int
-INFO  01:27:54,749 - #47 c
-INFO  01:27:54,749 - #47 this
-INFO  01:27:54,749 - #47 a
-INFO  01:27:54,749 - #47 a
-INFO  01:27:54,749 - #47 this
-INFO  01:27:54,749 - #47 b
-INFO  01:27:54,749 - #47 b
-INFO  01:27:54,765 - #47 this
-INFO  01:27:54,765 - #47 c
-INFO  01:27:54,765 - #47 c
-INFO  01:27:54,765 - #47 vrsta
-INFO  01:27:54,765 - #49 k
-INFO  01:27:54,765 - #47 int
-INFO  01:27:54,765 - #47 zapremina
-INFO  01:27:54,765 - #47 int
-INFO  01:27:54,765 - #47 z
-INFO  01:27:54,765 - #47 z
-INFO  01:27:54,765 - #47 a
-INFO  01:27:54,765 - #47 b
-INFO  01:27:54,765 - #47 c
-INFO  01:27:54,765 - #47 z
-INFO  01:27:54,765 - #47 int
-INFO  01:27:54,765 - #47 zapreminaK
-INFO  01:27:54,765 - #47 zapreminaS
-INFO  01:27:54,765 - #47 int
-INFO  01:27:54,765 - #47 tezinaK
-INFO  01:27:54,765 - #47 tezinaS
-INFO  01:27:54,765 - #47 ispis
-INFO  01:27:54,765 - #47 Predmet
-INFO  01:27:54,765 - #47 p
-INFO  01:27:54,765 - #47 p
-INFO  01:27:54,765 - #47 dohvVrstu
-INFO  01:27:54,765 - #49 s
-INFO  01:27:54,765 - #49 S
-INFO  01:27:54,765 - #47 p
-INFO  01:27:54,765 - #47 dohvVrstu
-INFO  01:27:54,765 - #49 k
-INFO  01:27:54,780 - #49 K
-INFO  01:27:54,780 - #47 eol
-INFO  01:27:54,780 - #47 p
-INFO  01:27:54,780 - #47 dohvTezinu
-INFO  01:27:54,780 - #47 main
-INFO  01:27:54,780 - #47 Predmet
-INFO  01:27:54,780 - #47 predmeti
-INFO  01:27:54,780 - #47 int
-INFO  01:27:54,780 - #47 i
-INFO  01:27:54,780 - #47 Sfera
-INFO  01:27:54,780 - #47 s1
-INFO  01:27:54,780 - #47 s2
-INFO  01:27:54,780 - #47 s3
-INFO  01:27:54,780 - #47 Kvadar
-INFO  01:27:54,780 - #47 k1
-INFO  01:27:54,780 - #47 k2
-INFO  01:27:54,780 - #47 k3
-INFO  01:27:54,780 - #47 int
-INFO  01:27:54,780 - #47 t
-INFO  01:27:54,780 - #47 predmeti
-INFO  01:27:54,780 - #47 Predmet
-INFO  01:27:54,780 - #46 6
-INFO  01:27:54,780 - #47 s1
-INFO  01:27:54,780 - #47 Sfera
-INFO  01:27:54,780 - #47 s2
-INFO  01:27:54,780 - #47 Sfera
-INFO  01:27:54,780 - #47 s3
-INFO  01:27:54,780 - #47 Sfera
-INFO  01:27:54,780 - #47 k1
-INFO  01:27:54,780 - #47 Kvadar
-INFO  01:27:54,780 - #47 k2
-INFO  01:27:54,780 - #47 Kvadar
-INFO  01:27:54,780 - #47 k3
-INFO  01:27:54,780 - #47 Kvadar
-INFO  01:27:54,780 - #47 s1
-INFO  01:27:54,780 - #47 postaviPoluprecnik
-INFO  01:27:54,780 - #46 1
-INFO  01:27:54,780 - #47 s2
-INFO  01:27:54,780 - #47 postaviPoluprecnik
-INFO  01:27:54,780 - #46 2
-INFO  01:27:54,780 - #47 s3
-INFO  01:27:54,780 - #47 postaviPoluprecnik
-INFO  01:27:54,780 - #46 3
-INFO  01:27:54,780 - #47 k1
-INFO  01:27:54,780 - #47 postaviStranice
-INFO  01:27:54,780 - #46 1
-INFO  01:27:54,780 - #46 2
-INFO  01:27:54,780 - #46 3
-INFO  01:27:54,780 - #47 k2
-INFO  01:27:54,780 - #47 postaviStranice
-INFO  01:27:54,780 - #46 2
-INFO  01:27:54,780 - #46 3
-INFO  01:27:54,780 - #46 4
-INFO  01:27:54,780 - #47 k3
-INFO  01:27:54,780 - #47 postaviStranice
-INFO  01:27:54,780 - #46 3
-INFO  01:27:54,780 - #46 4
-INFO  01:27:54,780 - #46 5
-INFO  01:27:54,780 - #47 predmeti
-INFO  01:27:54,780 - #46 0
-INFO  01:27:54,780 - #47 s1
-INFO  01:27:54,780 - #47 predmeti
-INFO  01:27:54,780 - #46 2
-INFO  01:27:54,780 - #47 s2
-INFO  01:27:54,780 - #47 predmeti
-INFO  01:27:54,797 - #46 4
-INFO  01:27:54,797 - #47 s3
-INFO  01:27:54,797 - #47 predmeti
-INFO  01:27:54,797 - #46 1
-INFO  01:27:54,797 - #47 k1
-INFO  01:27:54,797 - #47 predmeti
-INFO  01:27:54,797 - #46 3
-INFO  01:27:54,797 - #47 k2
-INFO  01:27:54,797 - #47 predmeti
-INFO  01:27:54,797 - #46 5
-INFO  01:27:54,797 - #47 k3
-INFO  01:27:54,797 - #47 t
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #46 0
-INFO  01:27:54,797 - #47 predmeti
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #47 postaviTezinu
-INFO  01:27:54,797 - #47 t
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #46 6
-INFO  01:27:54,797 - #47 zapreminaS
-INFO  01:27:54,797 - #46 0
-INFO  01:27:54,797 - #47 tezinaS
-INFO  01:27:54,797 - #46 0
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #46 1
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #46 2
-INFO  01:27:54,797 - #46 0
-INFO  01:27:54,797 - #47 i
-INFO  01:27:54,797 - #47 zapreminaS
-INFO  01:27:54,797 - #47 zapreminaS
-INFO  01:27:54,797 - #47 predmeti
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 zapremina
-INFO  01:27:54,814 - #47 tezinaS
-INFO  01:27:54,814 - #47 tezinaS
-INFO  01:27:54,814 - #47 predmeti
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 Q
-INFO  01:27:54,814 - #47 ispis
-INFO  01:27:54,814 - #47 predmeti
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 6
-INFO  01:27:54,814 - #47 zapreminaK
-INFO  01:27:54,814 - #46 0
-INFO  01:27:54,814 - #47 tezinaK
-INFO  01:27:54,814 - #46 0
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 2
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #47 zapreminaS
-INFO  01:27:54,814 - #47 zapreminaS
-INFO  01:27:54,814 - #47 predmeti
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 zapremina
-INFO  01:27:54,814 - #47 tezinaS
-INFO  01:27:54,814 - #47 tezinaS
-INFO  01:27:54,814 - #47 predmeti
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 Q
-INFO  01:27:54,814 - #47 ispis
-INFO  01:27:54,814 - #47 predmeti
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 6
-INFO  01:27:54,814 - #47 zapreminaS
-INFO  01:27:54,814 - #47 eol
-INFO  01:27:54,814 - #47 zapreminaK
-INFO  01:27:54,814 - #47 eol
-INFO  01:27:54,814 - #47 tezinaS
-INFO  01:27:54,814 - #47 eol
-INFO  01:27:54,814 - #47 tezinaK
-INFO  01:27:54,814 - #47 eol
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 0
-INFO  01:27:54,814 - #47 i
-INFO  01:27:54,814 - #46 1
-INFO  01:27:54,830 - #46 1
-INFO  01:27:54,830 - #46 1
-INFO  01:27:54,832 - #46 3
-INFO  01:27:54,832 - #46 3
-INFO  01:27:54,832 - #46 2
-INFO  01:27:54,832 - #46 2
-INFO  01:27:54,832 - #46 5
-INFO  01:27:54,832 - #46 5
-INFO  01:27:54,832 - #47 i
-INFO  01:27:54,832 - #47 i
-INFO  01:27:54,832 - #46 2
-INFO  01:27:54,832 - #46 6
-INFO  01:27:54,832 - #46 6
-INFO  01:27:54,832 - #46 9
-INFO  01:27:54,832 - #46 9
-INFO  01:27:54,832 - #47 eol
-INFO  01:27:54,832 - #47 i
-INFO  01:27:54,832 - #47 i
-INFO  01:27:54,832 - #46 10
-INFO  01:27:54,849 - ===================================
-INFO  01:27:54,885 - Program(
+INFO  02:24:03,399 - ===================================
+INFO  02:24:03,399 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  02:24:03,400 - ===================================
+INFO  02:24:03,590 - #47 test_303
+INFO  02:24:03,592 - #47 int
+INFO  02:24:03,593 - #47 cinilac
+INFO  02:24:03,596 - #46 4
+INFO  02:24:03,597 - #47 delilac
+INFO  02:24:03,597 - #46 3
+INFO  02:24:03,601 - #47 bool
+INFO  02:24:03,602 - #47 a
+INFO  02:24:03,602 - #48 true
+INFO  02:24:03,603 - #47 int
+INFO  02:24:03,603 - #47 zik
+ERROR 02:24:03,605 - Lexical analysis error for text "@" on line 7:8!
+INFO  02:24:03,606 - #47 pera
+INFO  02:24:03,607 - #47 Predmet
+INFO  02:24:03,609 - #47 int
+INFO  02:24:03,611 - #47 tezina
+INFO  02:24:03,617 - #47 char
+INFO  02:24:03,617 - #47 vrsta
+INFO  02:24:03,619 - #47 postaviTezinu
+INFO  02:24:03,620 - #47 int
+INFO  02:24:03,620 - #47 tezina
+INFO  02:24:03,621 - #47 this
+INFO  02:24:03,624 - #47 tezina
+INFO  02:24:03,624 - #47 tezina
+INFO  02:24:03,628 - #47 ucitajTezinu
+INFO  02:24:03,628 - #47 tezina
+INFO  02:24:03,628 - #47 int
+INFO  02:24:03,628 - #47 zapremina
+INFO  02:24:03,628 - #46 0
+INFO  02:24:03,628 - #47 int
+INFO  02:24:03,628 - #47 Q
+INFO  02:24:03,628 - #47 zapremina
+INFO  02:24:03,628 - #47 tezina
+INFO  02:24:03,644 - #47 postaviVrstu
+INFO  02:24:03,644 - #47 char
+INFO  02:24:03,644 - #47 vrsta
+INFO  02:24:03,644 - #47 this
+INFO  02:24:03,645 - #47 vrsta
+INFO  02:24:03,645 - #47 vrsta
+INFO  02:24:03,645 - #47 char
+INFO  02:24:03,645 - #47 dohvVrstu
+INFO  02:24:03,645 - #47 vrsta
+INFO  02:24:03,645 - #47 int
+INFO  02:24:03,645 - #47 dohvTezinu
+INFO  02:24:03,645 - #47 tezina
+INFO  02:24:03,645 - #47 Sfera
+INFO  02:24:03,645 - #47 Predmet
+INFO  02:24:03,645 - #47 int
+INFO  02:24:03,645 - #47 r
+INFO  02:24:03,645 - #47 postaviTezinu
+INFO  02:24:03,645 - #47 int
+INFO  02:24:03,645 - #47 tezina
+INFO  02:24:03,645 - #47 this
+INFO  02:24:03,645 - #47 tezina
+INFO  02:24:03,645 - #47 tezina
+INFO  02:24:03,645 - #47 vrsta
+INFO  02:24:03,645 - #49 s
+INFO  02:24:03,645 - #47 postaviPoluprecnik
+INFO  02:24:03,645 - #47 int
+INFO  02:24:03,645 - #47 r
+INFO  02:24:03,645 - #47 this
+INFO  02:24:03,645 - #47 r
+INFO  02:24:03,645 - #47 r
+INFO  02:24:03,645 - #47 postaviVrstu
+INFO  02:24:03,645 - #49 s
+INFO  02:24:03,645 - #47 int
+INFO  02:24:03,645 - #47 zapremina
+INFO  02:24:03,645 - #47 int
+INFO  02:24:03,645 - #47 z
+INFO  02:24:03,645 - #47 z
+INFO  02:24:03,645 - #47 cinilac
+INFO  02:24:03,645 - #47 z
+INFO  02:24:03,645 - #47 r
+INFO  02:24:03,645 - #47 delilac
+INFO  02:24:03,645 - #47 Kvadar
+INFO  02:24:03,645 - #47 Predmet
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 a
+INFO  02:24:03,661 - #47 b
+INFO  02:24:03,661 - #47 c
+INFO  02:24:03,661 - #47 postaviTezinu
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 tezina
+INFO  02:24:03,661 - #47 this
+INFO  02:24:03,661 - #47 tezina
+INFO  02:24:03,661 - #47 tezina
+INFO  02:24:03,661 - #47 vrsta
+INFO  02:24:03,661 - #49 k
+INFO  02:24:03,661 - #47 postaviStranice
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 a
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 b
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 c
+INFO  02:24:03,661 - #47 this
+INFO  02:24:03,661 - #47 a
+INFO  02:24:03,661 - #47 a
+INFO  02:24:03,661 - #47 this
+INFO  02:24:03,661 - #47 b
+INFO  02:24:03,661 - #47 b
+INFO  02:24:03,661 - #47 this
+INFO  02:24:03,661 - #47 c
+INFO  02:24:03,661 - #47 c
+INFO  02:24:03,661 - #47 vrsta
+INFO  02:24:03,661 - #49 k
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 zapremina
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 z
+INFO  02:24:03,661 - #47 z
+INFO  02:24:03,661 - #47 a
+INFO  02:24:03,661 - #47 b
+INFO  02:24:03,661 - #47 c
+INFO  02:24:03,661 - #47 z
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 zapreminaK
+INFO  02:24:03,661 - #47 zapreminaS
+INFO  02:24:03,661 - #47 int
+INFO  02:24:03,661 - #47 tezinaK
+INFO  02:24:03,661 - #47 tezinaS
+INFO  02:24:03,661 - #47 ispis
+INFO  02:24:03,661 - #47 Predmet
+INFO  02:24:03,661 - #47 p
+INFO  02:24:03,661 - #47 p
+INFO  02:24:03,661 - #47 dohvVrstu
+INFO  02:24:03,661 - #49 s
+INFO  02:24:03,661 - #49 S
+INFO  02:24:03,661 - #47 p
+INFO  02:24:03,661 - #47 dohvVrstu
+INFO  02:24:03,661 - #49 k
+INFO  02:24:03,661 - #49 K
+INFO  02:24:03,661 - #47 eol
+INFO  02:24:03,661 - #47 p
+INFO  02:24:03,661 - #47 dohvTezinu
+INFO  02:24:03,661 - #47 main
+INFO  02:24:03,661 - #47 Predmet
+INFO  02:24:03,677 - #47 predmeti
+INFO  02:24:03,677 - #47 int
+INFO  02:24:03,677 - #47 i
+INFO  02:24:03,678 - #47 Sfera
+INFO  02:24:03,678 - #47 s1
+INFO  02:24:03,678 - #47 s2
+INFO  02:24:03,678 - #47 s3
+INFO  02:24:03,678 - #47 Kvadar
+INFO  02:24:03,678 - #47 k1
+INFO  02:24:03,678 - #47 k2
+INFO  02:24:03,678 - #47 k3
+INFO  02:24:03,678 - #47 int
+INFO  02:24:03,678 - #47 t
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #47 Predmet
+INFO  02:24:03,678 - #46 6
+INFO  02:24:03,678 - #47 s1
+INFO  02:24:03,678 - #47 Sfera
+INFO  02:24:03,678 - #47 s2
+INFO  02:24:03,678 - #47 Sfera
+INFO  02:24:03,678 - #47 s3
+INFO  02:24:03,678 - #47 Sfera
+INFO  02:24:03,678 - #47 k1
+INFO  02:24:03,678 - #47 Kvadar
+INFO  02:24:03,678 - #47 k2
+INFO  02:24:03,678 - #47 Kvadar
+INFO  02:24:03,678 - #47 k3
+INFO  02:24:03,678 - #47 Kvadar
+INFO  02:24:03,678 - #47 s1
+INFO  02:24:03,678 - #47 postaviPoluprecnik
+INFO  02:24:03,678 - #46 1
+INFO  02:24:03,678 - #47 s2
+INFO  02:24:03,678 - #47 postaviPoluprecnik
+INFO  02:24:03,678 - #46 2
+INFO  02:24:03,678 - #47 s3
+INFO  02:24:03,678 - #47 postaviPoluprecnik
+INFO  02:24:03,678 - #46 3
+INFO  02:24:03,678 - #47 k1
+INFO  02:24:03,678 - #47 postaviStranice
+INFO  02:24:03,678 - #46 1
+INFO  02:24:03,678 - #46 2
+INFO  02:24:03,678 - #46 3
+INFO  02:24:03,678 - #47 k2
+INFO  02:24:03,678 - #47 postaviStranice
+INFO  02:24:03,678 - #46 2
+INFO  02:24:03,678 - #46 3
+INFO  02:24:03,678 - #46 4
+INFO  02:24:03,678 - #47 k3
+INFO  02:24:03,678 - #47 postaviStranice
+INFO  02:24:03,678 - #46 3
+INFO  02:24:03,678 - #46 4
+INFO  02:24:03,678 - #46 5
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #46 0
+INFO  02:24:03,678 - #47 s1
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #46 2
+INFO  02:24:03,678 - #47 s2
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #46 4
+INFO  02:24:03,678 - #47 s3
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #46 1
+INFO  02:24:03,678 - #47 k1
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #46 3
+INFO  02:24:03,678 - #47 k2
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #46 5
+INFO  02:24:03,678 - #47 k3
+INFO  02:24:03,678 - #47 t
+INFO  02:24:03,678 - #47 i
+INFO  02:24:03,678 - #46 0
+INFO  02:24:03,678 - #47 predmeti
+INFO  02:24:03,678 - #47 i
+INFO  02:24:03,678 - #47 postaviTezinu
+INFO  02:24:03,678 - #47 t
+INFO  02:24:03,678 - #47 i
+INFO  02:24:03,678 - #47 i
+INFO  02:24:03,678 - #46 6
+INFO  02:24:03,694 - #47 zapreminaS
+INFO  02:24:03,694 - #46 0
+INFO  02:24:03,695 - #47 tezinaS
+INFO  02:24:03,695 - #46 0
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 2
+INFO  02:24:03,695 - #46 0
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #47 zapreminaS
+INFO  02:24:03,695 - #47 zapreminaS
+INFO  02:24:03,695 - #47 predmeti
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 zapremina
+INFO  02:24:03,695 - #47 tezinaS
+INFO  02:24:03,695 - #47 tezinaS
+INFO  02:24:03,695 - #47 predmeti
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 Q
+INFO  02:24:03,695 - #47 ispis
+INFO  02:24:03,695 - #47 predmeti
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 6
+INFO  02:24:03,695 - #47 zapreminaK
+INFO  02:24:03,695 - #46 0
+INFO  02:24:03,695 - #47 tezinaK
+INFO  02:24:03,695 - #46 0
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 2
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #47 zapreminaS
+INFO  02:24:03,695 - #47 zapreminaS
+INFO  02:24:03,695 - #47 predmeti
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 zapremina
+INFO  02:24:03,695 - #47 tezinaS
+INFO  02:24:03,695 - #47 tezinaS
+INFO  02:24:03,695 - #47 predmeti
+INFO  02:24:03,695 - #47 i
+INFO  02:24:03,695 - #46 1
+INFO  02:24:03,695 - #47 Q
+INFO  02:24:03,695 - #47 ispis
+INFO  02:24:03,695 - #47 predmeti
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #46 1
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #46 6
+INFO  02:24:03,711 - #47 zapreminaS
+INFO  02:24:03,711 - #47 eol
+INFO  02:24:03,711 - #47 zapreminaK
+INFO  02:24:03,711 - #47 eol
+INFO  02:24:03,711 - #47 tezinaS
+INFO  02:24:03,711 - #47 eol
+INFO  02:24:03,711 - #47 tezinaK
+INFO  02:24:03,711 - #47 eol
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #46 0
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #46 1
+INFO  02:24:03,711 - #46 1
+INFO  02:24:03,711 - #46 1
+INFO  02:24:03,711 - #46 3
+INFO  02:24:03,711 - #46 3
+INFO  02:24:03,711 - #46 2
+INFO  02:24:03,711 - #46 2
+INFO  02:24:03,711 - #46 5
+INFO  02:24:03,711 - #46 5
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #46 2
+INFO  02:24:03,711 - #46 6
+INFO  02:24:03,711 - #46 6
+INFO  02:24:03,711 - #46 9
+INFO  02:24:03,711 - #46 9
+INFO  02:24:03,711 - #47 eol
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #47 i
+INFO  02:24:03,711 - #46 10
+INFO  02:24:03,758 - ===================================
+INFO  02:24:03,811 - Program(
   ProgramName(
    test_303
   ) [ProgramName]
@@ -518,19 +518,21 @@ INFO  01:27:54,885 - Program(
                                 SingleStatementType(
                                   SingleMatchedStatement(
                                     MatchedExprReturnStatement(
-                                      Expression(
-                                        Expr1(
-                                          NoExpressionPrefix(
-                                          ) [NoExpressionPrefix]
-                                          TermExprListHead(
-                                            TermListHead(
-                                              NumConstFactor(
-                                               0
-                                              ) [NumConstFactor]
-                                            ) [TermListHead]
-                                          ) [TermExprListHead]
-                                        ) [Expr1]
-                                      ) [Expression]
+                                      ReturnExpression(
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListHead(
+                                                NumConstFactor(
+                                                 0
+                                                ) [NumConstFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [ReturnExpression]
                                     ) [MatchedExprReturnStatement]
                                   ) [SingleMatchedStatement]
                                 ) [SingleStatementType]
@@ -554,36 +556,38 @@ INFO  01:27:54,885 - Program(
                               SingleStatementType(
                                 SingleMatchedStatement(
                                   MatchedExprReturnStatement(
-                                    Expression(
-                                      Expr1(
-                                        NoExpressionPrefix(
-                                        ) [NoExpressionPrefix]
-                                        TermExprListHead(
-                                          TermListElement(
-                                            TermListHead(
-                                              FunctionCallResultFactor(
-                                                FunctionCall(
-                                                  FunctionCallDesignator(
-                                                    ScalarDesignator(
-                                                     zapremina
-                                                    ) [ScalarDesignator]
-                                                  ) [FunctionCallDesignator]
-                                                  NoFunctionCallActualParameters(
-                                                  ) [NoFunctionCallActualParameters]
-                                                ) [FunctionCall]
-                                              ) [FunctionCallResultFactor]
-                                            ) [TermListHead]
-                                            MulopMultiply(
-                                            ) [MulopMultiply]
-                                            VarFactor(
-                                              ScalarDesignator(
-                                               tezina
-                                              ) [ScalarDesignator]
-                                            ) [VarFactor]
-                                          ) [TermListElement]
-                                        ) [TermExprListHead]
-                                      ) [Expr1]
-                                    ) [Expression]
+                                    ReturnExpression(
+                                      Expression(
+                                        Expr1(
+                                          NoExpressionPrefix(
+                                          ) [NoExpressionPrefix]
+                                          TermExprListHead(
+                                            TermListElement(
+                                              TermListHead(
+                                                FunctionCallResultFactor(
+                                                  FunctionCall(
+                                                    FunctionCallDesignator(
+                                                      ScalarDesignator(
+                                                       zapremina
+                                                      ) [ScalarDesignator]
+                                                    ) [FunctionCallDesignator]
+                                                    NoFunctionCallActualParameters(
+                                                    ) [NoFunctionCallActualParameters]
+                                                  ) [FunctionCall]
+                                                ) [FunctionCallResultFactor]
+                                              ) [TermListHead]
+                                              MulopMultiply(
+                                              ) [MulopMultiply]
+                                              VarFactor(
+                                                ScalarDesignator(
+                                                 tezina
+                                                ) [ScalarDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListElement]
+                                          ) [TermExprListHead]
+                                        ) [Expr1]
+                                      ) [Expression]
+                                    ) [ReturnExpression]
                                   ) [MatchedExprReturnStatement]
                                 ) [SingleMatchedStatement]
                               ) [SingleStatementType]
@@ -660,21 +664,23 @@ INFO  01:27:54,885 - Program(
                           SingleStatementType(
                             SingleMatchedStatement(
                               MatchedExprReturnStatement(
-                                Expression(
-                                  Expr1(
-                                    NoExpressionPrefix(
-                                    ) [NoExpressionPrefix]
-                                    TermExprListHead(
-                                      TermListHead(
-                                        VarFactor(
-                                          ScalarDesignator(
-                                           vrsta
-                                          ) [ScalarDesignator]
-                                        ) [VarFactor]
-                                      ) [TermListHead]
-                                    ) [TermExprListHead]
-                                  ) [Expr1]
-                                ) [Expression]
+                                ReturnExpression(
+                                  Expression(
+                                    Expr1(
+                                      NoExpressionPrefix(
+                                      ) [NoExpressionPrefix]
+                                      TermExprListHead(
+                                        TermListHead(
+                                          VarFactor(
+                                            ScalarDesignator(
+                                             vrsta
+                                            ) [ScalarDesignator]
+                                          ) [VarFactor]
+                                        ) [TermListHead]
+                                      ) [TermExprListHead]
+                                    ) [Expr1]
+                                  ) [Expression]
+                                ) [ReturnExpression]
                               ) [MatchedExprReturnStatement]
                             ) [SingleMatchedStatement]
                           ) [SingleStatementType]
@@ -698,21 +704,23 @@ INFO  01:27:54,885 - Program(
                         SingleStatementType(
                           SingleMatchedStatement(
                             MatchedExprReturnStatement(
-                              Expression(
-                                Expr1(
-                                  NoExpressionPrefix(
-                                  ) [NoExpressionPrefix]
-                                  TermExprListHead(
-                                    TermListHead(
-                                      VarFactor(
-                                        ScalarDesignator(
-                                         tezina
-                                        ) [ScalarDesignator]
-                                      ) [VarFactor]
-                                    ) [TermListHead]
-                                  ) [TermExprListHead]
-                                ) [Expr1]
-                              ) [Expression]
+                              ReturnExpression(
+                                Expression(
+                                  Expr1(
+                                    NoExpressionPrefix(
+                                    ) [NoExpressionPrefix]
+                                    TermExprListHead(
+                                      TermListHead(
+                                        VarFactor(
+                                          ScalarDesignator(
+                                           tezina
+                                          ) [ScalarDesignator]
+                                        ) [VarFactor]
+                                      ) [TermListHead]
+                                    ) [TermExprListHead]
+                                  ) [Expr1]
+                                ) [Expression]
+                              ) [ReturnExpression]
                             ) [MatchedExprReturnStatement]
                           ) [SingleMatchedStatement]
                         ) [SingleStatementType]
@@ -988,51 +996,53 @@ INFO  01:27:54,885 - Program(
                       SingleStatementType(
                         SingleMatchedStatement(
                           MatchedExprReturnStatement(
-                            Expression(
-                              Expr1(
-                                NoExpressionPrefix(
-                                ) [NoExpressionPrefix]
-                                TermExprListHead(
-                                  TermListElement(
-                                    TermListHead(
-                                      VarFactor(
-                                        ScalarDesignator(
-                                         z
-                                        ) [ScalarDesignator]
-                                      ) [VarFactor]
-                                    ) [TermListHead]
-                                    MulopMultiply(
-                                    ) [MulopMultiply]
-                                    ExprResultFactor(
-                                      Expression(
-                                        Expr1(
-                                          NoExpressionPrefix(
-                                          ) [NoExpressionPrefix]
-                                          TermExprListHead(
-                                            TermListElement(
-                                              TermListHead(
+                            ReturnExpression(
+                              Expression(
+                                Expr1(
+                                  NoExpressionPrefix(
+                                  ) [NoExpressionPrefix]
+                                  TermExprListHead(
+                                    TermListElement(
+                                      TermListHead(
+                                        VarFactor(
+                                          ScalarDesignator(
+                                           z
+                                          ) [ScalarDesignator]
+                                        ) [VarFactor]
+                                      ) [TermListHead]
+                                      MulopMultiply(
+                                      ) [MulopMultiply]
+                                      ExprResultFactor(
+                                        Expression(
+                                          Expr1(
+                                            NoExpressionPrefix(
+                                            ) [NoExpressionPrefix]
+                                            TermExprListHead(
+                                              TermListElement(
+                                                TermListHead(
+                                                  VarFactor(
+                                                    ScalarDesignator(
+                                                     r
+                                                    ) [ScalarDesignator]
+                                                  ) [VarFactor]
+                                                ) [TermListHead]
+                                                MulopDivide(
+                                                ) [MulopDivide]
                                                 VarFactor(
                                                   ScalarDesignator(
-                                                   r
+                                                   delilac
                                                   ) [ScalarDesignator]
                                                 ) [VarFactor]
-                                              ) [TermListHead]
-                                              MulopDivide(
-                                              ) [MulopDivide]
-                                              VarFactor(
-                                                ScalarDesignator(
-                                                 delilac
-                                                ) [ScalarDesignator]
-                                              ) [VarFactor]
-                                            ) [TermListElement]
-                                          ) [TermExprListHead]
-                                        ) [Expr1]
-                                      ) [Expression]
-                                    ) [ExprResultFactor]
-                                  ) [TermListElement]
-                                ) [TermExprListHead]
-                              ) [Expr1]
-                            ) [Expression]
+                                              ) [TermListElement]
+                                            ) [TermExprListHead]
+                                          ) [Expr1]
+                                        ) [Expression]
+                                      ) [ExprResultFactor]
+                                    ) [TermListElement]
+                                  ) [TermExprListHead]
+                                ) [Expr1]
+                              ) [Expression]
+                            ) [ReturnExpression]
                           ) [MatchedExprReturnStatement]
                         ) [SingleMatchedStatement]
                       ) [SingleStatementType]
@@ -1410,21 +1420,23 @@ INFO  01:27:54,885 - Program(
                     SingleStatementType(
                       SingleMatchedStatement(
                         MatchedExprReturnStatement(
-                          Expression(
-                            Expr1(
-                              NoExpressionPrefix(
-                              ) [NoExpressionPrefix]
-                              TermExprListHead(
-                                TermListHead(
-                                  VarFactor(
-                                    ScalarDesignator(
-                                     z
-                                    ) [ScalarDesignator]
-                                  ) [VarFactor]
-                                ) [TermListHead]
-                              ) [TermExprListHead]
-                            ) [Expr1]
-                          ) [Expression]
+                          ReturnExpression(
+                            Expression(
+                              Expr1(
+                                NoExpressionPrefix(
+                                ) [NoExpressionPrefix]
+                                TermExprListHead(
+                                  TermListHead(
+                                    VarFactor(
+                                      ScalarDesignator(
+                                       z
+                                      ) [ScalarDesignator]
+                                    ) [VarFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [Expr1]
+                            ) [Expression]
+                          ) [ReturnExpression]
                         ) [MatchedExprReturnStatement]
                       ) [SingleMatchedStatement]
                     ) [SingleStatementType]
@@ -1548,7 +1560,7 @@ INFO  01:27:54,885 - Program(
                         ) [RelationalCondFact]
                       ) [CondTermListHead]
                     ) [ConditionListHead]
-                    MatchedNoParPrintStatement(
+                    MatchedPrintStatement(
                       Expression(
                         Expr1(
                           NoExpressionPrefix(
@@ -1562,7 +1574,9 @@ INFO  01:27:54,885 - Program(
                           ) [TermExprListHead]
                         ) [Expr1]
                       ) [Expression]
-                    ) [MatchedNoParPrintStatement]
+                      NoPrintStatementAdditionalParameter(
+                      ) [NoPrintStatementAdditionalParameter]
+                    ) [MatchedPrintStatement]
                     UnmatchedIfStatement(
                       ConditionListHead(
                         CondTermListHead(
@@ -1611,7 +1625,7 @@ INFO  01:27:54,885 - Program(
                       ) [ConditionListHead]
                       SingleStatementType(
                         SingleMatchedStatement(
-                          MatchedNoParPrintStatement(
+                          MatchedPrintStatement(
                             Expression(
                               Expr1(
                                 NoExpressionPrefix(
@@ -1625,7 +1639,9 @@ INFO  01:27:54,885 - Program(
                                 ) [TermExprListHead]
                               ) [Expr1]
                             ) [Expression]
-                          ) [MatchedNoParPrintStatement]
+                            NoPrintStatementAdditionalParameter(
+                            ) [NoPrintStatementAdditionalParameter]
+                          ) [MatchedPrintStatement]
                         ) [SingleMatchedStatement]
                       ) [SingleStatementType]
                     ) [UnmatchedIfStatement]
@@ -1635,7 +1651,7 @@ INFO  01:27:54,885 - Program(
             ) [StatementListElement]
             SingleStatementType(
               SingleMatchedStatement(
-                MatchedNoParPrintStatement(
+                MatchedPrintStatement(
                   Expression(
                     Expr1(
                       NoExpressionPrefix(
@@ -1651,13 +1667,15 @@ INFO  01:27:54,885 - Program(
                       ) [TermExprListHead]
                     ) [Expr1]
                   ) [Expression]
-                ) [MatchedNoParPrintStatement]
+                  NoPrintStatementAdditionalParameter(
+                  ) [NoPrintStatementAdditionalParameter]
+                ) [MatchedPrintStatement]
               ) [SingleMatchedStatement]
             ) [SingleStatementType]
           ) [StatementListElement]
           SingleStatementType(
             SingleMatchedStatement(
-              MatchedNoParPrintStatement(
+              MatchedPrintStatement(
                 Expression(
                   Expr1(
                     NoExpressionPrefix(
@@ -1682,7 +1700,9 @@ INFO  01:27:54,885 - Program(
                     ) [TermExprListHead]
                   ) [Expr1]
                 ) [Expression]
-              ) [MatchedNoParPrintStatement]
+                NoPrintStatementAdditionalParameter(
+                ) [NoPrintStatementAdditionalParameter]
+              ) [MatchedPrintStatement]
             ) [SingleMatchedStatement]
           ) [SingleStatementType]
         ) [StatementListElement]
@@ -3639,7 +3659,7 @@ INFO  01:27:54,885 - Program(
                           ) [StatementListElement]
                           SingleStatementType(
                             SingleMatchedStatement(
-                              MatchedNoParPrintStatement(
+                              MatchedPrintStatement(
                                 Expression(
                                   Expr1(
                                     NoExpressionPrefix(
@@ -3655,13 +3675,15 @@ INFO  01:27:54,885 - Program(
                                     ) [TermExprListHead]
                                   ) [Expr1]
                                 ) [Expression]
-                              ) [MatchedNoParPrintStatement]
+                                NoPrintStatementAdditionalParameter(
+                                ) [NoPrintStatementAdditionalParameter]
+                              ) [MatchedPrintStatement]
                             ) [SingleMatchedStatement]
                           ) [SingleStatementType]
                         ) [StatementListElement]
                         SingleStatementType(
                           SingleMatchedStatement(
-                            MatchedNoParPrintStatement(
+                            MatchedPrintStatement(
                               Expression(
                                 Expr1(
                                   NoExpressionPrefix(
@@ -3677,13 +3699,15 @@ INFO  01:27:54,885 - Program(
                                   ) [TermExprListHead]
                                 ) [Expr1]
                               ) [Expression]
-                            ) [MatchedNoParPrintStatement]
+                              NoPrintStatementAdditionalParameter(
+                              ) [NoPrintStatementAdditionalParameter]
+                            ) [MatchedPrintStatement]
                           ) [SingleMatchedStatement]
                         ) [SingleStatementType]
                       ) [StatementListElement]
                       SingleStatementType(
                         SingleMatchedStatement(
-                          MatchedNoParPrintStatement(
+                          MatchedPrintStatement(
                             Expression(
                               Expr1(
                                 NoExpressionPrefix(
@@ -3699,13 +3723,15 @@ INFO  01:27:54,885 - Program(
                                 ) [TermExprListHead]
                               ) [Expr1]
                             ) [Expression]
-                          ) [MatchedNoParPrintStatement]
+                            NoPrintStatementAdditionalParameter(
+                            ) [NoPrintStatementAdditionalParameter]
+                          ) [MatchedPrintStatement]
                         ) [SingleMatchedStatement]
                       ) [SingleStatementType]
                     ) [StatementListElement]
                     SingleStatementType(
                       SingleMatchedStatement(
-                        MatchedNoParPrintStatement(
+                        MatchedPrintStatement(
                           Expression(
                             Expr1(
                               NoExpressionPrefix(
@@ -3721,13 +3747,15 @@ INFO  01:27:54,885 - Program(
                               ) [TermExprListHead]
                             ) [Expr1]
                           ) [Expression]
-                        ) [MatchedNoParPrintStatement]
+                          NoPrintStatementAdditionalParameter(
+                          ) [NoPrintStatementAdditionalParameter]
+                        ) [MatchedPrintStatement]
                       ) [SingleMatchedStatement]
                     ) [SingleStatementType]
                   ) [StatementListElement]
                   SingleStatementType(
                     SingleMatchedStatement(
-                      MatchedNoParPrintStatement(
+                      MatchedPrintStatement(
                         Expression(
                           Expr1(
                             NoExpressionPrefix(
@@ -3743,13 +3771,15 @@ INFO  01:27:54,885 - Program(
                             ) [TermExprListHead]
                           ) [Expr1]
                         ) [Expression]
-                      ) [MatchedNoParPrintStatement]
+                        NoPrintStatementAdditionalParameter(
+                        ) [NoPrintStatementAdditionalParameter]
+                      ) [MatchedPrintStatement]
                     ) [SingleMatchedStatement]
                   ) [SingleStatementType]
                 ) [StatementListElement]
                 SingleStatementType(
                   SingleMatchedStatement(
-                    MatchedNoParPrintStatement(
+                    MatchedPrintStatement(
                       Expression(
                         Expr1(
                           NoExpressionPrefix(
@@ -3765,13 +3795,15 @@ INFO  01:27:54,885 - Program(
                           ) [TermExprListHead]
                         ) [Expr1]
                       ) [Expression]
-                    ) [MatchedNoParPrintStatement]
+                      NoPrintStatementAdditionalParameter(
+                      ) [NoPrintStatementAdditionalParameter]
+                    ) [MatchedPrintStatement]
                   ) [SingleMatchedStatement]
                 ) [SingleStatementType]
               ) [StatementListElement]
               SingleStatementType(
                 SingleMatchedStatement(
-                  MatchedNoParPrintStatement(
+                  MatchedPrintStatement(
                     Expression(
                       Expr1(
                         NoExpressionPrefix(
@@ -3787,13 +3819,15 @@ INFO  01:27:54,885 - Program(
                         ) [TermExprListHead]
                       ) [Expr1]
                     ) [Expression]
-                  ) [MatchedNoParPrintStatement]
+                    NoPrintStatementAdditionalParameter(
+                    ) [NoPrintStatementAdditionalParameter]
+                  ) [MatchedPrintStatement]
                 ) [SingleMatchedStatement]
               ) [SingleStatementType]
             ) [StatementListElement]
             SingleStatementType(
               SingleMatchedStatement(
-                MatchedNoParPrintStatement(
+                MatchedPrintStatement(
                   Expression(
                     Expr1(
                       NoExpressionPrefix(
@@ -3809,7 +3843,9 @@ INFO  01:27:54,885 - Program(
                       ) [TermExprListHead]
                     ) [Expr1]
                   ) [Expression]
-                ) [MatchedNoParPrintStatement]
+                  NoPrintStatementAdditionalParameter(
+                  ) [NoPrintStatementAdditionalParameter]
+                ) [MatchedPrintStatement]
               ) [SingleMatchedStatement]
             ) [SingleStatementType]
           ) [StatementListElement]
@@ -3894,7 +3930,7 @@ INFO  01:27:54,885 - Program(
                                               ) [EmptyStatementListHead]
                                               SingleStatementType(
                                                 SingleMatchedStatement(
-                                                  MatchedNoParPrintStatement(
+                                                  MatchedPrintStatement(
                                                     Expression(
                                                       Expr1(
                                                         NoExpressionPrefix(
@@ -3908,7 +3944,9 @@ INFO  01:27:54,885 - Program(
                                                         ) [TermExprListHead]
                                                       ) [Expr1]
                                                     ) [Expression]
-                                                  ) [MatchedNoParPrintStatement]
+                                                    NoPrintStatementAdditionalParameter(
+                                                    ) [NoPrintStatementAdditionalParameter]
+                                                  ) [MatchedPrintStatement]
                                                 ) [SingleMatchedStatement]
                                               ) [SingleStatementType]
                                             ) [StatementListElement]
@@ -3928,7 +3966,7 @@ INFO  01:27:54,885 - Program(
                                           ) [EmptyStatementListHead]
                                           SingleStatementType(
                                             SingleMatchedStatement(
-                                              MatchedNoParPrintStatement(
+                                              MatchedPrintStatement(
                                                 Expression(
                                                   Expr1(
                                                     NoExpressionPrefix(
@@ -3942,7 +3980,9 @@ INFO  01:27:54,885 - Program(
                                                     ) [TermExprListHead]
                                                   ) [Expr1]
                                                 ) [Expression]
-                                              ) [MatchedNoParPrintStatement]
+                                                NoPrintStatementAdditionalParameter(
+                                                ) [NoPrintStatementAdditionalParameter]
+                                              ) [MatchedPrintStatement]
                                             ) [SingleMatchedStatement]
                                           ) [SingleStatementType]
                                         ) [StatementListElement]
@@ -3956,7 +3996,7 @@ INFO  01:27:54,885 - Program(
                                           ) [EmptyStatementListHead]
                                           SingleStatementType(
                                             SingleMatchedStatement(
-                                              MatchedNoParPrintStatement(
+                                              MatchedPrintStatement(
                                                 Expression(
                                                   Expr1(
                                                     NoExpressionPrefix(
@@ -3970,7 +4010,9 @@ INFO  01:27:54,885 - Program(
                                                     ) [TermExprListHead]
                                                   ) [Expr1]
                                                 ) [Expression]
-                                              ) [MatchedNoParPrintStatement]
+                                                NoPrintStatementAdditionalParameter(
+                                                ) [NoPrintStatementAdditionalParameter]
+                                              ) [MatchedPrintStatement]
                                             ) [SingleMatchedStatement]
                                           ) [SingleStatementType]
                                         ) [StatementListElement]
@@ -3992,7 +4034,7 @@ INFO  01:27:54,885 - Program(
                                           ) [EmptyStatementListHead]
                                           SingleStatementType(
                                             SingleMatchedStatement(
-                                              MatchedNoParPrintStatement(
+                                              MatchedPrintStatement(
                                                 Expression(
                                                   Expr1(
                                                     NoExpressionPrefix(
@@ -4006,7 +4048,9 @@ INFO  01:27:54,885 - Program(
                                                     ) [TermExprListHead]
                                                   ) [Expr1]
                                                 ) [Expression]
-                                              ) [MatchedNoParPrintStatement]
+                                                NoPrintStatementAdditionalParameter(
+                                                ) [NoPrintStatementAdditionalParameter]
+                                              ) [MatchedPrintStatement]
                                             ) [SingleMatchedStatement]
                                           ) [SingleStatementType]
                                         ) [StatementListElement]
@@ -4064,7 +4108,7 @@ INFO  01:27:54,885 - Program(
                                     ) [EmptyStatementListHead]
                                     SingleStatementType(
                                       SingleMatchedStatement(
-                                        MatchedNoParPrintStatement(
+                                        MatchedPrintStatement(
                                           Expression(
                                             Expr1(
                                               NoExpressionPrefix(
@@ -4078,7 +4122,9 @@ INFO  01:27:54,885 - Program(
                                               ) [TermExprListHead]
                                             ) [Expr1]
                                           ) [Expression]
-                                        ) [MatchedNoParPrintStatement]
+                                          NoPrintStatementAdditionalParameter(
+                                          ) [NoPrintStatementAdditionalParameter]
+                                        ) [MatchedPrintStatement]
                                       ) [SingleMatchedStatement]
                                     ) [SingleStatementType]
                                   ) [StatementListElement]
@@ -4091,7 +4137,7 @@ INFO  01:27:54,885 - Program(
                                   ) [EmptyStatementListHead]
                                   SingleStatementType(
                                     SingleMatchedStatement(
-                                      MatchedNoParPrintStatement(
+                                      MatchedPrintStatement(
                                         Expression(
                                           Expr1(
                                             NoExpressionPrefix(
@@ -4105,7 +4151,9 @@ INFO  01:27:54,885 - Program(
                                             ) [TermExprListHead]
                                           ) [Expr1]
                                         ) [Expression]
-                                      ) [MatchedNoParPrintStatement]
+                                        NoPrintStatementAdditionalParameter(
+                                        ) [NoPrintStatementAdditionalParameter]
+                                      ) [MatchedPrintStatement]
                                     ) [SingleMatchedStatement]
                                   ) [SingleStatementType]
                                 ) [StatementListElement]
@@ -4115,7 +4163,7 @@ INFO  01:27:54,885 - Program(
                         ) [SingleMatchedStatement]
                       ) [BracedStatementListElement]
                       SingleMatchedStatement(
-                        MatchedNoParPrintStatement(
+                        MatchedPrintStatement(
                           Expression(
                             Expr1(
                               NoExpressionPrefix(
@@ -4131,7 +4179,9 @@ INFO  01:27:54,885 - Program(
                               ) [TermExprListHead]
                             ) [Expr1]
                           ) [Expression]
-                        ) [MatchedNoParPrintStatement]
+                          NoPrintStatementAdditionalParameter(
+                          ) [NoPrintStatementAdditionalParameter]
+                        ) [MatchedPrintStatement]
                       ) [SingleMatchedStatement]
                     ) [BracedStatementListElement]
                     SingleMatchedStatement(
@@ -4189,4 +4239,4 @@ INFO  01:27:54,885 - Program(
     ) [MethodDeclaration]
   ) [MethodDeclarationListElement]
 ) [Program]
-INFO  01:27:56,131 - ===================================
+INFO  02:24:03,829 - ===================================

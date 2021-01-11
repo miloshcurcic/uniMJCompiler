@@ -1,13 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/0/2021 1:27:33
+// 11/0/2021 2:21:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class MatchedNoExprReturnStatement extends MatchedStatement {
+public class PrintStatementAdditionalParameter extends PrintStatementAdditionalParam {
 
-    public MatchedNoExprReturnStatement () {
+    private Integer N1;
+
+    public PrintStatementAdditionalParameter (Integer N1) {
+        this.N1=N1;
+    }
+
+    public Integer getN1() {
+        return N1;
+    }
+
+    public void setN1(Integer N1) {
+        this.N1=N1;
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +39,13 @@ public class MatchedNoExprReturnStatement extends MatchedStatement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("MatchedNoExprReturnStatement(\n");
+        buffer.append("PrintStatementAdditionalParameter(\n");
+
+        buffer.append(" "+tab+N1);
+        buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [MatchedNoExprReturnStatement]");
+        buffer.append(") [PrintStatementAdditionalParameter]");
         return buffer.toString();
     }
 }

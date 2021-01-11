@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/0/2021 1:27:33
+// 11/0/2021 2:21:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MatchedExprReturnStatement extends MatchedStatement {
 
-    private Expr Expr;
+    private ReturnExpr ReturnExpr;
 
-    public MatchedExprReturnStatement (Expr Expr) {
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
+    public MatchedExprReturnStatement (ReturnExpr ReturnExpr) {
+        this.ReturnExpr=ReturnExpr;
+        if(ReturnExpr!=null) ReturnExpr.setParent(this);
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public ReturnExpr getReturnExpr() {
+        return ReturnExpr;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
+    public void setReturnExpr(ReturnExpr ReturnExpr) {
+        this.ReturnExpr=ReturnExpr;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class MatchedExprReturnStatement extends MatchedStatement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Expr!=null) Expr.accept(visitor);
+        if(ReturnExpr!=null) ReturnExpr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(ReturnExpr!=null) ReturnExpr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(ReturnExpr!=null) ReturnExpr.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class MatchedExprReturnStatement extends MatchedStatement {
         buffer.append(tab);
         buffer.append("MatchedExprReturnStatement(\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
+        if(ReturnExpr!=null)
+            buffer.append(ReturnExpr.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

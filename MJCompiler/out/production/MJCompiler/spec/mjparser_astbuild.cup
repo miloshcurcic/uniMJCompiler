@@ -173,13 +173,17 @@ nonterminal
 nonterminal
 	UnmatchedStatement UnmatchedStatement;
 nonterminal
+	PrintStatementAdditionalParam PrintStatementAdditionalParam;
+nonterminal
+	DesignatorStatement DesignatorStatement;
+nonterminal
+	ReturnExpr ReturnExpr;
+nonterminal
 	SwitchCases SwitchCases;
 nonterminal
 	SwitchExpression SwitchExpression;
 nonterminal
 	SwitchCase SwitchCase;
-nonterminal
-	DesignatorStatement DesignatorStatement;
 nonterminal
 	ActPars ActPars;
 nonterminal
@@ -319,11 +323,18 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignat
              | (MatchedSwitchStatement) SWITCH LPAREN SwitchExpression:S1 RPAREN LBRACE SwitchCases:S2 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2); RESULT.setLine(S1left); :}
              | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
              | (MatchedContinueStatement) CONTINUE SEMICOLON {: RESULT=new MatchedContinueStatement(); :}
-             | (MatchedExprReturnStatement) RETURN Expr:E1 SEMICOLON {: RESULT=new MatchedExprReturnStatement(E1); RESULT.setLine(E1left); :}
-             | (MatchedNoExprReturnStatement) RETURN SEMICOLON {: RESULT=new MatchedNoExprReturnStatement(); :}
+             | (MatchedExprReturnStatement) RETURN ReturnExpr:R1 SEMICOLON {: RESULT=new MatchedExprReturnStatement(R1); RESULT.setLine(R1left); :}
              | (MatchedReadStatement) READ LPAREN Designator:D1 RPAREN SEMICOLON {: RESULT=new MatchedReadStatement(D1); RESULT.setLine(D1left); :}
-             | (MatchedNoParPrintStatement) PRINT LPAREN Expr:E1 RPAREN SEMICOLON {: RESULT=new MatchedNoParPrintStatement(E1); RESULT.setLine(E1left); :}
-             | (MatchedParPrintStatement) PRINT LPAREN Expr:E1 COMMA NUMBER:N2 RPAREN SEMICOLON {: RESULT=new MatchedParPrintStatement(E1, N2); RESULT.setLine(E1left); :}
+             | (MatchedPrintStatement) PRINT LPAREN Expr:E1 PrintStatementAdditionalParam:P2 RPAREN SEMICOLON {: RESULT=new MatchedPrintStatement(E1, P2); RESULT.setLine(E1left); :}
+ ;
+
+ PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER:N1 {: RESULT=new PrintStatementAdditionalParameter(N1); RESULT.setLine(N1left); :}
+                            | (NoPrintStatementAdditionalParameter) {: RESULT=new NoPrintStatementAdditionalParameter(); :}
+;
+
+
+ ReturnExpr ::= (ReturnExpression) Expr:E1 {: RESULT=new ReturnExpression(E1); RESULT.setLine(E1left); :}
+            | (NoReturnExpression) {: RESULT=new NoReturnExpression(); :}
  ;
 
  UnmatchedStatement ::= (UnmatchedIfStatement) IF LPAREN Condition:C1 RPAREN Statement:S2 {: RESULT=new UnmatchedIfStatement(C1, S2); RESULT.setLine(C1left); :}

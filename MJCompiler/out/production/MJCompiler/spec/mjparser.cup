@@ -142,10 +142,12 @@ nonterminal Program,
 	SingleStatement,
 	MatchedStatement,
 	UnmatchedStatement,
+	PrintStatementAdditionalParam,
+	DesignatorStatement,
+	ReturnExpr,
 	SwitchCases,
 	SwitchExpression,
 	SwitchCase,
-	DesignatorStatement,
 	ActPars,
 	ActPar,
 	FuncCallActPars,
@@ -274,11 +276,18 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignat
              | (MatchedSwitchStatement) SWITCH LPAREN SwitchExpression RPAREN LBRACE SwitchCases RBRACE
              | (MatchedBreakStatement) BREAK SEMICOLON
              | (MatchedContinueStatement) CONTINUE SEMICOLON
-             | (MatchedExprReturnStatement) RETURN Expr SEMICOLON
-             | (MatchedNoExprReturnStatement) RETURN SEMICOLON
+             | (MatchedExprReturnStatement) RETURN ReturnExpr SEMICOLON
              | (MatchedReadStatement) READ LPAREN Designator RPAREN SEMICOLON
-             | (MatchedNoParPrintStatement) PRINT LPAREN Expr RPAREN SEMICOLON
-             | (MatchedParPrintStatement) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMICOLON
+             | (MatchedPrintStatement) PRINT LPAREN Expr PrintStatementAdditionalParam RPAREN SEMICOLON
+ ;
+
+ PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER
+                            | (NoPrintStatementAdditionalParameter)
+;
+
+
+ ReturnExpr ::= (ReturnExpression) Expr
+            | (NoReturnExpression)
  ;
 
  UnmatchedStatement ::= (UnmatchedIfStatement) IF LPAREN Condition RPAREN Statement

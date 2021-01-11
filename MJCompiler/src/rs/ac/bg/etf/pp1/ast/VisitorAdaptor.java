@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/0/2021 1:27:33
+// 11/0/2021 2:21:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -18,6 +18,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondTerm CondTerm) { }
     public void visit(ConstNameValuePair ConstNameValuePair) { }
     public void visit(Designator Designator) { }
+    public void visit(PrintStatementAdditionalParam PrintStatementAdditionalParam) { }
     public void visit(Term Term) { }
     public void visit(Condition Condition) { }
     public void visit(MethodFormPars MethodFormPars) { }
@@ -30,13 +31,14 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SwitchCases SwitchCases) { }
     public void visit(ExprPrefix ExprPrefix) { }
     public void visit(ActPars ActPars) { }
-    public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(ClassMethodDecls ClassMethodDecls) { }
+    public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(VarDecls VarDecls) { }
     public void visit(UnmatchedStatement UnmatchedStatement) { }
     public void visit(Statement Statement) { }
     public void visit(DataDecls DataDecls) { }
     public void visit(VarDecl VarDecl) { }
+    public void visit(ReturnExpr ReturnExpr) { }
     public void visit(ClassDecl ClassDecl) { }
     public void visit(BracedStatements BracedStatements) { }
     public void visit(CondFact CondFact) { }
@@ -101,10 +103,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SwitchExpression SwitchExpression) { visit(); }
     public void visit(UnmatchedIfElseStatement UnmatchedIfElseStatement) { visit(); }
     public void visit(UnmatchedIfStatement UnmatchedIfStatement) { visit(); }
-    public void visit(MatchedParPrintStatement MatchedParPrintStatement) { visit(); }
-    public void visit(MatchedNoParPrintStatement MatchedNoParPrintStatement) { visit(); }
+    public void visit(NoReturnExpression NoReturnExpression) { visit(); }
+    public void visit(ReturnExpression ReturnExpression) { visit(); }
+    public void visit(NoPrintStatementAdditionalParameter NoPrintStatementAdditionalParameter) { visit(); }
+    public void visit(PrintStatementAdditionalParameter PrintStatementAdditionalParameter) { visit(); }
+    public void visit(MatchedPrintStatement MatchedPrintStatement) { visit(); }
     public void visit(MatchedReadStatement MatchedReadStatement) { visit(); }
-    public void visit(MatchedNoExprReturnStatement MatchedNoExprReturnStatement) { visit(); }
     public void visit(MatchedExprReturnStatement MatchedExprReturnStatement) { visit(); }
     public void visit(MatchedContinueStatement MatchedContinueStatement) { visit(); }
     public void visit(MatchedBreakStatement MatchedBreakStatement) { visit(); }

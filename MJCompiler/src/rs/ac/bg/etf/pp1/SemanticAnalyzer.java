@@ -238,6 +238,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         // At this point BaseClass surely exist as BaseClassName is Type
         Struct baseClass = baseClassName.getType().struct;
 
+        if (baseClass.getKind() != Struct.Class) {
+            report_error("Base class must be a Class Type!", baseClassName);
+
+            return;
+        }
+
         for (Obj baseClassMember : baseClass.getMembers()) {
             if (baseClassMember.getKind() == Obj.Fld) {
                 Tab.insert(baseClassMember.getKind(), baseClassMember.getName(), baseClassMember.getType());
@@ -541,7 +547,104 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         functionCallDesignator.obj = functionCallDesignatorObj;
     }
 
+    public void visit(ReturnExpression returnExpression) {
+        Obj currentMethod = objTemporaries.get(ObjConstants.CurrentMethodName);
 
+        if (!currentMethod.getType().equals(returnExpression.getExpr().struct)) {
+            report_error("Invalid return statement, return expression type differs from the function return type!", returnExpression);
+
+            return;
+        }
+    }
+
+    public void visit(NoReturnExpression noReturnExpression) {
+        Obj currentMethod = objTemporaries.get(ObjConstants.CurrentMethodName);
+
+        if (!currentMethod.getType().equals(Tab.noType)) {
+            report_error("Invalid return statement, return expression type differs from the function return type!", noReturnExpression);
+
+            return;
+        }
+    }
+
+    public void visit(AssignmentDesignatorStatement assignmentDesignatorStatement) {
+        Obj designatorObj = assignmentDesignatorStatement.getDesignator().obj;
+        int designatorKind = designatorObj.getKind();
+
+        if ((designatorKind != Obj.Fld) && (designatorKind != Obj.Var) && (designatorKind != Obj.Elem)) {
+            report_error("Designator is neither Field, Variable or Array Element!", assignmentDesignatorStatement);
+
+            return;
+        }
+
+        if (!designatorObj.getType().compatibleWith(assignmentDesignatorStatement.getExpr().struct)) {
+            report_error("Designator is not compatible with the given expression!", assignmentDesignatorStatement);
+
+            return;
+        }
+    }
+
+    public void visit(PostDecDesignatorStatement postDecDesignatorStatement) {
+        Obj designatorObj = postDecDesignatorStatement.getDesignator().obj;
+        int designatorKind = designatorObj.getKind();
+
+        if ((designatorKind != Obj.Fld) && (designatorKind != Obj.Var) && (designatorKind != Obj.Elem)) {
+            report_error("Designator is neither Field, Variable or Array Element!", postDecDesignatorStatement);
+
+            return;
+        }
+
+        if (!designatorObj.getType().equals(Tab.intType)) {
+            report_error("Designator must be int type!", postDecDesignatorStatement);
+
+            return;
+        }
+    }
+
+    public void visit(PostIncDesignatorStatement postIncDesignatorStatement) {
+        Obj designatorObj = postIncDesignatorStatement.getDesignator().obj;
+        int designatorKind = designatorObj.getKind();
+
+        if ((designatorKind != Obj.Fld) && (designatorKind != Obj.Var) && (designatorKind != Obj.Elem)) {
+            report_error("Designator is neither Field, Variable or Array Element!", postIncDesignatorStatement);
+
+            return;
+        }
+
+        if (!designatorObj.getType().equals(Tab.intType)) {
+            report_error("Designator must be int type!", postIncDesignatorStatement);
+
+            return;
+        }
+    }
+
+    public void visit(MatchedPrintStatement matchedPrintStatement) {
+        Struct exprTypeStruct = matchedPrintStatement.getExpr().struct;
+
+        if (!exprTypeStruct.equals(Tab.intType) && !exprTypeStruct.equals(Tab.charType) && !exprTypeStruct.equals(boolType)) {
+            report_error("Invalid first parameter for print statement!", matchedPrintStatement);
+
+            return;
+        }
+    }
+
+    public void visit(MatchedReadStatement matchedReadStatement) {
+        Obj designatorObj = matchedReadStatement.getDesignator().obj;
+        Struct designatorType = designatorObj.getType();
+        int designatorKind = designatorObj.getKind();
+
+        if ((designatorKind != Obj.Fld) && (designatorKind != Obj.Var) && (designatorKind != Obj.Elem)) {
+            report_error("Designator is neither Field, Variable or Array Element!", matchedReadStatement);
+
+            return;
+        }
+
+        if (!designatorType.equals(Tab.intType) && !designatorType.equals(Tab.charType) && !designatorType.equals(boolType)) {
+            report_error("Invalid first parameter for read statement!", matchedReadStatement);
+
+            return;
+        }
+    }
 
     // Handler error correction
 
