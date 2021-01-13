@@ -13,13 +13,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     private final Map<String, Obj> objTemporaries = new HashMap<>();
     private final Map<String, Struct> structTemporaries = new HashMap<>();
     private static final String ThisReferenceName = "this";
+    private static final String MainMethodName = "main";
 
     Logger log = Logger.getLogger(getClass());
 
     private static class ObjConstants {
         public static final String CurrentProgramName = "CurrentProgram";
         public static final String CurrentMethodName = "CurrentMethod";
-        public static final String CurrentInvokedFunctionName = "CurrentInvokedFunction";
     }
 
     private static class StructConstants {
@@ -31,9 +31,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     private Set<Integer> switchCurrentCases = new HashSet<>();
+    private Stack<Obj> methodInvocationStack = new Stack<>();
     private int functionNumFormalParameters = 0;
-    private int functionCallCurrentParameter = 0;
-    private int functionCallNumFormalParameters = 0;
+    private Stack<Integer> functionCallNumFormalParametersStack = new Stack<>();
+    private Stack<Integer> functionCallNumActualParametersStack = new Stack<>();
+    private int switchCaseNestingLevel = 0;
+    private int doWhileNestingLevel = 0;
 
     public static void initUniverseScope() {
         Tab.init();
@@ -43,6 +46,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(Program program) {
         Obj programObj = objTemporaries.get(ObjConstants.CurrentProgramName);
+
+        Obj mainMethod = Tab.currentScope().findSymbol(MainMethodName);
+
+        if ((mainMethod == null) || (mainMethod.getKind() != Obj.Meth) || !(mainMethod.getType().equals(Tab.noType)) || (mainMethod.getLevel() != 0)) {
+            report_error("No valid main method found!", program);
+
+            return;
+        }
 
         Tab.chainLocalSymbols(programObj);
         Tab.closeScope();
@@ -83,10 +94,26 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(ScalarVarIdent scalarVarIdent) {
+        Obj varObj = Tab.currentScope().findSymbol(scalarVarIdent.getName());
+
+        if (varObj != null) {
+            report_error("Duplicate name declaration for variable \"" + varObj.getName() + "\"", scalarVarIdent);
+
+            return;
+        }
+
         Tab.insert(getVarKind(), scalarVarIdent.getName(), structTemporaries.get(StructConstants.CurrentVarDeclTypeName));
     }
 
     public void visit(ArrayVarIdent arrayVarIdent) {
+        Obj varObj = Tab.currentScope().findSymbol(arrayVarIdent.getName());
+
+        if (varObj != null) {
+            report_error("Duplicate name declaration for variable \"" + varObj.getName() + "\"", arrayVarIdent);
+
+            return;
+        }
+
         // ToDo: Does this need fixing?
         Struct varArrayStruct = new Struct(Struct.Array, structTemporaries.get(StructConstants.CurrentVarDeclTypeName));
         Tab.insert(getVarKind(), arrayVarIdent.getName(), varArrayStruct);
@@ -101,6 +128,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(NumberConstNameValuePair numberConstNameValuePair) {
+        Obj constObj = Tab.currentScope().findSymbol(numberConstNameValuePair.getName());
+
+        if (constObj != null) {
+            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", numberConstNameValuePair);
+
+            return;
+        }
+
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
         Obj constant = Tab.insert(Obj.Con, numberConstNameValuePair.getName(), constType);
@@ -108,6 +143,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(CharConstNameValuePair charConstNameValuePair) {
+        Obj constObj = Tab.currentScope().findSymbol(charConstNameValuePair.getName());
+
+        if (constObj != null) {
+            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", charConstNameValuePair);
+
+            return;
+        }
+
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
         Obj constant = Tab.insert(Obj.Con, charConstNameValuePair.getName(), constType);
@@ -115,6 +158,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(BoolConstNameValuePair boolConstNameValuePair) {
+        Obj constObj = Tab.currentScope().findSymbol(boolConstNameValuePair.getName());
+
+        if (constObj != null) {
+            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", boolConstNameValuePair);
+
+            return;
+        }
+
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
         Obj constant = Tab.insert(Obj.Con, boolConstNameValuePair.getName(), constType);
@@ -124,6 +175,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     // Method
 
     public void visit(TypeMethodTypeNamePair typeMethodTypeNamePair) {
+        Obj methodObj = Tab.currentScope().findSymbol(typeMethodTypeNamePair.getName());
+
+        if (methodObj != null) {
+            if (currentlyProcessingExtendedClass()) {
+                Struct baseClass = structTemporaries.get(StructConstants.CurrentBaseClassTypeName);
+                Obj baseMethodObj = baseClass.getMembersTable().searchKey(typeMethodTypeNamePair.getName());
+
+                if (baseMethodObj == null) {
+                    report_error("Duplicate name declaration for Method \"" + methodObj.getName() + "\"!", typeMethodTypeNamePair);
+
+                    return;
+                }
+            } else {
+                report_error("Duplicate name declaration for Method \"" + methodObj.getName() + "\"!", typeMethodTypeNamePair);
+
+                return;
+            }
+        }
+
         Struct returnType = typeMethodTypeNamePair.getType().struct;
 
         Obj currentMethod = null;
@@ -154,6 +224,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(VoidMethodTypeNamePair voidMethodTypeNamePair) {
+        Obj methodObj = Tab.currentScope().findSymbol(voidMethodTypeNamePair.getName());
+
+        if (methodObj != null) {
+            if (currentlyProcessingExtendedClass()) {
+                Struct baseClass = structTemporaries.get(StructConstants.CurrentBaseClassTypeName);
+                Obj baseMethodObj = baseClass.getMembersTable().searchKey(voidMethodTypeNamePair.getName());
+
+                if (baseMethodObj == null) {
+                    report_error("Duplicate name declaration for Method \"" + methodObj.getName() + "\"!", voidMethodTypeNamePair);
+
+                    return;
+                }
+            } else {
+                report_error("Duplicate name declaration for Method \"" + methodObj.getName() + "\"!", voidMethodTypeNamePair);
+
+                return;
+            }
+        }
+
         Struct returnType = Tab.noType;
 
         Obj currentMethod = null;
@@ -227,6 +316,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(ClassName className) {
+        Obj classObj = Tab.currentScope().findSymbol(className.getName());
+
+        if (classObj != null) {
+            report_error("Duplicate name declaration for Class \"" + classObj.getName() + "\"", className);
+
+            return;
+        }
+
         Struct classStruct = new Struct(Struct.Class);
         Tab.insert(Obj.Type, className.getName(), classStruct);
         Tab.openScope();
@@ -235,14 +332,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(BaseClassName baseClassName) {
-        // At this point BaseClass surely exist as BaseClassName is Type
         Struct baseClass = baseClassName.getType().struct;
+        Struct extendedClass = structTemporaries.get(StructConstants.CurrentClassTypeName);
 
         if (baseClass.getKind() != Struct.Class) {
             report_error("Base class must be a Class Type!", baseClassName);
 
             return;
         }
+
+        extendedClass.setElementType(baseClass);
 
         for (Obj baseClassMember : baseClass.getMembers()) {
             if (baseClassMember.getKind() == Obj.Fld) {
@@ -459,7 +558,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             return;
         }
 
-        if (((exprResultType0.getKind() == Struct.Class) || (exprResultType0.getKind() == Struct.Array)) && ((relationalCondFact.getRelop().getClass() == RelopCEquals.class) || (relationalCondFact.getRelop().getClass() == RelopCNEquals.class))) {
+        if (((exprResultType0.getKind() == Struct.Class) || (exprResultType0.getKind() == Struct.Array)) && (!(relationalCondFact.getRelop() instanceof RelopCEquals) && !(relationalCondFact.getRelop() instanceof RelopCNEquals))) {
             report_error("Invalid relational operator for Class or Array type, only '==' and '!=' are allowed!", relationalCondFact);
 
             return;
@@ -488,8 +587,42 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         switchCurrentCases.add(switchCase.getNumber());
     }
 
+    public void visit(SwitchCaseStatementStart switchCaseStatementStart) {
+        switchCaseNestingLevel++;
+    }
+
+    public void visit(SwitchCaseStatementEnd switchCaseStatementEnd) {
+        switchCaseNestingLevel--;
+    }
+
+    public void visit(DoWhileStatementStart doWhileStatementStart) {
+        doWhileNestingLevel++;
+    }
+
+    public void visit(DoWhileStatementEnd doWhileStatementEnd) {
+        doWhileNestingLevel--;
+    }
+
+    public void visit(MatchedContinueStatement matchedContinueStatement) {
+        if (!currentlyProcessingDoWhile()) {
+            report_error("Continue statement can only be used within a do-while block!", matchedContinueStatement);
+
+            return;
+        }
+    }
+
+    public void visit(MatchedBreakStatement matchedBreakStatement) {
+        if (!(currentlyProcessingDoWhile() || currentlyProcessingSwitchCase())) {
+            report_error("Break statement can only be used within a do-while or switch-case block!", matchedBreakStatement);
+
+            return;
+        }
+    }
+
     public void visit(ActualParameter actualParameter) {
-        Obj currentInvokedFunction = objTemporaries.get(ObjConstants.CurrentInvokedFunctionName);
+        Obj currentInvokedFunction = methodInvocationStack.peek();
+        int functionCallCurrentParameter = functionCallNumActualParametersStack.peek();
+        int functionCallNumFormalParameters = functionCallNumFormalParametersStack.peek();
 
         if (functionCallCurrentParameter == functionCallNumFormalParameters) {
             report_error("Invalid function call, too many actual parameters!", actualParameter);
@@ -500,25 +633,28 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Struct currentInvokedFunctionParameterType = actualParameter.getExpr().struct;
         Struct currentInvokedFunctionFormalParameterType = ((Obj)currentInvokedFunction.getLocalSymbols().toArray()[functionCallCurrentParameter]).getType();
 
-        if (!currentInvokedFunctionFormalParameterType.compatibleWith(currentInvokedFunctionParameterType)) {
+        if (!checkAssignCompatibility(currentInvokedFunctionParameterType, currentInvokedFunctionFormalParameterType)) {
             report_error("Incompatable function call parameter types!", actualParameter);
 
             return;
         }
 
-        functionCallCurrentParameter++;
+        functionCallNumActualParametersStack.set(functionCallNumActualParametersStack.size() - 1, functionCallCurrentParameter + 1);
     }
 
     public void visit(FunctionCall functionCall) {
+        int functionCallCurrentParameter = functionCallNumActualParametersStack.peek();
+        int functionCallNumFormalParameters = functionCallNumFormalParametersStack.peek();
+
         if (functionCallCurrentParameter != functionCallNumFormalParameters) {
             report_error("Invalid function call, not enough parameters!", functionCall);
 
             return;
         }
 
-        functionCallNumFormalParameters = 0;
-        functionCallCurrentParameter = 0;
-        objTemporaries.remove(ObjConstants.CurrentInvokedFunctionName);
+        functionCallNumFormalParametersStack.pop();
+        functionCallNumActualParametersStack.pop();
+        methodInvocationStack.pop();
 
         functionCall.struct = functionCall.getFunctionCallDesignator().obj.getType();
     }
@@ -532,15 +668,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             return;
         }
 
-        functionCallNumFormalParameters = functionCallDesignatorObj.getLevel();
-        objTemporaries.put(ObjConstants.CurrentInvokedFunctionName, functionCallDesignatorObj);
+        int functionCallNumFormalParameters = functionCallDesignatorObj.getLevel();
+
+        functionCallNumFormalParametersStack.push(functionCallDesignatorObj.getLevel());
+        functionCallNumActualParametersStack.push(0);
+        methodInvocationStack.push(functionCallDesignatorObj);
 
         // Skip implicit 'this' reference
         if (functionCallNumFormalParameters != 0) {
-            Obj currentInvokedFunctionFormalParameterObj = (Obj) functionCallDesignatorObj.getLocalSymbols().toArray()[functionCallCurrentParameter];
+            // ToDo: check if array access here is correct
+            Obj currentInvokedFunctionFormalParameterObj = (Obj) functionCallDesignatorObj.getLocalSymbols().toArray()[0];
 
             if (currentInvokedFunctionFormalParameterObj.getName().equals(ThisReferenceName)) {
-                functionCallCurrentParameter++;
+                functionCallNumActualParametersStack.set(functionCallNumActualParametersStack.size() - 1, 1);
             }
         }
 
@@ -577,7 +717,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             return;
         }
 
-        if (!designatorObj.getType().compatibleWith(assignmentDesignatorStatement.getExpr().struct)) {
+        if (!checkAssignCompatibility(assignmentDesignatorStatement.getExpr().struct, designatorObj.getType())) {
             report_error("Designator is not compatible with the given expression!", assignmentDesignatorStatement);
 
             return;
@@ -706,5 +846,29 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         msg.append(message);
 
         log.info(msg.toString());
+    }
+
+    private static boolean checkAssignCompatibility(Struct source, Struct destination) {
+        boolean defaultCompatible = source.assignableTo(destination);
+
+        if (!defaultCompatible) {
+            if ((source.getKind() == Struct.Class) && (destination.getKind() == Struct.Class)) {
+                while ((source.getElemType() != null) && !(source.equals(destination))) {
+                    source = source.getElemType();
+                }
+
+                return source.equals(destination);
+            }
+        }
+
+        return defaultCompatible;
+    }
+
+    private boolean currentlyProcessingSwitchCase() {
+        return switchCaseNestingLevel != 0;
+    }
+
+    private boolean currentlyProcessingDoWhile() {
+        return doWhileNestingLevel != 0;
     }
 }

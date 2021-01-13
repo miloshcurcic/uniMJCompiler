@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/0/2021 2:21:35
+// 14/0/2021 0:51:49
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -97,6 +97,8 @@ public interface Visitor {
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement);
     public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement);
     public void visit(AssignmentDesignatorStatement AssignmentDesignatorStatement);
+    public void visit(SwitchCaseStatementEnd SwitchCaseStatementEnd);
+    public void visit(SwitchCaseStatementStart SwitchCaseStatementStart);
     public void visit(SwitchCase SwitchCase);
     public void visit(EmptySwitchCaseListHead EmptySwitchCaseListHead);
     public void visit(SwitchCaseListElement SwitchCaseListElement);
@@ -107,9 +109,11 @@ public interface Visitor {
     public void visit(ReturnExpression ReturnExpression);
     public void visit(NoPrintStatementAdditionalParameter NoPrintStatementAdditionalParameter);
     public void visit(PrintStatementAdditionalParameter PrintStatementAdditionalParameter);
+    public void visit(DoWhileStatementEnd DoWhileStatementEnd);
+    public void visit(DoWhileStatementStart DoWhileStatementStart);
     public void visit(MatchedPrintStatement MatchedPrintStatement);
     public void visit(MatchedReadStatement MatchedReadStatement);
-    public void visit(MatchedExprReturnStatement MatchedExprReturnStatement);
+    public void visit(MatchedReturnStatement MatchedReturnStatement);
     public void visit(MatchedContinueStatement MatchedContinueStatement);
     public void visit(MatchedBreakStatement MatchedBreakStatement);
     public void visit(MatchedSwitchStatement MatchedSwitchStatement);

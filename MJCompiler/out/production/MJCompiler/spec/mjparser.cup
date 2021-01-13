@@ -145,9 +145,13 @@ nonterminal Program,
 	PrintStatementAdditionalParam,
 	DesignatorStatement,
 	ReturnExpr,
+	DoWhileStatementStart,
+	DoWhileStatementEnd,
 	SwitchCases,
 	SwitchExpression,
 	SwitchCase,
+	SwitchCaseStatementStart,
+	SwitchCaseStatementEnd,
 	ActPars,
 	ActPar,
 	FuncCallActPars,
@@ -272,19 +276,22 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignat
 
  MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
              | (MatchedIfStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
-             | (MatchedDoWhileStatement) DO Statement WHILE LPAREN Condition RPAREN SEMICOLON
+             | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement DoWhileStatementEnd WHILE LPAREN Condition RPAREN SEMICOLON
              | (MatchedSwitchStatement) SWITCH LPAREN SwitchExpression RPAREN LBRACE SwitchCases RBRACE
              | (MatchedBreakStatement) BREAK SEMICOLON
              | (MatchedContinueStatement) CONTINUE SEMICOLON
-             | (MatchedExprReturnStatement) RETURN ReturnExpr SEMICOLON
+             | (MatchedReturnStatement) RETURN ReturnExpr SEMICOLON
              | (MatchedReadStatement) READ LPAREN Designator RPAREN SEMICOLON
              | (MatchedPrintStatement) PRINT LPAREN Expr PrintStatementAdditionalParam RPAREN SEMICOLON
  ;
 
+ DoWhileStatementStart ::= (DoWhileStatementStart) ;
+
+ DoWhileStatementEnd ::= (DoWhileStatementEnd) ;
+
  PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER
                             | (NoPrintStatementAdditionalParameter)
 ;
-
 
  ReturnExpr ::= (ReturnExpression) Expr
             | (NoReturnExpression)
@@ -301,7 +308,11 @@ SwitchExpression ::= (SwitchExpression) Expr ;
  ;
 
 
- SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements ;
+ SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON SwitchCaseStatementStart Statements SwitchCaseStatementEnd ;
+
+SwitchCaseStatementStart ::= (SwitchCaseStatementStart) ;
+
+SwitchCaseStatementEnd ::= (SwitchCaseStatementEnd) ;
 
  DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                      | (FuncCallDesignatorStatement) FunctionCall

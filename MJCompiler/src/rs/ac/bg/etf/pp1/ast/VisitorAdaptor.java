@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/0/2021 2:21:35
+// 14/0/2021 0:51:49
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -97,6 +97,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement) { visit(); }
     public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement) { visit(); }
     public void visit(AssignmentDesignatorStatement AssignmentDesignatorStatement) { visit(); }
+    public void visit(SwitchCaseStatementEnd SwitchCaseStatementEnd) { visit(); }
+    public void visit(SwitchCaseStatementStart SwitchCaseStatementStart) { visit(); }
     public void visit(SwitchCase SwitchCase) { visit(); }
     public void visit(EmptySwitchCaseListHead EmptySwitchCaseListHead) { visit(); }
     public void visit(SwitchCaseListElement SwitchCaseListElement) { visit(); }
@@ -107,9 +109,11 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ReturnExpression ReturnExpression) { visit(); }
     public void visit(NoPrintStatementAdditionalParameter NoPrintStatementAdditionalParameter) { visit(); }
     public void visit(PrintStatementAdditionalParameter PrintStatementAdditionalParameter) { visit(); }
+    public void visit(DoWhileStatementEnd DoWhileStatementEnd) { visit(); }
+    public void visit(DoWhileStatementStart DoWhileStatementStart) { visit(); }
     public void visit(MatchedPrintStatement MatchedPrintStatement) { visit(); }
     public void visit(MatchedReadStatement MatchedReadStatement) { visit(); }
-    public void visit(MatchedExprReturnStatement MatchedExprReturnStatement) { visit(); }
+    public void visit(MatchedReturnStatement MatchedReturnStatement) { visit(); }
     public void visit(MatchedContinueStatement MatchedContinueStatement) { visit(); }
     public void visit(MatchedBreakStatement MatchedBreakStatement) { visit(); }
     public void visit(MatchedSwitchStatement MatchedSwitchStatement) { visit(); }

@@ -179,11 +179,19 @@ nonterminal
 nonterminal
 	ReturnExpr ReturnExpr;
 nonterminal
+	DoWhileStatementStart DoWhileStatementStart;
+nonterminal
+	DoWhileStatementEnd DoWhileStatementEnd;
+nonterminal
 	SwitchCases SwitchCases;
 nonterminal
 	SwitchExpression SwitchExpression;
 nonterminal
 	SwitchCase SwitchCase;
+nonterminal
+	SwitchCaseStatementStart SwitchCaseStatementStart;
+nonterminal
+	SwitchCaseStatementEnd SwitchCaseStatementEnd;
 nonterminal
 	ActPars ActPars;
 nonterminal
@@ -319,19 +327,22 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignat
 
  MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedAssignmentStatement(D1); RESULT.setLine(D1left); :}
              | (MatchedIfStatement) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new MatchedIfStatement(C1, M2, M3); RESULT.setLine(C1left); :}
-             | (MatchedDoWhileStatement) DO Statement:S1 WHILE LPAREN Condition:C2 RPAREN SEMICOLON {: RESULT=new MatchedDoWhileStatement(S1, C2); RESULT.setLine(S1left); :}
+             | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 DoWhileStatementEnd:D3 WHILE LPAREN Condition:C4 RPAREN SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, C4); RESULT.setLine(D1left); :}
              | (MatchedSwitchStatement) SWITCH LPAREN SwitchExpression:S1 RPAREN LBRACE SwitchCases:S2 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2); RESULT.setLine(S1left); :}
              | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
              | (MatchedContinueStatement) CONTINUE SEMICOLON {: RESULT=new MatchedContinueStatement(); :}
-             | (MatchedExprReturnStatement) RETURN ReturnExpr:R1 SEMICOLON {: RESULT=new MatchedExprReturnStatement(R1); RESULT.setLine(R1left); :}
+             | (MatchedReturnStatement) RETURN ReturnExpr:R1 SEMICOLON {: RESULT=new MatchedReturnStatement(R1); RESULT.setLine(R1left); :}
              | (MatchedReadStatement) READ LPAREN Designator:D1 RPAREN SEMICOLON {: RESULT=new MatchedReadStatement(D1); RESULT.setLine(D1left); :}
              | (MatchedPrintStatement) PRINT LPAREN Expr:E1 PrintStatementAdditionalParam:P2 RPAREN SEMICOLON {: RESULT=new MatchedPrintStatement(E1, P2); RESULT.setLine(E1left); :}
  ;
 
+ DoWhileStatementStart ::= (DoWhileStatementStart) {: RESULT=new DoWhileStatementStart(); :} ;
+
+ DoWhileStatementEnd ::= (DoWhileStatementEnd) {: RESULT=new DoWhileStatementEnd(); :} ;
+
  PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER:N1 {: RESULT=new PrintStatementAdditionalParameter(N1); RESULT.setLine(N1left); :}
                             | (NoPrintStatementAdditionalParameter) {: RESULT=new NoPrintStatementAdditionalParameter(); :}
 ;
-
 
  ReturnExpr ::= (ReturnExpression) Expr:E1 {: RESULT=new ReturnExpression(E1); RESULT.setLine(E1left); :}
             | (NoReturnExpression) {: RESULT=new NoReturnExpression(); :}
@@ -348,7 +359,11 @@ SwitchExpression ::= (SwitchExpression) Expr:E1 {: RESULT=new SwitchExpression(E
  ;
 
 
- SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements:S1 {: RESULT=new SwitchCase(number, S1); RESULT.setLine(numberleft); :} ;
+ SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON SwitchCaseStatementStart:S1 Statements:S2 SwitchCaseStatementEnd:S3 {: RESULT=new SwitchCase(number, S1, S2, S3); RESULT.setLine(numberleft); :} ;
+
+SwitchCaseStatementStart ::= (SwitchCaseStatementStart) {: RESULT=new SwitchCaseStatementStart(); :} ;
+
+SwitchCaseStatementEnd ::= (SwitchCaseStatementEnd) {: RESULT=new SwitchCaseStatementEnd(); :} ;
 
  DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new AssignmentDesignatorStatement(D1, A2, E3); RESULT.setLine(D1left); :}
                      | (FuncCallDesignatorStatement) FunctionCall:F1 {: RESULT=new FuncCallDesignatorStatement(F1); RESULT.setLine(F1left); :}

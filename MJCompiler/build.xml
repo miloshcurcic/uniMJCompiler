@@ -73,7 +73,7 @@
 				<pathelement path="lib/mj-runtime-1.1.jar"/>
 			</classpath>
 
-			<arg value="test/test303.mj" />
+			<arg value="test/test301.mj" />
 			<arg value="test/program.obj" />
 		</java>
 	</target>
