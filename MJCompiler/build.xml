@@ -62,7 +62,7 @@
 		<copy file="config/log4j.xml" tofile="bin/log4j.xml"></copy>
 	</target>
 
-	<target name="runCompiler">
+	<target name="runCompilerTest1">
 		<java classname="rs.ac.bg.etf.pp1.Compiler">
 			<classpath>
 				<pathelement location="bin/" />
@@ -74,7 +74,55 @@
 			</classpath>
 
 			<arg value="test/test301.mj" />
-			<arg value="test/program.obj" />
+			<arg value="test/program1.obj" />
+		</java>
+	</target>
+
+	<target name="runCompilerTest2">
+		<java classname="rs.ac.bg.etf.pp1.Compiler">
+			<classpath>
+				<pathelement location="bin/" />
+				<pathelement path="lib/JFlex.jar"/>
+				<pathelement path="lib/cup_v10k.jar"/>
+				<pathelement path="lib/symboltable-1-1.jar"/>
+				<pathelement path="lib/log4j-1.2.17.jar"/>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+
+			<arg value="test/test302.mj" />
+			<arg value="test/program2.obj" />
+		</java>
+	</target>
+
+	<target name="runCompilerTest3">
+		<java classname="rs.ac.bg.etf.pp1.Compiler">
+			<classpath>
+				<pathelement location="bin/" />
+				<pathelement path="lib/JFlex.jar"/>
+				<pathelement path="lib/cup_v10k.jar"/>
+				<pathelement path="lib/symboltable-1-1.jar"/>
+				<pathelement path="lib/log4j-1.2.17.jar"/>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+
+			<arg value="test/test303.mj" />
+			<arg value="test/program3.obj" />
+		</java>
+	</target>
+
+	<target name="runCompilerTest4">
+		<java classname="rs.ac.bg.etf.pp1.Compiler">
+			<classpath>
+				<pathelement location="bin/" />
+				<pathelement path="lib/JFlex.jar"/>
+				<pathelement path="lib/cup_v10k.jar"/>
+				<pathelement path="lib/symboltable-1-1.jar"/>
+				<pathelement path="lib/log4j-1.2.17.jar"/>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+
+			<arg value="test/test304.mj" />
+			<arg value="test/program4.obj" />
 		</java>
 	</target>
 

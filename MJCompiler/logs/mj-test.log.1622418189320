@@ -1,0 +1,5 @@
+INFO  01:42:19,181 - ===================================
+INFO  01:42:19,183 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  01:42:19,183 - ===================================
+ERROR 01:42:19,242 - Syntax error: on line 9
+ERROR 01:42:19,243 - Fatal error: on line 11

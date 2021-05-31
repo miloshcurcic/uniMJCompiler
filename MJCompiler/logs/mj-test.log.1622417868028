@@ -1,0 +1,7 @@
+INFO  01:37:39,944 - ===================================
+INFO  01:37:39,946 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  01:37:39,946 - ===================================
+ERROR 01:37:40,014 - Syntax error: on line 25
+ERROR 01:37:40,016 - recovered0
+ERROR 01:37:40,032 - Syntax error: on line 129
+ERROR 01:37:40,032 - Fatal error: on line 129

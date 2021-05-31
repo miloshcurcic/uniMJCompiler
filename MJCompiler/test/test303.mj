@@ -3,8 +3,6 @@
 program test_303
 
 const int cinilac = 4, delilac = 3;
-const bool a = true;
-int zik@, pera;
 
 class Predmet
 {
@@ -12,7 +10,7 @@ class Predmet
 	 char vrsta;
 
 	{
-		 void postaviTezinu(int tezina) {this.tezina = tezina;}  
+		 void postaviTezinu(int tezina) {this.tezina = tezina;}
 		 void ucitajTezinu() { read(tezina); }
 		 int zapremina() { return 0;}
 		 int Q() {return zapremina() * tezina;}
@@ -65,8 +63,8 @@ int tezinaK, tezinaS;
 		print(p.dohvTezinu());
 	}
 		
-	void main() Predmet predmeti[]; int i; Sfera s1, s2, s3; Kvadar k1, k2, k3; int t;
-	{
+	void main() Predmet predmeti[]; int i, j; Sfera s1, s2, s3; Kvadar k1, k2, k3; int t;
+	{	
 		predmeti = new Predmet[6];
 		s1 = new Sfera;
 		s2 = new Sfera;
@@ -134,24 +132,24 @@ int tezinaK, tezinaS;
 		
 		i = 0;
 		do{
-			switch(i+1){
-				case 1:
-					print(1);
-					break;
-				case 3:
-					print(3);
-				case 2:
-					print(2);
-					break;
-				case 5:
-					print(5);
-					i = i + 2;
-					continue;
-				case 6:
-					print(6);
-				case 9:
-					print(9);
-			}
+			j =	switch(i+1){
+					case 1:
+						print(1);
+						yield 1;
+					case 3:
+						print(3);
+					case 2:
+						print(2);
+						yield 2;
+					case 5:
+						print(5);
+						i = i + 3;
+						yield 7;
+					default:
+						yield 10;
+			};
+			print(eol);
+			print(j);
 			print(eol);
 			i++;
 		}while(i<10);

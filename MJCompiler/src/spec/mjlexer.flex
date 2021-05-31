@@ -7,6 +7,31 @@ import org.apache.log4j.*;
 
 %{
 	Logger log = Logger.getLogger(getClass());
+    StringBuilder errorMessageBuilder = new StringBuilder();
+    int errorLine = 0;
+    int errorColumn = 0;
+    int errorPreviousColumn = 0;
+
+    public void flushErrorIfExists() {
+        if (errorMessageBuilder.length() != 0) {
+            report_error("Lexical analysis error for text \"" + errorMessageBuilder.toString() + "\" on line " + (errorLine + 1) + ":" + (errorColumn + 1) + "!");
+            errorMessageBuilder = new StringBuilder();
+        }
+    }
+
+    public void updateOrInitializeErrorContext(String text, int line, int column) {
+        if (errorPreviousColumn != (column - 1)) {
+            flushErrorIfExists();
+        }
+
+        if (errorMessageBuilder.length() == 0) {
+            errorLine = line;
+            errorColumn = column;
+        }
+
+        errorPreviousColumn = column;
+        errorMessageBuilder.append(text);
+    }
 
     public void report_error(String message) {
         log.error(message);
@@ -28,6 +53,7 @@ import org.apache.log4j.*;
 %xstate COMMENT
 
 %eofval{
+    flushErrorIfExists();
 	return new_symbol(sym.EOF);
 %eofval}
 
@@ -37,7 +63,7 @@ import org.apache.log4j.*;
 " " 	{ }
 "\b" 	{ }
 "\t" 	{ }
-"\r\n" 	{ }
+"\r\n" 	{ flushErrorIfExists(); }
 "\f" 	{ }
 
 // Key words
@@ -48,6 +74,8 @@ import org.apache.log4j.*;
 "if" 	{ return new_symbol(sym.IF); }
 "else" 	{ return new_symbol(sym.ELSE); }
 "switch" 	{ return new_symbol(sym.SWITCH); }
+"yield" 	{ return new_symbol(sym.YIELD); }
+"default" 	{ return new_symbol(sym.DEFAULT); }
 "do" 	{ return new_symbol(sym.DO); }
 "while" 	{ return new_symbol(sym.WHILE); }
 "new" 	{ return new_symbol(sym.NEW); }
@@ -105,4 +133,4 @@ import org.apache.log4j.*;
 [0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
 ([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
 
-. { report_error("Lexical analysis error for text \"" + yytext()+ "\" on line " + (yyline+1) + ":" + (yycolumn + 1) + "!"); }
+. { updateOrInitializeErrorContext(yytext(), yyline, yycolumn); }

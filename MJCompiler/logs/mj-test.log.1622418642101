@@ -1,0 +1,16 @@
+INFO  01:50:38,935 - ===================================
+INFO  01:50:38,938 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  01:50:38,938 - ===================================
+ERROR 01:50:39,038 - Syntax error: on line 15#43
+ERROR 01:50:39,040 - Syntax error: on line 16#49
+ERROR 01:50:39,040 - recovered1null
+ERROR 01:50:39,041 - recovered0null
+ERROR 01:50:39,041 - Syntax error: on line 19#26
+ERROR 01:50:39,042 - recovered0null
+ERROR 01:50:39,042 - Syntax error: on line 22#17
+ERROR 01:50:39,043 - recovered0null
+ERROR 01:50:39,043 - Syntax error: on line 24#26
+ERROR 01:50:39,043 - recovered0null
+ERROR 01:50:39,043 - Syntax error: on line 26#44
+ERROR 01:50:39,044 - Fatal error: on line 27#0
+INFO  01:50:39,057 - ===================================

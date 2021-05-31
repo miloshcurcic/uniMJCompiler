@@ -12,7 +12,6 @@ program test301
 {
 	void main()	
 		int bodovi;
-		bool bt;
 	{
 		bodovi = 0;
 		bodovi++;
@@ -43,11 +42,9 @@ program test301
 		print(bodovi);
 			
 		read(bodovi);
-		bt = true;
-		
-		print(bt ? bodovi : bodovi + 10);
-		print(false ? bodovi + 20 : bodovi + 30);
-		print(bodovi ? '+' : '-');
+		if(bodovi%2 == 0) bodovi = bodovi + 10;
+		if(false) print(bodovi + 20);
+		else print(bodovi);
 	}
 }
 

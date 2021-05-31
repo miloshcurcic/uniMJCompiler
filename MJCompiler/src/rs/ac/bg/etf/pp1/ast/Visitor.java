@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 14/0/2021 0:51:49
+// 31/4/2021 2:50:48
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -20,11 +20,13 @@ public interface Visitor {
     public void visit(Designator Designator);
     public void visit(PrintStatementAdditionalParam PrintStatementAdditionalParam);
     public void visit(Term Term);
+    public void visit(YieldExpr YieldExpr);
     public void visit(Condition Condition);
     public void visit(MethodFormPars MethodFormPars);
     public void visit(VarIdents VarIdents);
     public void visit(Statements Statements);
     public void visit(TermExpr TermExpr);
+    public void visit(IfCondition IfCondition);
     public void visit(ConstNameValuePairs ConstNameValuePairs);
     public void visit(DataDecl DataDecl);
     public void visit(Expr Expr);
@@ -36,9 +38,9 @@ public interface Visitor {
     public void visit(VarDecls VarDecls);
     public void visit(UnmatchedStatement UnmatchedStatement);
     public void visit(Statement Statement);
+    public void visit(ReturnExpr ReturnExpr);
     public void visit(DataDecls DataDecls);
     public void visit(VarDecl VarDecl);
-    public void visit(ReturnExpr ReturnExpr);
     public void visit(ClassDecl ClassDecl);
     public void visit(BracedStatements BracedStatements);
     public void visit(CondFact CondFact);
@@ -77,9 +79,10 @@ public interface Visitor {
     public void visit(TermExprListElement TermExprListElement);
     public void visit(NoExpressionPrefix NoExpressionPrefix);
     public void visit(NegativeExpressionPrefix NegativeExpressionPrefix);
-    public void visit(Expr1 Expr1);
-    public void visit(Expression Expression);
-    public void visit(TernaryExpression TernaryExpression);
+    public void visit(SwitchDefaultCase SwitchDefaultCase);
+    public void visit(SwitchExpressionStart SwitchExpressionStart);
+    public void visit(SwitchExpression SwitchExpression);
+    public void visit(TermExpression TermExpression);
     public void visit(SingleCondFact SingleCondFact);
     public void visit(RelationalCondFact RelationalCondFact);
     public void visit(CondTermListHead CondTermListHead);
@@ -93,28 +96,32 @@ public interface Visitor {
     public void visit(FunctionCallActualParameters FunctionCallActualParameters);
     public void visit(FunctionCallDesignator FunctionCallDesignator);
     public void visit(FunctionCall FunctionCall);
+    public void visit(DesignatorStatementDerived1 DesignatorStatementDerived1);
     public void visit(PostDecDesignatorStatement PostDecDesignatorStatement);
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement);
     public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement);
     public void visit(AssignmentDesignatorStatement AssignmentDesignatorStatement);
-    public void visit(SwitchCaseStatementEnd SwitchCaseStatementEnd);
-    public void visit(SwitchCaseStatementStart SwitchCaseStatementStart);
     public void visit(SwitchCase SwitchCase);
     public void visit(EmptySwitchCaseListHead EmptySwitchCaseListHead);
     public void visit(SwitchCaseListElement SwitchCaseListElement);
-    public void visit(SwitchExpression SwitchExpression);
+    public void visit(SwitchStatementExpression SwitchStatementExpression);
     public void visit(UnmatchedIfElseStatement UnmatchedIfElseStatement);
     public void visit(UnmatchedIfStatement UnmatchedIfStatement);
+    public void visit(YieldExpression YieldExpression);
     public void visit(NoReturnExpression NoReturnExpression);
     public void visit(ReturnExpression ReturnExpression);
     public void visit(NoPrintStatementAdditionalParameter NoPrintStatementAdditionalParameter);
     public void visit(PrintStatementAdditionalParameter PrintStatementAdditionalParameter);
     public void visit(DoWhileStatementEnd DoWhileStatementEnd);
     public void visit(DoWhileStatementStart DoWhileStatementStart);
+    public void visit(IfConditionDerived2 IfConditionDerived2);
+    public void visit(IfConditionDerived1 IfConditionDerived1);
+    public void visit(SwitchStatementStart SwitchStatementStart);
     public void visit(MatchedPrintStatement MatchedPrintStatement);
     public void visit(MatchedReadStatement MatchedReadStatement);
     public void visit(MatchedReturnStatement MatchedReturnStatement);
     public void visit(MatchedContinueStatement MatchedContinueStatement);
+    public void visit(MatchedYieldStatement MatchedYieldStatement);
     public void visit(MatchedBreakStatement MatchedBreakStatement);
     public void visit(MatchedSwitchStatement MatchedSwitchStatement);
     public void visit(MatchedDoWhileStatement MatchedDoWhileStatement);
@@ -130,6 +137,7 @@ public interface Visitor {
     public void visit(EmptyStatementListHead EmptyStatementListHead);
     public void visit(StatementListElement StatementListElement);
     public void visit(Type Type);
+    public void visit(FormParDerived1 FormParDerived1);
     public void visit(ArrayFormalParameter ArrayFormalParameter);
     public void visit(ScalarFormalParameter ScalarFormalParameter);
     public void visit(FormParametersListHead FormParametersListHead);
@@ -148,13 +156,12 @@ public interface Visitor {
     public void visit(ClassMethodDeclarations ClassMethodDeclarations);
     public void visit(ClassDeclaration ClassDeclaration);
     public void visit(ExtendedClassDeclaration ExtendedClassDeclaration);
+    public void visit(VarIdentDerived1 VarIdentDerived1);
     public void visit(ArrayVarIdent ArrayVarIdent);
     public void visit(ScalarVarIdent ScalarVarIdent);
-    public void visit(VarIdentError VarIdentError);
     public void visit(VarIdentListHead VarIdentListHead);
     public void visit(VarIdentListElement VarIdentListElement);
     public void visit(VarDeclType VarDeclType);
-    public void visit(VariableDeclarationError VariableDeclarationError);
     public void visit(VariableDeclaration VariableDeclaration);
     public void visit(EmptyVarDeclList EmptyVarDeclList);
     public void visit(VarDeclListElement VarDeclListElement);

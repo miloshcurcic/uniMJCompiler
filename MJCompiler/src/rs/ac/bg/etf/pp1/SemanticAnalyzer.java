@@ -30,13 +30,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         public static final String CurrentMethodReturnTypeName = "CurrentMethodReturnTypeName";
     }
 
-    private Set<Integer> switchCurrentCases = new HashSet<>();
+    private static class SwitchType {
+        public static final Integer Statement = 0;
+        public static final Integer Expression = 1;
+    }
+
+    private Stack<Set<Integer>> switchCurrentCasesStack = new Stack<>();
+    private Stack<Integer> switchNestingTypeStack = new Stack<>();
+    private Stack<Struct> switchExpressionTypeStack = new Stack<>();
     private Stack<Obj> methodInvocationStack = new Stack<>();
     private int functionNumFormalParameters = 0;
     private Stack<Integer> functionCallNumFormalParametersStack = new Stack<>();
     private Stack<Integer> functionCallNumActualParametersStack = new Stack<>();
-    private int switchCaseNestingLevel = 0;
     private int doWhileNestingLevel = 0;
+    private int switchExpressionNestingLevel = 0;
 
     public static void initUniverseScope() {
         Tab.init();
@@ -71,6 +78,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Obj typeNode = Tab.find(type.getName());
 
         if (typeNode.equals(Tab.noObj)) {
+            type.struct = Tab.noType;
             report_error("Unknown name \"" + type.getName() + "\" used as type!", type);
         }
         else
@@ -80,6 +88,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             }
             else
             {
+                type.struct = Tab.noType;
                 report_error("The symbol \"" + type.getName() + "\" is not a type!", type);
             }
         }
@@ -119,6 +128,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Tab.insert(getVarKind(), arrayVarIdent.getName(), varArrayStruct);
     }
 
+    // Constant
+
     public void visit(ConstDeclType constDeclType) {
         structTemporaries.put(StructConstants.CurrentConstDeclTypeName, constDeclType.getType().struct);
     }
@@ -127,49 +138,32 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         structTemporaries.remove(StructConstants.CurrentConstDeclTypeName);
     }
 
-    public void visit(NumberConstNameValuePair numberConstNameValuePair) {
-        Obj constObj = Tab.currentScope().findSymbol(numberConstNameValuePair.getName());
+    // ToDo: Move
+    private void createConstant(String name, int value, SyntaxNode info) {
+        Obj constObj = Tab.currentScope().findSymbol(name);
 
         if (constObj != null) {
-            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", numberConstNameValuePair);
+            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", info);
 
             return;
         }
 
         Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
 
-        Obj constant = Tab.insert(Obj.Con, numberConstNameValuePair.getName(), constType);
-        constant.setAdr(numberConstNameValuePair.getValue());
+        Obj constant = Tab.insert(Obj.Con, name, constType);
+        constant.setAdr(value);
+    }
+
+    public void visit(NumberConstNameValuePair numberConstNameValuePair) {
+        createConstant(numberConstNameValuePair.getName(), numberConstNameValuePair.getValue(), numberConstNameValuePair);
     }
 
     public void visit(CharConstNameValuePair charConstNameValuePair) {
-        Obj constObj = Tab.currentScope().findSymbol(charConstNameValuePair.getName());
-
-        if (constObj != null) {
-            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", charConstNameValuePair);
-
-            return;
-        }
-
-        Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
-
-        Obj constant = Tab.insert(Obj.Con, charConstNameValuePair.getName(), constType);
-        constant.setAdr(charConstNameValuePair.getValue());
+        createConstant(charConstNameValuePair.getName(), charConstNameValuePair.getValue(), charConstNameValuePair);
     }
 
     public void visit(BoolConstNameValuePair boolConstNameValuePair) {
-        Obj constObj = Tab.currentScope().findSymbol(boolConstNameValuePair.getName());
-
-        if (constObj != null) {
-            report_error("Duplicate name declaration for constant \"" + constObj.getName() + "\"!", boolConstNameValuePair);
-
-            return;
-        }
-
-        Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
-
-        Obj constant = Tab.insert(Obj.Con, boolConstNameValuePair.getName(), constType);
-        constant.setAdr(boolConstNameValuePair.getValue() ? 1 : 0);
+        createConstant(boolConstNameValuePair.getName(), boolConstNameValuePair.getValue()  ? 1 : 0, boolConstNameValuePair);
     }
 
     // Method
@@ -303,16 +297,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Tab.closeScope();
 
         structTemporaries.remove(StructConstants.CurrentClassTypeName);
+        structTemporaries.remove(StructConstants.CurrentBaseClassTypeName);
     }
 
-    public void visit(ClassDeclaration classDeclaration) {
+    public void visit(ClassDeclaration extendedClassDeclaration) {
         Struct currentClass = structTemporaries.get(StructConstants.CurrentClassTypeName);
 
         Tab.chainLocalSymbols(currentClass);
         Tab.closeScope();
 
         structTemporaries.remove(StructConstants.CurrentClassTypeName);
-        structTemporaries.remove(StructConstants.CurrentBaseClassTypeName);
     }
 
     public void visit(ClassName className) {
@@ -382,16 +376,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     // checks
-
     public void visit(ScalarDesignator scalarDesignator) {
         Obj scalarDesignatorObj = Tab.find(scalarDesignator.getName());
 
         if (scalarDesignatorObj.equals(Tab.noObj)) {
+            scalarDesignator.obj = Tab.noObj;
             report_error("Undeclared symbol \"" + scalarDesignator.getName() + "\"!", scalarDesignator);
         }
         else
         {
             if ((scalarDesignatorObj.getKind() != Obj.Var) && (scalarDesignatorObj.getKind() != Obj.Con) && (scalarDesignatorObj.getKind() != Obj.Meth) && (scalarDesignatorObj.getKind() != Obj.Fld)) {
+                scalarDesignator.obj = Tab.noObj;
                 report_error("The symbol \"" + scalarDesignator.getName() + "\" is not carrying a value!", scalarDesignator);
             } else {
                 scalarDesignator.obj = scalarDesignatorObj;
@@ -403,6 +398,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Obj objectDesignatorObj = objectAccessDesignator.getDesignator().obj;
 
         if (objectDesignatorObj.getType().getKind() != Struct.Class) {
+            objectAccessDesignator.obj = Tab.noObj;
             report_error("Invalid access, accessed designator \"" + objectDesignatorObj.getName() + "\"is not a Class reference!", objectAccessDesignator);
 
             return;
@@ -410,6 +406,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Obj fieldNameObj = null;
 
         // Check if we're accessing class that we're currently processing
+        // ToDo: Is this correct
         if (currentlyProcessingClass() && currentlyProcessingMethod() && (objectDesignatorObj.getType().equals(structTemporaries.get(StructConstants.CurrentClassTypeName)))) {
             fieldNameObj = Tab.currentScope().getOuter().getLocals().searchKey(objectAccessDesignator.getFieldName());
         }
@@ -420,6 +417,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 
         if (fieldNameObj == null) {
+            objectAccessDesignator.obj = Tab.noObj;
             report_error("Non existent Class member \"" + objectAccessDesignator.getFieldName() + "\"!", objectAccessDesignator);
 
             return;
@@ -432,12 +430,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Obj arrayAccessDesignatorObj = arrayAccessDesignator.getDesignator().obj;
 
         if (arrayAccessDesignatorObj.getType().getKind() != Struct.Array) {
+            arrayAccessDesignator.obj = Tab.noObj;
             report_error("Invalid access, accessed designator \"" + arrayAccessDesignatorObj.getName() + "\" is not an Array reference!", arrayAccessDesignator);
 
             return;
         }
 
         if (!arrayAccessDesignator.getExpr().struct.equals(Tab.intType)) {
+            arrayAccessDesignator.obj = Tab.noObj;
             report_error("Invalid statement, expression result is not an integer!", arrayAccessDesignator);
 
             return;
@@ -470,6 +470,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(NewObjectFactor newObjectFactor) {
         if (newObjectFactor.getType().struct.getKind() != Struct.Class) {
+            newObjectFactor.struct = Tab.noType;
             report_error("Invalid statement, \"" + newObjectFactor.getType().getName() +  "\" is not a Class type!", newObjectFactor);
 
             return;
@@ -480,6 +481,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(NewArrayObjectFactor newArrayObjectFactor) {
         if (!newArrayObjectFactor.getExpr().struct.equals(Tab.intType)) {
+            newArrayObjectFactor.struct = Tab.noType;
             report_error("Invalid statement, expression result is not an integer!", newArrayObjectFactor);
 
             return;
@@ -495,6 +497,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(TermListElement termListElement) {
         if ((!termListElement.getFactor().struct.equals(Tab.intType)) || (!termListElement.getTerm().struct.equals(Tab.intType))) {
+            termListElement.struct = Tab.noType;
             report_error("Invalid statement, expression result is not an integer!", termListElement);
 
             return;
@@ -509,6 +512,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
     public void visit(TermExprListElement termExprListElement) {
         if ((!termExprListElement.getTermExpr().struct.equals(Tab.intType)) || (!termExprListElement.getTerm().struct.equals(Tab.intType))) {
+            termExprListElement.struct = Tab.noType;
             report_error("Invalid statement, expression result is not an integer!", termExprListElement);
 
             return;
@@ -521,32 +525,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         termExprListHead.struct = termExprListHead.getTerm().struct;
     }
 
-    public void visit(Expr1 expr1) {
-        if (!expr1.getTermExpr().struct.equals(Tab.intType) && (expr1.getExprPrefix().getClass() != NoExpressionPrefix.class)) {
-            report_error("Invalid statement, expression result is not an integer!", expr1);
+    public void visit(TermExpression expr) {
+        if (!expr.getTermExpr().struct.equals(Tab.intType) && (expr.getExprPrefix().getClass() != NoExpressionPrefix.class)) {
+            expr.struct = Tab.noType;
+            report_error("Invalid statement, expression result is not an integer!", expr);
 
             return;
         }
 
-        expr1.struct = expr1.getTermExpr().struct;
+        expr.struct = expr.getTermExpr().struct;
     }
 
-    public void visit(Expression expression) {
-        expression.struct = expression.getExpr1().struct;
-    }
-
-    public void visit(TernaryExpression ternaryExpression) {
-        Struct resultTypeIfTrue = ternaryExpression.getExpr11().struct;
-        Struct resultTypeIfFalse = ternaryExpression.getExpr12().struct;
-
-        if (!resultTypeIfTrue.equals(resultTypeIfFalse)) {
-            report_error("Ternary expression result types must be same!", ternaryExpression);
-
-            return;
-        }
-
-        ternaryExpression.struct = resultTypeIfTrue;
-    }
 
     public void visit(RelationalCondFact relationalCondFact) {
         Struct exprResultType0 = relationalCondFact.getExpr().struct;
@@ -565,19 +554,37 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
-    public void visit(SwitchExpression switchExpression) {
-        if (!switchExpression.getExpr().struct.equals(Tab.intType)) {
-            report_error("Invalid statement, expression result is not an integer!", switchExpression);
+    public void visit(SwitchStatementExpression switchStatementExpression) {
+        if (!switchStatementExpression.getExpr().struct.equals(Tab.intType)) {
+            report_error("Invalid statement, expression result is not an integer!", switchStatementExpression);
 
             return;
         }
     }
 
     public void visit(MatchedSwitchStatement matchedSwitchStatement) {
-        switchCurrentCases.clear();
+        switchCurrentCasesStack.pop();
+        switchNestingTypeStack.pop();
+    }
+
+    public void visit(SwitchExpression switchExpression) {
+        switchCurrentCasesStack.pop();
+        switchNestingTypeStack.pop();
+        switchExpressionNestingLevel--;
+
+        Struct switchExpressionType = switchExpressionTypeStack.pop();
+
+        // ToDo: Potentially add null control and have null as error type
+        if (switchExpressionType == null) {
+            switchExpressionType = Tab.noType;
+        }
+
+        switchExpression.struct = switchExpressionType;
     }
 
     public void visit(SwitchCase switchCase) {
+        Set<Integer> switchCurrentCases = switchCurrentCasesStack.peek();
+
         if (switchCurrentCases.contains(switchCase.getNumber())) {
             report_error("Duplicate switch statement case!", switchCase);
 
@@ -587,12 +594,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         switchCurrentCases.add(switchCase.getNumber());
     }
 
-    public void visit(SwitchCaseStatementStart switchCaseStatementStart) {
-        switchCaseNestingLevel++;
+    public void visit(SwitchStatementStart switchStatementStart) {
+        switchNestingTypeStack.push(SwitchType.Statement);
+        switchCurrentCasesStack.push(new HashSet<>());
     }
 
-    public void visit(SwitchCaseStatementEnd switchCaseStatementEnd) {
-        switchCaseNestingLevel--;
+    public void visit(SwitchExpressionStart switchExpressionStart) {
+        switchNestingTypeStack.push(SwitchType.Expression);
+        switchCurrentCasesStack.push(new HashSet<>());
+        switchExpressionTypeStack.push(null);
+        switchExpressionNestingLevel++;
     }
 
     public void visit(DoWhileStatementStart doWhileStatementStart) {
@@ -612,8 +623,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
 
     public void visit(MatchedBreakStatement matchedBreakStatement) {
-        if (!(currentlyProcessingDoWhile() || currentlyProcessingSwitchCase())) {
-            report_error("Break statement can only be used within a do-while or switch-case block!", matchedBreakStatement);
+        if (!(currentlyProcessingDoWhile() || currentlyProcessingSwitchStatement())) {
+            report_error("Break statement can only be used within a do-while or switch-case statement blocks!", matchedBreakStatement);
 
             return;
         }
@@ -646,6 +657,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         int functionCallCurrentParameter = functionCallNumActualParametersStack.peek();
         int functionCallNumFormalParameters = functionCallNumFormalParametersStack.peek();
 
+        functionCall.struct = functionCall.getFunctionCallDesignator().obj.getType();
+
         if (functionCallCurrentParameter != functionCallNumFormalParameters) {
             report_error("Invalid function call, not enough parameters!", functionCall);
 
@@ -655,14 +668,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         functionCallNumFormalParametersStack.pop();
         functionCallNumActualParametersStack.pop();
         methodInvocationStack.pop();
-
-        functionCall.struct = functionCall.getFunctionCallDesignator().obj.getType();
     }
 
     public void visit(FunctionCallDesignator functionCallDesignator) {
         Obj functionCallDesignatorObj = functionCallDesignator.getDesignator().obj;
 
         if (functionCallDesignatorObj.getKind() != Obj.Meth) {
+            functionCallDesignator.obj = Tab.noObj;
             report_error("Invalid access, accessed designator \"" + functionCallDesignatorObj.getName() + "\" is not a method or a global function!", functionCallDesignator);
 
             return;
@@ -694,6 +706,26 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             report_error("Invalid return statement, return expression type differs from the function return type!", returnExpression);
 
             return;
+        }
+
+        if (currentlyProcessingSwitchExpression()) {
+            report_error("Invalid return statement, return statement cannot be used within a switch expression!", returnExpression);
+
+            return;
+        }
+    }
+
+    public void visit(YieldExpression yieldExpression) {
+        if (!currentlyProcessingSwitchExpression()) {
+            report_error("Invalid yield statement, yield statement can only be used within a switch expression!", yieldExpression);
+
+            return;
+        }
+
+        // ToDo: Add diff type control
+        if (switchExpressionTypeStack.peek() == null) {
+            switchExpressionTypeStack.pop();
+            switchExpressionTypeStack.push(yieldExpression.getExpr().struct);
         }
     }
 
@@ -786,17 +818,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
-    // Handler error correction
-
-    public void visit(VariableDeclarationError variableDeclarationError) {
-        report_error("Corrected variable declaration error!", variableDeclarationError);
-    }
-
-    public void visit(VarIdentError varIdentError) {
-        report_error("Corrected variable identifier declaration error!", varIdentError);
-    }
-
-
     // Helper methods
 
     private int getVarKind() {
@@ -864,8 +885,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         return defaultCompatible;
     }
 
-    private boolean currentlyProcessingSwitchCase() {
-        return switchCaseNestingLevel != 0;
+    private boolean currentlyProcessingSwitchStatement() {
+        return switchNestingTypeStack.peek() == SwitchType.Statement;
+    }
+
+    private boolean currentlyProcessingSwitchExpression() {
+        return switchExpressionNestingLevel != 0;
     }
 
     private boolean currentlyProcessingDoWhile() {

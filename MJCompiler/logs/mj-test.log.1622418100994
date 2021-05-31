@@ -1,0 +1,27 @@
+INFO  01:41:32,320 - ===================================
+INFO  01:41:32,322 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  01:41:32,322 - ===================================
+INFO  01:41:32,390 - ===================================
+INFO  01:41:32,390 - Program(
+  ProgramName(
+   test_304
+  ) [ProgramName]
+  EmptyDataDeclListHead(
+  ) [EmptyDataDeclListHead]
+  MethodDeclarationListElement(
+    EmptyMethodDeclarationListHead(
+    ) [EmptyMethodDeclarationListHead]
+    MethodDeclaration(
+      VoidMethodTypeNamePair(
+       main
+      ) [VoidMethodTypeNamePair]
+      NoMethodFormalParameters(
+      ) [NoMethodFormalParameters]
+      EmptyVarDeclList(
+      ) [EmptyVarDeclList]
+      EmptyStatementListHead(
+      ) [EmptyStatementListHead]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListElement]
+) [Program]
+INFO  01:41:32,397 - ===================================

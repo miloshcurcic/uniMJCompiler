@@ -1,0 +1,5 @@
+INFO  17:12:45,052 - ===================================
+INFO  17:12:45,052 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test301.mj
+INFO  17:12:45,052 - ===================================
+ERROR 17:12:45,147 - Syntax error: on line 14
+ERROR 17:12:45,150 - Fatal error: on line 55

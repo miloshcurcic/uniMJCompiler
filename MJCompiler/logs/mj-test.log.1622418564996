@@ -1,0 +1,11 @@
+INFO  01:49:15,142 - ===================================
+INFO  01:49:15,144 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  01:49:15,144 - ===================================
+ERROR 01:49:15,224 - Syntax error: on line 12#49
+ERROR 01:49:15,225 - recovered0null
+ERROR 01:49:15,235 - Syntax error: on line 38#7
+ERROR 01:49:15,235 - Lexical analysis error for text "‐" on line 38:10!
+ERROR 01:49:15,236 - recovered3null
+ERROR 01:49:15,236 - Lexical analysis error for text "‐" on line 40:19!
+ERROR 01:49:15,237 - Syntax error: on line 44#33
+ERROR 01:49:15,237 - Fatal error: on line 46#0

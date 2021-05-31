@@ -1,0 +1,187 @@
+INFO  01:57:07,282 - ===================================
+INFO  01:57:07,284 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  01:57:07,284 - ===================================
+INFO  01:57:07,364 - ===================================
+INFO  01:57:07,365 - Program(
+  ProgramName(
+   p
+  ) [ProgramName]
+  DataDeclListElement(
+    EmptyDataDeclListHead(
+    ) [EmptyDataDeclListHead]
+    ConstDataDecl(
+      ConstDecl(
+        ConstDeclType(
+          Type(
+           int
+          ) [Type]
+        ) [ConstDeclType]
+        ConstNameValuePairListHead(
+          NumberConstNameValuePair(
+           size
+           10
+          ) [NumberConstNameValuePair]
+        ) [ConstNameValuePairListHead]
+      ) [ConstDecl]
+    ) [ConstDataDecl]
+  ) [DataDeclListElement]
+  MethodDeclarationListElement(
+    MethodDeclarationListElement(
+      EmptyMethodDeclarationListHead(
+      ) [EmptyMethodDeclarationListHead]
+      MethodDeclaration(
+        VoidMethodTypeNamePair(
+         f
+        ) [VoidMethodTypeNamePair]
+        MethodFormalParameters(
+          FormalParametersListElement(
+            FormalParametersListElement(
+              FormParametersListHead(
+                ScalarFormalParameter(
+                  Type(
+                   char
+                  ) [Type]
+                 ch
+                ) [ScalarFormalParameter]
+              ) [FormParametersListHead]
+              ScalarFormalParameter(
+                Type(
+                 int
+                ) [Type]
+               a
+              ) [ScalarFormalParameter]
+            ) [FormalParametersListElement]
+            ScalarFormalParameter(
+              Type(
+               int
+              ) [Type]
+             arg
+            ) [ScalarFormalParameter]
+          ) [FormalParametersListElement]
+        ) [MethodFormalParameters]
+        VarDeclListElement(
+          EmptyVarDeclList(
+          ) [EmptyVarDeclList]
+          VariableDeclaration(
+            VarDeclType(
+              Type(
+               int
+              ) [Type]
+            ) [VarDeclType]
+            VarIdentListHead(
+              ScalarVarIdent(
+               x
+              ) [ScalarVarIdent]
+            ) [VarIdentListHead]
+          ) [VariableDeclaration]
+        ) [VarDeclListElement]
+        StatementListElement(
+          EmptyStatementListHead(
+          ) [EmptyStatementListHead]
+          SingleStatementType(
+            SingleMatchedStatement(
+              MatchedAssignmentStatement(
+                AssignmentDesignatorStatement(
+                  ScalarDesignator(
+                   x
+                  ) [ScalarDesignator]
+                  Assignop(
+                  ) [Assignop]
+                  TermExpression(
+                    NoExpressionPrefix(
+                    ) [NoExpressionPrefix]
+                    TermExprListHead(
+                      TermListHead(
+                        VarFactor(
+                          ScalarDesignator(
+                           arg
+                          ) [ScalarDesignator]
+                        ) [VarFactor]
+                      ) [TermListHead]
+                    ) [TermExprListHead]
+                  ) [TermExpression]
+                ) [AssignmentDesignatorStatement]
+              ) [MatchedAssignmentStatement]
+            ) [SingleMatchedStatement]
+          ) [SingleStatementType]
+        ) [StatementListElement]
+      ) [MethodDeclaration]
+    ) [MethodDeclarationListElement]
+    MethodDeclaration(
+      VoidMethodTypeNamePair(
+       main
+      ) [VoidMethodTypeNamePair]
+      NoMethodFormalParameters(
+      ) [NoMethodFormalParameters]
+      VarDeclListElement(
+        VarDeclListElement(
+          EmptyVarDeclList(
+          ) [EmptyVarDeclList]
+          VariableDeclaration(
+            VarDeclType(
+              Type(
+               int
+              ) [Type]
+            ) [VarDeclType]
+            VarIdentListElement(
+              VarIdentListHead(
+                ScalarVarIdent(
+                 x
+                ) [ScalarVarIdent]
+              ) [VarIdentListHead]
+              ScalarVarIdent(
+               i
+              ) [ScalarVarIdent]
+            ) [VarIdentListElement]
+          ) [VariableDeclaration]
+        ) [VarDeclListElement]
+        VariableDeclaration(
+          VarDeclType(
+            Type(
+             char
+            ) [Type]
+          ) [VarDeclType]
+          VarIdentListHead(
+            ScalarVarIdent(
+             c
+            ) [ScalarVarIdent]
+          ) [VarIdentListHead]
+        ) [VariableDeclaration]
+      ) [VarDeclListElement]
+      StatementListElement(
+        EmptyStatementListHead(
+        ) [EmptyStatementListHead]
+        SingleStatementType(
+          SingleMatchedStatement(
+            MatchedAssignmentStatement(
+              AssignmentDesignatorStatement(
+                ScalarDesignator(
+                 val
+                ) [ScalarDesignator]
+                Assignop(
+                ) [Assignop]
+                TermExpression(
+                  NoExpressionPrefix(
+                  ) [NoExpressionPrefix]
+                  TermExprListHead(
+                    TermListHead(
+                      NewObjectFactor(
+                        Type(
+                         Table
+                        ) [Type]
+                      ) [NewObjectFactor]
+                    ) [TermListHead]
+                  ) [TermExprListHead]
+                ) [TermExpression]
+              ) [AssignmentDesignatorStatement]
+            ) [MatchedAssignmentStatement]
+          ) [SingleMatchedStatement]
+        ) [SingleStatementType]
+      ) [StatementListElement]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListElement]
+) [Program]
+INFO  01:57:07,380 - ===================================
+ERROR 01:57:07,381 - Line: 14 - Undeclared symbol "val"!
+ERROR 01:57:07,381 - Line: 14 - Unknown name "Table" used as type!
+ERROR 01:57:07,392 - Line: 14 - Invalid statement, "Table" is not a Class type!

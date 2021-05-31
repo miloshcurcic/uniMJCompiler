@@ -1,0 +1,30 @@
+program p
+
+class Predmet
+{
+	 int tezina;
+	 char vrsta;
+
+	{
+		 void postaviTezinu(int tezina) {this.tezina = tezina;}
+		 void ucitajTezinu() { read(tezina); }
+		 int zapremina() { return 0;}
+		 int Q() {return zapremina() * tezina;}
+		 void postaviVrstu(char vrsta) {this.vrsta = vrsta;}
+		 char dohvVrstu() { return vrsta; }
+		 int dohvTezinu() { return tezina; }
+	}
+}
+
+{
+    void f(char ch, int a, int arg)
+    int x;
+    {
+        x = arg;
+    }
+
+    void main() int x, i; char c;
+    {
+        val = new Table;
+    }
+}
