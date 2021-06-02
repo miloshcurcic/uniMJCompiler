@@ -134,7 +134,6 @@ nonterminal Program,
 	MethodDecls,
 	MethodDecl,
 	MethodFormPars,
-	MethodTypeNamePair,
 	FormPars,
 	FormPar,
 	Statements,
@@ -170,10 +169,19 @@ nonterminal Program,
 	Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr, FunctionCall
+nonterminal rs.etf.pp1.symboltable.concepts.Struct
+    Type,
+    Factor,
+    Term,
+    TermExpr,
+    Expr,
+    FunctionCall
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignator
+nonterminal rs.etf.pp1.symboltable.concepts.Obj
+    Designator,
+    FunctionCallDesignator,
+    MethodTypeNamePair
 ;
 
 Program ::= (Program) PROGRAM ProgramName DataDecls LBRACE MethodDecls RBRACE ;

@@ -16,6 +16,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     private static final String MainMethodName = "main";
 
     Logger log = Logger.getLogger(getClass());
+    private int nVars;
+
+    public int getnVars() {
+        return nVars;
+    }
 
     private static class ObjConstants {
         public static final String CurrentProgramName = "CurrentProgram";
@@ -62,6 +67,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
             return;
         }
 
+        nVars = Tab.currentScope.getnVars();
         Tab.chainLocalSymbols(programObj);
         Tab.closeScope();
     }
@@ -215,6 +221,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
         structTemporaries.put(StructConstants.CurrentMethodReturnTypeName, returnType);
         objTemporaries.put(ObjConstants.CurrentMethodName, currentMethod);
+
+        typeMethodTypeNamePair.obj = currentMethod;
     }
 
     public void visit(VoidMethodTypeNamePair voidMethodTypeNamePair) {
@@ -264,6 +272,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
         structTemporaries.put(StructConstants.CurrentMethodReturnTypeName, returnType);
         objTemporaries.put(ObjConstants.CurrentMethodName, currentMethod);
+
+        voidMethodTypeNamePair.obj = currentMethod;
     }
 
     public void visit(ScalarFormalParameter scalarFormalParameter) {

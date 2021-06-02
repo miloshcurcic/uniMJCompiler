@@ -13,6 +13,7 @@ import rs.etf.pp1.symboltable.concepts.Struct;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 
 public class Compiler {
@@ -55,24 +56,26 @@ public class Compiler {
             rootNode.traverseBottomUp(semanticAnalyzer);
 
             Tab.dump(new CustomDumpSymbolTableVisitor());
-            /*
-            if (!p.errorDetected && semanticAnalyzer.passed()) {
+
+            if (!p.errorDetected /*&& semanticAnalyzer.passed()*/) {
                 File objFile = new File(args[1]);
                 log.info("Generating bytecode file: " + objFile.getAbsolutePath());
-                if (objFile.exists())
+
+                if (objFile.exists()) {
                     objFile.delete();
+                }
 
                 // Code generation...
                 CodeGenerator codeGenerator = new CodeGenerator();
-                prog.traverseBottomUp(codeGenerator);
-                Code.dataSize = semanticCheck.nVars;
+                rootNode.traverseBottomUp(codeGenerator);
+                Code.dataSize = semanticAnalyzer.getnVars();
                 Code.mainPc = codeGenerator.getMainPc();
                 Code.write(new FileOutputStream(objFile));
                 log.info("Parsiranje uspesno zavrseno!");
             }
             else {
                 log.error("Parsiranje NIJE uspesno zavrseno!");
-            }*/
+            }
         }
     }
 }

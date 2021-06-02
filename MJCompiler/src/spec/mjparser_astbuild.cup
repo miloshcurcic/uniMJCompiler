@@ -155,8 +155,6 @@ nonterminal
 nonterminal
 	MethodFormPars MethodFormPars;
 nonterminal
-	MethodTypeNamePair MethodTypeNamePair;
-nonterminal
 	FormPars FormPars;
 nonterminal
 	FormPar FormPar;
@@ -224,10 +222,19 @@ nonterminal
 	Mulop Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr, FunctionCall
+nonterminal rs.etf.pp1.symboltable.concepts.Struct
+    Type,
+    Factor,
+    Term,
+    TermExpr,
+    Expr,
+    FunctionCall
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignator
+nonterminal rs.etf.pp1.symboltable.concepts.Obj
+    Designator,
+    FunctionCallDesignator,
+    MethodTypeNamePair
 ;
 
 Program ::= (Program) PROGRAM ProgramName:P1 DataDecls:D2 LBRACE MethodDecls:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :} ;

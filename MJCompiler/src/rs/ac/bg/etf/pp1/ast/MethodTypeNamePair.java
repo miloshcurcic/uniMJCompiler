@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/4/2021 2:50:48
+// 2/5/2021 3:24:42
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,8 @@ public abstract class MethodTypeNamePair implements SyntaxNode {
     private SyntaxNode parent;
 
     private int line;
+
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
     public SyntaxNode getParent() {
         return parent;

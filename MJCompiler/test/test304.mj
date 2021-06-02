@@ -1,30 +1,33 @@
-program p
-
-class Predmet
+program MJProgram
+	int x; int y;
+	int niz[];
+	char nizch[];
 {
-	 int tezina;
-	 char vrsta;
 
-	{
-		 void postaviTezinu(int tezina) {this.tezina = tezina;}
-		 void ucitajTezinu() { read(tezina); }
-		 int zapremina() { return 0;}
-		 int Q() {return zapremina() * tezina;}
-		 void postaviVrstu(char vrsta) {this.vrsta = vrsta;}
-		 char dohvVrstu() { return vrsta; }
-		 int dohvTezinu() { return tezina; }
+	int k () int c; {
+		c = 2;
+		return c+2;
 	}
-}
 
-{
-    void f(char ch, int a, int arg)
-    int x;
-    {
-        x = arg;
-    }
+	void main()
+	    int z;
+	{
+        z = 2;
+        z++;
+        print(z);
+        z--;
+        print(z);
+        x++;
+        print(x);
+        x--;
+        print(x);
 
-    void main() int x, i; char c;
-    {
-        val = new Table;
-    }
+		print(1);
+
+		x = y + (5 * 3) * (1 + 1) ;
+
+		print(x);
+
+		k();
+	}
 }
