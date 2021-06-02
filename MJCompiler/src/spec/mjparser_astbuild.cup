@@ -175,6 +175,8 @@ nonterminal
 nonterminal
 	IfCondition IfCondition;
 nonterminal
+	DoWhileCondition DoWhileCondition;
+nonterminal
 	PrintStatementAdditionalParam PrintStatementAdditionalParam;
 nonterminal
 	DesignatorStatement DesignatorStatement;
@@ -340,7 +342,7 @@ SingleStatement ::= (SingleMatchedStatement) MatchedStatement:M1 {: RESULT=new S
 
 MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedAssignmentStatement(D1); RESULT.setLine(D1left); :}
             | (MatchedIfStatement) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new MatchedIfStatement(I1, M2, M3); RESULT.setLine(I1left); :}
-            | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 DoWhileStatementEnd:D3 WHILE LPAREN Condition:C4 RPAREN SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, C4); RESULT.setLine(D1left); :}
+            | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 DoWhileStatementEnd:D3 WHILE LPAREN DoWhileCondition:D4 RPAREN SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, D4); RESULT.setLine(D1left); :}
             | (MatchedSwitchStatement) SwitchStatementStart:S1 SWITCH LPAREN SwitchStatementExpression:S2 RPAREN LBRACE SwitchCases:S3 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2, S3); RESULT.setLine(S1left); :}
             | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
             | (MatchedYieldStatement) YIELD YieldExpr:Y1 SEMICOLON {: RESULT=new MatchedYieldStatement(Y1); RESULT.setLine(Y1left); :}
@@ -352,9 +354,9 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOL
 
 SwitchStatementStart ::= (SwitchStatementStart) {: RESULT=new SwitchStatementStart(); :} ;
 
-IfCondition ::= Condition:C1 {: RESULT=new IfConditionDerived1(C1); RESULT.setLine(C1left); :}
-           | error {: parser.report_error("recovered3", null); :} {: RESULT=new IfConditionDerived2(); :}
-;
+IfCondition ::= (IfCondition) Condition:C1 {: RESULT=new IfCondition(C1); RESULT.setLine(C1left); :} ;
+
+DoWhileCondition ::= (DoWhileCondition) Condition:C1 {: RESULT=new DoWhileCondition(C1); RESULT.setLine(C1left); :} ;
 
 DoWhileStatementStart ::= (DoWhileStatementStart) {: RESULT=new DoWhileStatementStart(); :} ;
 

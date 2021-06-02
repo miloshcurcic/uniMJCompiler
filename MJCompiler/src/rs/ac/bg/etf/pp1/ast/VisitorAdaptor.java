@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 2/5/2021 3:24:42
+// 3/5/2021 1:2:58
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -26,7 +26,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarIdents VarIdents) { }
     public void visit(Statements Statements) { }
     public void visit(TermExpr TermExpr) { }
-    public void visit(IfCondition IfCondition) { }
     public void visit(ConstNameValuePairs ConstNameValuePairs) { }
     public void visit(DataDecl DataDecl) { }
     public void visit(Expr Expr) { }
@@ -38,9 +37,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDecls VarDecls) { }
     public void visit(UnmatchedStatement UnmatchedStatement) { }
     public void visit(Statement Statement) { }
+    public void visit(ReturnExpr ReturnExpr) { }
     public void visit(DataDecls DataDecls) { }
     public void visit(VarDecl VarDecl) { }
-    public void visit(ReturnExpr ReturnExpr) { }
     public void visit(ClassDecl ClassDecl) { }
     public void visit(BracedStatements BracedStatements) { }
     public void visit(CondFact CondFact) { }
@@ -114,8 +113,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PrintStatementAdditionalParameter PrintStatementAdditionalParameter) { visit(); }
     public void visit(DoWhileStatementEnd DoWhileStatementEnd) { visit(); }
     public void visit(DoWhileStatementStart DoWhileStatementStart) { visit(); }
-    public void visit(IfConditionDerived2 IfConditionDerived2) { visit(); }
-    public void visit(IfConditionDerived1 IfConditionDerived1) { visit(); }
+    public void visit(DoWhileCondition DoWhileCondition) { visit(); }
+    public void visit(IfCondition IfCondition) { visit(); }
     public void visit(SwitchStatementStart SwitchStatementStart) { visit(); }
     public void visit(MatchedPrintStatement MatchedPrintStatement) { visit(); }
     public void visit(MatchedReadStatement MatchedReadStatement) { visit(); }

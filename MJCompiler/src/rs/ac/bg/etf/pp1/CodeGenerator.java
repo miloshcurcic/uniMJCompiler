@@ -9,8 +9,11 @@ import rs.etf.pp1.symboltable.concepts.*;
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 
+import java.util.*;
+
 public class CodeGenerator extends VisitorAdaptor {
     private int mainPc;
+    private Stack<List<Integer>> ConditionStack = new Stack();
 
     public int getMainPc() {
         return mainPc;
@@ -30,7 +33,7 @@ public class CodeGenerator extends VisitorAdaptor {
 
 
     public void visit(MatchedReadStatement matchedReadStatement) {
-        //Code.put(Code.read);
+        Code.put(Code.read);
         // ToDo: Using bread?
         Code.store(matchedReadStatement.getDesignator().obj);
     }
@@ -96,6 +99,76 @@ public class CodeGenerator extends VisitorAdaptor {
             Code.put(Code.sub);
             Code.store(designator.obj);
         }
+    }
+
+    public void visit(TermExpression termExpression) {
+        if (NegativeExpressionPrefix.class == termExpression.getExprPrefix().getClass()) {
+            Code.put(Code.neg);
+        }
+    }
+
+    public int getOperation(Relop relop) {
+        if (RelopCEquals.class == relop.getClass()) {
+            return Code.eq;
+        } else if (RelopCNEquals.class == relop.getClass()) {
+            return Code.ne;
+        } else if (RelopGreater.class == relop.getClass()) {
+            return Code.gt;
+        } else if (RelopGEquals.class == relop.getClass()) {
+            return Code.ge;
+        } else if (RelopLess.class == relop.getClass()) {
+            return Code.lt;
+        } else {
+            return Code.le;
+        }
+    }
+
+    public void visit(RelationalCondFact relationalCondFact) {
+        Class p0 = relationalCondFact.getParent().getClass();
+        Class p1 = relationalCondFact.getParent().getParent().getClass();
+        Class p2 = relationalCondFact.getParent().getParent().getParent().getClass();
+
+        if ((CondTermListElement.class == p1) || (IfCondition.class == p2)) {
+            // one of [1..n) expr elements
+            Code.put(Code.jcc + Code.inverse[getOperation(relationalCondFact.getRelop())]);
+            Code.put2(0);
+
+            // jmp to next or or end of code
+        } else {
+            Code.put(Code.jcc + getOperation(relationalCondFact.getRelop()));
+            Code.put2(0);
+
+            // jmp to code
+        }
+    }
+
+    public void visit(SingleCondFact singleCondFact) {
+        Class p0 = singleCondFact.getParent().getClass();
+        Class p1 = singleCondFact.getParent().getParent().getClass();
+        Class p2 = singleCondFact.getParent().getParent().getParent().getClass();
+
+        if ((CondTermListElement.class == p1) || (IfCondition.class == p2) || (DoWhileCondition.class == p2)) {
+            // one of [1..n) expr elements
+            Code.loadConst(0);
+            Code.put(Code.jcc + Code.ne);
+            Code.put2(0);
+
+            // jmp to next or or end of code
+        } else {
+            Code.loadConst(0);
+            Code.put(Code.jcc + Code.eq);
+            Code.put2(0);
+
+            // jmp to code
+        }
+    }
+
+    public void visit(CondTermListElement condTermListElement) {
+
+    }
+
+    public void visit(ConditionListElement conditionListElement) {
+
     }
 
     public void visit(TypeMethodTypeNamePair typeMethodTypeNamePair){

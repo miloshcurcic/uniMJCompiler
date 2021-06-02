@@ -40,8 +40,7 @@ program test301
 		bodovi = bodovi + (pet * jedan - 1) * bodovi - (3 % 2 + 3 * 2 - 3);
 		// 6 + 4 * 6 - (1 + 6 - 3)
 		print(bodovi);
-			
-		read(bodovi);
+
 		if(bodovi%2 == 0) bodovi = bodovi + 10;
 		if(false) print(bodovi + 20);
 		else print(bodovi);

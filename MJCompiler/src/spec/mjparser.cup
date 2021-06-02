@@ -144,6 +144,7 @@ nonterminal Program,
 	MatchedStatement,
 	UnmatchedStatement,
 	IfCondition,
+	DoWhileCondition,
 	PrintStatementAdditionalParam,
 	DesignatorStatement,
 	ReturnExpr,
@@ -287,7 +288,7 @@ SingleStatement ::= (SingleMatchedStatement) MatchedStatement
 
 MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
             | (MatchedIfStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE MatchedStatement
-            | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement DoWhileStatementEnd WHILE LPAREN Condition RPAREN SEMICOLON
+            | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement DoWhileStatementEnd WHILE LPAREN DoWhileCondition RPAREN SEMICOLON
             | (MatchedSwitchStatement) SwitchStatementStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases RBRACE
             | (MatchedBreakStatement) BREAK SEMICOLON
             | (MatchedYieldStatement) YIELD YieldExpr SEMICOLON
@@ -299,9 +300,9 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
 
 SwitchStatementStart ::= (SwitchStatementStart) ;
 
-IfCondition ::= Condition
-           | error {: parser.report_error("recovered3", null); :}
-;
+IfCondition ::= (IfCondition) Condition ;
+
+DoWhileCondition ::= (DoWhileCondition) Condition ;
 
 DoWhileStatementStart ::= (DoWhileStatementStart) ;
 
