@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/5/2021 1:2:58
+// 4/5/2021 2:23:25
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,16 +8,19 @@ package rs.ac.bg.etf.pp1.ast;
 public class MatchedIfStatement extends MatchedStatement {
 
     private IfCondition IfCondition;
-    private MatchedStatement MatchedStatement;
-    private MatchedStatement MatchedStatement1;
+    private IfStatementStart IfStatementStart;
+    private Statement Statement;
+    private IfStatementEnd IfStatementEnd;
 
-    public MatchedIfStatement (IfCondition IfCondition, MatchedStatement MatchedStatement, MatchedStatement MatchedStatement1) {
+    public MatchedIfStatement (IfCondition IfCondition, IfStatementStart IfStatementStart, Statement Statement, IfStatementEnd IfStatementEnd) {
         this.IfCondition=IfCondition;
         if(IfCondition!=null) IfCondition.setParent(this);
-        this.MatchedStatement=MatchedStatement;
-        if(MatchedStatement!=null) MatchedStatement.setParent(this);
-        this.MatchedStatement1=MatchedStatement1;
-        if(MatchedStatement1!=null) MatchedStatement1.setParent(this);
+        this.IfStatementStart=IfStatementStart;
+        if(IfStatementStart!=null) IfStatementStart.setParent(this);
+        this.Statement=Statement;
+        if(Statement!=null) Statement.setParent(this);
+        this.IfStatementEnd=IfStatementEnd;
+        if(IfStatementEnd!=null) IfStatementEnd.setParent(this);
     }
 
     public IfCondition getIfCondition() {
@@ -28,20 +31,28 @@ public class MatchedIfStatement extends MatchedStatement {
         this.IfCondition=IfCondition;
     }
 
-    public MatchedStatement getMatchedStatement() {
-        return MatchedStatement;
+    public IfStatementStart getIfStatementStart() {
+        return IfStatementStart;
     }
 
-    public void setMatchedStatement(MatchedStatement MatchedStatement) {
-        this.MatchedStatement=MatchedStatement;
+    public void setIfStatementStart(IfStatementStart IfStatementStart) {
+        this.IfStatementStart=IfStatementStart;
     }
 
-    public MatchedStatement getMatchedStatement1() {
-        return MatchedStatement1;
+    public Statement getStatement() {
+        return Statement;
     }
 
-    public void setMatchedStatement1(MatchedStatement MatchedStatement1) {
-        this.MatchedStatement1=MatchedStatement1;
+    public void setStatement(Statement Statement) {
+        this.Statement=Statement;
+    }
+
+    public IfStatementEnd getIfStatementEnd() {
+        return IfStatementEnd;
+    }
+
+    public void setIfStatementEnd(IfStatementEnd IfStatementEnd) {
+        this.IfStatementEnd=IfStatementEnd;
     }
 
     public void accept(Visitor visitor) {
@@ -50,21 +61,24 @@ public class MatchedIfStatement extends MatchedStatement {
 
     public void childrenAccept(Visitor visitor) {
         if(IfCondition!=null) IfCondition.accept(visitor);
-        if(MatchedStatement!=null) MatchedStatement.accept(visitor);
-        if(MatchedStatement1!=null) MatchedStatement1.accept(visitor);
+        if(IfStatementStart!=null) IfStatementStart.accept(visitor);
+        if(Statement!=null) Statement.accept(visitor);
+        if(IfStatementEnd!=null) IfStatementEnd.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(IfCondition!=null) IfCondition.traverseTopDown(visitor);
-        if(MatchedStatement!=null) MatchedStatement.traverseTopDown(visitor);
-        if(MatchedStatement1!=null) MatchedStatement1.traverseTopDown(visitor);
+        if(IfStatementStart!=null) IfStatementStart.traverseTopDown(visitor);
+        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(IfStatementEnd!=null) IfStatementEnd.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(IfCondition!=null) IfCondition.traverseBottomUp(visitor);
-        if(MatchedStatement!=null) MatchedStatement.traverseBottomUp(visitor);
-        if(MatchedStatement1!=null) MatchedStatement1.traverseBottomUp(visitor);
+        if(IfStatementStart!=null) IfStatementStart.traverseBottomUp(visitor);
+        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(IfStatementEnd!=null) IfStatementEnd.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -79,14 +93,20 @@ public class MatchedIfStatement extends MatchedStatement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MatchedStatement!=null)
-            buffer.append(MatchedStatement.toString("  "+tab));
+        if(IfStatementStart!=null)
+            buffer.append(IfStatementStart.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MatchedStatement1!=null)
-            buffer.append(MatchedStatement1.toString("  "+tab));
+        if(Statement!=null)
+            buffer.append(Statement.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(IfStatementEnd!=null)
+            buffer.append(IfStatementEnd.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

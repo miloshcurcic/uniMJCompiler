@@ -104,8 +104,7 @@ terminal
 	LBRACE,
 	RBRACE,
 	LBRACKET,
-	RBRACKET,
-	QUESTION
+	RBRACKET
 ;
 
 terminal Integer NUMBER ;
@@ -142,7 +141,6 @@ nonterminal Program,
 	BracedStatements,
 	SingleStatement,
 	MatchedStatement,
-	UnmatchedStatement,
 	IfCondition,
 	DoWhileCondition,
 	PrintStatementAdditionalParam,
@@ -151,12 +149,22 @@ nonterminal Program,
 	YieldExpr,
 	DoWhileStatementStart,
 	DoWhileStatementEnd,
+	IfStatementStart,
+	IfStatementEnd,
+	IfConditionStart,
+	IfConditionEnd,
+	DoWhileConditionStart,
+	DoWhileConditionEnd,
+	OrConditionStart,
+	ElseStatementStart,
+	ElseStatementEnd,
 	SwitchCases,
 	SwitchDefaultCase,
 	SwitchStatementExpression,
 	SwitchCase,
 	SwitchStatementStart,
 	SwitchExpressionStart,
+	SwitchCondition,
 	ActPars,
 	ActPar,
 	FuncCallActPars,
@@ -184,6 +192,8 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj
     FunctionCallDesignator,
     MethodTypeNamePair
 ;
+
+precedence left ELSE ;
 
 Program ::= (Program) PROGRAM ProgramName DataDecls LBRACE MethodDecls RBRACE ;
 
@@ -282,13 +292,12 @@ BracedStatements ::= (BracedStatementListElement) BracedStatements SingleStateme
         | (EmptyBracedStatementListHead)
 ;
 
-SingleStatement ::= (SingleMatchedStatement) MatchedStatement
-            | (SingleUnmatchedStatement) UnmatchedStatement
-;
+SingleStatement ::= (SingleMatchedStatement) MatchedStatement ;
 
 MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
-            | (MatchedIfStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE MatchedStatement
-            | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement DoWhileStatementEnd WHILE LPAREN DoWhileCondition RPAREN SEMICOLON
+            | (MatchedIfStatement) IF LPAREN IfCondition RPAREN IfStatementStart Statement IfStatementEnd
+            | (MatchedIfElseStatement) IF LPAREN IfCondition RPAREN IfStatementStart Statement IfStatementEnd ELSE ElseStatementStart Statement ElseStatementEnd
+            | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement WHILE LPAREN DoWhileCondition RPAREN DoWhileStatementEnd SEMICOLON
             | (MatchedSwitchStatement) SwitchStatementStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases RBRACE
             | (MatchedBreakStatement) BREAK SEMICOLON
             | (MatchedYieldStatement) YIELD YieldExpr SEMICOLON
@@ -298,15 +307,31 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
             | (MatchedPrintStatement) PRINT LPAREN Expr PrintStatementAdditionalParam RPAREN SEMICOLON
 ;
 
+IfStatementStart ::= (IfStatementStart) ;
+
+IfStatementEnd ::= (IfStatementEnd) ;
+
+ElseStatementStart ::= (ElseStatementStart) ;
+
+ElseStatementEnd ::= (ElseStatementEnd) ;
+
 SwitchStatementStart ::= (SwitchStatementStart) ;
 
-IfCondition ::= (IfCondition) Condition ;
+IfCondition ::= (IfCondition) IfConditionStart Condition IfConditionEnd ;
 
-DoWhileCondition ::= (DoWhileCondition) Condition ;
+IfConditionStart ::= (IfConditionStart) ;
+
+IfConditionEnd ::= (IfConditionEnd) ;
+
+DoWhileCondition ::= (DoWhileCondition) DoWhileConditionStart Condition DoWhileConditionEnd;
 
 DoWhileStatementStart ::= (DoWhileStatementStart) ;
 
 DoWhileStatementEnd ::= (DoWhileStatementEnd) ;
+
+DoWhileConditionStart ::= (DoWhileConditionStart) ;
+
+DoWhileConditionEnd ::= (DoWhileConditionEnd) ;
 
 PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER
                            | (NoPrintStatementAdditionalParameter)
@@ -318,17 +343,15 @@ ReturnExpr ::= (ReturnExpression) Expr
 
 YieldExpr ::= (YieldExpression) Expr ;
 
-UnmatchedStatement ::= (UnmatchedIfStatement) IF LPAREN IfCondition RPAREN Statement
-            | (UnmatchedIfElseStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE UnmatchedStatement
-;
-
 SwitchStatementExpression ::= (SwitchStatementExpression) Expr ;
 
 SwitchCases ::= (SwitchCaseListElement) SwitchCases SwitchCase
    | (EmptySwitchCaseListHead)
 ;
 
-SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements ;
+SwitchCase ::= (SwitchCase) SwitchCondition Statements ;
+
+SwitchCondition ::= (SwitchCondition) CASE NUMBER:number COLON ;
 
 DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                     | (FuncCallDesignatorStatement) FunctionCall
@@ -351,9 +374,11 @@ ActPars ::= (ActualParametersListElement) ActPars COMMA ActPar
 
 ActPar ::= (ActualParameter) Expr ;
 
-Condition ::= (ConditionListElement) Condition OR CondTerm
+Condition ::= (ConditionListElement) Condition OrConditionStart OR CondTerm
         | (ConditionListHead) CondTerm
 ;
+
+OrConditionStart ::= (OrConditionStart) ;
 
 CondTerm ::= (CondTermListElement) CondTerm AND CondFact
         | (CondTermListHead) CondFact

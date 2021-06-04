@@ -592,7 +592,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         switchExpression.struct = switchExpressionType;
     }
 
-    public void visit(SwitchCase switchCase) {
+    public void visit(SwitchCondition switchCase) {
         Set<Integer> switchCurrentCases = switchCurrentCasesStack.peek();
 
         if (switchCurrentCases.contains(switchCase.getNumber())) {

@@ -121,7 +121,6 @@ import org.apache.log4j.*;
 "}"			{ return new_symbol(sym.RBRACE); }
 "[" 		{ return new_symbol(sym.LBRACKET); }
 "]"			{ return new_symbol(sym.RBRACKET); }
-"?"			{ return new_symbol(sym.QUESTION); }
 
 // Comments
 "//" 		     { yybegin(COMMENT); }

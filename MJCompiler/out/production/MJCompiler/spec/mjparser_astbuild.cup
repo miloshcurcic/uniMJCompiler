@@ -31,6 +31,7 @@ parser code {:
    	if (info instanceof Symbol) {
            msg.append (" on line ").append(((Symbol)info).left);
        }
+       msg.append(info);
 
        log.error(msg.toString());
    }
@@ -103,8 +104,7 @@ terminal
 	LBRACE,
 	RBRACE,
 	LBRACKET,
-	RBRACKET,
-	QUESTION
+	RBRACKET
 ;
 
 terminal Integer NUMBER ;
@@ -154,8 +154,6 @@ nonterminal
 nonterminal
 	MethodFormPars MethodFormPars;
 nonterminal
-	MethodTypeNamePair MethodTypeNamePair;
-nonterminal
 	FormPars FormPars;
 nonterminal
 	FormPar FormPar;
@@ -172,9 +170,9 @@ nonterminal
 nonterminal
 	MatchedStatement MatchedStatement;
 nonterminal
-	UnmatchedStatement UnmatchedStatement;
-nonterminal
 	IfCondition IfCondition;
+nonterminal
+	DoWhileCondition DoWhileCondition;
 nonterminal
 	PrintStatementAdditionalParam PrintStatementAdditionalParam;
 nonterminal
@@ -187,6 +185,24 @@ nonterminal
 	DoWhileStatementStart DoWhileStatementStart;
 nonterminal
 	DoWhileStatementEnd DoWhileStatementEnd;
+nonterminal
+	IfStatementStart IfStatementStart;
+nonterminal
+	IfStatementEnd IfStatementEnd;
+nonterminal
+	IfConditionStart IfConditionStart;
+nonterminal
+	IfConditionEnd IfConditionEnd;
+nonterminal
+	DoWhileConditionStart DoWhileConditionStart;
+nonterminal
+	DoWhileConditionEnd DoWhileConditionEnd;
+nonterminal
+	OrConditionStart OrConditionStart;
+nonterminal
+	ElseStatementStart ElseStatementStart;
+nonterminal
+	ElseStatementEnd ElseStatementEnd;
 nonterminal
 	SwitchCases SwitchCases;
 nonterminal
@@ -223,11 +239,22 @@ nonterminal
 	Mulop Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr, FunctionCall
+nonterminal rs.etf.pp1.symboltable.concepts.Struct
+    Type,
+    Factor,
+    Term,
+    TermExpr,
+    Expr,
+    FunctionCall
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignator
+nonterminal rs.etf.pp1.symboltable.concepts.Obj
+    Designator,
+    FunctionCallDesignator,
+    MethodTypeNamePair
 ;
+
+precedence left ELSE ;
 
 Program ::= (Program) PROGRAM ProgramName:P1 DataDecls:D2 LBRACE MethodDecls:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :} ;
 
@@ -260,7 +287,6 @@ VarDecls ::= (VarDeclListElement) VarDecls:V1 VarDecl:V2 {: RESULT=new VarDeclLi
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VariableDeclaration(V1, V2); RESULT.setLine(V1left); :}
-       | error VarIdents:V1 SEMICOLON {: parser.report_error("recovered0", null); :} {: RESULT=new VarDeclDerived1(V1); RESULT.setLine(V1left); :}
 ;
 
 VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
@@ -275,9 +301,7 @@ VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RES
 ;
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName:C1 EXTENDS BaseClassName:B2 LBRACE VarDecls:V3 ExtendedClassSplitter:E4 ClassMethodDecls:C5 RBRACE {: RESULT=new ExtendedClassDeclaration(C1, B2, V3, E4, C5); RESULT.setLine(C1left); :}
-       | (ClassDeclaration) CLASS ClassName:C1 LBRACE VarDecls:V2 ClassMethodDecls:C3 RBRACE
-       // ToDo: Move this
-       CLASS ClassName:C4 error LBRACE VarDecls:V5 ExtendedClassSplitter:E6 ClassMethodDecls:C7 RBRACE {: parser.report_error("recovered2", null); :} {: RESULT=new ClassDeclaration(C1, V2, C3, C4, V5, E6, C7); RESULT.setLine(C1left); :}
+       | (ClassDeclaration) CLASS ClassName:C1 LBRACE VarDecls:V2 ClassMethodDecls:C3 RBRACE {: RESULT=new ClassDeclaration(C1, V2, C3); RESULT.setLine(C1left); :}
 ;
 
 ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls:M1 RBRACE {: RESULT=new ClassMethodDeclarations(M1); RESULT.setLine(M1left); :}
@@ -329,13 +353,12 @@ BracedStatements ::= (BracedStatementListElement) BracedStatements:B1 SingleStat
         | (EmptyBracedStatementListHead) {: RESULT=new EmptyBracedStatementListHead(); :}
 ;
 
-SingleStatement ::= (SingleMatchedStatement) MatchedStatement:M1 {: RESULT=new SingleMatchedStatement(M1); RESULT.setLine(M1left); :}
-            | (SingleUnmatchedStatement) UnmatchedStatement:U1 {: RESULT=new SingleUnmatchedStatement(U1); RESULT.setLine(U1left); :}
-;
+SingleStatement ::= (SingleMatchedStatement) MatchedStatement:M1 {: RESULT=new SingleMatchedStatement(M1); RESULT.setLine(M1left); :} ;
 
 MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedAssignmentStatement(D1); RESULT.setLine(D1left); :}
-            | (MatchedIfStatement) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new MatchedIfStatement(I1, M2, M3); RESULT.setLine(I1left); :}
-            | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 DoWhileStatementEnd:D3 WHILE LPAREN Condition:C4 RPAREN SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, C4); RESULT.setLine(D1left); :}
+            | (MatchedIfStatement) IF LPAREN IfCondition:I1 RPAREN IfStatementStart:I2 Statement:S3 IfStatementEnd:I4 {: RESULT=new MatchedIfStatement(I1, I2, S3, I4); RESULT.setLine(I1left); :}
+            | (MatchedIfElseStatement) IF LPAREN IfCondition:I1 RPAREN IfStatementStart:I2 Statement:S3 IfStatementEnd:I4 ELSE ElseStatementStart:E5 Statement:S6 ElseStatementEnd:E7 {: RESULT=new MatchedIfElseStatement(I1, I2, S3, I4, E5, S6, E7); RESULT.setLine(I1left); :}
+            | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 WHILE LPAREN DoWhileCondition:D3 RPAREN DoWhileStatementEnd:D4 SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, D4); RESULT.setLine(D1left); :}
             | (MatchedSwitchStatement) SwitchStatementStart:S1 SWITCH LPAREN SwitchStatementExpression:S2 RPAREN LBRACE SwitchCases:S3 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2, S3); RESULT.setLine(S1left); :}
             | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
             | (MatchedYieldStatement) YIELD YieldExpr:Y1 SEMICOLON {: RESULT=new MatchedYieldStatement(Y1); RESULT.setLine(Y1left); :}
@@ -345,15 +368,31 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOL
             | (MatchedPrintStatement) PRINT LPAREN Expr:E1 PrintStatementAdditionalParam:P2 RPAREN SEMICOLON {: RESULT=new MatchedPrintStatement(E1, P2); RESULT.setLine(E1left); :}
 ;
 
+IfStatementStart ::= (IfStatementStart) {: RESULT=new IfStatementStart(); :} ;
+
+IfStatementEnd ::= (IfStatementEnd) {: RESULT=new IfStatementEnd(); :} ;
+
+ElseStatementStart ::= (ElseStatementStart) {: RESULT=new ElseStatementStart(); :} ;
+
+ElseStatementEnd ::= (ElseStatementEnd) {: RESULT=new ElseStatementEnd(); :} ;
+
 SwitchStatementStart ::= (SwitchStatementStart) {: RESULT=new SwitchStatementStart(); :} ;
 
-IfCondition ::= Condition:C1 {: RESULT=new IfConditionDerived1(C1); RESULT.setLine(C1left); :}
-           | error {: parser.report_error("recovered3", null); :} {: RESULT=new IfConditionDerived2(); :}
-;
+IfCondition ::= (IfCondition) IfConditionStart:I1 Condition:C2 IfConditionEnd:I3 {: RESULT=new IfCondition(I1, C2, I3); RESULT.setLine(I1left); :} ;
+
+IfConditionStart ::= (IfConditionStart) {: RESULT=new IfConditionStart(); :} ;
+
+IfConditionEnd ::= (IfConditionEnd) {: RESULT=new IfConditionEnd(); :} ;
+
+DoWhileCondition ::= (DoWhileCondition) DoWhileConditionStart:D1 Condition:C2 DoWhileConditionEnd:D3 {: RESULT=new DoWhileCondition(D1, C2, D3); RESULT.setLine(D1left); :};
 
 DoWhileStatementStart ::= (DoWhileStatementStart) {: RESULT=new DoWhileStatementStart(); :} ;
 
 DoWhileStatementEnd ::= (DoWhileStatementEnd) {: RESULT=new DoWhileStatementEnd(); :} ;
+
+DoWhileConditionStart ::= (DoWhileConditionStart) {: RESULT=new DoWhileConditionStart(); :} ;
+
+DoWhileConditionEnd ::= (DoWhileConditionEnd) {: RESULT=new DoWhileConditionEnd(); :} ;
 
 PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER:N1 {: RESULT=new PrintStatementAdditionalParameter(N1); RESULT.setLine(N1left); :}
                            | (NoPrintStatementAdditionalParameter) {: RESULT=new NoPrintStatementAdditionalParameter(); :}
@@ -364,10 +403,6 @@ ReturnExpr ::= (ReturnExpression) Expr:E1 {: RESULT=new ReturnExpression(E1); RE
 ;
 
 YieldExpr ::= (YieldExpression) Expr:E1 {: RESULT=new YieldExpression(E1); RESULT.setLine(E1left); :} ;
-
-UnmatchedStatement ::= (UnmatchedIfStatement) IF LPAREN IfCondition:I1 RPAREN Statement:S2 {: RESULT=new UnmatchedIfStatement(I1, S2); RESULT.setLine(I1left); :}
-            | (UnmatchedIfElseStatement) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new UnmatchedIfElseStatement(I1, M2, U3); RESULT.setLine(I1left); :}
-;
 
 SwitchStatementExpression ::= (SwitchStatementExpression) Expr:E1 {: RESULT=new SwitchStatementExpression(E1); RESULT.setLine(E1left); :} ;
 
@@ -398,9 +433,11 @@ ActPars ::= (ActualParametersListElement) ActPars:A1 COMMA ActPar:A2 {: RESULT=n
 
 ActPar ::= (ActualParameter) Expr:E1 {: RESULT=new ActualParameter(E1); RESULT.setLine(E1left); :} ;
 
-Condition ::= (ConditionListElement) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionListElement(C1, C2); RESULT.setLine(C1left); :}
+Condition ::= (ConditionListElement) Condition:C1 OrConditionStart:O2 OR CondTerm:C3 {: RESULT=new ConditionListElement(C1, O2, C3); RESULT.setLine(C1left); :}
         | (ConditionListHead) CondTerm:C1 {: RESULT=new ConditionListHead(C1); RESULT.setLine(C1left); :}
 ;
+
+OrConditionStart ::= (OrConditionStart) {: RESULT=new OrConditionStart(); :} ;
 
 CondTerm ::= (CondTermListElement) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermListElement(C1, C2); RESULT.setLine(C1left); :}
         | (CondTermListHead) CondFact:C1 {: RESULT=new CondTermListHead(C1); RESULT.setLine(C1left); :}

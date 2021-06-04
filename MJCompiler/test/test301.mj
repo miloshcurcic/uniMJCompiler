@@ -19,17 +19,17 @@ program test301
 		bodovi = bodovi * pet;
 		bodovi--;
 		print(bodovi);
-			
-		
+
+
 		niz = new int[3];
 		niz[nula] = jedan;
 		niz[1] = 2;
-		niz[niz[jedan]] = niz[niz[0]] * 3; // niz[2] = niz[1]*3
-		bodovi = niz[2]/niz[0]; // 6 / 1
-		print(bodovi); 
+		niz[niz[jedan]] = niz[niz[0]] * 3;
+		bodovi = niz[2]/niz[0];
+		print(bodovi);
 		print(niz[2]);
-		
-		
+
+
 		nizch = new char[3];
 		nizch[0] = 'a';
 		nizch[jedan] = 'b';
@@ -37,10 +37,11 @@ program test301
 		print(nizch[1]);
 		print(nizch[jedan * 2]);
 
+
 		bodovi = bodovi + (pet * jedan - 1) * bodovi - (3 % 2 + 3 * 2 - 3);
-		// 6 + 4 * 6 - (1 + 6 - 3)
 		print(bodovi);
 
+		read(bodovi);
 		if(bodovi%2 == 0) bodovi = bodovi + 10;
 		if(false) print(bodovi + 20);
 		else print(bodovi);

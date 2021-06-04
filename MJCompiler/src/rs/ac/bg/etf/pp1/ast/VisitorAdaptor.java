@@ -1,54 +1,53 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/5/2021 1:2:58
+// 4/5/2021 2:23:25
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public abstract class VisitorAdaptor implements Visitor { 
 
-    public void visit(Mulop Mulop) { }
-    public void visit(MethodDecl MethodDecl) { }
-    public void visit(MatchedStatement MatchedStatement) { }
-    public void visit(VarIdent VarIdent) { }
-    public void visit(Relop Relop) { }
-    public void visit(FuncCallActPars FuncCallActPars) { }
-    public void visit(Addop Addop) { }
+    public void visit(FormPars FormPars) { }
+    public void visit(ClassMethodDecls ClassMethodDecls) { }
     public void visit(Factor Factor) { }
-    public void visit(CondTerm CondTerm) { }
-    public void visit(ConstNameValuePair ConstNameValuePair) { }
-    public void visit(Designator Designator) { }
-    public void visit(PrintStatementAdditionalParam PrintStatementAdditionalParam) { }
-    public void visit(Term Term) { }
-    public void visit(YieldExpr YieldExpr) { }
-    public void visit(Condition Condition) { }
-    public void visit(MethodFormPars MethodFormPars) { }
-    public void visit(VarIdents VarIdents) { }
-    public void visit(Statements Statements) { }
-    public void visit(TermExpr TermExpr) { }
+    public void visit(Statement Statement) { }
+    public void visit(MethodDecls MethodDecls) { }
+    public void visit(MethodDecl MethodDecl) { }
     public void visit(ConstNameValuePairs ConstNameValuePairs) { }
+    public void visit(VarDecls VarDecls) { }
+    public void visit(DataDecls DataDecls) { }
+    public void visit(Relop Relop) { }
     public void visit(DataDecl DataDecl) { }
     public void visit(Expr Expr) { }
-    public void visit(SwitchCases SwitchCases) { }
-    public void visit(ExprPrefix ExprPrefix) { }
-    public void visit(ActPars ActPars) { }
-    public void visit(ClassMethodDecls ClassMethodDecls) { }
-    public void visit(DesignatorStatement DesignatorStatement) { }
-    public void visit(VarDecls VarDecls) { }
-    public void visit(UnmatchedStatement UnmatchedStatement) { }
-    public void visit(Statement Statement) { }
     public void visit(ReturnExpr ReturnExpr) { }
-    public void visit(DataDecls DataDecls) { }
     public void visit(VarDecl VarDecl) { }
-    public void visit(ClassDecl ClassDecl) { }
-    public void visit(BracedStatements BracedStatements) { }
-    public void visit(CondFact CondFact) { }
     public void visit(FormPar FormPar) { }
-    public void visit(ActPar ActPar) { }
-    public void visit(SingleStatement SingleStatement) { }
+    public void visit(PrintStatementAdditionalParam PrintStatementAdditionalParam) { }
+    public void visit(BracedStatements BracedStatements) { }
     public void visit(MethodTypeNamePair MethodTypeNamePair) { }
-    public void visit(FormPars FormPars) { }
-    public void visit(MethodDecls MethodDecls) { }
+    public void visit(ExprPrefix ExprPrefix) { }
+    public void visit(Condition Condition) { }
+    public void visit(VarIdents VarIdents) { }
+    public void visit(Mulop Mulop) { }
+    public void visit(DesignatorStatement DesignatorStatement) { }
+    public void visit(MethodFormPars MethodFormPars) { }
+    public void visit(ConstNameValuePair ConstNameValuePair) { }
+    public void visit(Addop Addop) { }
+    public void visit(TermExpr TermExpr) { }
+    public void visit(ActPar ActPar) { }
+    public void visit(CondTerm CondTerm) { }
+    public void visit(ClassDecl ClassDecl) { }
+    public void visit(MatchedStatement MatchedStatement) { }
+    public void visit(VarIdent VarIdent) { }
+    public void visit(Statements Statements) { }
+    public void visit(ActPars ActPars) { }
+    public void visit(Designator Designator) { }
+    public void visit(CondFact CondFact) { }
+    public void visit(FuncCallActPars FuncCallActPars) { }
+    public void visit(SingleStatement SingleStatement) { }
+    public void visit(SwitchCases SwitchCases) { }
+    public void visit(Term Term) { }
+    public void visit(YieldExpr YieldExpr) { }
     public void visit(MulopModulo MulopModulo) { visit(); }
     public void visit(MulopDivide MulopDivide) { visit(); }
     public void visit(MulopMultiply MulopMultiply) { visit(); }
@@ -86,6 +85,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelationalCondFact RelationalCondFact) { visit(); }
     public void visit(CondTermListHead CondTermListHead) { visit(); }
     public void visit(CondTermListElement CondTermListElement) { visit(); }
+    public void visit(OrConditionStart OrConditionStart) { visit(); }
     public void visit(ConditionListHead ConditionListHead) { visit(); }
     public void visit(ConditionListElement ConditionListElement) { visit(); }
     public void visit(ActualParameter ActualParameter) { visit(); }
@@ -100,22 +100,29 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement) { visit(); }
     public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement) { visit(); }
     public void visit(AssignmentDesignatorStatement AssignmentDesignatorStatement) { visit(); }
+    public void visit(SwitchCondition SwitchCondition) { visit(); }
     public void visit(SwitchCase SwitchCase) { visit(); }
     public void visit(EmptySwitchCaseListHead EmptySwitchCaseListHead) { visit(); }
     public void visit(SwitchCaseListElement SwitchCaseListElement) { visit(); }
     public void visit(SwitchStatementExpression SwitchStatementExpression) { visit(); }
-    public void visit(UnmatchedIfElseStatement UnmatchedIfElseStatement) { visit(); }
-    public void visit(UnmatchedIfStatement UnmatchedIfStatement) { visit(); }
     public void visit(YieldExpression YieldExpression) { visit(); }
     public void visit(NoReturnExpression NoReturnExpression) { visit(); }
     public void visit(ReturnExpression ReturnExpression) { visit(); }
     public void visit(NoPrintStatementAdditionalParameter NoPrintStatementAdditionalParameter) { visit(); }
     public void visit(PrintStatementAdditionalParameter PrintStatementAdditionalParameter) { visit(); }
+    public void visit(DoWhileConditionEnd DoWhileConditionEnd) { visit(); }
+    public void visit(DoWhileConditionStart DoWhileConditionStart) { visit(); }
     public void visit(DoWhileStatementEnd DoWhileStatementEnd) { visit(); }
     public void visit(DoWhileStatementStart DoWhileStatementStart) { visit(); }
     public void visit(DoWhileCondition DoWhileCondition) { visit(); }
+    public void visit(IfConditionEnd IfConditionEnd) { visit(); }
+    public void visit(IfConditionStart IfConditionStart) { visit(); }
     public void visit(IfCondition IfCondition) { visit(); }
     public void visit(SwitchStatementStart SwitchStatementStart) { visit(); }
+    public void visit(ElseStatementEnd ElseStatementEnd) { visit(); }
+    public void visit(ElseStatementStart ElseStatementStart) { visit(); }
+    public void visit(IfStatementEnd IfStatementEnd) { visit(); }
+    public void visit(IfStatementStart IfStatementStart) { visit(); }
     public void visit(MatchedPrintStatement MatchedPrintStatement) { visit(); }
     public void visit(MatchedReadStatement MatchedReadStatement) { visit(); }
     public void visit(MatchedReturnStatement MatchedReturnStatement) { visit(); }
@@ -124,9 +131,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MatchedBreakStatement MatchedBreakStatement) { visit(); }
     public void visit(MatchedSwitchStatement MatchedSwitchStatement) { visit(); }
     public void visit(MatchedDoWhileStatement MatchedDoWhileStatement) { visit(); }
+    public void visit(MatchedIfElseStatement MatchedIfElseStatement) { visit(); }
     public void visit(MatchedIfStatement MatchedIfStatement) { visit(); }
     public void visit(MatchedAssignmentStatement MatchedAssignmentStatement) { visit(); }
-    public void visit(SingleUnmatchedStatement SingleUnmatchedStatement) { visit(); }
     public void visit(SingleMatchedStatement SingleMatchedStatement) { visit(); }
     public void visit(EmptyBracedStatementListHead EmptyBracedStatementListHead) { visit(); }
     public void visit(BracedStatementListElement BracedStatementListElement) { visit(); }

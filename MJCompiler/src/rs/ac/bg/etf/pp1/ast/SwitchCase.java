@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/5/2021 1:2:58
+// 4/5/2021 2:23:25
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,21 +9,22 @@ public class SwitchCase implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private Integer number;
+    private SwitchCondition SwitchCondition;
     private Statements Statements;
 
-    public SwitchCase (Integer number, Statements Statements) {
-        this.number=number;
+    public SwitchCase (SwitchCondition SwitchCondition, Statements Statements) {
+        this.SwitchCondition=SwitchCondition;
+        if(SwitchCondition!=null) SwitchCondition.setParent(this);
         this.Statements=Statements;
         if(Statements!=null) Statements.setParent(this);
     }
 
-    public Integer getNumber() {
-        return number;
+    public SwitchCondition getSwitchCondition() {
+        return SwitchCondition;
     }
 
-    public void setNumber(Integer number) {
-        this.number=number;
+    public void setSwitchCondition(SwitchCondition SwitchCondition) {
+        this.SwitchCondition=SwitchCondition;
     }
 
     public Statements getStatements() {
@@ -55,15 +56,18 @@ public class SwitchCase implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(SwitchCondition!=null) SwitchCondition.accept(visitor);
         if(Statements!=null) Statements.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(SwitchCondition!=null) SwitchCondition.traverseTopDown(visitor);
         if(Statements!=null) Statements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(SwitchCondition!=null) SwitchCondition.traverseBottomUp(visitor);
         if(Statements!=null) Statements.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -73,7 +77,10 @@ public class SwitchCase implements SyntaxNode {
         buffer.append(tab);
         buffer.append("SwitchCase(\n");
 
-        buffer.append(" "+tab+number);
+        if(SwitchCondition!=null)
+            buffer.append(SwitchCondition.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(Statements!=null)

@@ -31,6 +31,7 @@ parser code {:
    	if (info instanceof Symbol) {
            msg.append (" on line ").append(((Symbol)info).left);
        }
+       msg.append(info);
 
        log.error(msg.toString());
    }
@@ -103,8 +104,7 @@ terminal
 	LBRACE,
 	RBRACE,
 	LBRACKET,
-	RBRACKET,
-	QUESTION
+	RBRACKET
 ;
 
 terminal Integer NUMBER ;
@@ -133,7 +133,6 @@ nonterminal Program,
 	MethodDecls,
 	MethodDecl,
 	MethodFormPars,
-	MethodTypeNamePair,
 	FormPars,
 	FormPar,
 	Statements,
@@ -142,14 +141,23 @@ nonterminal Program,
 	BracedStatements,
 	SingleStatement,
 	MatchedStatement,
-	UnmatchedStatement,
 	IfCondition,
+	DoWhileCondition,
 	PrintStatementAdditionalParam,
 	DesignatorStatement,
 	ReturnExpr,
 	YieldExpr,
 	DoWhileStatementStart,
 	DoWhileStatementEnd,
+	IfStatementStart,
+	IfStatementEnd,
+	IfConditionStart,
+	IfConditionEnd,
+	DoWhileConditionStart,
+	DoWhileConditionEnd,
+	OrConditionStart,
+	ElseStatementStart,
+	ElseStatementEnd,
 	SwitchCases,
 	SwitchDefaultCase,
 	SwitchStatementExpression,
@@ -169,11 +177,22 @@ nonterminal Program,
 	Mulop
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Factor, Term, TermExpr, Expr, FunctionCall
+nonterminal rs.etf.pp1.symboltable.concepts.Struct
+    Type,
+    Factor,
+    Term,
+    TermExpr,
+    Expr,
+    FunctionCall
 ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, FunctionCallDesignator
+nonterminal rs.etf.pp1.symboltable.concepts.Obj
+    Designator,
+    FunctionCallDesignator,
+    MethodTypeNamePair
 ;
+
+precedence left ELSE ;
 
 Program ::= (Program) PROGRAM ProgramName DataDecls LBRACE MethodDecls RBRACE ;
 
@@ -206,7 +225,6 @@ VarDecls ::= (VarDeclListElement) VarDecls VarDecl
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType VarIdents SEMICOLON
-       | error VarIdents SEMICOLON {: parser.report_error("recovered0", null); :}
 ;
 
 VarDeclType ::= (VarDeclType) Type ;
@@ -222,8 +240,6 @@ VarIdent ::= (ScalarVarIdent) IDENT:name
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassName LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
        | (ClassDeclaration) CLASS ClassName LBRACE VarDecls ClassMethodDecls RBRACE
-       // ToDo: Move this
-       CLASS ClassName error LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE {: parser.report_error("recovered2", null); :}
 ;
 
 ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls RBRACE
@@ -275,13 +291,12 @@ BracedStatements ::= (BracedStatementListElement) BracedStatements SingleStateme
         | (EmptyBracedStatementListHead)
 ;
 
-SingleStatement ::= (SingleMatchedStatement) MatchedStatement
-            | (SingleUnmatchedStatement) UnmatchedStatement
-;
+SingleStatement ::= (SingleMatchedStatement) MatchedStatement ;
 
 MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
-            | (MatchedIfStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE MatchedStatement
-            | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement DoWhileStatementEnd WHILE LPAREN Condition RPAREN SEMICOLON
+            | (MatchedIfStatement) IF LPAREN IfCondition RPAREN IfStatementStart Statement IfStatementEnd
+            | (MatchedIfElseStatement) IF LPAREN IfCondition RPAREN IfStatementStart Statement IfStatementEnd ELSE ElseStatementStart Statement ElseStatementEnd
+            | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement WHILE LPAREN DoWhileCondition RPAREN DoWhileStatementEnd SEMICOLON
             | (MatchedSwitchStatement) SwitchStatementStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases RBRACE
             | (MatchedBreakStatement) BREAK SEMICOLON
             | (MatchedYieldStatement) YIELD YieldExpr SEMICOLON
@@ -291,15 +306,31 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
             | (MatchedPrintStatement) PRINT LPAREN Expr PrintStatementAdditionalParam RPAREN SEMICOLON
 ;
 
+IfStatementStart ::= (IfStatementStart) ;
+
+IfStatementEnd ::= (IfStatementEnd) ;
+
+ElseStatementStart ::= (ElseStatementStart) ;
+
+ElseStatementEnd ::= (ElseStatementEnd) ;
+
 SwitchStatementStart ::= (SwitchStatementStart) ;
 
-IfCondition ::= Condition
-           | error {: parser.report_error("recovered3", null); :}
-;
+IfCondition ::= (IfCondition) IfConditionStart Condition IfConditionEnd ;
+
+IfConditionStart ::= (IfConditionStart) ;
+
+IfConditionEnd ::= (IfConditionEnd) ;
+
+DoWhileCondition ::= (DoWhileCondition) DoWhileConditionStart Condition DoWhileConditionEnd;
 
 DoWhileStatementStart ::= (DoWhileStatementStart) ;
 
 DoWhileStatementEnd ::= (DoWhileStatementEnd) ;
+
+DoWhileConditionStart ::= (DoWhileConditionStart) ;
+
+DoWhileConditionEnd ::= (DoWhileConditionEnd) ;
 
 PrintStatementAdditionalParam ::= (PrintStatementAdditionalParameter) COMMA NUMBER
                            | (NoPrintStatementAdditionalParameter)
@@ -310,10 +341,6 @@ ReturnExpr ::= (ReturnExpression) Expr
 ;
 
 YieldExpr ::= (YieldExpression) Expr ;
-
-UnmatchedStatement ::= (UnmatchedIfStatement) IF LPAREN IfCondition RPAREN Statement
-            | (UnmatchedIfElseStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE UnmatchedStatement
-;
 
 SwitchStatementExpression ::= (SwitchStatementExpression) Expr ;
 
@@ -344,9 +371,11 @@ ActPars ::= (ActualParametersListElement) ActPars COMMA ActPar
 
 ActPar ::= (ActualParameter) Expr ;
 
-Condition ::= (ConditionListElement) Condition OR CondTerm
+Condition ::= (ConditionListElement) Condition OrConditionStart OR CondTerm
         | (ConditionListHead) CondTerm
 ;
+
+OrConditionStart ::= (OrConditionStart) ;
 
 CondTerm ::= (CondTermListElement) CondTerm AND CondFact
         | (CondTermListHead) CondFact

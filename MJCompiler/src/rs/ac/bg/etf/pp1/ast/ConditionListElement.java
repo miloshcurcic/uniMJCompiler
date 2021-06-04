@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/5/2021 1:2:58
+// 4/5/2021 2:23:25
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,11 +8,14 @@ package rs.ac.bg.etf.pp1.ast;
 public class ConditionListElement extends Condition {
 
     private Condition Condition;
+    private OrConditionStart OrConditionStart;
     private CondTerm CondTerm;
 
-    public ConditionListElement (Condition Condition, CondTerm CondTerm) {
+    public ConditionListElement (Condition Condition, OrConditionStart OrConditionStart, CondTerm CondTerm) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
+        this.OrConditionStart=OrConditionStart;
+        if(OrConditionStart!=null) OrConditionStart.setParent(this);
         this.CondTerm=CondTerm;
         if(CondTerm!=null) CondTerm.setParent(this);
     }
@@ -23,6 +26,14 @@ public class ConditionListElement extends Condition {
 
     public void setCondition(Condition Condition) {
         this.Condition=Condition;
+    }
+
+    public OrConditionStart getOrConditionStart() {
+        return OrConditionStart;
+    }
+
+    public void setOrConditionStart(OrConditionStart OrConditionStart) {
+        this.OrConditionStart=OrConditionStart;
     }
 
     public CondTerm getCondTerm() {
@@ -39,17 +50,20 @@ public class ConditionListElement extends Condition {
 
     public void childrenAccept(Visitor visitor) {
         if(Condition!=null) Condition.accept(visitor);
+        if(OrConditionStart!=null) OrConditionStart.accept(visitor);
         if(CondTerm!=null) CondTerm.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
+        if(OrConditionStart!=null) OrConditionStart.traverseTopDown(visitor);
         if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Condition!=null) Condition.traverseBottomUp(visitor);
+        if(OrConditionStart!=null) OrConditionStart.traverseBottomUp(visitor);
         if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -61,6 +75,12 @@ public class ConditionListElement extends Condition {
 
         if(Condition!=null)
             buffer.append(Condition.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(OrConditionStart!=null)
+            buffer.append(OrConditionStart.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

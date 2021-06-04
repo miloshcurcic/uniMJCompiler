@@ -7,7 +7,7 @@
 				<exclude name="Compiler.java"/>
 				<exclude name="SemanticAnalyzer.java"/>
 				<exclude name="CodeGenerator.java"/>
-				<exclude name="CounterVisitor.java"/>
+				<exclude name="MethodCounter.java"/>
 				<exclude name="util/Log4JUtils.java" />
 				<exclude name="util/CustomDumpSymbolTableVisitor.java" />
 			</fileset>
@@ -139,6 +139,16 @@
 	<target name="runObj" depends="disasm" >
 		<java classname="rs.etf.pp1.mj.runtime.Run">
 			<arg value="test/program.obj"/>
+			<classpath>
+				<pathelement location="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="runDbg" depends="disasm" >
+		<java classname="rs.etf.pp1.mj.runtime.Run">
+			<arg value="test/program.obj"/>
+			<arg value="-debug"/>
 			<classpath>
 				<pathelement location="lib/mj-runtime-1.1.jar"/>
 			</classpath>
