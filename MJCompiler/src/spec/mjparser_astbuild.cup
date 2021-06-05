@@ -216,6 +216,8 @@ nonterminal
 nonterminal
 	SwitchExpressionStart SwitchExpressionStart;
 nonterminal
+	SwitchDefaultCaseStart SwitchDefaultCaseStart;
+nonterminal
 	SwitchCondition SwitchCondition;
 nonterminal
 	ActPars ActPars;
@@ -457,7 +459,9 @@ Expr ::= (TermExpression) ExprPrefix:E1 TermExpr:T2 {: RESULT=new TermExpression
 
 SwitchExpressionStart ::= (SwitchExpressionStart) {: RESULT=new SwitchExpressionStart(); :} ;
 
-SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT COLON Statements:S1 {: RESULT=new SwitchDefaultCase(S1); RESULT.setLine(S1left); :} ;
+SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT SwitchDefaultCaseStart:S1 COLON Statements:S2 {: RESULT=new SwitchDefaultCase(S1, S2); RESULT.setLine(S1left); :} ;
+
+SwitchDefaultCaseStart ::= (SwitchDefaultCaseStart) {: RESULT=new SwitchDefaultCaseStart(); :} ;
 
 ExprPrefix ::= (NegativeExpressionPrefix) MINUS {: RESULT=new NegativeExpressionPrefix(); :}
            | (NoExpressionPrefix) {: RESULT=new NoExpressionPrefix(); :}

@@ -66,9 +66,9 @@ public class Compiler {
                 }
 
                 // Code generation...
-                CodeGenerator codeGenerator = new CodeGenerator();
+                CodeGenerator codeGenerator = new CodeGenerator(semanticAnalyzer.getnVars());
                 rootNode.traverseBottomUp(codeGenerator);
-                Code.dataSize = semanticAnalyzer.getnVars();
+                Code.dataSize = codeGenerator.getDataSize();
                 Code.mainPc = codeGenerator.getMainPc();
                 Code.write(new FileOutputStream(objFile));
                 log.info("Parsiranje uspesno zavrseno!");

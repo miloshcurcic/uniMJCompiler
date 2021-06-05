@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/5/2021 2:23:25
+// 5/5/2021 22:23:5
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -77,6 +77,7 @@ public interface Visitor {
     public void visit(TermExprListElement TermExprListElement);
     public void visit(NoExpressionPrefix NoExpressionPrefix);
     public void visit(NegativeExpressionPrefix NegativeExpressionPrefix);
+    public void visit(SwitchDefaultCaseStart SwitchDefaultCaseStart);
     public void visit(SwitchDefaultCase SwitchDefaultCase);
     public void visit(SwitchExpressionStart SwitchExpressionStart);
     public void visit(SwitchExpression SwitchExpression);

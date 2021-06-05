@@ -164,6 +164,8 @@ nonterminal Program,
 	SwitchCase,
 	SwitchStatementStart,
 	SwitchExpressionStart,
+	SwitchDefaultCaseStart,
+	SwitchCondition,
 	ActPars,
 	ActPar,
 	FuncCallActPars,
@@ -348,7 +350,9 @@ SwitchCases ::= (SwitchCaseListElement) SwitchCases SwitchCase
    | (EmptySwitchCaseListHead)
 ;
 
-SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements ;
+SwitchCase ::= (SwitchCase) SwitchCondition Statements ;
+
+SwitchCondition ::= (SwitchCondition) CASE NUMBER:number COLON ;
 
 DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                     | (FuncCallDesignatorStatement) FunctionCall
@@ -391,7 +395,9 @@ Expr ::= (TermExpression) ExprPrefix TermExpr
 
 SwitchExpressionStart ::= (SwitchExpressionStart) ;
 
-SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT COLON Statements ;
+SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT SwitchDefaultCaseStart COLON Statements ;
+
+SwitchDefaultCaseStart ::= (SwitchDefaultCaseStart) ;
 
 ExprPrefix ::= (NegativeExpressionPrefix) MINUS
            | (NoExpressionPrefix)

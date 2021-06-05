@@ -216,6 +216,10 @@ nonterminal
 nonterminal
 	SwitchExpressionStart SwitchExpressionStart;
 nonterminal
+	SwitchDefaultCaseStart SwitchDefaultCaseStart;
+nonterminal
+	SwitchCondition SwitchCondition;
+nonterminal
 	ActPars ActPars;
 nonterminal
 	ActPar ActPar;
@@ -410,7 +414,9 @@ SwitchCases ::= (SwitchCaseListElement) SwitchCases:S1 SwitchCase:S2 {: RESULT=n
    | (EmptySwitchCaseListHead) {: RESULT=new EmptySwitchCaseListHead(); :}
 ;
 
-SwitchCase ::= (SwitchCase) CASE NUMBER:number COLON Statements:S1 {: RESULT=new SwitchCase(number, S1); RESULT.setLine(numberleft); :} ;
+SwitchCase ::= (SwitchCase) SwitchCondition:S1 Statements:S2 {: RESULT=new SwitchCase(S1, S2); RESULT.setLine(S1left); :} ;
+
+SwitchCondition ::= (SwitchCondition) CASE NUMBER:number COLON {: RESULT=new SwitchCondition(number); RESULT.setLine(numberleft); :} ;
 
 DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new AssignmentDesignatorStatement(D1, A2, E3); RESULT.setLine(D1left); :}
                     | (FuncCallDesignatorStatement) FunctionCall:F1 {: RESULT=new FuncCallDesignatorStatement(F1); RESULT.setLine(F1left); :}
@@ -453,7 +459,9 @@ Expr ::= (TermExpression) ExprPrefix:E1 TermExpr:T2 {: RESULT=new TermExpression
 
 SwitchExpressionStart ::= (SwitchExpressionStart) {: RESULT=new SwitchExpressionStart(); :} ;
 
-SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT COLON Statements:S1 {: RESULT=new SwitchDefaultCase(S1); RESULT.setLine(S1left); :} ;
+SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT SwitchDefaultCaseStart:S1 COLON Statements:S2 {: RESULT=new SwitchDefaultCase(S1, S2); RESULT.setLine(S1left); :} ;
+
+SwitchDefaultCaseStart ::= (SwitchDefaultCaseStart) {: RESULT=new SwitchDefaultCaseStart(); :} ;
 
 ExprPrefix ::= (NegativeExpressionPrefix) MINUS {: RESULT=new NegativeExpressionPrefix(); :}
            | (NoExpressionPrefix) {: RESULT=new NoExpressionPrefix(); :}

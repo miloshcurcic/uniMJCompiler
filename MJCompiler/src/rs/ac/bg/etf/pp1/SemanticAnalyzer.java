@@ -331,6 +331,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         Struct classStruct = new Struct(Struct.Class);
         Tab.insert(Obj.Type, className.getName(), classStruct);
         Tab.openScope();
+        // mvt
+        Tab.insert(Obj.Fld, "$mvt_ptr", Tab.intType);
 
         structTemporaries.put(StructConstants.CurrentClassTypeName, classStruct);
     }
