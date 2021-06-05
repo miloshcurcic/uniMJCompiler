@@ -181,6 +181,7 @@ nonterminal Program,
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct
     Type,
+    ClassType,
     Factor,
     Term,
     TermExpr,
@@ -248,7 +249,9 @@ ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls RBRACE
        | (NoClassMethodDeclarations)
 ;
 
-ClassName ::= (ClassName) IDENT:name ;
+ClassName ::= (ClassName) ClassType ;
+
+ClassType ::= (ClassType) IDENT:name ;
 
 BaseClassName ::= (BaseClassName) Type ;
 

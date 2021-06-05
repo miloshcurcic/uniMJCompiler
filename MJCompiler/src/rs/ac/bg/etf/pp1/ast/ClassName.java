@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/5/2021 22:23:5
+// 6/5/2021 0:30:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,18 +9,19 @@ public class ClassName implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private String name;
+    private ClassType ClassType;
 
-    public ClassName (String name) {
-        this.name=name;
+    public ClassName (ClassType ClassType) {
+        this.ClassType=ClassType;
+        if(ClassType!=null) ClassType.setParent(this);
     }
 
-    public String getName() {
-        return name;
+    public ClassType getClassType() {
+        return ClassType;
     }
 
-    public void setName(String name) {
-        this.name=name;
+    public void setClassType(ClassType ClassType) {
+        this.ClassType=ClassType;
     }
 
     public SyntaxNode getParent() {
@@ -44,13 +45,16 @@ public class ClassName implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(ClassType!=null) ClassType.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(ClassType!=null) ClassType.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(ClassType!=null) ClassType.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,7 +63,10 @@ public class ClassName implements SyntaxNode {
         buffer.append(tab);
         buffer.append("ClassName(\n");
 
-        buffer.append(" "+tab+name);
+        if(ClassType!=null)
+            buffer.append(ClassType.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);

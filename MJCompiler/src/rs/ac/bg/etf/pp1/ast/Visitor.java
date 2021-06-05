@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/5/2021 22:23:5
+// 6/5/2021 0:30:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -158,6 +158,7 @@ public interface Visitor {
     public void visit(MethodDeclarationListElement MethodDeclarationListElement);
     public void visit(ExtendedClassSplitter ExtendedClassSplitter);
     public void visit(BaseClassName BaseClassName);
+    public void visit(ClassType ClassType);
     public void visit(ClassName ClassName);
     public void visit(NoClassMethodDeclarations NoClassMethodDeclarations);
     public void visit(ClassMethodDeclarations ClassMethodDeclarations);

@@ -245,6 +245,7 @@ nonterminal
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct
     Type,
+    ClassType,
     Factor,
     Term,
     TermExpr,
@@ -312,7 +313,9 @@ ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls:M1 RBRACE {: R
        | (NoClassMethodDeclarations) {: RESULT=new NoClassMethodDeclarations(); :}
 ;
 
-ClassName ::= (ClassName) IDENT:name {: RESULT=new ClassName(name); RESULT.setLine(nameleft); :} ;
+ClassName ::= (ClassName) ClassType:C1 {: RESULT=new ClassName(C1); RESULT.setLine(C1left); :} ;
+
+ClassType ::= (ClassType) IDENT:name {: RESULT=new ClassType(name); RESULT.setLine(nameleft); :} ;
 
 BaseClassName ::= (BaseClassName) Type:T1 {: RESULT=new BaseClassName(T1); RESULT.setLine(T1left); :} ;
 

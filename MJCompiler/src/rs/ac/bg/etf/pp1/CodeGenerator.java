@@ -80,7 +80,22 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(ClassName className) {
-        Classes.put(className.getName(), null);
+        Classes.put(className.getClassType().getName(), null);
+        SyntaxNode parent = className.getParent();
+
+        if (ExtendedClassDeclaration.class == parent.getClass()) {
+            ExtendedClassDeclaration extendedClassDeclaration = (ExtendedClassDeclaration) parent;
+
+            Struct baseClass = extendedClassDeclaration.getBaseClassName().getType().struct;
+            Struct newClass = extendedClassDeclaration.getClassName().getClassType().struct;
+
+            List<Obj> baseClassMethods = baseClass.getMembers().stream().filter(obj -> obj.getKind() == Obj.Meth).collect(Collectors.toList());
+            List<Obj> newClassMethods = newClass.getMembers().stream().filter(obj -> obj.getKind() == Obj.Meth).collect(Collectors.toList());
+
+            for (int i=0; i < baseClassMethods.size(); i++) {
+                newClassMethods.get(i).setAdr(baseClassMethods.get(i).getAdr());
+            }
+        }
     }
 
     public void visit(MatchedPrintStatement matchedPrintStatement) {
@@ -126,11 +141,6 @@ public class CodeGenerator extends VisitorAdaptor {
 
     public void visit(BoolConstFactor boolConstFactor) {
         Code.loadConst(boolConstFactor.getB1() ? 1 : 0);
-    }
-
-    public void visit(ExtendedClassDeclaration extendedClassDeclaration) {
-        extendedClassDeclaration.getBaseClassName().getType().struct;
-
     }
 
     public void visit(VoidMethodTypeNamePair voidMethodTypeNamePair) {
@@ -448,10 +458,6 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(AssignmentDesignatorStatement assignment){
-        if ((assignment.getDesignator().obj.getKind() == Obj.Fld) && (ScalarDesignator.class == assignment.getDesignator().getClass())) {
-            Code.put(Code.load_n + 0);
-        }
-
         Code.store(assignment.getDesignator().obj);
     }
 
@@ -477,12 +483,16 @@ public class CodeGenerator extends VisitorAdaptor {
             }
         }
 
-        if (FunctionCallDesignator.class == parent.getClass() && designator.obj.getLevel() != 0) {
+        if (FunctionCallDesignator.class == parent.getClass() && designator.obj.getLocalSymbols().stream().findFirst().get().getName().equals("this")) {
             Code.put(Code.load_n + 0);
 
             Code.put(Code.dup);
             Code.put(Code.putstatic);
             Code.put2(objectMethodCall);
+        }
+
+        if ((designator.obj.getKind() == Obj.Fld) && (AssignmentDesignatorStatement.class == parent.getClass())) {
+            Code.put(Code.load_n + 0);
         }
     }
 
@@ -527,8 +537,9 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(FunctionCallResultFactor funcCall){
         FunctionCallDesignator designator = funcCall.getFunctionCall().getFunctionCallDesignator();
         Obj functionObj = designator.obj;
+        System.err.println(functionObj.getLevel());
 
-        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || functionObj.getLevel() != 0) {
+        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || functionObj.getLocalSymbols().stream().findFirst().get().getName().equals("this")) {
             Code.put(Code.getstatic);
             Code.put2(objectMethodCall);
             Code.put(Code.getfield);
@@ -549,8 +560,9 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(FuncCallDesignatorStatement procCall){
         FunctionCallDesignator designator = procCall.getFunctionCall().getFunctionCallDesignator();
         Obj functionObj = designator.obj;
+        System.err.println(functionObj.getLevel());
 
-        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || functionObj.getLevel() != 0) {
+        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || functionObj.getLocalSymbols().stream().findFirst().get().getName().equals("this")) {
             Code.put(Code.getstatic);
             Code.put2(objectMethodCall);
             Code.put(Code.getfield);

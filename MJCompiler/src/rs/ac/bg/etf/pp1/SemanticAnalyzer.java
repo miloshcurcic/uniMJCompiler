@@ -319,20 +319,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         structTemporaries.remove(StructConstants.CurrentClassTypeName);
     }
 
-    public void visit(ClassName className) {
-        Obj classObj = Tab.currentScope().findSymbol(className.getName());
+    public void visit(ClassType classType) {
+        Obj classObj = Tab.currentScope().findSymbol(classType.getName());
 
         if (classObj != null) {
-            report_error("Duplicate name declaration for Class \"" + classObj.getName() + "\"", className);
+            report_error("Duplicate name declaration for Class \"" + classObj.getName() + "\"", classType);
 
             return;
         }
 
         Struct classStruct = new Struct(Struct.Class);
-        Tab.insert(Obj.Type, className.getName(), classStruct);
+        Tab.insert(Obj.Type, classType.getName(), classStruct);
         Tab.openScope();
         // mvt
         Tab.insert(Obj.Fld, "$mvt_ptr", Tab.intType);
+
+        classType.struct = classStruct;
 
         structTemporaries.put(StructConstants.CurrentClassTypeName, classStruct);
     }

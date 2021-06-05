@@ -1,8 +1,8 @@
-INFO  22:23:28,704 - ===================================
-INFO  22:23:28,706 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
-INFO  22:23:28,706 - ===================================
-INFO  22:23:28,830 - ===================================
-INFO  22:23:28,849 - Program(
+INFO  00:31:03,381 - ===================================
+INFO  00:31:03,383 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test303.mj
+INFO  00:31:03,383 - ===================================
+INFO  00:31:03,481 - ===================================
+INFO  00:31:03,496 - Program(
   ProgramName(
    test_303
   ) [ProgramName]
@@ -39,7 +39,9 @@ INFO  22:23:28,849 - Program(
             ClassDataDecl(
               ClassDeclaration(
                 ClassName(
-                 Predmet
+                  ClassType(
+                   Predmet
+                  ) [ClassType]
                 ) [ClassName]
                 VarDeclListElement(
                   VarDeclListElement(
@@ -378,7 +380,9 @@ INFO  22:23:28,849 - Program(
           ClassDataDecl(
             ExtendedClassDeclaration(
               ClassName(
-               Sfera
+                ClassType(
+                 Sfera
+                ) [ClassType]
               ) [ClassName]
               BaseClassName(
                 Type(
@@ -686,7 +690,9 @@ INFO  22:23:28,849 - Program(
         ClassDataDecl(
           ExtendedClassDeclaration(
             ClassName(
-             Kvadar
+              ClassType(
+               Kvadar
+              ) [ClassType]
             ) [ClassName]
             BaseClassName(
               Type(
@@ -2969,7 +2975,7 @@ INFO  22:23:28,849 - Program(
                                                 MatchedAssignmentStatement(
                                                   AssignmentDesignatorStatement(
                                                     ScalarDesignator(
-                                                     zapreminaS
+                                                     zapreminaK
                                                     ) [ScalarDesignator]
                                                     Assignop(
                                                     ) [Assignop]
@@ -2981,7 +2987,7 @@ INFO  22:23:28,849 - Program(
                                                           TermListHead(
                                                             VarFactor(
                                                               ScalarDesignator(
-                                                               zapreminaS
+                                                               zapreminaK
                                                               ) [ScalarDesignator]
                                                             ) [VarFactor]
                                                           ) [TermListHead]
@@ -3038,7 +3044,7 @@ INFO  22:23:28,849 - Program(
                                               MatchedAssignmentStatement(
                                                 AssignmentDesignatorStatement(
                                                   ScalarDesignator(
-                                                   tezinaS
+                                                   tezinaK
                                                   ) [ScalarDesignator]
                                                   Assignop(
                                                   ) [Assignop]
@@ -3050,7 +3056,7 @@ INFO  22:23:28,849 - Program(
                                                         TermListHead(
                                                           VarFactor(
                                                             ScalarDesignator(
-                                                             tezinaS
+                                                             tezinaK
                                                             ) [ScalarDesignator]
                                                           ) [VarFactor]
                                                         ) [TermListHead]
@@ -3839,6 +3845,6 @@ INFO  22:23:28,849 - Program(
     ) [MethodDeclaration]
   ) [MethodDeclarationListElement]
 ) [Program]
-INFO  22:23:30,029 - ===================================
-INFO  22:23:30,061 - Generating bytecode file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\program.obj
-INFO  22:23:30,077 - Parsiranje uspesno zavrseno!
+INFO  00:31:04,649 - ===================================
+INFO  00:31:04,679 - Generating bytecode file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\program.obj
+INFO  00:31:04,692 - Parsiranje uspesno zavrseno!
