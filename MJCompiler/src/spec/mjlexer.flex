@@ -2,53 +2,65 @@ package rs.ac.bg.etf.pp1;
 
 import java_cup.runtime.Symbol;
 import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.test.CompilerError;
+import java.util.ArrayList;
+import java.util.List;
 
 %%
 
-%{
-	Logger log = Logger.getLogger(getClass());
-    StringBuilder errorMessageBuilder = new StringBuilder();
-    int errorLine = 0;
-    int errorColumn = 0;
-    int errorPreviousColumn = 0;
-
-    public void flushErrorIfExists() {
-        if (errorMessageBuilder.length() != 0) {
-            report_error("Lexical analysis error for text \"" + errorMessageBuilder.toString() + "\" on line " + (errorLine + 1) + ":" + (errorColumn + 1) + "!");
-            errorMessageBuilder = new StringBuilder();
-        }
-    }
-
-    public void updateOrInitializeErrorContext(String text, int line, int column) {
-        if (errorPreviousColumn != (column - 1)) {
-            flushErrorIfExists();
-        }
-
-        if (errorMessageBuilder.length() == 0) {
-            errorLine = line;
-            errorColumn = column;
-        }
-
-        errorPreviousColumn = column;
-        errorMessageBuilder.append(text);
-    }
-
-    public void report_error(String message) {
-        log.error(message);
-    }
-
-	private Symbol new_symbol(int type) {
-		return new Symbol(type, yyline+1, yycolumn);
-	}
-
-	private Symbol new_symbol(int type, Object value) {
-		return new Symbol(type, yyline+1, yycolumn, value);
-	}
-%}
-
+%class Lexer
 %cup
 %line
 %column
+%unicode
+
+%implements rs.ac.bg.etf.pp1.error.Errorable
+
+%{
+	Logger log = Logger.getLogger(getClass());
+            StringBuilder errorMessageBuilder = new StringBuilder();
+            List<CompilerError> errorList = new ArrayList<>();
+            int errorLine = 0;
+            int errorColumn = 0;
+            int errorPreviousColumn = 0;
+
+            public List<CompilerError> getErrorList() {
+                return null;
+            }
+
+            public void flushErrorIfExists() {
+                if (errorMessageBuilder.length() != 0) {
+                    report_error("Lexical analysis error for text \"" + errorMessageBuilder.toString() + "\" on line " + (errorLine + 1) + ":" + (errorColumn + 1) + "!");
+                    errorMessageBuilder = new StringBuilder();
+                }
+            }
+
+            public void updateOrInitializeErrorContext(String text, int line, int column) {
+                if (errorPreviousColumn != (column - 1)) {
+                    flushErrorIfExists();
+                }
+
+                if (errorMessageBuilder.length() == 0) {
+                    errorLine = line;
+                    errorColumn = column;
+                }
+
+                errorPreviousColumn = column;
+                errorMessageBuilder.append(text);
+            }
+
+            public void report_error(String message) {
+                log.error(message);
+            }
+
+            private Symbol new_symbol(int type) {
+                return new Symbol(type, yyline+1, yycolumn);
+            }
+
+            private Symbol new_symbol(int type, Object value) {
+                return new Symbol(type, yyline+1, yycolumn, value);
+            }
+%}
 
 %xstate COMMENT
 

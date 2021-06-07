@@ -3,6 +3,8 @@ package rs.ac.bg.etf.pp1;
 import org.apache.log4j.Logger;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
+import rs.ac.bg.etf.pp1.error.Errorable;
+import rs.ac.bg.etf.pp1.test.CompilerError;
 import rs.etf.pp1.mj.runtime.*;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
@@ -10,7 +12,7 @@ import rs.etf.pp1.symboltable.concepts.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class CodeGenerator extends VisitorAdaptor {
+public class CodeGenerator extends VisitorAdaptor implements Errorable {
     private class Pair <T, U> {
         private T key;
         private U value;
@@ -44,6 +46,8 @@ public class CodeGenerator extends VisitorAdaptor {
     private Map<String, List<Integer>> ClassMap = new HashMap();
     private Map<String, Integer> Classes = new HashMap();
 
+    private List<CompilerError> errorList = new ArrayList<>();
+
     public CodeGenerator(int nVars) {
         Obj chr = Tab.find("chr");
         Obj ord = Tab.find("ord");
@@ -70,6 +74,11 @@ public class CodeGenerator extends VisitorAdaptor {
         this.objectMethodCall = this.internalBase + 0;
 
         this.dataSize = nVars + numInternal;
+    }
+
+    @Override
+    public List<CompilerError> getErrorList() {
+        return null;
     }
 
     public int getMainPc() {

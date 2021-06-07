@@ -7,9 +7,14 @@
 				<exclude name="Compiler.java"/>
 				<exclude name="SemanticAnalyzer.java"/>
 				<exclude name="CodeGenerator.java"/>
-				<exclude name="MethodCounter.java"/>
 				<exclude name="util/Log4JUtils.java" />
 				<exclude name="util/CustomDumpSymbolTableVisitor.java" />
+				<exclude name="test/Compiler.java" />
+				<exclude name="test/CompilerError.java" />
+				<exclude name="error/LexicalError.java" />
+				<exclude name="error/SemanticError.java" />
+				<exclude name="error/SyntaxError.java" />
+				<exclude name="error/Errorable.java" />
 			</fileset>
 		</delete>
 		<delete>
@@ -60,7 +65,7 @@
 				<pathelement path="lib/mj-runtime-1.1.jar"/>
 			</classpath>
 		</javac>
-		<copy file="config/log4j.xml" tofile="bin/log4j.xml"></copy>
+		<copy file="config/log4j.xml" tofile="bin/log4j.xml" />
 	</target>
 
 	<target name="runCompilerTest1">
