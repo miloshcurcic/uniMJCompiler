@@ -1,0 +1,15 @@
+program MJProgram
+const int one = 1;
+const int two = 2;
+int sum;
+
+{
+	void main()
+	    int temp;
+	{
+	    temp = 0;
+	    temp++;
+	    temp--;
+	    temp
+	}
+}

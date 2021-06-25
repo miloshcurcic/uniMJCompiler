@@ -1,72 +1,84 @@
 package rs.ac.bg.etf.pp1;
 
-import java_cup.runtime.Symbol;
+import java.util.*;
 import org.apache.log4j.*;
-import rs.ac.bg.etf.pp1.test.CompilerError;
-import java.util.ArrayList;
-import java.util.List;
+import rs.ac.bg.etf.pp1.test.*;
+import rs.ac.bg.etf.pp1.error.*;
+import java_cup.runtime.Symbol;
+
+import static rs.ac.bg.etf.pp1.error.LexicalError.LEXICAL_UNRECOGNIZED_TEXT_ERROR_TEMPLATE;
 
 %%
 
 %class Lexer
+%implements rs.ac.bg.etf.pp1.error.Errorable
+
 %cup
 %line
 %column
 %unicode
 
-%implements rs.ac.bg.etf.pp1.error.Errorable
-
 %{
-	Logger log = Logger.getLogger(getClass());
-            StringBuilder errorMessageBuilder = new StringBuilder();
-            List<CompilerError> errorList = new ArrayList<>();
-            int errorLine = 0;
-            int errorColumn = 0;
-            int errorPreviousColumn = 0;
+	private Logger log = Logger.getLogger(getClass());
+        private StringBuilder errorMessageBuilder = new StringBuilder();
+        private List<CompilerError> errorList = new ArrayList<>();
+    
+        private int errorLine = 0;
+        private int errorColumn = 0;
+        private int errorPreviousColumn = 0;
+    
+        public List<CompilerError> getErrorList() {
+            return errorList;
+        }
 
-            public List<CompilerError> getErrorList() {
-                return null;
+        public boolean isErrorDetected() {
+            return !errorList.isEmpty();
+        }
+    
+        public void flushErrorIfExists() {
+            if (errorMessageBuilder.length() != 0) {
+                reportError(LEXICAL_UNRECOGNIZED_TEXT_ERROR_TEMPLATE, errorMessageBuilder.toString(), errorLine + 1, errorColumn + 1);
+
+                errorMessageBuilder = new StringBuilder();
             }
-
-            public void flushErrorIfExists() {
-                if (errorMessageBuilder.length() != 0) {
-                    report_error("Lexical analysis error for text \"" + errorMessageBuilder.toString() + "\" on line " + (errorLine + 1) + ":" + (errorColumn + 1) + "!");
-                    errorMessageBuilder = new StringBuilder();
-                }
+        }
+    
+        public void updateOrInitializeErrorContext(String text, int line, int column) {
+            if (errorPreviousColumn != (column - 1)) {
+                flushErrorIfExists();
             }
-
-            public void updateOrInitializeErrorContext(String text, int line, int column) {
-                if (errorPreviousColumn != (column - 1)) {
-                    flushErrorIfExists();
-                }
-
-                if (errorMessageBuilder.length() == 0) {
-                    errorLine = line;
-                    errorColumn = column;
-                }
-
-                errorPreviousColumn = column;
-                errorMessageBuilder.append(text);
+    
+            if (errorMessageBuilder.length() == 0) {
+                errorLine = line;
+                errorColumn = column;
             }
+    
+            errorPreviousColumn = column;
+            errorMessageBuilder.append(text);
+        }
+    
+        public void reportError(String template, Object... args) {
+            String errorMessage = String.format(template, (Object[])args);
 
-            public void report_error(String message) {
-                log.error(message);
-            }
-
-            private Symbol new_symbol(int type) {
-                return new Symbol(type, yyline+1, yycolumn);
-            }
-
-            private Symbol new_symbol(int type, Object value) {
-                return new Symbol(type, yyline+1, yycolumn, value);
-            }
+            errorList.add(new LexicalError(errorLine + 1, errorMessage));
+            log.error(errorMessage);
+        }
+    
+        private Symbol newSymbol(int type) {
+            return new Symbol(type, yyline+1, yycolumn);
+        }
+    
+        private Symbol newSymbol(int type, Object value) {
+            return new Symbol(type, yyline+1, yycolumn, value);
+        }
 %}
 
 %xstate COMMENT
 
 %eofval{
     flushErrorIfExists();
-	return new_symbol(sym.EOF);
+
+	return newSymbol(sym.EOF);
 %eofval}
 
 %%
@@ -79,69 +91,71 @@ import java.util.List;
 "\f" 	{ }
 
 // Key words
-"program"   { return new_symbol(sym.PROGRAM); }
-"break" 	{ return new_symbol(sym.BREAK); }
-"class" 	{ return new_symbol(sym.CLASS); }
-"const" 	{ return new_symbol(sym.CONST); }
-"if" 	{ return new_symbol(sym.IF); }
-"else" 	{ return new_symbol(sym.ELSE); }
-"switch" 	{ return new_symbol(sym.SWITCH); }
-"yield" 	{ return new_symbol(sym.YIELD); }
-"default" 	{ return new_symbol(sym.DEFAULT); }
-"do" 	{ return new_symbol(sym.DO); }
-"while" 	{ return new_symbol(sym.WHILE); }
-"new" 	{ return new_symbol(sym.NEW); }
-"print" 	{ return new_symbol(sym.PRINT); }
-"read" 	{ return new_symbol(sym.READ); }
-"return" 	{ return new_symbol(sym.RETURN); }
-"void" 	{ return new_symbol(sym.VOID); }
-"extends" 	{ return new_symbol(sym.EXTENDS); }
-"continue" 	{ return new_symbol(sym.CONTINUE); }
-"case" 	{ return new_symbol(sym.CASE); }
+"program"   { return newSymbol(sym.PROGRAM); }
+"break" 	{ return newSymbol(sym.BREAK); }
+"class" 	{ return newSymbol(sym.CLASS); }
+"const" 	{ return newSymbol(sym.CONST); }
+"if" 	{ return newSymbol(sym.IF); }
+"else" 	{ return newSymbol(sym.ELSE); }
+"switch" 	{ return newSymbol(sym.SWITCH); }
+"yield" 	{ return newSymbol(sym.YIELD); }
+"default" 	{ return newSymbol(sym.DEFAULT); }
+"do" 	{ return newSymbol(sym.DO); }
+"while" 	{ return newSymbol(sym.WHILE); }
+"new" 	{ return newSymbol(sym.NEW); }
+"print" 	{ return newSymbol(sym.PRINT); }
+"read" 	{ return newSymbol(sym.READ); }
+"return" 	{ return newSymbol(sym.RETURN); }
+"void" 	{ return newSymbol(sym.VOID); }
+"extends" 	{ return newSymbol(sym.EXTENDS); }
+"continue" 	{ return newSymbol(sym.CONTINUE); }
+"case" 	{ return newSymbol(sym.CASE); }
 
 
 // Operators - Arithmetic
-"+" 		{ return new_symbol(sym.PLUS); }
-"-" 		{ return new_symbol(sym.MINUS); }
-"*" 		{ return new_symbol(sym.MULTIPLY); }
-"/" 		{ return new_symbol(sym.DIVIDE); }
-"%" 		{ return new_symbol(sym.MODULO); }
-"=" 		{ return new_symbol(sym.EQUALS); }
-"++" 		{ return new_symbol(sym.PPLUS); }
-"--" 		{ return new_symbol(sym.MMINUS); }
+"+" 		{ return newSymbol(sym.PLUS); }
+"-" 		{ return newSymbol(sym.MINUS); }
+"*" 		{ return newSymbol(sym.MULTIPLY); }
+"/" 		{ return newSymbol(sym.DIVIDE); }
+"%" 		{ return newSymbol(sym.MODULO); }
+"=" 		{ return newSymbol(sym.EQUALS); }
+"++" 		{ return newSymbol(sym.PPLUS); }
+"--" 		{ return newSymbol(sym.MMINUS); }
 
 // Operators - Comparison
-"==" 		{ return new_symbol(sym.CEQUALS); }
-"!=" 		{ return new_symbol(sym.CNEQUALS); }
-">" 		{ return new_symbol(sym.GREATER); }
-">=" 		{ return new_symbol(sym.GEQUALS); }
-"<" 		{ return new_symbol(sym.LESS); }
-"<=" 		{ return new_symbol(sym.LEQUALS); }
+"==" 		{ return newSymbol(sym.CEQUALS); }
+"!=" 		{ return newSymbol(sym.CNEQUALS); }
+">" 		{ return newSymbol(sym.GREATER); }
+">=" 		{ return newSymbol(sym.GEQUALS); }
+"<" 		{ return newSymbol(sym.LESS); }
+"<=" 		{ return newSymbol(sym.LEQUALS); }
 
 // Operators - Logical
-"&&" 		{ return new_symbol(sym.AND); }
-"||" 		{ return new_symbol(sym.OR); }
+"&&" 		{ return newSymbol(sym.AND); }
+"||" 		{ return newSymbol(sym.OR); }
 
 // Operators - Control
-";" 		{ return new_symbol(sym.SEMICOLON); }
-":" 		{ return new_symbol(sym.COLON); }
-"," 		{ return new_symbol(sym.COMMA); }
-"." 		{ return new_symbol(sym.DOT); }
-"(" 		{ return new_symbol(sym.LPAREN); }
-")" 		{ return new_symbol(sym.RPAREN); }
-"{" 		{ return new_symbol(sym.LBRACE); }
-"}"			{ return new_symbol(sym.RBRACE); }
-"[" 		{ return new_symbol(sym.LBRACKET); }
-"]"			{ return new_symbol(sym.RBRACKET); }
+";" 		{ return newSymbol(sym.SEMICOLON); }
+":" 		{ return newSymbol(sym.COLON); }
+"," 		{ return newSymbol(sym.COMMA); }
+"." 		{ return newSymbol(sym.DOT); }
+"(" 		{ return newSymbol(sym.LPAREN); }
+")" 		{ return newSymbol(sym.RPAREN); }
+"{" 		{ return newSymbol(sym.LBRACE); }
+"}"			{ return newSymbol(sym.RBRACE); }
+"[" 		{ return newSymbol(sym.LBRACKET); }
+"]"			{ return newSymbol(sym.RBRACKET); }
 
 // Comments
 "//" 		     { yybegin(COMMENT); }
 <COMMENT> .      { yybegin(COMMENT); }
 <COMMENT> "\r\n" { yybegin(YYINITIAL); }
 
-'.' { return new_symbol(sym.CHAR, yytext().charAt(1)); }
-("true" | "false") { return new_symbol(sym.BOOL, Boolean.parseBoolean(yytext())); }
-[0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
-([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
+// Symbols and literals
+'.' { return newSymbol(sym.CHAR, yytext().charAt(1)); }
+("true" | "false") { return newSymbol(sym.BOOL, Boolean.parseBoolean(yytext())); }
+[0-9]+  { return newSymbol(sym.NUMBER, new Integer (yytext())); }
+([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return newSymbol (sym.IDENT, yytext()); }
 
+// Consume error
 . { updateOrInitializeErrorContext(yytext(), yyline, yycolumn); }

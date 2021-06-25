@@ -2,43 +2,63 @@
 
 package rs.ac.bg.etf.pp1;
 
+import java.util.*;
 import java_cup.runtime.*;
 import org.apache.log4j.*;
 import rs.ac.bg.etf.pp1.ast.*;
+import rs.ac.bg.etf.pp1.test.*;
+import rs.ac.bg.etf.pp1.error.*;
 
 parser code {:
-	boolean errorDetected;
+    private Logger log = Logger.getLogger(getClass());
+    private List<CompilerError> errorList = new ArrayList<>();
 
-	Logger log = Logger.getLogger(getClass());
+    // This method should be called whenever a non-recoverable error occurs. Overriding method to avoid throwing exception here.
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+        // Report error
+        report_error(message, info);
 
-   public void report_fatal_error(String message, Object info) throws java.lang.Exception {
-     done_parsing();
-     report_error(message, info);
-   }
+        // End parsing
+        done_parsing();
+    }
 
-   public void syntax_error(Symbol cur_token) {
-       report_error("Syntax error:", cur_token);
-   }
+    // This method is called by the parser as soon as a syntax error is detected (but before error recovery is attempted).
+    public void syntax_error(Symbol cur_token) {
+        report_error("Syntax error detected", cur_token);
+    }
 
-   public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
-       report_fatal_error("Fatal error:", cur_token);
-   }
+    // This method is called by the parser if it is unable to recover from a syntax error.
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatal error detected", cur_token);
+    }
 
-   public void report_error(String message, Object info) {
-   	errorDetected = true;
-   	StringBuilder msg = new StringBuilder(message);
+    // This method should be called whenever an error message is to be issued.
+    public void report_error(String message, Object info) {
+   	    StringBuilder errorMessage = new StringBuilder(message);
+   	    int line = 0;
 
-   	if (info instanceof Symbol) {
-           msg.append (" on line ").append(((Symbol)info).left);
-       }
-       msg.append(info);
+   	    if (info instanceof Symbol) {
+   	        line = ((Symbol)info).left;
+            errorMessage.append (" on position ").append(line);
+        }
 
-       log.error(msg.toString());
-   }
+        errorMessage.append(info);
+
+        errorList.add(new SyntaxError(line, errorMessage.toString()));
+
+        log.error(errorMessage.toString());
+    }
+
+    public boolean isErrorDetected() {
+        return !errorList.isEmpty();
+    }
+
+    public List<CompilerError> getErrorList() {
+        return errorList;
+    }
 :}
 
 init with {:
-	errorDetected = false;
 :}
 
 scan with {:
@@ -49,16 +69,16 @@ scan with {:
 
 terminal
 	PROGRAM,
-	BREAK,
 	CLASS,
 	CONST,
 	IF,
 	ELSE,
+	DO,
+	WHILE,
+	BREAK,
 	SWITCH,
 	YIELD,
 	DEFAULT,
-	DO,
-	WHILE,
 	NEW,
 	PRINT,
 	READ,
@@ -141,7 +161,7 @@ nonterminal Program,
 	BracedStatements,
 	SingleStatement,
 	MatchedStatement,
-	IfCondition,
+	IfCond,
 	DoWhileCondition,
 	PrintStatementAdditionalParam,
 	DesignatorStatement,
@@ -238,7 +258,7 @@ VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
 
 VarIdent ::= (ScalarVarIdent) IDENT:name
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET
-       | error {: parser.report_error("recovered1", null); :}
+       | error
 ;
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassName LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
@@ -277,7 +297,7 @@ FormPars ::= (FormalParametersListElement) FormPars COMMA FormPar
 
 FormPar ::= (ScalarFormalParameter) Type IDENT:name
             | (ArrayFormalParameter) Type IDENT:name LBRACKET RBRACKET
-            | error {: parser.report_error("recovered3", null); :}
+            | error
 ;
 
 Type ::= (Type) IDENT:name ;
@@ -299,8 +319,8 @@ BracedStatements ::= (BracedStatementListElement) BracedStatements SingleStateme
 SingleStatement ::= (SingleMatchedStatement) MatchedStatement ;
 
 MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
-            | (MatchedIfStatement) IF LPAREN IfCondition RPAREN IfStatementStart Statement IfStatementEnd
-            | (MatchedIfElseStatement) IF LPAREN IfCondition RPAREN IfStatementStart Statement IfStatementEnd ELSE ElseStatementStart Statement ElseStatementEnd
+            | (MatchedIfStatement) IF LPAREN IfCond RPAREN IfStatementStart Statement IfStatementEnd
+            | (MatchedIfElseStatement) IF LPAREN IfCond RPAREN IfStatementStart Statement IfStatementEnd ELSE ElseStatementStart Statement ElseStatementEnd
             | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement WHILE LPAREN DoWhileCondition RPAREN DoWhileStatementEnd SEMICOLON
             | (MatchedSwitchStatement) SwitchStatementStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases RBRACE
             | (MatchedBreakStatement) BREAK SEMICOLON
@@ -321,7 +341,9 @@ ElseStatementEnd ::= (ElseStatementEnd) ;
 
 SwitchStatementStart ::= (SwitchStatementStart) ;
 
-IfCondition ::= (IfCondition) IfConditionStart Condition IfConditionEnd ;
+IfCond ::= (IfCondition) IfConditionStart Condition IfConditionEnd
+    | error
+;
 
 IfConditionStart ::= (IfConditionStart) ;
 
@@ -361,7 +383,8 @@ DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                     | (FuncCallDesignatorStatement) FunctionCall
                     | (PostIncDesignatorStatement) Designator PPLUS
                     | (PostDecDesignatorStatement) Designator MMINUS
-                    | Designator Assignop error {: parser.report_error("recovered5", null); :}
+                    // ToDo: Does this work
+                    | error Assignop error
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator LPAREN FuncCallActPars RPAREN ;

@@ -3,7 +3,9 @@ package rs.ac.bg.etf.pp1.error;
 import rs.ac.bg.etf.pp1.test.CompilerError;
 
 public class LexicalError extends CompilerError {
-    public LexicalError(int line, String message, CompilerErrorType type) {
-        super(line, message, type);
+    public static final String LEXICAL_UNRECOGNIZED_TEXT_ERROR_TEMPLATE = "Lexical analysis error for text \"%s\" on position %d:%d!";
+
+    public LexicalError(int line, String message) {
+        super(line, message, CompilerErrorType.LEXICAL_ERROR);
     }
 }

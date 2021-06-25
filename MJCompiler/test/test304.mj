@@ -1,36 +1,37 @@
-program MJProgram
-	int x; int y;
-	int niz[];
-	char nizch[];
+//Test 302
 
-class Predmet
-{
-	 int tezina;
-	 char vrsta;
+program test302
 
-	{
-		 void postaviTezinu(int tezina) {this.tezina = tezina;}
-		 void ucitajTezinu() { read(tezina); }
-		 int zapremina() { return 0;}
-		 int Q() {return zapremina() * tezina;}
-		 void postaviVrstu(char vrsta) {this.vrsta = vrsta;}
-		 char dohvVrstu() { return vrsta; }
-		 int dohvTezinu() { return tezina; }
-	}
-}
+const int jedan = 1;
+
+int i, j;
+
+
 
 {
-
-	int k () int c; {
-		c = 2;
-		return c+2;
-	}
+    void test(bool i, int j) {
+        test(i, j);
+        return;
+    }
 
 	void main()
-	    int z;
-	    Predmet p;
 	{
-	    p = new Predmet;
-	    p.ucitajTezinu();
+switch(i){
+					case 1:
+						print(1);
+						yield 1;
+					case 3:
+						print(3);
+					case 2:
+						print(2);
+						yield 2;
+					case 4:
+						print(5);
+						i = i + 3;
+						yield 7;
+					default:
+						yield 10;
+			};
 	}
 }
+

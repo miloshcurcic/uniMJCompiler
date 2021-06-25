@@ -1,28 +1,17 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/5/2021 23:25:3
+// 25/5/2021 21:0:8
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignatorStatementDerived1 extends DesignatorStatement {
 
-    private Designator Designator;
     private Assignop Assignop;
 
-    public DesignatorStatementDerived1 (Designator Designator, Assignop Assignop) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
+    public DesignatorStatementDerived1 (Assignop Assignop) {
         this.Assignop=Assignop;
         if(Assignop!=null) Assignop.setParent(this);
-    }
-
-    public Designator getDesignator() {
-        return Designator;
-    }
-
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
     }
 
     public Assignop getAssignop() {
@@ -38,18 +27,15 @@ public class DesignatorStatementDerived1 extends DesignatorStatement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
         if(Assignop!=null) Assignop.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
         if(Assignop!=null) Assignop.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
         if(Assignop!=null) Assignop.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -58,12 +44,6 @@ public class DesignatorStatementDerived1 extends DesignatorStatement {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("DesignatorStatementDerived1(\n");
-
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
 
         if(Assignop!=null)
             buffer.append(Assignop.toString("  "+tab));

@@ -10,7 +10,7 @@ import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
 
 import java.io.*;
-import java.util.List;
+import java.util.*;
 
 public class Compiler implements rs.ac.bg.etf.pp1.test.Compiler {
     static Logger log;
@@ -33,6 +33,10 @@ public class Compiler implements rs.ac.bg.etf.pp1.test.Compiler {
         compiler.compile(args[0], args[1]);
     }
 
+    public static void tsdump() {
+        Tab.dump(new CustomDumpSymbolTableVisitor());
+    }
+
     @Override
     public List<CompilerError> compile(String sourceFilePath, String outputFilePath) {
         File sourceCode = new File(sourceFilePath);
@@ -52,52 +56,66 @@ public class Compiler implements rs.ac.bg.etf.pp1.test.Compiler {
             MJParser parser = new MJParser(lexer);
             Symbol symbol = parser.parse();
 
-            Program rootNode = (Program)(symbol.value);
+            // continue if non fatal error?
+            if (!lexer.isErrorDetected() && !parser.isErrorDetected()) {
+                Program rootNode = (Program) (symbol.value);
 
-            SemanticAnalyzer.initUniverseScope();
+                SemanticAnalyzer.initUniverseScope();
 
-            log.info("===================================");
-            log.info(rootNode.toString(""));
-            log.info("===================================");
-
-            SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer();
-            rootNode.traverseBottomUp(semanticAnalyzer);
-
-            Tab.dump(new CustomDumpSymbolTableVisitor());
-
-            if (!parser.errorDetected /*&& semanticAnalyzer.passed()*/) {
                 log.info("===================================");
-                log.info("Parsing successfully completed. Generating output.");
+                log.info(rootNode.toString(""));
                 log.info("===================================");
 
-                File objFile = new File(outputFilePath);
-                log.info("Generating bytecode file: " + objFile.getAbsolutePath());
+                SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer();
+                rootNode.traverseBottomUp(semanticAnalyzer);
 
-                // Overwrite output file
-                if (objFile.exists()) {
-                    log.info(objFile.getName() + " already exists, it will be overwritten.");
+                if (!semanticAnalyzer.isErrorDetected()) {
+                    // Dump symbols table
+                    tsdump();
 
-                    objFile.delete();
+                    log.info("===================================");
+                    log.info("Parsing successfully completed. Generating output.");
+                    log.info("===================================");
+
+                    File objFile = new File(outputFilePath);
+                    log.info("Generating bytecode file: " + objFile.getAbsolutePath());
+
+                    // Overwrite output file
+                    if (objFile.exists()) {
+                        log.info(objFile.getName() + " already exists, it will be overwritten.");
+
+                        objFile.delete();
+                    }
+
+                    CodeGenerator codeGenerator = new CodeGenerator(semanticAnalyzer.getNVars());
+
+                    rootNode.traverseBottomUp(codeGenerator);
+                    Code.dataSize = codeGenerator.getDataSize();
+                    Code.mainPc = codeGenerator.getMainPc();
+
+                    Code.write(new FileOutputStream(objFile));
+                } else {
+                    log.info("===================================");
+                    log.info("One or more semantic errors detected.");
+                    log.info("===================================");
                 }
-
-                CodeGenerator codeGenerator = new CodeGenerator(semanticAnalyzer.getnVars());
-
-                rootNode.traverseBottomUp(codeGenerator);
-                Code.dataSize = codeGenerator.getDataSize();
-                Code.mainPc = codeGenerator.getMainPc();
-
-                Code.write(new FileOutputStream(objFile));
             }
             else {
                 log.info("===================================");
-                log.info("One or more errors occurred in parsing.");
+                log.info("One or more lexical or syntax errors detected.");
                 log.info("===================================");
+
+                List<CompilerError> resultList = new ArrayList<>();
+                resultList.addAll(lexer.getErrorList());
+                resultList.addAll(parser.getErrorList());
+
+                return resultList;
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        return null;
+        return new ArrayList<>();
     }
 }

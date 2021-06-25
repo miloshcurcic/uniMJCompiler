@@ -1,14 +1,12 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/5/2021 23:25:3
+// 25/5/2021 21:0:8
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class IfCondition implements SyntaxNode {
+public class IfCondition extends IfCond {
 
-    private SyntaxNode parent;
-    private int line;
     private IfConditionStart IfConditionStart;
     private Condition Condition;
     private IfConditionEnd IfConditionEnd;
@@ -44,22 +42,6 @@ public class IfCondition implements SyntaxNode {
 
     public void setIfConditionEnd(IfConditionEnd IfConditionEnd) {
         this.IfConditionEnd=IfConditionEnd;
-    }
-
-    public SyntaxNode getParent() {
-        return parent;
-    }
-
-    public void setParent(SyntaxNode parent) {
-        this.parent=parent;
-    }
-
-    public int getLine() {
-        return line;
-    }
-
-    public void setLine(int line) {
-        this.line=line;
     }
 
     public void accept(Visitor visitor) {

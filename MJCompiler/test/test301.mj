@@ -6,7 +6,7 @@ program test301
 	const int jedan = 1;
 	const int pet = 5;
 
-	int niz[];
+	int niz[], a;
 	char nizch[];
 	
 {
@@ -38,11 +38,11 @@ program test301
 		print(nizch[jedan * 2]);
 
 
-		bodovi = bodovi + (pet * jedan - 1) * bodovi - (3 % 2 + 3 * 2 - 3);
+		bodovi = bodovi + (pet * jedan -  1) * bodovi - (3 % 2 + 3 * 2 - 3);
 		print(bodovi);
 
 		read(bodovi);
-		if(bodovi%2 == 0) bodovi = bodovi + 10;
+		if(bodovi%2 == 0) bodovi = bodovi - 10;
 		if(false) print(bodovi + 20);
 		else print(bodovi);
 	}

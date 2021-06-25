@@ -1,6 +1,5 @@
 package rs.ac.bg.etf.pp1;
 
-import org.apache.log4j.Logger;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
 import rs.ac.bg.etf.pp1.error.Errorable;
@@ -12,10 +11,10 @@ import rs.etf.pp1.symboltable.concepts.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class CodeGenerator extends VisitorAdaptor implements Errorable {
-    private class Pair <T, U> {
-        private T key;
-        private U value;
+public class CodeGenerator extends VisitorAdaptor {
+    private static class Pair <T, U> {
+        private final T key;
+        private final U value;
 
         public Pair(T key, U value) {
             this.key = key;
@@ -33,20 +32,17 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
 
     private int mainPc;
     private int dataSize;
-    private int internalBase;
     private static final int numInternal = 1;
-    private int objectMethodCall = 0;
+    private final int objectMethodCall;
 
-    private Stack<List<Integer>> ConditionStack = new Stack();
-    private Stack<List<Integer>> NegConditionStack = new Stack();
-    private Stack<List<Integer>> UnconditionalSkipStack = new Stack();
-    private Stack<List<Integer>> UnconditionalRepeatStack = new Stack();
-    private Stack<Integer> AddressStack = new Stack();
-    private Stack<List<Pair<Integer, Integer>>> SwitchMapStack = new Stack();
-    private Map<String, List<Integer>> ClassMap = new HashMap();
-    private Map<String, Integer> Classes = new HashMap();
-
-    private List<CompilerError> errorList = new ArrayList<>();
+    private final Stack<List<Integer>> ConditionStack = new Stack<>();
+    private final Stack<List<Integer>> NegConditionStack = new Stack<>();
+    private final Stack<List<Integer>> UnconditionalSkipStack = new Stack<>();
+    private final Stack<List<Integer>> UnconditionalRepeatStack = new Stack<>();
+    private final Stack<Integer> AddressStack = new Stack<>();
+    private final Stack<List<Pair<Integer, Integer>>> SwitchMapStack = new Stack<>();
+    private final Map<String, List<Integer>> ClassMap = new HashMap<>();
+    private final Map<String, Integer> Classes = new HashMap<>();
 
     public CodeGenerator(int nVars) {
         Obj chr = Tab.find("chr");
@@ -70,15 +66,9 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
         Code.put(Code.exit);
         Code.put(Code.return_);
 
-        this.internalBase = nVars;
-        this.objectMethodCall = this.internalBase + 0;
+        this.objectMethodCall = nVars;
 
         this.dataSize = nVars + numInternal;
-    }
-
-    @Override
-    public List<CompilerError> getErrorList() {
-        return null;
     }
 
     public int getMainPc() {
@@ -163,7 +153,7 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
 
             for(Map.Entry<String, Integer> classEntry : Classes.entrySet()) {
                 Collection<Obj> classMethods = classes.stream().filter(obj -> obj.getName().equals(classEntry.getKey())).collect(Collectors.toList()).get(0).getType().getMembers().stream().filter(obj -> obj.getKind() == Obj.Meth).collect(Collectors.toList());
-                System.err.println(classEntry.getKey() + dataSize);
+
                 classEntry.setValue(dataSize);
 
                 for (Obj method : classMethods) {
@@ -188,8 +178,6 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
         }
 
         voidMethodTypeNamePair.obj.setAdr(Code.pc);
-        // Collect arguments and local variables
-        SyntaxNode methodNode = voidMethodTypeNamePair.getParent();
 
         // Generate the entry
         Code.put(Code.enter);
@@ -251,9 +239,8 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     }
 
     public void visit(RelationalCondFact relationalCondFact) {
-        Class p0 = relationalCondFact.getParent().getClass();
-        Class p1 = relationalCondFact.getParent().getParent().getClass();
-        Class p2 = relationalCondFact.getParent().getParent().getParent().getClass();
+        Class<? extends SyntaxNode> p1 = relationalCondFact.getParent().getParent().getClass();
+        Class<? extends SyntaxNode> p2 = relationalCondFact.getParent().getParent().getParent().getClass();
 
         if ((CondTermListElement.class == p1) || (IfCondition.class == p2)) {
             // one of [1..n) expr elements
@@ -276,9 +263,8 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     }
 
     public void visit(SingleCondFact singleCondFact) {
-        Class p0 = singleCondFact.getParent().getClass();
-        Class p1 = singleCondFact.getParent().getParent().getClass();
-        Class p2 = singleCondFact.getParent().getParent().getParent().getClass();
+        Class<? extends SyntaxNode> p1 = singleCondFact.getParent().getParent().getClass();
+        Class<? extends SyntaxNode> p2 = singleCondFact.getParent().getParent().getParent().getClass();
 
         if ((CondTermListElement.class == p1) || (IfCondition.class == p2)) {
             // one of [1..n) expr elements
@@ -306,8 +292,8 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     public void visit(OrConditionStart orConditionStart) {
         List<Integer> list = NegConditionStack.pop();
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
 
         NegConditionStack.push(new ArrayList<>());
@@ -324,8 +310,8 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     public void visit(IfConditionEnd ifConditionEnd) {
         List<Integer> list = ConditionStack.pop();
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
     }
 
@@ -338,21 +324,21 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
             UnconditionalSkipStack.peek().add(Code.pc - 2);
         }
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
     }
 
     public void visit(ElseStatementEnd elseStatementEnd) {
         List<Integer> list = UnconditionalSkipStack.pop();
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
     }
 
     public void visit(SwitchCondition switchCondition) {
-        SwitchMapStack.peek().add(new Pair(switchCondition.getNumber(), Code.pc));
+        SwitchMapStack.peek().add(new Pair<>(switchCondition.getNumber(), Code.pc));
     }
 
     public void visit(SwitchStatementExpression switchStatementExpression) {
@@ -361,14 +347,14 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     }
 
     public void visit(SwitchDefaultCaseStart switchDefaultCaseStart) {
-        SwitchMapStack.peek().add(new Pair(Integer.MAX_VALUE, Code.pc));
+        SwitchMapStack.peek().add(new Pair<>(Integer.MAX_VALUE, Code.pc));
     }
 
     public void visit(SwitchExpression switchExpression) {
         List<Integer> list0 = UnconditionalRepeatStack.pop();
 
-        for (Integer addr : list0) {
-            Code.fixup(addr);
+        for (Integer address : list0) {
+            Code.fixup(address);
         }
 
         List<Pair<Integer, Integer>> list1 = SwitchMapStack.pop();
@@ -387,15 +373,15 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
 
         List<Integer> list2 = UnconditionalSkipStack.pop();
 
-        for (Integer addr : list2) {
-            Code.fixup(addr);
+        for (Integer address : list2) {
+            Code.fixup(address);
         }
     }
 
     public void visit(SwitchExpressionStart switchExpressionStart) {
-        UnconditionalRepeatStack.push(new Stack());
-        UnconditionalSkipStack.push(new Stack());
-        SwitchMapStack.push(new Stack());
+        UnconditionalRepeatStack.push(new ArrayList<>());
+        UnconditionalSkipStack.push(new ArrayList<>());
+        SwitchMapStack.push(new ArrayList<>());
     }
 
     public void visit(MatchedYieldStatement matchedYieldStatement) {
@@ -407,8 +393,8 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     public void visit(DoWhileConditionStart doWhileConditionStart) {
         List<Integer> list = UnconditionalRepeatStack.pop();
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
     }
 
@@ -425,14 +411,14 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
         ConditionStack.pop();
         List<Integer> list = NegConditionStack.pop();
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
 
         list = UnconditionalSkipStack.pop();
 
-        for (int addr : list) {
-            Code.fixup(addr);
+        for (int address : list) {
+            Code.fixup(address);
         }
     }
 
@@ -442,8 +428,6 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
         }
 
         typeMethodTypeNamePair.obj.setAdr(Code.pc);
-        // Collect arguments and local variables
-        SyntaxNode methodNode = typeMethodTypeNamePair.getParent().getParent();
 
         // Generate the entry
         Code.put(Code.enter);
@@ -453,15 +437,14 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
 
     public void visit(Program program) {
         for(Map.Entry<String, List<Integer>> classEntry : ClassMap.entrySet()) {
-            System.err.println(classEntry.getKey() + Classes.get(classEntry.getKey()));
-            for (Integer addr : classEntry.getValue()) {
-                Code.put2(addr, Classes.get(classEntry.getKey()) >>16);
-                Code.put2(addr + 2, Classes.get(classEntry.getKey()));
+            for (Integer address : classEntry.getValue()) {
+                Code.put2(address, Classes.get(classEntry.getKey()) >>16);
+                Code.put2(address + 2, Classes.get(classEntry.getKey()));
             }
         }
     }
 
-    public void visit(MethodDeclaration methodDecl){
+    public void visit(MethodDeclaration methodDeclaration){
         Code.put(Code.exit);
         Code.put(Code.return_);
     }
@@ -480,7 +463,7 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
                 PostDecDesignatorStatement.class  != parent.getClass()
         ) {
             if (designator.obj.getKind() == Obj.Fld) {
-                Code.put(Code.load_n + 0);
+                Code.put(Code.load_n /* + 0 */);
             }
 
             Code.load(designator.obj);
@@ -492,8 +475,10 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
             }
         }
 
-        if (FunctionCallDesignator.class == parent.getClass() && designator.obj.getLocalSymbols().stream().findFirst().get().getName().equals("this")) {
-            Code.put(Code.load_n + 0);
+        Optional<Obj> firstLocalSymbol = designator.obj.getLocalSymbols().stream().findFirst();
+
+        if (FunctionCallDesignator.class == parent.getClass() && firstLocalSymbol.isPresent() && firstLocalSymbol.get().getName().equals("this")) {
+            Code.put(Code.load_n /* + 0 */);
 
             Code.put(Code.dup);
             Code.put(Code.putstatic);
@@ -501,7 +486,7 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
         }
 
         if ((designator.obj.getKind() == Obj.Fld) && (AssignmentDesignatorStatement.class == parent.getClass())) {
-            Code.put(Code.load_n + 0);
+            Code.put(Code.load_n /* + 0 */);
         }
     }
 
@@ -546,9 +531,10 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     public void visit(FunctionCallResultFactor funcCall){
         FunctionCallDesignator designator = funcCall.getFunctionCall().getFunctionCallDesignator();
         Obj functionObj = designator.obj;
-        System.err.println(functionObj.getLevel());
 
-        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || functionObj.getLocalSymbols().stream().findFirst().get().getName().equals("this")) {
+        Optional<Obj> firstLocalSymbol = functionObj.getLocalSymbols().stream().findFirst();
+
+        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || firstLocalSymbol.isPresent() && firstLocalSymbol.get().getName().equals("this")) {
             Code.put(Code.getstatic);
             Code.put2(objectMethodCall);
             Code.put(Code.getfield);
@@ -569,9 +555,9 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
     public void visit(FuncCallDesignatorStatement procCall){
         FunctionCallDesignator designator = procCall.getFunctionCall().getFunctionCallDesignator();
         Obj functionObj = designator.obj;
-        System.err.println(functionObj.getLevel());
+        Optional<Obj> firstLocalSymbol = functionObj.getLocalSymbols().stream().findFirst();
 
-        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || functionObj.getLocalSymbols().stream().findFirst().get().getName().equals("this")) {
+        if (ObjectAccessDesignator.class == designator.getDesignator().getClass() || firstLocalSymbol.isPresent() && firstLocalSymbol.get().getName().equals("this")) {
             Code.put(Code.getstatic);
             Code.put2(objectMethodCall);
             Code.put(Code.getfield);
@@ -622,12 +608,8 @@ public class CodeGenerator extends VisitorAdaptor implements Errorable {
         Code.put(Code.new_);
         Code.put2(numFields == 0 ? 4 : numFields * 4);
 
-        System.err.println("aaa");
         if (newObjectFactor.getType().struct.getKind() == Struct.Class) {
-            System.err.println("aaa");
-            if (ClassMap.get(newObjectFactor.getType().getName()) == null) {
-                ClassMap.put(newObjectFactor.getType().getName(), new ArrayList<>());
-            }
+            ClassMap.computeIfAbsent(newObjectFactor.getType().getName(), k -> new ArrayList<>());
 
             Code.put(Code.dup);
             Code.put(Code.const_);

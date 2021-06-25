@@ -24,7 +24,7 @@ int niz[];
 
 		return sum(a,pom);
 	}
-	
+
 	bool verify() {
 		print('v');
 		return false;
@@ -45,7 +45,7 @@ int niz[];
 		if(ibool)
 			if(i == 5) print(1); 
 			else print(-1);
-		
+
 		niz = new int[3];
 		niz[0] = 1;
 		niz[1] = 2;
