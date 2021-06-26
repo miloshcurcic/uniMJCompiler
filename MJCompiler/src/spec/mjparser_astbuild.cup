@@ -232,8 +232,6 @@ nonterminal
 nonterminal
 	SwitchCase SwitchCase;
 nonterminal
-	SwitchStatementStart SwitchStatementStart;
-nonterminal
 	SwitchExpressionStart SwitchExpressionStart;
 nonterminal
 	SwitchDefaultCaseStart SwitchDefaultCaseStart;
@@ -386,7 +384,6 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOL
             | (MatchedIfStatement) IF LPAREN IfCond:I1 RPAREN IfStatementStart:I2 Statement:S3 IfStatementEnd:I4 {: RESULT=new MatchedIfStatement(I1, I2, S3, I4); RESULT.setLine(I1left); :}
             | (MatchedIfElseStatement) IF LPAREN IfCond:I1 RPAREN IfStatementStart:I2 Statement:S3 IfStatementEnd:I4 ELSE ElseStatementStart:E5 Statement:S6 ElseStatementEnd:E7 {: RESULT=new MatchedIfElseStatement(I1, I2, S3, I4, E5, S6, E7); RESULT.setLine(I1left); :}
             | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 WHILE LPAREN DoWhileCondition:D3 RPAREN DoWhileStatementEnd:D4 SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, D4); RESULT.setLine(D1left); :}
-            | (MatchedSwitchStatement) SwitchStatementStart:S1 SWITCH LPAREN SwitchStatementExpression:S2 RPAREN LBRACE SwitchCases:S3 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2, S3); RESULT.setLine(S1left); :}
             | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
             | (MatchedYieldStatement) YIELD YieldExpr:Y1 SEMICOLON {: RESULT=new MatchedYieldStatement(Y1); RESULT.setLine(Y1left); :}
             | (MatchedContinueStatement) CONTINUE SEMICOLON {: RESULT=new MatchedContinueStatement(); :}
@@ -402,8 +399,6 @@ IfStatementEnd ::= (IfStatementEnd) {: RESULT=new IfStatementEnd(); :} ;
 ElseStatementStart ::= (ElseStatementStart) {: RESULT=new ElseStatementStart(); :} ;
 
 ElseStatementEnd ::= (ElseStatementEnd) {: RESULT=new ElseStatementEnd(); :} ;
-
-SwitchStatementStart ::= (SwitchStatementStart) {: RESULT=new SwitchStatementStart(); :} ;
 
 IfCond ::= (IfCondition) IfConditionStart:I1 Condition:C2 IfConditionEnd:I3 {: RESULT=new IfCondition(I1, C2, I3); RESULT.setLine(I1left); :}
     | error {: RESULT=new IfCondDerived1(); :}

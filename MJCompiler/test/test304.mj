@@ -5,7 +5,12 @@ program test302
 const int jedan = 1;
 
 int i, j;
-
+class Test {}
+class DerivedTest extends Test {}
+class DerivedTestTest extends DerivedTest {}
+class DerivedTestTestTest0 extends DerivedTestTest {}
+class DerivedTestTestTest1 extends DerivedTestTest {}
+class DerivedTestTestTestTest1 extends DerivedTestTestTest1 {}
 
 
 {
@@ -15,23 +20,27 @@ int i, j;
     }
 
 	void main()
+	DerivedTestTest t;
 	{
-switch(i){
+	    do {
+        t = switch(i){
 					case 1:
 						print(1);
-						yield 1;
+						yield new DerivedTestTestTest0;
 					case 3:
 						print(3);
 					case 2:
 						print(2);
-						yield 2;
+						yield new DerivedTestTestTest0;
 					case 4:
 						print(5);
 						i = i + 3;
-						yield 7;
+						yield new DerivedTestTestTest0;
 					default:
-						yield 10;
+						yield new DerivedTestTestTestTest1;
 			};
+					}
+		 while (true);
 	}
 }
 

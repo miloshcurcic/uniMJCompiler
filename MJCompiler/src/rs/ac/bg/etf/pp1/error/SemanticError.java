@@ -14,6 +14,7 @@ public class SemanticError extends CompilerError {
     public static final String INVALID_RETURN_NO_EXPRESSION = "Invalid return statement, return expression expected!";
 
     public static final String INVALID_YIELD_OUTSIDE_SWITCH = "Invalid yield statement, yield statement can only be used within a switch expression!";
+    public static final String SWITCH_YIELD_EXPRESSION_TYPE_MISMATCH = "Invalid yield statement, detected divergence among yield expression result types!";
 
     public static final String INVALID_DESIGNATOR_MUST_BE_INT = "Invalid designator, designator must be of Integer type!";
     public static final String INVALID_EXPRESSION_MUST_BE_INT = "Invalid expression, expression result must be of Integer type!";

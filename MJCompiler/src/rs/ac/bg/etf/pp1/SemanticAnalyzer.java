@@ -46,20 +46,19 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         public static final String CurrentMethodReturnTypeName = "CurrentMethodReturnTypeName";
     }
 
-    private static class SwitchType {
-        public static final Integer Statement = 0;
-        public static final Integer Expression = 1;
+    private static class Nesting {
+        public static final Integer SWITCH_STATEMENT = 0;
+        public static final Integer SWITCH_EXPRESSION = 1;
+        public static final Integer DO_WHILE_LOOP = 2;
     }
 
     private final Stack<Set<Integer>> switchCurrentCasesStack = new Stack<>();
-    private final Stack<Integer> switchNestingTypeStack = new Stack<>();
+    private final Stack<Integer> nestingTypeStack = new Stack<>();
     private final Stack<Struct> switchExpressionTypeStack = new Stack<>();
     private final Stack<Obj> methodInvocationStack = new Stack<>();
     private int functionNumFormalParameters = 0;
     private final Stack<Integer> functionCallNumFormalParametersStack = new Stack<>();
     private final Stack<Integer> functionCallNumActualParametersStack = new Stack<>();
-    private int doWhileNestingLevel = 0;
-    private int switchExpressionNestingLevel = 0;
 
     public static void initUniverseScope() {
         Tab.init();
@@ -228,6 +227,9 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
             Tab.insert(Obj.Var, ThisReferenceName, structTemporaries.get(StructConstants.CurrentClassTypeName));
             functionNumFormalParameters = 1;
         }
+        else {
+            functionNumFormalParameters = 0;
+        }
 
         structTemporaries.put(StructConstants.CurrentMethodReturnTypeName, returnType);
         objTemporaries.put(ObjConstants.CurrentMethodName, currentMethod);
@@ -279,6 +281,9 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
             Tab.insert(Obj.Var, ThisReferenceName, structTemporaries.get(StructConstants.CurrentClassTypeName));
             functionNumFormalParameters = 1;
         }
+        else {
+            functionNumFormalParameters = 0;
+        }
 
         structTemporaries.put(StructConstants.CurrentMethodReturnTypeName, returnType);
         objTemporaries.put(ObjConstants.CurrentMethodName, currentMethod);
@@ -303,8 +308,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         Obj currentMethod = objTemporaries.get(ObjConstants.CurrentMethodName);
 
         currentMethod.setLevel(functionNumFormalParameters);
+
         Tab.chainLocalSymbols(currentMethod);
-        functionNumFormalParameters = 0;
     }
 
     public void visit(MethodDeclaration methodDeclaration) {
@@ -347,8 +352,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         Struct classStruct = new Struct(Struct.Class);
         Tab.insert(Obj.Type, classType.getName(), classStruct);
         Tab.openScope();
-        // mvt
-        Tab.insert(Obj.Fld, "$mvt_ptr", Tab.intType);
+        // mvt_ptr + class name to differentiate for assignability comparison
+        Tab.insert(Obj.Fld, "$mvt_ptr" + classType.getName(), Tab.intType);
 
         classType.struct = classStruct;
 
@@ -390,7 +395,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
                 // Copy method parameters (formal parameters and local symbols)
                 for (Obj localParam : baseClassMember.getLocalSymbols()) {
                     // Correct type for "this" reference
-                    if (localParam.getName() == ThisReferenceName) {
+                    if (localParam.getName().equals(ThisReferenceName)) {
                         Tab.insert(localParam.getKind(), localParam.getName(), currentClass);
                     }
                     else
@@ -601,15 +606,9 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         }
     }
 
-    public void visit(MatchedSwitchStatement matchedSwitchStatement) {
-        switchCurrentCasesStack.pop();
-        switchNestingTypeStack.pop();
-    }
-
     public void visit(SwitchExpression switchExpression) {
         switchCurrentCasesStack.pop();
-        switchNestingTypeStack.pop();
-        switchExpressionNestingLevel--;
+        nestingTypeStack.pop();
 
         Struct switchExpressionType = switchExpressionTypeStack.pop();
 
@@ -633,24 +632,18 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         switchCurrentCases.add(switchCase.getNumber());
     }
 
-    public void visit(SwitchStatementStart switchStatementStart) {
-        switchNestingTypeStack.push(SwitchType.Statement);
-        switchCurrentCasesStack.push(new HashSet<>());
-    }
-
     public void visit(SwitchExpressionStart switchExpressionStart) {
-        switchNestingTypeStack.push(SwitchType.Expression);
+        nestingTypeStack.push(Nesting.SWITCH_EXPRESSION);
         switchCurrentCasesStack.push(new HashSet<>());
         switchExpressionTypeStack.push(null);
-        switchExpressionNestingLevel++;
     }
 
     public void visit(DoWhileStatementStart doWhileStatementStart) {
-        doWhileNestingLevel++;
+        nestingTypeStack.push(Nesting.DO_WHILE_LOOP);
     }
 
     public void visit(DoWhileStatementEnd doWhileStatementEnd) {
-        doWhileNestingLevel--;
+        nestingTypeStack.pop();
     }
 
     public void visit(MatchedContinueStatement matchedContinueStatement) {
@@ -759,11 +752,20 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
             return;
         }
 
-        // ToDo: Add diff type control
         if (switchExpressionTypeStack.peek() == null) {
             switchExpressionTypeStack.pop();
             switchExpressionTypeStack.push(yieldExpression.getExpr().struct);
+        } else if (!switchExpressionTypeStack.peek().equals(Tab.noType) && !switchExpressionTypeStack.peek().equals(yieldExpression.getExpr().struct)) {
+            Struct current = switchExpressionTypeStack.pop();
+            Struct closerToRoot = getCloserToRoot(current, yieldExpression.getExpr().struct);
+
+            if (closerToRoot.equals(Tab.noType)) {
+                reportError(SWITCH_YIELD_EXPRESSION_TYPE_MISMATCH, yieldExpression);
+            }
+
+            switchExpressionTypeStack.push(closerToRoot);
         }
+
     }
 
     public void visit(NoReturnExpression noReturnExpression) {
@@ -920,6 +922,48 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         log.info(msg.toString());
     }
 
+    private static Struct getCloserToRoot(Struct first, Struct second) {
+        if ((first.getKind() == Struct.Class) && (second.getKind() == Struct.Class)) {
+            Struct firstCpy = first;
+            Struct secondCpy = second;
+
+            LinkedList<Struct> firstPath = new LinkedList<>();
+            LinkedList<Struct> secondPath = new LinkedList<>();
+
+            firstPath.addFirst(firstCpy);
+            secondPath.addFirst(secondCpy);
+
+            while (!(firstCpy.getElemType() == null && secondCpy.getElemType() == null)) {
+                if(firstCpy.getElemType() != null) {
+                    firstCpy = firstCpy.getElemType();
+                    firstPath.addFirst(firstCpy);
+                }
+
+                if (secondCpy.getElemType() != null) {
+                    secondCpy = secondCpy.getElemType();
+                    secondPath.addFirst(secondCpy);
+                }
+            }
+
+            Struct result = Tab.noType;
+
+            do {
+                firstCpy = firstPath.removeFirst();
+                secondCpy = secondPath.removeFirst();
+
+                if (firstCpy.equals(secondCpy)) {
+                    result = firstCpy;
+                } else {
+                    break;
+                }
+            } while (!firstPath.isEmpty() && !secondPath.isEmpty());
+
+            return result;
+        }
+
+        return Tab.noType;
+    }
+
     private static boolean checkAssignCompatibility(Struct source, Struct destination) {
         boolean defaultCompatible = source.assignableTo(destination);
 
@@ -937,14 +981,14 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
     }
 
     private boolean currentlyProcessingSwitchStatement() {
-        return switchNestingTypeStack.peek().equals(SwitchType.Statement);
+        return !nestingTypeStack.isEmpty() && nestingTypeStack.peek().equals(Nesting.SWITCH_STATEMENT);
     }
 
     private boolean currentlyProcessingSwitchExpression() {
-        return switchExpressionNestingLevel != 0;
+        return !nestingTypeStack.isEmpty() && nestingTypeStack.peek().equals(Nesting.SWITCH_EXPRESSION);
     }
 
     private boolean currentlyProcessingDoWhile() {
-        return doWhileNestingLevel != 0;
+        return !nestingTypeStack.isEmpty() && nestingTypeStack.peek().equals(Nesting.DO_WHILE_LOOP);
     }
 }

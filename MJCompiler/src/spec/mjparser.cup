@@ -182,7 +182,6 @@ nonterminal Program,
 	SwitchDefaultCase,
 	SwitchStatementExpression,
 	SwitchCase,
-	SwitchStatementStart,
 	SwitchExpressionStart,
 	SwitchDefaultCaseStart,
 	SwitchCondition,
@@ -322,7 +321,6 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
             | (MatchedIfStatement) IF LPAREN IfCond RPAREN IfStatementStart Statement IfStatementEnd
             | (MatchedIfElseStatement) IF LPAREN IfCond RPAREN IfStatementStart Statement IfStatementEnd ELSE ElseStatementStart Statement ElseStatementEnd
             | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement WHILE LPAREN DoWhileCondition RPAREN DoWhileStatementEnd SEMICOLON
-            | (MatchedSwitchStatement) SwitchStatementStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases RBRACE
             | (MatchedBreakStatement) BREAK SEMICOLON
             | (MatchedYieldStatement) YIELD YieldExpr SEMICOLON
             | (MatchedContinueStatement) CONTINUE SEMICOLON
@@ -338,8 +336,6 @@ IfStatementEnd ::= (IfStatementEnd) ;
 ElseStatementStart ::= (ElseStatementStart) ;
 
 ElseStatementEnd ::= (ElseStatementEnd) ;
-
-SwitchStatementStart ::= (SwitchStatementStart) ;
 
 IfCond ::= (IfCondition) IfConditionStart Condition IfConditionEnd
     | error
