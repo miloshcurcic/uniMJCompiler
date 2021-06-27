@@ -142,6 +142,30 @@ public class CodeGenerator extends VisitorAdaptor {
         Code.loadConst(boolConstFactor.getB1() ? 1 : 0);
     }
 
+    public void visit(MethodStatements methodStatements) {
+        MethodDeclaration methodDeclaration = (MethodDeclaration)methodStatements.getParent();
+        MethodTypeNamePair methodTypeNamePair = methodDeclaration.getMethodTypeNamePair();
+
+        if (methodTypeNamePair.getClass().equals(TypeMethodTypeNamePair.class)) {
+            Code.put(Code.trap);
+            Code.put(0);
+        }
+        else {
+            Code.put(Code.exit);
+            Code.put(Code.return_);
+        }
+    }
+
+    public void visit(MatchedReturnStatement methodStatements) {
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    }
+
+    public void visit(SwitchDefaultCase switchDefaultCase) {
+        Code.put(Code.trap);
+        Code.put(1);
+    }
+
     public void visit(VoidMethodTypeNamePair voidMethodTypeNamePair) {
         if ("main".equalsIgnoreCase(voidMethodTypeNamePair.getName())) {
             mainPc = Code.pc;
@@ -442,11 +466,6 @@ public class CodeGenerator extends VisitorAdaptor {
                 Code.put2(address + 2, Classes.get(classEntry.getKey()));
             }
         }
-    }
-
-    public void visit(MethodDeclaration methodDeclaration){
-        Code.put(Code.exit);
-        Code.put(Code.return_);
     }
 
     public void visit(AssignmentDesignatorStatement assignment){

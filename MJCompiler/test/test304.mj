@@ -5,8 +5,15 @@ program test302
 const int jedan = 1;
 
 int i, j;
-class Test {}
-class DerivedTest extends Test {}
+class Test {
+   {
+   void a(int a) {}
+   }
+   }
+class DerivedTest extends Test {
+{
+   void a(int b, int c) {}
+ }  }
 class DerivedTestTest extends DerivedTest {}
 class DerivedTestTestTest0 extends DerivedTestTest {}
 class DerivedTestTestTest1 extends DerivedTestTest {}
@@ -14,15 +21,14 @@ class DerivedTestTestTestTest1 extends DerivedTestTestTest1 {}
 
 
 {
-    void test(bool i, int j) {
+    int test(bool i, int j) {
         test(i, j);
-        return;
+        return 1;
     }
 
 	void main()
 	DerivedTestTest t;
 	{
-	    do {
         t = switch(i){
 					case 1:
 						print(1);
@@ -37,10 +43,8 @@ class DerivedTestTestTestTest1 extends DerivedTestTestTest1 {}
 						i = i + 3;
 						yield new DerivedTestTestTest0;
 					default:
-						yield new DerivedTestTestTestTest1;
+						yield new DerivedTestTestTest0;
 			};
-					}
-		 while (true);
 	}
 }
 

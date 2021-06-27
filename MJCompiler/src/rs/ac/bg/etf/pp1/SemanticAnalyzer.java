@@ -5,6 +5,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.ac.bg.etf.pp1.error.Errorable;
 import rs.ac.bg.etf.pp1.error.SemanticError;
 import rs.ac.bg.etf.pp1.test.CompilerError;
+import rs.ac.bg.etf.pp1.util.CustomDumpSymbolTableVisitor;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
 
@@ -126,7 +127,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
             return;
         }
 
-        Tab.insert(getVarKind(), scalarVarIdent.getName(), structTemporaries.get(StructConstants.CurrentVarDeclTypeName));
+        Obj res = Tab.insert(getVarKind(), scalarVarIdent.getName(), structTemporaries.get(StructConstants.CurrentVarDeclTypeName));
+        res.setFpPos(Obj.NO_VALUE);
     }
 
     public void visit(ArrayVarIdent arrayVarIdent) {
@@ -140,7 +142,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
         // ToDo: Does this need fixing?
         Struct varArrayStruct = new Struct(Struct.Array, structTemporaries.get(StructConstants.CurrentVarDeclTypeName));
-        Tab.insert(getVarKind(), arrayVarIdent.getName(), varArrayStruct);
+        Obj res = Tab.insert(getVarKind(), arrayVarIdent.getName(), varArrayStruct);
+        res.setFpPos(Obj.NO_VALUE);
     }
 
     // Constant
@@ -292,16 +295,16 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
     }
 
     public void visit(ScalarFormalParameter scalarFormalParameter) {
-        Tab.insert(Obj.Var, scalarFormalParameter.getName(), scalarFormalParameter.getType().struct);
-        functionNumFormalParameters++;
+        Obj res = Tab.insert(Obj.Var, scalarFormalParameter.getName(), scalarFormalParameter.getType().struct);
+        res.setFpPos(functionNumFormalParameters++);
     }
 
     public void visit(ArrayFormalParameter arrayFormalParameter) {
         // ToDo: Does this need fixing?
         Struct arrayFormalParameterStruct = new Struct(Struct.Array, arrayFormalParameter.getType().struct);
 
-        Tab.insert(Obj.Var, arrayFormalParameter.getName(), arrayFormalParameterStruct);
-        functionNumFormalParameters++;
+        Obj res = Tab.insert(Obj.Var, arrayFormalParameter.getName(), arrayFormalParameterStruct);
+        res.setFpPos(functionNumFormalParameters++);
     }
 
     public void visit(MethodFormalParameters methodFormPars) {
@@ -353,7 +356,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         Tab.insert(Obj.Type, classType.getName(), classStruct);
         Tab.openScope();
         // mvt_ptr + class name to differentiate for assignability comparison
-        Tab.insert(Obj.Fld, "$mvt_ptr" + classType.getName(), Tab.intType);
+        Tab.insert(Obj.Fld, "$mvt_ptr_" + classType.getName(), Tab.intType);
 
         classType.struct = classStruct;
 
@@ -374,6 +377,11 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
         for (Obj baseClassMember : baseClass.getMembers()) {
             if (baseClassMember.getKind() == Obj.Fld) {
+                // skip mvt_ptr
+                if (baseClassMember.getName().startsWith("$mvt_ptr_")) {
+                    continue;
+                }
+
                 Tab.insert(baseClassMember.getKind(), baseClassMember.getName(), baseClassMember.getType());
             }
         }
@@ -400,7 +408,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
                     }
                     else
                     {
-                        Tab.insert(localParam.getKind(), localParam.getName(), localParam.getType());
+                        Obj res = Tab.insert(localParam.getKind(), localParam.getName(), localParam.getType());
+                        res.setFpPos(localParam.getFpPos());
                     }
                 }
 
@@ -424,6 +433,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
                 scalarDesignator.obj = Tab.noObj;
                 reportError(INVALID_DESIGNATOR_NOT_ASSIGNABLE, scalarDesignator);
             } else {
+                reportInfo("Detected use of " + CustomDumpSymbolTableVisitor.printObjNode(scalarDesignatorObj), scalarDesignator);
+
                 scalarDesignator.obj = scalarDesignatorObj;
             }
         }
@@ -463,6 +474,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
             return;
         }
 
+        reportInfo("Detected use of " + CustomDumpSymbolTableVisitor.printObjNode(fieldNameObj), objectAccessDesignator);
         objectAccessDesignator.obj = fieldNameObj;
     }
 
@@ -489,6 +501,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
         // ToDo: Does this need fixing, can I use a temporary object like this
         arrayAccessDesignator.obj = new Obj(Obj.Elem, arrayAccessDesignator.getDesignator().obj.getName() + "[]", arrayAccessDesignatorObj.getType().getElemType());
+
+        reportInfo("Detected use of " + CustomDumpSymbolTableVisitor.printObjNode(arrayAccessDesignator.obj), arrayAccessDesignator);
     }
 
     public void visit(VarFactor varFactor) {
@@ -909,7 +923,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         log.error(msg.toString());
     }
 
-    public void report_info(String message, SyntaxNode info) {
+    public void reportInfo(String message, SyntaxNode info) {
         StringBuilder msg = new StringBuilder();
         int line = (info == null) ? 0: info.getLine();
 

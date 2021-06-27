@@ -86,7 +86,9 @@ public class CustomDumpSymbolTableVisitor extends SymbolTableVisitor {
 			if (objToVisit.getKind() == Obj.Con) {
 				output.append(", Value: ").append(objToVisit.getAdr());
 			} else if (objToVisit.getKind() != Obj.Type) {
-				output.append(", Offset: ").append(objToVisit.getAdr());
+				if (objToVisit.getAdr() != Obj.NO_VALUE) {
+					output.append(", Offset: ").append(objToVisit.getAdr());
+				}
 			}
 
 			if (objToVisit.getKind() == Obj.Var) {
@@ -103,7 +105,7 @@ public class CustomDumpSymbolTableVisitor extends SymbolTableVisitor {
 				}
 			}
 
-			if (objToVisit.getKind() == Obj.Var) {
+			if ((objToVisit.getKind() == Obj.Var) && (objToVisit.getFpPos() != Obj.NO_VALUE)) {
 				output.append(", Formal param position: ").append(objToVisit.getFpPos());
 			}
 
@@ -201,12 +203,130 @@ public class CustomDumpSymbolTableVisitor extends SymbolTableVisitor {
 				break;
 			}
 		}
-
 	}
 
+	public static String printObjNode(Obj objNode) {
+		StringBuilder output = new StringBuilder();
+
+		switch (objNode.getKind()) {
+			case Obj.Con:  {
+				output.append("Constant ");
+				break;
+			}
+			case Obj.Var: {
+				output.append("Variable ");
+				break;
+			}
+			case Obj.Type: {
+				output.append("Type ");
+				break;
+			}
+			case Obj.Meth: {
+				output.append("Method ");
+				break;
+			}
+			case Obj.Fld: {
+				output.append("Field ");
+				break;
+			}
+			case Obj.Prog: {
+				output.append("Program ");
+				break;
+			}
+			case Obj.Elem: {
+				output.append("Element of Array ");
+				break;
+			}
+		}
+
+		output.append(objNode.getName());
+		output.append(": ");
+
+		if ((objNode.getKind() == Obj.Var) && "this".equalsIgnoreCase(objNode.getName())) {
+			output.append("this");
+		} else {
+			switch (objNode.getType().getKind()) {
+				case Struct.None: {
+					output.append("notype");
+					break;
+				}
+				case Struct.Int: {
+					output.append("int");
+					break;
+				}
+				case Struct.Char: {
+					output.append("char");
+					break;
+				}
+				case Struct.Bool: {
+					output.append("bool");
+					break;
+				}
+				case Struct.Array: {
+					output.append("Array of ");
+
+					switch (objNode.getType().getElemType().getKind()) {
+						case Struct.None: {
+							output.append("notype");
+							break;
+						}
+						case Struct.Int: {
+							output.append("int");
+							break;
+						}
+						case Struct.Char: {
+							output.append("char");
+							break;
+						}
+						case Struct.Bool: {
+							output.append("bool");
+							break;
+						}
+						case Struct.Class: {
+							output.append("Class");
+							break;
+						}
+					}
+					break;
+				}
+				case Struct.Class: {
+					output.append("Class");
+					break;
+				}
+			}
+		}
+
+		if (objNode.getKind() == Obj.Con) {
+			output.append(", Value: ").append(objNode.getAdr());
+		} else if (objNode.getKind() != Obj.Type) {
+			if (objNode.getAdr() != Obj.NO_VALUE) {
+				output.append(", Offset: ").append(objNode.getAdr());
+			}
+		}
+
+		if (objNode.getKind() == Obj.Var) {
+			output.append(", Scope: ");
+
+			if (objNode.getLevel() == 1) {
+				output.append("local");
+			} else {
+				output.append("global");
+			}
+		} else {
+			if (objNode.getKind() == Obj.Meth) {
+				output.append(", Formal params: ").append(objNode.getLevel());
+			}
+		}
+
+		if ((objNode.getKind() == Obj.Var) && (objNode.getFpPos() != Obj.NO_VALUE)) {
+			output.append(", Formal param position: ").append(objNode.getFpPos());
+		}
+
+		return output.toString();
+	}
+
+	@Override
 	public String getOutput() {
 		return output.toString();
 	}
-	
-	
 }

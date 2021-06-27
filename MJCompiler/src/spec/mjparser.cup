@@ -153,6 +153,7 @@ nonterminal Program,
 	MethodDecls,
 	MethodDecl,
 	MethodFormPars,
+	MethodStatements,
 	FormPars,
 	FormPar,
 	Statements,
@@ -280,7 +281,9 @@ MethodDecls ::= (MethodDeclarationListElement) MethodDecls MethodDecl
                 | (EmptyMethodDeclarationListHead)
 ;
 
-MethodDecl ::= (MethodDeclaration) MethodTypeNamePair LPAREN MethodFormPars RPAREN VarDecls LBRACE Statements RBRACE ;
+MethodDecl ::= (MethodDeclaration) MethodTypeNamePair LPAREN MethodFormPars RPAREN VarDecls LBRACE MethodStatements RBRACE ;
+
+MethodStatements ::= (MethodStatements) Statements ;
 
 MethodFormPars ::= (MethodFormalParameters) FormPars
        | (NoMethodFormalParameters)
