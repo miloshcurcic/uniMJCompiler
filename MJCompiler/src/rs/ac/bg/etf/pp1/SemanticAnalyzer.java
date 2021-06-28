@@ -604,14 +604,18 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         termExprListHead.struct = termExprListHead.getTerm().struct;
     }
 
-    public void visit(TermExpression expr) {
-        if (!expr.getTermExpr().struct.equals(Tab.intType) && (expr.getExprPrefix().getClass() != NoExpressionPrefix.class)) {
-            expr.struct = Tab.noType;
-            reportError(INVALID_EXPRESSION_MUST_BE_INT, expr);
+    public void visit(NegTermExprListHead negTermExprListHead) {
+        if (!negTermExprListHead.getTerm().struct.equals(Tab.intType)) {
+            negTermExprListHead.struct = Tab.noType;
+            reportError(INVALID_EXPRESSION_MUST_BE_INT, negTermExprListHead);
 
             return;
         }
 
+        negTermExprListHead.struct = negTermExprListHead.getTerm().struct;
+    }
+
+    public void visit(TermExpression expr) {
         expr.struct = expr.getTermExpr().struct;
     }
 

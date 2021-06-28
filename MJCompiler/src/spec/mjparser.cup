@@ -192,7 +192,6 @@ nonterminal Program,
 	Condition,
 	CondTerm,
 	CondFact,
-	ExprPrefix,
 	Assignop,
 	Relop,
 	Addop,
@@ -415,7 +414,7 @@ CondFact ::= (RelationalCondFact) Expr Relop Expr
     | (SingleCondFact) Expr
 ;
 
-Expr ::= (TermExpression) ExprPrefix TermExpr
+Expr ::= (TermExpression) TermExpr
    | (SwitchExpression) SwitchExpressionStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases SwitchDefaultCase RBRACE
 ;
 
@@ -425,12 +424,9 @@ SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT SwitchDefaultCaseStart COLON S
 
 SwitchDefaultCaseStart ::= (SwitchDefaultCaseStart) ;
 
-ExprPrefix ::= (NegativeExpressionPrefix) MINUS
-           | (NoExpressionPrefix)
-;
-
 TermExpr ::= (TermExprListElement) TermExpr Addop Term
         | (TermExprListHead) Term
+        | (NegTermExprListHead) MINUS Term
 ;
 
 Term ::= (TermListElement) Term Mulop Factor

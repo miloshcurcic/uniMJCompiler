@@ -4,6 +4,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
 import rs.ac.bg.etf.pp1.error.Errorable;
 import rs.ac.bg.etf.pp1.test.CompilerError;
+import rs.ac.bg.etf.pp1.util.CustomDumpSymbolTableVisitor;
 import rs.etf.pp1.mj.runtime.*;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
@@ -240,10 +241,8 @@ public class CodeGenerator extends VisitorAdaptor {
         }
     }
 
-    public void visit(TermExpression termExpression) {
-        if (NegativeExpressionPrefix.class == termExpression.getExprPrefix().getClass()) {
-            Code.put(Code.neg);
-        }
+    public void visit(NegTermExprListHead negTermExprListHead) {
+        Code.put(Code.neg);
     }
 
     public int getOperation(Relop relop) {
@@ -641,13 +640,12 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(NewArrayObjectFactor newArrayObjectFactor) {
-        int numFields = newArrayObjectFactor.getType().struct.getNumberOfFields();
-
-        if (newArrayObjectFactor.getType().struct.getElemType().getKind() == Struct.Char) {
-            numFields = (numFields + 3) / 4;
-        }
-
         Code.put(Code.newarray);
-        Code.put(numFields == 0 ? 4 : numFields * 4);
+
+        if (newArrayObjectFactor.struct.getElemType().equals(Tab.charType)) {
+            Code.put(0);
+        } else {
+            Code.put(1);
+        }
     }
 }

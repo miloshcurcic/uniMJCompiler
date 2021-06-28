@@ -252,8 +252,6 @@ nonterminal
 nonterminal
 	CondFact CondFact;
 nonterminal
-	ExprPrefix ExprPrefix;
-nonterminal
 	Assignop Assignop;
 nonterminal
 	Relop Relop;
@@ -479,7 +477,7 @@ CondFact ::= (RelationalCondFact) Expr:E1 Relop:R2 Expr:E3 {: RESULT=new Relatio
     | (SingleCondFact) Expr:E1 {: RESULT=new SingleCondFact(E1); RESULT.setLine(E1left); :}
 ;
 
-Expr ::= (TermExpression) ExprPrefix:E1 TermExpr:T2 {: RESULT=new TermExpression(E1, T2); RESULT.setLine(E1left); :}
+Expr ::= (TermExpression) TermExpr:T1 {: RESULT=new TermExpression(T1); RESULT.setLine(T1left); :}
    | (SwitchExpression) SwitchExpressionStart:S1 SWITCH LPAREN SwitchStatementExpression:S2 RPAREN LBRACE SwitchCases:S3 SwitchDefaultCase:S4 RBRACE {: RESULT=new SwitchExpression(S1, S2, S3, S4); RESULT.setLine(S1left); :}
 ;
 
@@ -489,12 +487,9 @@ SwitchDefaultCase ::= (SwitchDefaultCase) DEFAULT SwitchDefaultCaseStart:S1 COLO
 
 SwitchDefaultCaseStart ::= (SwitchDefaultCaseStart) {: RESULT=new SwitchDefaultCaseStart(); :} ;
 
-ExprPrefix ::= (NegativeExpressionPrefix) MINUS {: RESULT=new NegativeExpressionPrefix(); :}
-           | (NoExpressionPrefix) {: RESULT=new NoExpressionPrefix(); :}
-;
-
 TermExpr ::= (TermExprListElement) TermExpr:T1 Addop:A2 Term:T3 {: RESULT=new TermExprListElement(T1, A2, T3); RESULT.setLine(T1left); :}
         | (TermExprListHead) Term:T1 {: RESULT=new TermExprListHead(T1); RESULT.setLine(T1left); :}
+        | (NegTermExprListHead) MINUS Term:T1 {: RESULT=new NegTermExprListHead(T1); RESULT.setLine(T1left); :}
 ;
 
 Term ::= (TermListElement) Term:T1 Mulop:M2 Factor:F3 {: RESULT=new TermListElement(T1, M2, F3); RESULT.setLine(T1left); :}
