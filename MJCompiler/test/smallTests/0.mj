@@ -96,7 +96,7 @@ ValidExtendedClass validExtendedClassInstance;
 	    localVar = new int[true];
         localVar = new int;
 
-        localVar.a = 0;
+        localVar.a.b.c = 0;
         localArray[true] = 0;
     }
 }
