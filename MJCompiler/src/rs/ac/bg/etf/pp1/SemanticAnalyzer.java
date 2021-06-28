@@ -173,14 +173,32 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
     }
 
     public void visit(NumberConstNameValuePair numberConstNameValuePair) {
+        Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
+
+        if (!constType.equals(Tab.intType)) {
+            reportError("Constant literal type differs from constant type!", numberConstNameValuePair);
+        }
+
         createConstant(numberConstNameValuePair.getName(), numberConstNameValuePair.getValue(), numberConstNameValuePair);
     }
 
     public void visit(CharConstNameValuePair charConstNameValuePair) {
+        Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
+
+        if (!constType.equals(Tab.charType)) {
+            reportError("Constant literal type differs from constant type!", charConstNameValuePair);
+        }
+
         createConstant(charConstNameValuePair.getName(), charConstNameValuePair.getValue(), charConstNameValuePair);
     }
 
     public void visit(BoolConstNameValuePair boolConstNameValuePair) {
+        Struct constType = structTemporaries.get(StructConstants.CurrentConstDeclTypeName);
+
+        if (!constType.equals(boolType)) {
+            reportError("Constant literal type differs from constant type!", boolConstNameValuePair);
+        }
+
         createConstant(boolConstNameValuePair.getName(), boolConstNameValuePair.getValue()  ? 1 : 0, boolConstNameValuePair);
     }
 
@@ -369,6 +387,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
         if (baseClass.getKind() != Struct.Class) {
             reportError(INVALID_BASE_CLASS_TYPE, baseClassName);
+            structTemporaries.put(StructConstants.CurrentBaseClassTypeName, null);
 
             return;
         }
@@ -393,28 +412,30 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         Struct baseClass = structTemporaries.get(StructConstants.CurrentBaseClassTypeName);
         Struct currentClass = structTemporaries.get(StructConstants.CurrentClassTypeName);
 
-        for (Obj baseClassMember : baseClass.getMembers()) {
-            if (baseClassMember.getKind() == Obj.Meth) {
-                Obj currentMethod = Tab.insert(baseClassMember.getKind(), baseClassMember.getName(), baseClassMember.getType());
-                currentMethod.setLevel(baseClassMember.getLevel());
+        if (baseClass != null) {
+            for (Obj baseClassMember : baseClass.getMembers()) {
+                if (baseClassMember.getKind() == Obj.Meth) {
+                    Obj currentMethod = Tab.insert(baseClassMember.getKind(), baseClassMember.getName(), baseClassMember.getType());
+                    currentMethod.setLevel(baseClassMember.getLevel());
 
-                Tab.openScope();
+                    Tab.openScope();
 
-                // Copy method parameters (formal parameters and local symbols)
-                for (Obj localParam : baseClassMember.getLocalSymbols()) {
-                    // Correct type for "this" reference
-                    if (localParam.getName().equals(ThisReferenceName)) {
-                        Tab.insert(localParam.getKind(), localParam.getName(), currentClass);
+                    // Copy method parameters (formal parameters and local symbols)
+                    for (Obj localParam : baseClassMember.getLocalSymbols()) {
+                        // Correct type for "this" reference
+                        if (localParam.getName().equals(ThisReferenceName)) {
+                            Tab.insert(localParam.getKind(), localParam.getName(), currentClass);
+                        }
+                        else
+                        {
+                            Obj res = Tab.insert(localParam.getKind(), localParam.getName(), localParam.getType());
+                            res.setFpPos(localParam.getFpPos());
+                        }
                     }
-                    else
-                    {
-                        Obj res = Tab.insert(localParam.getKind(), localParam.getName(), localParam.getType());
-                        res.setFpPos(localParam.getFpPos());
-                    }
+
+                    Tab.chainLocalSymbols(currentMethod);
+                    Tab.closeScope();
                 }
-
-                Tab.chainLocalSymbols(currentMethod);
-                Tab.closeScope();
             }
         }
     }
@@ -703,10 +724,8 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
         functionCall.struct = functionCall.getFunctionCallDesignator().obj.getType();
 
-        if (functionCallCurrentParameter != functionCallNumFormalParameters) {
+        if ((methodInvocationStack.peek() != null) && (functionCallCurrentParameter != functionCallNumFormalParameters)) {
             reportError(INVALID_FUNCTION_CALL_MISSING_PARAMETERS, functionCall);
-
-            return;
         }
 
         functionCallNumFormalParametersStack.pop();
@@ -719,6 +738,10 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
         if (functionCallDesignatorObj.getKind() != Obj.Meth) {
             functionCallDesignator.obj = Tab.noObj;
+            functionCallNumFormalParametersStack.push(0);
+            functionCallNumActualParametersStack.push(0);
+            methodInvocationStack.push(null);
+
             reportError(INVALID_DESIGNATOR_ACCESS_TEMPLATE, functionCallDesignator, functionCallDesignatorObj.getName(), METHOD_OR_FUNCTION_STRING);
 
             return;

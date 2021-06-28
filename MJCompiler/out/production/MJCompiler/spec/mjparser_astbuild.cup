@@ -52,6 +52,10 @@ parser code {:
     public boolean isErrorDetected() {
         return !errorList.isEmpty();
     }
+
+    public List<CompilerError> getErrorList() {
+        return errorList;
+    }
 :}
 
 init with {:
@@ -170,6 +174,8 @@ nonterminal
 nonterminal
 	MethodFormPars MethodFormPars;
 nonterminal
+	MethodStatements MethodStatements;
+nonterminal
 	FormPars FormPars;
 nonterminal
 	FormPar FormPar;
@@ -227,8 +233,6 @@ nonterminal
 	SwitchStatementExpression SwitchStatementExpression;
 nonterminal
 	SwitchCase SwitchCase;
-nonterminal
-	SwitchStatementStart SwitchStatementStart;
 nonterminal
 	SwitchExpressionStart SwitchExpressionStart;
 nonterminal
@@ -308,6 +312,7 @@ VarDecls ::= (VarDeclListElement) VarDecls:V1 VarDecl:V2 {: RESULT=new VarDeclLi
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VariableDeclaration(V1, V2); RESULT.setLine(V1left); :}
+    | (VariableDeclarationError) error SEMICOLON {: RESULT=new VariableDeclarationError(); :}
 ;
 
 VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
@@ -318,7 +323,7 @@ VarIdents ::= (VarIdentListElement) VarIdents:V1 COMMA VarIdent:V2 {: RESULT=new
 
 VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RESULT.setLine(nameleft); :}
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayVarIdent(name); RESULT.setLine(nameleft); :}
-       | error {: RESULT=new VarIdentDerived1(); :}
+       | (VarIdentError) error {: RESULT=new VarIdentError(); :}
 ;
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName:C1 EXTENDS BaseClassName:B2 LBRACE VarDecls:V3 ExtendedClassSplitter:E4 ClassMethodDecls:C5 RBRACE {: RESULT=new ExtendedClassDeclaration(C1, B2, V3, E4, C5); RESULT.setLine(C1left); :}
@@ -341,7 +346,9 @@ MethodDecls ::= (MethodDeclarationListElement) MethodDecls:M1 MethodDecl:M2 {: R
                 | (EmptyMethodDeclarationListHead) {: RESULT=new EmptyMethodDeclarationListHead(); :}
 ;
 
-MethodDecl ::= (MethodDeclaration) MethodTypeNamePair:M1 LPAREN MethodFormPars:M2 RPAREN VarDecls:V3 LBRACE Statements:S4 RBRACE {: RESULT=new MethodDeclaration(M1, M2, V3, S4); RESULT.setLine(M1left); :} ;
+MethodDecl ::= (MethodDeclaration) MethodTypeNamePair:M1 LPAREN MethodFormPars:M2 RPAREN VarDecls:V3 LBRACE MethodStatements:M4 RBRACE {: RESULT=new MethodDeclaration(M1, M2, V3, M4); RESULT.setLine(M1left); :} ;
+
+MethodStatements ::= (MethodStatements) Statements:S1 {: RESULT=new MethodStatements(S1); RESULT.setLine(S1left); :} ;
 
 MethodFormPars ::= (MethodFormalParameters) FormPars:F1 {: RESULT=new MethodFormalParameters(F1); RESULT.setLine(F1left); :}
        | (NoMethodFormalParameters) {: RESULT=new NoMethodFormalParameters(); :}
@@ -357,7 +364,7 @@ FormPars ::= (FormalParametersListElement) FormPars:F1 COMMA FormPar:F2 {: RESUL
 
 FormPar ::= (ScalarFormalParameter) Type:T1 IDENT:name {: RESULT=new ScalarFormalParameter(T1, name); RESULT.setLine(T1left); :}
             | (ArrayFormalParameter) Type:T1 IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayFormalParameter(T1, name); RESULT.setLine(T1left); :}
-            | error {: RESULT=new FormParDerived1(); :}
+            | (FormalParameterError) error {: RESULT=new FormalParameterError(); :}
 ;
 
 Type ::= (Type) IDENT:name {: RESULT=new Type(name); RESULT.setLine(nameleft); :} ;
@@ -382,7 +389,6 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement:D1 SEMICOL
             | (MatchedIfStatement) IF LPAREN IfCond:I1 RPAREN IfStatementStart:I2 Statement:S3 IfStatementEnd:I4 {: RESULT=new MatchedIfStatement(I1, I2, S3, I4); RESULT.setLine(I1left); :}
             | (MatchedIfElseStatement) IF LPAREN IfCond:I1 RPAREN IfStatementStart:I2 Statement:S3 IfStatementEnd:I4 ELSE ElseStatementStart:E5 Statement:S6 ElseStatementEnd:E7 {: RESULT=new MatchedIfElseStatement(I1, I2, S3, I4, E5, S6, E7); RESULT.setLine(I1left); :}
             | (MatchedDoWhileStatement) DO DoWhileStatementStart:D1 Statement:S2 WHILE LPAREN DoWhileCondition:D3 RPAREN DoWhileStatementEnd:D4 SEMICOLON {: RESULT=new MatchedDoWhileStatement(D1, S2, D3, D4); RESULT.setLine(D1left); :}
-            | (MatchedSwitchStatement) SwitchStatementStart:S1 SWITCH LPAREN SwitchStatementExpression:S2 RPAREN LBRACE SwitchCases:S3 RBRACE {: RESULT=new MatchedSwitchStatement(S1, S2, S3); RESULT.setLine(S1left); :}
             | (MatchedBreakStatement) BREAK SEMICOLON {: RESULT=new MatchedBreakStatement(); :}
             | (MatchedYieldStatement) YIELD YieldExpr:Y1 SEMICOLON {: RESULT=new MatchedYieldStatement(Y1); RESULT.setLine(Y1left); :}
             | (MatchedContinueStatement) CONTINUE SEMICOLON {: RESULT=new MatchedContinueStatement(); :}
@@ -399,10 +405,8 @@ ElseStatementStart ::= (ElseStatementStart) {: RESULT=new ElseStatementStart(); 
 
 ElseStatementEnd ::= (ElseStatementEnd) {: RESULT=new ElseStatementEnd(); :} ;
 
-SwitchStatementStart ::= (SwitchStatementStart) {: RESULT=new SwitchStatementStart(); :} ;
-
 IfCond ::= (IfCondition) IfConditionStart:I1 Condition:C2 IfConditionEnd:I3 {: RESULT=new IfCondition(I1, C2, I3); RESULT.setLine(I1left); :}
-    | error {: RESULT=new IfCondDerived1(); :}
+    | (IfConditionError) error {: RESULT=new IfConditionError(); :}
 ;
 
 IfConditionStart ::= (IfConditionStart) {: RESULT=new IfConditionStart(); :} ;
@@ -444,7 +448,7 @@ DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A
                     | (PostIncDesignatorStatement) Designator:D1 PPLUS {: RESULT=new PostIncDesignatorStatement(D1); RESULT.setLine(D1left); :}
                     | (PostDecDesignatorStatement) Designator:D1 MMINUS {: RESULT=new PostDecDesignatorStatement(D1); RESULT.setLine(D1left); :}
                     // ToDo: Does this work
-                    | error Assignop:A1 error {: RESULT=new DesignatorStatementDerived1(A1); RESULT.setLine(A1left); :}
+                    | (AssignmentError) error Assignop:A1 error {: RESULT=new AssignmentError(A1); RESULT.setLine(A1left); :}
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator:F1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCall(F1, F2); RESULT.setLine(F1left); :} ;

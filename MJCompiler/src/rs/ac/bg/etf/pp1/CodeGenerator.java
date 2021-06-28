@@ -643,7 +643,10 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(NewArrayObjectFactor newArrayObjectFactor) {
         int numFields = newArrayObjectFactor.getType().struct.getNumberOfFields();
 
-        // bool 1 byte?
+        if (newArrayObjectFactor.getType().struct.getElemType().getKind() == Struct.Char) {
+            numFields = (numFields + 3) / 4;
+        }
+
         Code.put(Code.newarray);
         Code.put(numFields == 0 ? 4 : numFields * 4);
     }

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 27/5/2021 20:16:11
+// 28/5/2021 2:1:52
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -97,7 +97,7 @@ public interface Visitor {
     public void visit(FunctionCallActualParameters FunctionCallActualParameters);
     public void visit(FunctionCallDesignator FunctionCallDesignator);
     public void visit(FunctionCall FunctionCall);
-    public void visit(DesignatorStatementDerived1 DesignatorStatementDerived1);
+    public void visit(AssignmentError AssignmentError);
     public void visit(PostDecDesignatorStatement PostDecDesignatorStatement);
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement);
     public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement);
@@ -119,7 +119,7 @@ public interface Visitor {
     public void visit(DoWhileCondition DoWhileCondition);
     public void visit(IfConditionEnd IfConditionEnd);
     public void visit(IfConditionStart IfConditionStart);
-    public void visit(IfCondDerived1 IfCondDerived1);
+    public void visit(IfConditionError IfConditionError);
     public void visit(IfCondition IfCondition);
     public void visit(ElseStatementEnd ElseStatementEnd);
     public void visit(ElseStatementStart ElseStatementStart);
@@ -144,7 +144,7 @@ public interface Visitor {
     public void visit(EmptyStatementListHead EmptyStatementListHead);
     public void visit(StatementListElement StatementListElement);
     public void visit(Type Type);
-    public void visit(FormParDerived1 FormParDerived1);
+    public void visit(FormalParameterError FormalParameterError);
     public void visit(ArrayFormalParameter ArrayFormalParameter);
     public void visit(ScalarFormalParameter ScalarFormalParameter);
     public void visit(FormParametersListHead FormParametersListHead);
@@ -165,12 +165,13 @@ public interface Visitor {
     public void visit(ClassMethodDeclarations ClassMethodDeclarations);
     public void visit(ClassDeclaration ClassDeclaration);
     public void visit(ExtendedClassDeclaration ExtendedClassDeclaration);
-    public void visit(VarIdentDerived1 VarIdentDerived1);
+    public void visit(VarIdentError VarIdentError);
     public void visit(ArrayVarIdent ArrayVarIdent);
     public void visit(ScalarVarIdent ScalarVarIdent);
     public void visit(VarIdentListHead VarIdentListHead);
     public void visit(VarIdentListElement VarIdentListElement);
     public void visit(VarDeclType VarDeclType);
+    public void visit(VariableDeclarationError VariableDeclarationError);
     public void visit(VariableDeclaration VariableDeclaration);
     public void visit(EmptyVarDeclList EmptyVarDeclList);
     public void visit(VarDeclListElement VarDeclListElement);

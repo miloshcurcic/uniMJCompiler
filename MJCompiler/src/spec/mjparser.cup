@@ -248,6 +248,7 @@ VarDecls ::= (VarDeclListElement) VarDecls VarDecl
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType VarIdents SEMICOLON
+    | (VariableDeclarationError) error SEMICOLON
 ;
 
 VarDeclType ::= (VarDeclType) Type ;
@@ -258,7 +259,7 @@ VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
 
 VarIdent ::= (ScalarVarIdent) IDENT:name
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET
-       | error
+       | (VarIdentError) error
 ;
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassName LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
@@ -299,7 +300,7 @@ FormPars ::= (FormalParametersListElement) FormPars COMMA FormPar
 
 FormPar ::= (ScalarFormalParameter) Type IDENT:name
             | (ArrayFormalParameter) Type IDENT:name LBRACKET RBRACKET
-            | error
+            | (FormalParameterError) error
 ;
 
 Type ::= (Type) IDENT:name ;
@@ -341,7 +342,7 @@ ElseStatementStart ::= (ElseStatementStart) ;
 ElseStatementEnd ::= (ElseStatementEnd) ;
 
 IfCond ::= (IfCondition) IfConditionStart Condition IfConditionEnd
-    | error
+    | (IfConditionError) error
 ;
 
 IfConditionStart ::= (IfConditionStart) ;
@@ -383,7 +384,7 @@ DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                     | (PostIncDesignatorStatement) Designator PPLUS
                     | (PostDecDesignatorStatement) Designator MMINUS
                     // ToDo: Does this work
-                    | error Assignop error
+                    | (AssignmentError) error Assignop error
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator LPAREN FuncCallActPars RPAREN ;

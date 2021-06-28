@@ -312,6 +312,7 @@ VarDecls ::= (VarDeclListElement) VarDecls:V1 VarDecl:V2 {: RESULT=new VarDeclLi
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VariableDeclaration(V1, V2); RESULT.setLine(V1left); :}
+    | (VariableDeclarationError) error SEMICOLON {: RESULT=new VariableDeclarationError(); :}
 ;
 
 VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
@@ -322,7 +323,7 @@ VarIdents ::= (VarIdentListElement) VarIdents:V1 COMMA VarIdent:V2 {: RESULT=new
 
 VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RESULT.setLine(nameleft); :}
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayVarIdent(name); RESULT.setLine(nameleft); :}
-       | error {: RESULT=new VarIdentDerived1(); :}
+       | (VarIdentError) error {: RESULT=new VarIdentError(); :}
 ;
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName:C1 EXTENDS BaseClassName:B2 LBRACE VarDecls:V3 ExtendedClassSplitter:E4 ClassMethodDecls:C5 RBRACE {: RESULT=new ExtendedClassDeclaration(C1, B2, V3, E4, C5); RESULT.setLine(C1left); :}
@@ -363,7 +364,7 @@ FormPars ::= (FormalParametersListElement) FormPars:F1 COMMA FormPar:F2 {: RESUL
 
 FormPar ::= (ScalarFormalParameter) Type:T1 IDENT:name {: RESULT=new ScalarFormalParameter(T1, name); RESULT.setLine(T1left); :}
             | (ArrayFormalParameter) Type:T1 IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayFormalParameter(T1, name); RESULT.setLine(T1left); :}
-            | error {: RESULT=new FormParDerived1(); :}
+            | (FormalParameterError) error {: RESULT=new FormalParameterError(); :}
 ;
 
 Type ::= (Type) IDENT:name {: RESULT=new Type(name); RESULT.setLine(nameleft); :} ;
@@ -405,7 +406,7 @@ ElseStatementStart ::= (ElseStatementStart) {: RESULT=new ElseStatementStart(); 
 ElseStatementEnd ::= (ElseStatementEnd) {: RESULT=new ElseStatementEnd(); :} ;
 
 IfCond ::= (IfCondition) IfConditionStart:I1 Condition:C2 IfConditionEnd:I3 {: RESULT=new IfCondition(I1, C2, I3); RESULT.setLine(I1left); :}
-    | error {: RESULT=new IfCondDerived1(); :}
+    | (IfConditionError) error {: RESULT=new IfConditionError(); :}
 ;
 
 IfConditionStart ::= (IfConditionStart) {: RESULT=new IfConditionStart(); :} ;
@@ -447,7 +448,7 @@ DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A
                     | (PostIncDesignatorStatement) Designator:D1 PPLUS {: RESULT=new PostIncDesignatorStatement(D1); RESULT.setLine(D1left); :}
                     | (PostDecDesignatorStatement) Designator:D1 MMINUS {: RESULT=new PostDecDesignatorStatement(D1); RESULT.setLine(D1left); :}
                     // ToDo: Does this work
-                    | error Assignop:A1 error {: RESULT=new DesignatorStatementDerived1(A1); RESULT.setLine(A1left); :}
+                    | (AssignmentError) error Assignop:A1 error {: RESULT=new AssignmentError(A1); RESULT.setLine(A1left); :}
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator:F1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCall(F1, F2); RESULT.setLine(F1left); :} ;

@@ -52,6 +52,10 @@ parser code {:
     public boolean isErrorDetected() {
         return !errorList.isEmpty();
     }
+
+    public List<CompilerError> getErrorList() {
+        return errorList;
+    }
 :}
 
 init with {:
@@ -149,6 +153,7 @@ nonterminal Program,
 	MethodDecls,
 	MethodDecl,
 	MethodFormPars,
+	MethodStatements,
 	FormPars,
 	FormPar,
 	Statements,
@@ -178,7 +183,6 @@ nonterminal Program,
 	SwitchDefaultCase,
 	SwitchStatementExpression,
 	SwitchCase,
-	SwitchStatementStart,
 	SwitchExpressionStart,
 	SwitchDefaultCaseStart,
 	SwitchCondition,
@@ -244,6 +248,7 @@ VarDecls ::= (VarDeclListElement) VarDecls VarDecl
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType VarIdents SEMICOLON
+    | (VariableDeclarationError) error SEMICOLON
 ;
 
 VarDeclType ::= (VarDeclType) Type ;
@@ -254,7 +259,7 @@ VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
 
 VarIdent ::= (ScalarVarIdent) IDENT:name
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET
-       | error
+       | (VarIdentError) error
 ;
 
 ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassName LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
@@ -277,7 +282,9 @@ MethodDecls ::= (MethodDeclarationListElement) MethodDecls MethodDecl
                 | (EmptyMethodDeclarationListHead)
 ;
 
-MethodDecl ::= (MethodDeclaration) MethodTypeNamePair LPAREN MethodFormPars RPAREN VarDecls LBRACE Statements RBRACE ;
+MethodDecl ::= (MethodDeclaration) MethodTypeNamePair LPAREN MethodFormPars RPAREN VarDecls LBRACE MethodStatements RBRACE ;
+
+MethodStatements ::= (MethodStatements) Statements ;
 
 MethodFormPars ::= (MethodFormalParameters) FormPars
        | (NoMethodFormalParameters)
@@ -293,7 +300,7 @@ FormPars ::= (FormalParametersListElement) FormPars COMMA FormPar
 
 FormPar ::= (ScalarFormalParameter) Type IDENT:name
             | (ArrayFormalParameter) Type IDENT:name LBRACKET RBRACKET
-            | error
+            | (FormalParameterError) error
 ;
 
 Type ::= (Type) IDENT:name ;
@@ -318,7 +325,6 @@ MatchedStatement ::= (MatchedAssignmentStatement) DesignatorStatement SEMICOLON
             | (MatchedIfStatement) IF LPAREN IfCond RPAREN IfStatementStart Statement IfStatementEnd
             | (MatchedIfElseStatement) IF LPAREN IfCond RPAREN IfStatementStart Statement IfStatementEnd ELSE ElseStatementStart Statement ElseStatementEnd
             | (MatchedDoWhileStatement) DO DoWhileStatementStart Statement WHILE LPAREN DoWhileCondition RPAREN DoWhileStatementEnd SEMICOLON
-            | (MatchedSwitchStatement) SwitchStatementStart SWITCH LPAREN SwitchStatementExpression RPAREN LBRACE SwitchCases RBRACE
             | (MatchedBreakStatement) BREAK SEMICOLON
             | (MatchedYieldStatement) YIELD YieldExpr SEMICOLON
             | (MatchedContinueStatement) CONTINUE SEMICOLON
@@ -335,10 +341,8 @@ ElseStatementStart ::= (ElseStatementStart) ;
 
 ElseStatementEnd ::= (ElseStatementEnd) ;
 
-SwitchStatementStart ::= (SwitchStatementStart) ;
-
 IfCond ::= (IfCondition) IfConditionStart Condition IfConditionEnd
-    | error
+    | (IfConditionError) error
 ;
 
 IfConditionStart ::= (IfConditionStart) ;
@@ -380,7 +384,7 @@ DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
                     | (PostIncDesignatorStatement) Designator PPLUS
                     | (PostDecDesignatorStatement) Designator MMINUS
                     // ToDo: Does this work
-                    | error Assignop error
+                    | (AssignmentError) error Assignop error
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator LPAREN FuncCallActPars RPAREN ;
