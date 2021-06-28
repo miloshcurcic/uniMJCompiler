@@ -1,4 +1,4 @@
-//Test 302
+//Class/Array manipulation tests
 
 program correctSyntax
 
@@ -6,127 +6,46 @@ const bool trueConst = true;
 const bool falseConst = false;
 const int zeroConst = 0;
 const int oneConst = 1;
-const int twoConst = 2;
-const char mCharConst = 'm';
 
-int intGlobalVar0, intGlobalArrayVar0[];
+int negOneVar;
+int twoVar;
 
-class BaseClass {
-    int firstBaseField;
-    int secondBaseField;
-    {
-        int getFirstBaseFieldMethod() {
-            return firstBaseField;
-        }
+const char aCharConst = 'a';
+char bCharGlobalVar;
 
-        void setFirstBaseFieldMethod(int firstFormalParam) {
-            this.firstBaseField = firstFormalParam;
-        }
-
-        int getSecondBaseFieldMethod() {
-            return this.secondBaseField;
-        }
-
-        void setSecondBaseFieldMethod(int secondBaseField) {
-            this.secondBaseField = secondBaseField;
-        }
-    }
-}
-
-class ExtendedClass0 extends BaseClass {
-    int firstExtended0Field;
-
-    {
-        int mulBaseFirstField() {
-            return this.firstBaseField * firstExtended0Field;
-        }
-
-        int mulBaseSecondField() {
-            return secondBaseField * this.firstExtended0Field;
-        }
-    }
-}
-
-class ExtendedClass1 extends BaseClass {
-    int firstExtended1Field;
-    {
-        int getFirstBaseFieldMethod() {
-            return firstExtended1Field;
-        }
-
-        void setFirstBaseFieldMethod(int firstFormalParam) {
-            this.firstExtended1Field = firstFormalParam;
-        }
-    }
-}
-
-class ExtendedExtendedClass1 extends ExtendedClass1 {
-
-}
-
-class NestedClassLevel1 {
-    BaseClass baseClassArray[];
-    {
-        void initialize() {
-            baseClassArray = new BaseClass[4];
-            baseClassArray[0] = new BaseClass;
-            baseClassArray[1] = new ExtendedClass0;
-            baseClassArray[2] = new ExtendedClass1;
-            baseClassArray[3] = new ExtendedExtendedClass1;
-
-            baseClassArray[3].firstBaseField = 1;
-        }
-    }
-}
-
-class NestedClassLevel0 {
-    NestedClassLevel1 nestedClassLevel1;
-
-    {
-        void initialize() {
-            nestedClassLevel1 = new NestedClassLevel1;
-            nestedClassLevel1.initialize();
-        }
-    }
-}
-
-class NestingClass {
-    NestedClassLevel0 nestedClassLevel0;
-
-    {
-        void initialize() {
-            nestedClassLevel0 = new NestedClassLevel0;
-            nestedClassLevel0.initialize();
-        }
-    }
-}
 
 
 {
+    void setbGlobalChar() {
+        bCharGlobalVar = 'b';
+    }
+
+    char dCharMethodResult() {
+        return 'd';
+    }
 
     void main()
-        NestingClass nestingClassLocalArray[];
-        int arrayBaseSize;
-        int arraySize;
-        int arrayCnt;
+        char cCharLocalVar;
+        char charArray[];
     {
-        arrayBaseSize = 2;
-        arraySize = twoConst * arrayBaseSize;
+        cCharLocalVar = 'c';
+        setbGlobalChar();
 
-        // Allocate array of 4 Nesting classes
-        nestingClassLocalArray = new NestingClass[arraySize];
+        negOneVar = -oneConst;
+        twoVar = 2;
 
-        arrayCnt = 0;
+        charArray = new char[-negOneVar + twoVar * oneConst + oneConst];
 
-        do {
-            nestingClassLocalArray[arrayCnt] = new NestingClass;
-            nestingClassLocalArray[arrayCnt].initialize();
-            arrayCnt++;
-        } while (arrayCnt < arraySize);
+        charArray[0] = aCharConst;
+        charArray[1] = bCharGlobalVar;
+        charArray[2] = cCharLocalVar;
+        charArray[3] = dCharMethodResult();
 
-        nestingClassLocalArray[1].nestedClassLevel0.nestedClassLevel1.baseClassArray[3].setFirstBaseFieldMethod(5);
-        print(nestingClassLocalArray[1].nestedClassLevel0.nestedClassLevel1.baseClassArray[3].getFirstBaseFieldMethod());
-        print(nestingClassLocalArray[1].nestedClassLevel0.nestedClassLevel1.baseClassArray[3].firstBaseField);
+        print(charArray[0]);
+        print(charArray[1]);
+        print(charArray[2]);
+        print(charArray[3]);
+
 
     }
 }
