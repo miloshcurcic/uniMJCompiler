@@ -1,14 +1,12 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/5/2021 22:12:33
+// 29/5/2021 2:46:36
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class BaseClassName implements SyntaxNode {
+public class BaseClassName extends BaseClassType {
 
-    private SyntaxNode parent;
-    private int line;
     private Type Type;
 
     public BaseClassName (Type Type) {
@@ -22,22 +20,6 @@ public class BaseClassName implements SyntaxNode {
 
     public void setType(Type Type) {
         this.Type=Type;
-    }
-
-    public SyntaxNode getParent() {
-        return parent;
-    }
-
-    public void setParent(SyntaxNode parent) {
-        this.parent=parent;
-    }
-
-    public int getLine() {
-        return line;
-    }
-
-    public void setLine(int line) {
-        this.line=line;
     }
 
     public void accept(Visitor visitor) {

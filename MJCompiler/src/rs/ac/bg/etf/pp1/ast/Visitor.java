@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/5/2021 22:12:33
+// 29/5/2021 2:46:36
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -34,7 +34,9 @@ public interface Visitor {
     public void visit(ConstNameValuePair ConstNameValuePair);
     public void visit(Addop Addop);
     public void visit(TermExpr TermExpr);
+    public void visit(ClassVarDecls ClassVarDecls);
     public void visit(ActPar ActPar);
+    public void visit(BaseClassType BaseClassType);
     public void visit(CondTerm CondTerm);
     public void visit(ClassDecl ClassDecl);
     public void visit(MatchedStatement MatchedStatement);
@@ -95,7 +97,7 @@ public interface Visitor {
     public void visit(FunctionCallActualParameters FunctionCallActualParameters);
     public void visit(FunctionCallDesignator FunctionCallDesignator);
     public void visit(FunctionCall FunctionCall);
-    public void visit(AssignmentError AssignmentError);
+    public void visit(DesignatorStatementDerived1 DesignatorStatementDerived1);
     public void visit(PostDecDesignatorStatement PostDecDesignatorStatement);
     public void visit(PostIncDesignatorStatement PostIncDesignatorStatement);
     public void visit(FuncCallDesignatorStatement FuncCallDesignatorStatement);
@@ -117,7 +119,7 @@ public interface Visitor {
     public void visit(DoWhileCondition DoWhileCondition);
     public void visit(IfConditionEnd IfConditionEnd);
     public void visit(IfConditionStart IfConditionStart);
-    public void visit(IfConditionError IfConditionError);
+    public void visit(IfCondDerived1 IfCondDerived1);
     public void visit(IfCondition IfCondition);
     public void visit(ElseStatementEnd ElseStatementEnd);
     public void visit(ElseStatementStart ElseStatementStart);
@@ -142,7 +144,7 @@ public interface Visitor {
     public void visit(EmptyStatementListHead EmptyStatementListHead);
     public void visit(StatementListElement StatementListElement);
     public void visit(Type Type);
-    public void visit(FormalParameterError FormalParameterError);
+    public void visit(FormParDerived1 FormParDerived1);
     public void visit(ArrayFormalParameter ArrayFormalParameter);
     public void visit(ScalarFormalParameter ScalarFormalParameter);
     public void visit(FormParametersListHead FormParametersListHead);
@@ -156,6 +158,7 @@ public interface Visitor {
     public void visit(EmptyMethodDeclarationListHead EmptyMethodDeclarationListHead);
     public void visit(MethodDeclarationListElement MethodDeclarationListElement);
     public void visit(ExtendedClassSplitter ExtendedClassSplitter);
+    public void visit(BaseClassTypeDerived1 BaseClassTypeDerived1);
     public void visit(BaseClassName BaseClassName);
     public void visit(ClassType ClassType);
     public void visit(ClassName ClassName);
@@ -163,16 +166,17 @@ public interface Visitor {
     public void visit(ClassMethodDeclarations ClassMethodDeclarations);
     public void visit(ClassDeclaration ClassDeclaration);
     public void visit(ExtendedClassDeclaration ExtendedClassDeclaration);
-    public void visit(VarIdentError VarIdentError);
+    public void visit(VarIdentDerived1 VarIdentDerived1);
     public void visit(ArrayVarIdent ArrayVarIdent);
     public void visit(ScalarVarIdent ScalarVarIdent);
     public void visit(VarIdentListHead VarIdentListHead);
     public void visit(VarIdentListElement VarIdentListElement);
     public void visit(VarDeclType VarDeclType);
-    public void visit(VariableDeclarationError VariableDeclarationError);
     public void visit(VariableDeclaration VariableDeclaration);
     public void visit(EmptyVarDeclList EmptyVarDeclList);
     public void visit(VarDeclListElement VarDeclListElement);
+    public void visit(ClassEmptyVarDeclList ClassEmptyVarDeclList);
+    public void visit(ClassVarDeclListElement ClassVarDeclListElement);
     public void visit(BoolConstNameValuePair BoolConstNameValuePair);
     public void visit(CharConstNameValuePair CharConstNameValuePair);
     public void visit(NumberConstNameValuePair NumberConstNameValuePair);

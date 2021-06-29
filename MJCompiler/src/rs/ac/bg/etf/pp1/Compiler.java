@@ -55,6 +55,7 @@ public class Compiler implements rs.ac.bg.etf.pp1.test.Compiler {
             Lexer lexer = new Lexer(br);
             MJParser parser = new MJParser(lexer);
             Symbol symbol = parser.parse();
+            //Symbol symbol = parser.debug_parse();
 
             // continue if non fatal error?
             if (!lexer.isErrorDetected() && !parser.isErrorDetected()) {

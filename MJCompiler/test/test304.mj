@@ -1,11 +1,31 @@
 //Test 302
 // all errors
-program semanticErrors
+program recovery
+
+int someVar error, someVar, someVar error;
+
+class TestClass extends SomeClass + error {
+    int someField error, someField, someField error;
+}
 
 {
-
 	void main()
 	{
+        someVar = - -a;
+    }
+
+    void someMethod(int someParam error, int someParam, int someParam error) {
+        if (someVar && && error) {
+
+        }
+
+        if (>=) {
+
+        }
+
+        if (someVar >= someVar || someVar error) {
+
+        }
     }
 }
 

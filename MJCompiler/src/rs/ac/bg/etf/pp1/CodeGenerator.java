@@ -86,7 +86,7 @@ public class CodeGenerator extends VisitorAdaptor {
         if (ExtendedClassDeclaration.class == parent.getClass()) {
             ExtendedClassDeclaration extendedClassDeclaration = (ExtendedClassDeclaration) parent;
 
-            Struct baseClass = extendedClassDeclaration.getBaseClassName().getType().struct;
+            Struct baseClass = ((BaseClassName)extendedClassDeclaration.getBaseClassType()).getType().struct;
             Struct newClass = extendedClassDeclaration.getClassName().getClassType().struct;
 
             List<Obj> baseClassMethods = baseClass.getMembers().stream().filter(obj -> obj.getKind() == Obj.Meth).collect(Collectors.toList());
