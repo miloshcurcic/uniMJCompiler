@@ -659,6 +659,12 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         switchExpression.struct = switchExpressionType;
     }
 
+    public void visit(SingleCondFact singleCondFact) {
+        if (!singleCondFact.getExpr().struct.equals(boolType)) {
+            reportError("Condition expression must be a bool type!", singleCondFact);
+        }
+    }
+
     public void visit(SwitchCondition switchCase) {
         Set<Integer> switchCurrentCases = switchCurrentCasesStack.peek();
 
@@ -687,7 +693,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
     public void visit(MatchedContinueStatement matchedContinueStatement) {
         if (!currentlyProcessingDoWhile()) {
-            reportError(INVALID_CONTINUE_OUTSIDE_LOOP, matchedContinueStatement);
+            reportError(INVALID_CONTINUE_OUTSIDE_LOOP, matchedContinueStatement.getParent());
 
             return;
         }
@@ -695,7 +701,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
 
     public void visit(MatchedBreakStatement matchedBreakStatement) {
         if (!(currentlyProcessingDoWhile() || currentlyProcessingSwitchStatement())) {
-            reportError("Break statement can only be used within a do-while or switch-case statement blocks!", matchedBreakStatement);
+            reportError("Break statement can only be used within a do-while or switch-case statement blocks!", matchedBreakStatement.getParent());
 
             return;
         }
@@ -774,13 +780,13 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         Obj currentMethod = objTemporaries.get(ObjConstants.CurrentMethodName);
 
         if (!currentMethod.getType().equals(returnExpression.getExpr().struct)) {
-            reportError(INVALID_RETURN_TYPE_MISMATCH, returnExpression);
+            reportError(INVALID_RETURN_TYPE_MISMATCH, returnExpression.getParent());
 
             return;
         }
 
         if (currentlyProcessingSwitchExpression()) {
-            reportError(INVALID_RETURN_WITHIN_SWITCH, returnExpression);
+            reportError(INVALID_RETURN_WITHIN_SWITCH, returnExpression.getParent());
 
             return;
         }
@@ -813,7 +819,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         Obj currentMethod = objTemporaries.get(ObjConstants.CurrentMethodName);
 
         if (!currentMethod.getType().equals(Tab.noType)) {
-            reportError(INVALID_RETURN_NO_EXPRESSION, noReturnExpression);
+            reportError(INVALID_RETURN_NO_EXPRESSION, noReturnExpression.getParent().getParent());
 
             return;
         }

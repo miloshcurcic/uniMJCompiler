@@ -56,12 +56,10 @@ ValidExtendedClass validExtendedClassInstance;
         int localVar;
         int localArray[];
     {
-        // todo: fix
     	if (1) {
 
     	}
 
-    	// todo: fix
     	do {} while (1);
 
         localVar = switch (validClassInstance) {

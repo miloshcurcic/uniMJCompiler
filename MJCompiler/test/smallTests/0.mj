@@ -56,16 +56,12 @@ ValidExtendedClass validExtendedClassInstance;
         int localVar;
         int localArray[];
     {
-        // todo: fix
     	if (1) {
 
     	}
 
-    	// todo: fix
     	do {} while (1);
 
-        // todo: missing default, syntax or semantic error?
-        // todo: not assigning value, syntax or semantic or no error?
         localVar = switch (validClassInstance) {
             case 0:
     	        continue;
