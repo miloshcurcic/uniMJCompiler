@@ -8,6 +8,9 @@ import rs.ac.bg.etf.pp1.util.*;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.Scope;
+import rs.etf.pp1.symboltable.visitors.DumpSymbolTableVisitor;
+import rs.etf.pp1.symboltable.visitors.SymbolTableVisitor;
 
 import java.io.*;
 import java.util.*;
@@ -34,7 +37,17 @@ public class Compiler implements rs.ac.bg.etf.pp1.test.Compiler {
     }
 
     public static void tsdump() {
-        Tab.dump(new CustomDumpSymbolTableVisitor());
+        SymbolTableVisitor stv = new CustomDumpSymbolTableVisitor();
+
+        log.info("=====================SYMBOL TABLE DUMP=========================");
+        if (stv == null)
+            stv = new DumpSymbolTableVisitor();
+
+        for (Scope s = Tab.currentScope; s != null; s = s.getOuter()) {
+                s.accept(stv);
+        }
+
+        log.info(stv.getOutput());
     }
 
     @Override
