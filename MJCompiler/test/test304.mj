@@ -1,31 +1,109 @@
 //Test 302
 // all errors
-program recovery
+program semanticErrors
 
-int someVar error, someVar, someVar error;
+const int intCharError = 'b';
+const char charBoolError = true;
+const bool boolIntError = 1;
 
-class TestClass extends SomeClass + error {
-    int someField error, someField, someField error;
-}
+class ValidClass {}
+class ValidExtendedClass extends ValidClass {}
+
+class ExtendingFromNonClassError extends int {}
+
+definatellyNotAType invalidTypeUsed;
+
+int globalInt;
+ValidClass validClassInstance;
+ValidExtendedClass validExtendedClassInstance;
 
 {
+
 	void main()
+	int localInt;
 	{
-        someVar = - -a;
+	    doesntExist = 1;
+	    doesntExist++;
+	    doesntExist--;
+	    globalInt = true;
+
+	    break;
+	    continue;
+
+	    read(int);
+	    read(validClassInstance);
+	    print(validClassInstance);
     }
 
-    void someMethod(int someParam error, int someParam, int someParam error) {
-        if (someVar && && error) {
+    void methodOne() {
+        return 1;
+    }
 
+    int methodTwo() {
+       return true;
+    }
+
+    int methodThree(int firstActParam, int secondActParam) {
+        return;
+    }
+
+    ValidClass methodFour() {
+        // todo: should I fix this? text says equivalent
+        return validExtendedClassInstance;
+    }
+
+    void continueMain()
+        int localVar;
+        int localArray[];
+    {
+        // todo: fix
+    	if (1) {
+
+    	}
+
+    	// todo: fix
+    	do {} while (1);
+
+        localVar = switch (validClassInstance) {
+            case 0:
+    	        continue;
+            case 0:
+    	        break;
+    	    default:
+    	};
+
+    	localVar = switch (validClassInstance) {
+            case 0:
+                yield 1;
+            case 1:
+                yield 'b';
+            	default:
+            };
+
+    	methodThree(localVar);
+        methodThree(localVar, localVar, localVar);
+
+        methodThree(true, 'b');
+
+        if ('b' > 1 && validClassInstance > validClassInstance) {
         }
 
-        if (>=) {
+        localVar = -'b';
 
-        }
+        localVar = 5 + 'b';
+        localVar = true - 0;
 
-        if (someVar >= someVar || someVar error) {
+        localVar = 5 * true;
+        localVar = 'a' * 0;
 
-        }
+	    globalInt();
+	    globalInt(localInt);
+
+	    localVar = new int[true];
+        localVar = new int;
+
+        localVar.a.b.c = 0;
+        localArray[true] = 0;
     }
 }
 

@@ -74,6 +74,14 @@ ValidExtendedClass validExtendedClassInstance;
     	    default:
     	};
 
+    	localVar = switch (validClassInstance) {
+            case 0:
+                yield 1;
+            case 1:
+                yield 'b';
+            	default:
+            };
+
     	methodThree(localVar);
         methodThree(localVar, localVar, localVar);
 

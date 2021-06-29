@@ -175,6 +175,7 @@ nonterminal Program,
 	DoWhileCondition,
 	PrintStatementAdditionalParam,
 	DesignatorStatement,
+	AssignStmt,
 	ReturnExpr,
 	YieldExpr,
 	DoWhileStatementStart,
@@ -214,6 +215,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct
     Term,
     TermExpr,
     Expr,
+    AssignExpr,
     FunctionCall
 ;
 
@@ -397,7 +399,12 @@ DesignatorStatement ::= (AssignmentDesignatorStatement) AssignStmt
                     | (PostDecDesignatorStatement) Designator MMINUS
 ;
 
-AssignStmt ::= (AssignmentStatement) Designator Assignop Expr ;
+AssignStmt ::= (AssignmentStatement) Designator Assignop AssignExpr
+;
+
+AssignExpr ::= (AssignmentExpression) Expr
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from assignment syntax error!"); :}
+;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator LPAREN FuncCallActPars RPAREN ;
 

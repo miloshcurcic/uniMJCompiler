@@ -99,14 +99,23 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(MatchedPrintStatement matchedPrintStatement) {
-        // ToDo: semantic check
-        if (matchedPrintStatement.getExpr().struct.equals(Tab.charType)) {
-            Code.loadConst(1);
-            Code.put(Code.bprint);
+        if (matchedPrintStatement.getPrintStatementAdditionalParam().getClass().equals(PrintStatementAdditionalParameter.class)) {
+            Code.loadConst(((PrintStatementAdditionalParameter)matchedPrintStatement.getPrintStatementAdditionalParam()).getN1());
+
+            if (matchedPrintStatement.getExpr().struct.equals(Tab.charType)) {
+                Code.put(Code.bprint);
+            } else {
+                Code.put(Code.print);
+            }
         }
         else {
-            Code.loadConst(5);
-            Code.put(Code.print);
+            if (matchedPrintStatement.getExpr().struct.equals(Tab.charType)) {
+                Code.loadConst(1);
+                Code.put(Code.bprint);
+            } else {
+                Code.loadConst(5);
+                Code.put(Code.print);
+            }
         }
     }
 
@@ -467,14 +476,14 @@ public class CodeGenerator extends VisitorAdaptor {
         }
     }
 
-    public void visit(AssignmentDesignatorStatement assignment){
+    public void visit(AssignmentStatement assignment){
         Code.store(assignment.getDesignator().obj);
     }
 
     public void visit(ScalarDesignator designator){
         SyntaxNode parent = designator.getParent();
 
-        if(AssignmentDesignatorStatement.class != parent.getClass() &&
+        if(AssignmentStatement.class != parent.getClass() &&
                 MatchedReadStatement.class != parent.getClass() &&
                 FunctionCallDesignator.class != parent.getClass() &&
                 PostIncDesignatorStatement.class  != parent.getClass() &&
@@ -503,7 +512,7 @@ public class CodeGenerator extends VisitorAdaptor {
             Code.put2(objectMethodCall);
         }
 
-        if ((designator.obj.getKind() == Obj.Fld) && (AssignmentDesignatorStatement.class == parent.getClass())) {
+        if ((designator.obj.getKind() == Obj.Fld) && (AssignmentStatement.class == parent.getClass())) {
             Code.put(Code.load_n /* + 0 */);
         }
     }
@@ -511,7 +520,7 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(ArrayAccessDesignator designator){
         SyntaxNode parent = designator.getParent();
 
-        if(AssignmentDesignatorStatement.class != parent.getClass() &&
+        if(AssignmentStatement.class != parent.getClass() &&
                 MatchedReadStatement.class != parent.getClass() &&
                 FunctionCallDesignator.class != parent.getClass() &&
                 PostIncDesignatorStatement.class  != parent.getClass() &&
@@ -530,7 +539,7 @@ public class CodeGenerator extends VisitorAdaptor {
     public void visit(ObjectAccessDesignator designator){
         SyntaxNode parent = designator.getParent();
 
-        if(AssignmentDesignatorStatement.class != parent.getClass() &&
+        if(AssignmentStatement.class != parent.getClass() &&
                 MatchedReadStatement.class != parent.getClass() &&
                 FunctionCallDesignator.class != parent.getClass() &&
                 PostIncDesignatorStatement.class  != parent.getClass() &&

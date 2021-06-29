@@ -37,7 +37,7 @@ import static rs.ac.bg.etf.pp1.error.LexicalError.LEXICAL_UNRECOGNIZED_TEXT_ERRO
     
         public void flushErrorIfExists() {
             if (errorMessageBuilder.length() != 0) {
-                reportError(LEXICAL_UNRECOGNIZED_TEXT_ERROR_TEMPLATE, errorMessageBuilder.toString(), errorLine + 1, errorColumn + 1);
+                reportError(LEXICAL_UNRECOGNIZED_TEXT_ERROR_TEMPLATE, errorLine + 1, errorColumn + 1, errorMessageBuilder.toString());
 
                 errorMessageBuilder = new StringBuilder();
             }
@@ -65,10 +65,12 @@ import static rs.ac.bg.etf.pp1.error.LexicalError.LEXICAL_UNRECOGNIZED_TEXT_ERRO
         }
     
         private Symbol newSymbol(int type) {
+            flushErrorIfExists();
             return new Symbol(type, yyline+1, yycolumn);
         }
     
         private Symbol newSymbol(int type, Object value) {
+            flushErrorIfExists();
             return new Symbol(type, yyline+1, yycolumn, value);
         }
 %}

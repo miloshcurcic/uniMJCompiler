@@ -34,19 +34,27 @@ parser code {:
 
     // This method should be called whenever an error message is to be issued.
     public void report_error(String message, Object info) {
-   	    StringBuilder errorMessage = new StringBuilder(message);
+   	    StringBuilder errorMessage = new StringBuilder();
    	    int line = 0;
 
    	    if (info instanceof Symbol) {
    	        line = ((Symbol)info).left;
-            errorMessage.append (" on position ").append(line);
+            errorMessage.append ("Line ").append(line).append(": ");
         }
 
-        errorMessage.append(info);
+        errorMessage.append(message);
 
         errorList.add(new SyntaxError(line, errorMessage.toString()));
 
         log.error(errorMessage.toString());
+    }
+
+    public void log_recovery(String message) {
+        StringBuilder logMessage = new StringBuilder();
+
+        logMessage.append(message);
+
+        log.info(message.toString());
     }
 
     public boolean isErrorDetected() {
@@ -141,13 +149,14 @@ nonterminal Program,
     ConstNameValuePairs,
 	ConstNameValuePair,
 	VarDecls,
+	ClassVarDecls,
 	VarDecl,
 	VarDeclType,
     VarIdents,
 	VarIdent,
 	ClassDecl,
 	ClassName,
-	BaseClassName,
+	BaseClassType,
 	ExtendedClassSplitter,
 	ClassMethodDecls,
 	MethodDecls,
@@ -166,6 +175,7 @@ nonterminal Program,
 	DoWhileCondition,
 	PrintStatementAdditionalParam,
 	DesignatorStatement,
+	AssignStmt,
 	ReturnExpr,
 	YieldExpr,
 	DoWhileStatementStart,
@@ -205,6 +215,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct
     Term,
     TermExpr,
     Expr,
+    AssignExpr,
     FunctionCall
 ;
 
@@ -242,12 +253,15 @@ ConstNameValuePair ::= (NumberConstNameValuePair) IDENT:name EQUALS NUMBER:value
                    | (BoolConstNameValuePair) IDENT:name EQUALS BOOL:value
 ;
 
+ClassVarDecls ::= (ClassVarDeclListElement) VarDecls VarDecl
+    | (ClassEmptyVarDeclList)
+;
+
 VarDecls ::= (VarDeclListElement) VarDecls VarDecl
    | (EmptyVarDeclList)
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType VarIdents SEMICOLON
-    | (VariableDeclarationError) error SEMICOLON
 ;
 
 VarDeclType ::= (VarDeclType) Type ;
@@ -258,11 +272,11 @@ VarIdents ::= (VarIdentListElement) VarIdents COMMA VarIdent
 
 VarIdent ::= (ScalarVarIdent) IDENT:name
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET
-       | (VarIdentError) error
+       | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from variable declaration syntax error!"); :}
 ;
 
-ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassName LBRACE VarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
-       | (ClassDeclaration) CLASS ClassName LBRACE VarDecls ClassMethodDecls RBRACE
+ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName EXTENDS BaseClassType LBRACE ClassVarDecls ExtendedClassSplitter ClassMethodDecls RBRACE
+       | (ClassDeclaration) CLASS ClassName LBRACE ClassVarDecls ClassMethodDecls RBRACE
 ;
 
 ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls RBRACE
@@ -273,7 +287,8 @@ ClassName ::= (ClassName) ClassType ;
 
 ClassType ::= (ClassType) IDENT:name ;
 
-BaseClassName ::= (BaseClassName) Type ;
+BaseClassType ::= (BaseClassName) Type
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from class extension syntax error!"); :};
 
 ExtendedClassSplitter ::= (ExtendedClassSplitter) ;
 
@@ -299,7 +314,7 @@ FormPars ::= (FormalParametersListElement) FormPars COMMA FormPar
 
 FormPar ::= (ScalarFormalParameter) Type IDENT:name
             | (ArrayFormalParameter) Type IDENT:name LBRACKET RBRACKET
-            | (FormalParameterError) error
+            | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from formal parameter declaration syntax error!"); :}
 ;
 
 Type ::= (Type) IDENT:name ;
@@ -341,7 +356,7 @@ ElseStatementStart ::= (ElseStatementStart) ;
 ElseStatementEnd ::= (ElseStatementEnd) ;
 
 IfCond ::= (IfCondition) IfConditionStart Condition IfConditionEnd
-    | (IfConditionError) error
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from if condition syntax error!"); :}
 ;
 
 IfConditionStart ::= (IfConditionStart) ;
@@ -378,12 +393,17 @@ SwitchCase ::= (SwitchCase) SwitchCondition Statements ;
 
 SwitchCondition ::= (SwitchCondition) CASE NUMBER:number COLON ;
 
-DesignatorStatement ::= (AssignmentDesignatorStatement) Designator Assignop Expr
+DesignatorStatement ::= (AssignmentDesignatorStatement) AssignStmt
                     | (FuncCallDesignatorStatement) FunctionCall
                     | (PostIncDesignatorStatement) Designator PPLUS
                     | (PostDecDesignatorStatement) Designator MMINUS
-                    // ToDo: Does this work
-                    | (AssignmentError) error Assignop error
+;
+
+AssignStmt ::= (AssignmentStatement) Designator Assignop AssignExpr
+;
+
+AssignExpr ::= (AssignmentExpression) Expr
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from assignment syntax error!"); :}
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator LPAREN FuncCallActPars RPAREN ;

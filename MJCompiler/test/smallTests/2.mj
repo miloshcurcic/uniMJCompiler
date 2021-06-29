@@ -41,10 +41,10 @@ char bCharGlobalVar;
         charArray[3] = dCharMethodResult();
 
         // expected output abcd
-        print(charArray[0]);
-        print(charArray[1]);
-        print(charArray[2]);
-        print(charArray[3]);
+        print(charArray[0], 1);
+        print(charArray[1], 2);
+        print(charArray[2], 3);
+        print(charArray[3], 4);
         print(eol);
 
         // nesting loads of ifs

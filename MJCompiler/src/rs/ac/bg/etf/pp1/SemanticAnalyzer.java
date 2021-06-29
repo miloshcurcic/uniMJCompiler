@@ -819,7 +819,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
         }
     }
 
-    public void visit(AssignmentDesignatorStatement assignmentDesignatorStatement) {
+    public void visit(AssignmentStatement assignmentDesignatorStatement) {
         Obj designatorObj = assignmentDesignatorStatement.getDesignator().obj;
         int designatorKind = designatorObj.getKind();
 
@@ -829,7 +829,7 @@ public class SemanticAnalyzer extends VisitorAdaptor implements Errorable {
             return;
         }
 
-        if (!checkAssignCompatibility(assignmentDesignatorStatement.getExpr().struct, designatorObj.getType())) {
+        if (!checkAssignCompatibility(((AssignmentExpression)assignmentDesignatorStatement.getAssignExpr()).getExpr().struct, designatorObj.getType())) {
             reportError(INCOMPATIBLE_ASSIGNMENT, assignmentDesignatorStatement);
 
             return;

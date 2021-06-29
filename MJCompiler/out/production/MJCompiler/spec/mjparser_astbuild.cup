@@ -34,19 +34,27 @@ parser code {:
 
     // This method should be called whenever an error message is to be issued.
     public void report_error(String message, Object info) {
-   	    StringBuilder errorMessage = new StringBuilder(message);
+   	    StringBuilder errorMessage = new StringBuilder();
    	    int line = 0;
 
    	    if (info instanceof Symbol) {
    	        line = ((Symbol)info).left;
-            errorMessage.append (" on position ").append(line);
+            errorMessage.append ("Line ").append(line).append(": ");
         }
 
-        errorMessage.append(info);
+        errorMessage.append(message);
 
         errorList.add(new SyntaxError(line, errorMessage.toString()));
 
         log.error(errorMessage.toString());
+    }
+
+    public void log_recovery(String message) {
+        StringBuilder logMessage = new StringBuilder();
+
+        logMessage.append(message);
+
+        log.info(message.toString());
     }
 
     public boolean isErrorDetected() {
@@ -150,6 +158,8 @@ nonterminal
 nonterminal
 	VarDecls VarDecls;
 nonterminal
+	ClassVarDecls ClassVarDecls;
+nonterminal
 	VarDecl VarDecl;
 nonterminal
 	VarDeclType VarDeclType;
@@ -162,7 +172,7 @@ nonterminal
 nonterminal
 	ClassName ClassName;
 nonterminal
-	BaseClassName BaseClassName;
+	BaseClassType BaseClassType;
 nonterminal
 	ExtendedClassSplitter ExtendedClassSplitter;
 nonterminal
@@ -199,6 +209,8 @@ nonterminal
 	PrintStatementAdditionalParam PrintStatementAdditionalParam;
 nonterminal
 	DesignatorStatement DesignatorStatement;
+nonterminal
+	AssignStmt AssignStmt;
 nonterminal
 	ReturnExpr ReturnExpr;
 nonterminal
@@ -268,6 +280,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct
     Term,
     TermExpr,
     Expr,
+    AssignExpr,
     FunctionCall
 ;
 
@@ -305,12 +318,15 @@ ConstNameValuePair ::= (NumberConstNameValuePair) IDENT:name EQUALS NUMBER:value
                    | (BoolConstNameValuePair) IDENT:name EQUALS BOOL:value {: RESULT=new BoolConstNameValuePair(name, value); RESULT.setLine(nameleft); :}
 ;
 
+ClassVarDecls ::= (ClassVarDeclListElement) VarDecls:V1 VarDecl:V2 {: RESULT=new ClassVarDeclListElement(V1, V2); RESULT.setLine(V1left); :}
+    | (ClassEmptyVarDeclList) {: RESULT=new ClassEmptyVarDeclList(); :}
+;
+
 VarDecls ::= (VarDeclListElement) VarDecls:V1 VarDecl:V2 {: RESULT=new VarDeclListElement(V1, V2); RESULT.setLine(V1left); :}
    | (EmptyVarDeclList) {: RESULT=new EmptyVarDeclList(); :}
 ;
 
 VarDecl ::= (VariableDeclaration) VarDeclType:V1 VarIdents:V2 SEMICOLON {: RESULT=new VariableDeclaration(V1, V2); RESULT.setLine(V1left); :}
-    | (VariableDeclarationError) error SEMICOLON {: RESULT=new VariableDeclarationError(); :}
 ;
 
 VarDeclType ::= (VarDeclType) Type:T1 {: RESULT=new VarDeclType(T1); RESULT.setLine(T1left); :} ;
@@ -321,11 +337,11 @@ VarIdents ::= (VarIdentListElement) VarIdents:V1 COMMA VarIdent:V2 {: RESULT=new
 
 VarIdent ::= (ScalarVarIdent) IDENT:name {: RESULT=new ScalarVarIdent(name); RESULT.setLine(nameleft); :}
        | (ArrayVarIdent) IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayVarIdent(name); RESULT.setLine(nameleft); :}
-       | (VarIdentError) error {: RESULT=new VarIdentError(); :}
+       | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from variable declaration syntax error!"); :} {: RESULT=new VarIdentDerived1(); :}
 ;
 
-ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName:C1 EXTENDS BaseClassName:B2 LBRACE VarDecls:V3 ExtendedClassSplitter:E4 ClassMethodDecls:C5 RBRACE {: RESULT=new ExtendedClassDeclaration(C1, B2, V3, E4, C5); RESULT.setLine(C1left); :}
-       | (ClassDeclaration) CLASS ClassName:C1 LBRACE VarDecls:V2 ClassMethodDecls:C3 RBRACE {: RESULT=new ClassDeclaration(C1, V2, C3); RESULT.setLine(C1left); :}
+ClassDecl ::= (ExtendedClassDeclaration) CLASS ClassName:C1 EXTENDS BaseClassType:B2 LBRACE ClassVarDecls:C3 ExtendedClassSplitter:E4 ClassMethodDecls:C5 RBRACE {: RESULT=new ExtendedClassDeclaration(C1, B2, C3, E4, C5); RESULT.setLine(C1left); :}
+       | (ClassDeclaration) CLASS ClassName:C1 LBRACE ClassVarDecls:C2 ClassMethodDecls:C3 RBRACE {: RESULT=new ClassDeclaration(C1, C2, C3); RESULT.setLine(C1left); :}
 ;
 
 ClassMethodDecls ::= (ClassMethodDeclarations) LBRACE MethodDecls:M1 RBRACE {: RESULT=new ClassMethodDeclarations(M1); RESULT.setLine(M1left); :}
@@ -336,7 +352,8 @@ ClassName ::= (ClassName) ClassType:C1 {: RESULT=new ClassName(C1); RESULT.setLi
 
 ClassType ::= (ClassType) IDENT:name {: RESULT=new ClassType(name); RESULT.setLine(nameleft); :} ;
 
-BaseClassName ::= (BaseClassName) Type:T1 {: RESULT=new BaseClassName(T1); RESULT.setLine(T1left); :} ;
+BaseClassType ::= (BaseClassName) Type:T1 {: RESULT=new BaseClassName(T1); RESULT.setLine(T1left); :}
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from class extension syntax error!"); :} {: RESULT=new BaseClassTypeDerived1(); :};
 
 ExtendedClassSplitter ::= (ExtendedClassSplitter) {: RESULT=new ExtendedClassSplitter(); :} ;
 
@@ -362,7 +379,7 @@ FormPars ::= (FormalParametersListElement) FormPars:F1 COMMA FormPar:F2 {: RESUL
 
 FormPar ::= (ScalarFormalParameter) Type:T1 IDENT:name {: RESULT=new ScalarFormalParameter(T1, name); RESULT.setLine(T1left); :}
             | (ArrayFormalParameter) Type:T1 IDENT:name LBRACKET RBRACKET {: RESULT=new ArrayFormalParameter(T1, name); RESULT.setLine(T1left); :}
-            | (FormalParameterError) error {: RESULT=new FormalParameterError(); :}
+            | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from formal parameter declaration syntax error!"); :} {: RESULT=new FormParDerived1(); :}
 ;
 
 Type ::= (Type) IDENT:name {: RESULT=new Type(name); RESULT.setLine(nameleft); :} ;
@@ -404,7 +421,7 @@ ElseStatementStart ::= (ElseStatementStart) {: RESULT=new ElseStatementStart(); 
 ElseStatementEnd ::= (ElseStatementEnd) {: RESULT=new ElseStatementEnd(); :} ;
 
 IfCond ::= (IfCondition) IfConditionStart:I1 Condition:C2 IfConditionEnd:I3 {: RESULT=new IfCondition(I1, C2, I3); RESULT.setLine(I1left); :}
-    | (IfConditionError) error {: RESULT=new IfConditionError(); :}
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from if condition syntax error!"); :} {: RESULT=new IfCondDerived1(); :}
 ;
 
 IfConditionStart ::= (IfConditionStart) {: RESULT=new IfConditionStart(); :} ;
@@ -441,12 +458,17 @@ SwitchCase ::= (SwitchCase) SwitchCondition:S1 Statements:S2 {: RESULT=new Switc
 
 SwitchCondition ::= (SwitchCondition) CASE NUMBER:number COLON {: RESULT=new SwitchCondition(number); RESULT.setLine(numberleft); :} ;
 
-DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new AssignmentDesignatorStatement(D1, A2, E3); RESULT.setLine(D1left); :}
+DesignatorStatement ::= (AssignmentDesignatorStatement) AssignStmt:A1 {: RESULT=new AssignmentDesignatorStatement(A1); RESULT.setLine(A1left); :}
                     | (FuncCallDesignatorStatement) FunctionCall:F1 {: RESULT=new FuncCallDesignatorStatement(F1); RESULT.setLine(F1left); :}
                     | (PostIncDesignatorStatement) Designator:D1 PPLUS {: RESULT=new PostIncDesignatorStatement(D1); RESULT.setLine(D1left); :}
                     | (PostDecDesignatorStatement) Designator:D1 MMINUS {: RESULT=new PostDecDesignatorStatement(D1); RESULT.setLine(D1left); :}
-                    // ToDo: Does this work
-                    | (AssignmentError) error Assignop:A1 error {: RESULT=new AssignmentError(A1); RESULT.setLine(A1left); :}
+;
+
+AssignStmt ::= (AssignmentStatement) Designator:D1 Assignop:A2 AssignExpr:A3 {: RESULT=new AssignmentStatement(D1, A2, A3); RESULT.setLine(D1left); :}
+;
+
+AssignExpr ::= (AssignmentExpression) Expr:E1 {: RESULT=new AssignmentExpression(E1); RESULT.setLine(E1left); :}
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from assignment syntax error!"); :} {: RESULT=new AssignExprDerived1(); :}
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator:F1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCall(F1, F2); RESULT.setLine(F1left); :} ;

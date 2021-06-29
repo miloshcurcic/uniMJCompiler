@@ -210,6 +210,8 @@ nonterminal
 nonterminal
 	DesignatorStatement DesignatorStatement;
 nonterminal
+	AssignStmt AssignStmt;
+nonterminal
 	ReturnExpr ReturnExpr;
 nonterminal
 	YieldExpr YieldExpr;
@@ -278,6 +280,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Struct
     Term,
     TermExpr,
     Expr,
+    AssignExpr,
     FunctionCall
 ;
 
@@ -455,11 +458,17 @@ SwitchCase ::= (SwitchCase) SwitchCondition:S1 Statements:S2 {: RESULT=new Switc
 
 SwitchCondition ::= (SwitchCondition) CASE NUMBER:number COLON {: RESULT=new SwitchCondition(number); RESULT.setLine(numberleft); :} ;
 
-DesignatorStatement ::= (AssignmentDesignatorStatement) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new AssignmentDesignatorStatement(D1, A2, E3); RESULT.setLine(D1left); :}
+DesignatorStatement ::= (AssignmentDesignatorStatement) AssignStmt:A1 {: RESULT=new AssignmentDesignatorStatement(A1); RESULT.setLine(A1left); :}
                     | (FuncCallDesignatorStatement) FunctionCall:F1 {: RESULT=new FuncCallDesignatorStatement(F1); RESULT.setLine(F1left); :}
                     | (PostIncDesignatorStatement) Designator:D1 PPLUS {: RESULT=new PostIncDesignatorStatement(D1); RESULT.setLine(D1left); :}
                     | (PostDecDesignatorStatement) Designator:D1 MMINUS {: RESULT=new PostDecDesignatorStatement(D1); RESULT.setLine(D1left); :}
-                    | Designator:D1 Assignop:A2 error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from assignment syntax error!"); :} {: RESULT=new DesignatorStatementDerived1(D1, A2); RESULT.setLine(D1left); :}
+;
+
+AssignStmt ::= (AssignmentStatement) Designator:D1 Assignop:A2 AssignExpr:A3 {: RESULT=new AssignmentStatement(D1, A2, A3); RESULT.setLine(D1left); :}
+;
+
+AssignExpr ::= (AssignmentExpression) Expr:E1 {: RESULT=new AssignmentExpression(E1); RESULT.setLine(E1left); :}
+    | error:e {: parser.log_recovery("Line " + eleft + ": Successfully recovered from assignment syntax error!"); :} {: RESULT=new AssignExprDerived1(); :}
 ;
 
 FunctionCall ::= (FunctionCall) FunctionCallDesignator:F1 LPAREN FuncCallActPars:F2 RPAREN {: RESULT=new FunctionCall(F1, F2); RESULT.setLine(F1left); :} ;
