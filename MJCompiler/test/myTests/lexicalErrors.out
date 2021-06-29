@@ -1,0 +1,9 @@
+INFO  20:20:11,818 - ===================================
+INFO  20:20:11,821 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  20:20:11,821 - ===================================
+ERROR 20:20:11,884 - Line 5 Column 5: Lexical analysis error for text "$#@#"!
+ERROR 20:20:11,886 - Line 10 Column 6: Lexical analysis error for text "@#$"!
+ERROR 20:20:11,887 - Line 11 Column 6: Lexical analysis error for text "@$@"!
+INFO  20:20:11,888 - ===================================
+INFO  20:20:11,888 - One or more lexical or syntax errors detected.
+INFO  20:20:11,888 - ===================================

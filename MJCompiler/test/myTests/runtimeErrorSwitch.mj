@@ -1,0 +1,20 @@
+//Test 302
+// all errors
+program recovery
+
+int something;
+
+{
+	void main()
+        int localVar;
+	{
+
+	    localVar = switch(1) {
+	        default:
+	            if (false) {
+	                yield 1;
+	            }
+	    };
+    }
+}
+

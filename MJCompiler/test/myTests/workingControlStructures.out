@@ -1,0 +1,4 @@
+A B  C   D
+ABCD
+[A{B()D()}C{B(AB)D(AB)}D{A(ABC)C(ABC)}]
+ABC

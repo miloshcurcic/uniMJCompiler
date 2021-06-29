@@ -1,0 +1,14 @@
+//Test 302
+// all errors
+program recovery
+
+int $#@# something;
+
+{
+	void main()
+	{
+	    @#$
+	    @$@
+    }
+}
+

@@ -1,0 +1,203 @@
+INFO  20:21:13,425 - ===================================
+INFO  20:21:13,427 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  20:21:13,427 - ===================================
+INFO  20:21:13,516 - ===================================
+INFO  20:21:13,517 - Program(
+  ProgramName(
+   recovery
+  ) [ProgramName]
+  DataDeclListElement(
+    EmptyDataDeclListHead(
+    ) [EmptyDataDeclListHead]
+    VarDataDecl(
+      VariableDeclaration(
+        VarDeclType(
+          Type(
+           int
+          ) [Type]
+        ) [VarDeclType]
+        VarIdentListHead(
+          ScalarVarIdent(
+           something
+          ) [ScalarVarIdent]
+        ) [VarIdentListHead]
+      ) [VariableDeclaration]
+    ) [VarDataDecl]
+  ) [DataDeclListElement]
+  MethodDeclarationListElement(
+    MethodDeclarationListElement(
+      EmptyMethodDeclarationListHead(
+      ) [EmptyMethodDeclarationListHead]
+      MethodDeclaration(
+        TypeMethodTypeNamePair(
+          Type(
+           int
+          ) [Type]
+         noReturn
+        ) [TypeMethodTypeNamePair]
+        NoMethodFormalParameters(
+        ) [NoMethodFormalParameters]
+        EmptyVarDeclList(
+        ) [EmptyVarDeclList]
+        MethodStatements(
+          StatementListElement(
+            EmptyStatementListHead(
+            ) [EmptyStatementListHead]
+            SingleStatementType(
+              SingleMatchedStatement(
+                MatchedIfStatement(
+                  IfCondition(
+                    IfConditionStart(
+                    ) [IfConditionStart]
+                    ConditionListHead(
+                      CondTermListHead(
+                        SingleCondFact(
+                          TermExpression(
+                            TermExprListHead(
+                              TermListHead(
+                                BoolConstFactor(
+                                 false
+                                ) [BoolConstFactor]
+                              ) [TermListHead]
+                            ) [TermExprListHead]
+                          ) [TermExpression]
+                        ) [SingleCondFact]
+                      ) [CondTermListHead]
+                    ) [ConditionListHead]
+                    IfConditionEnd(
+                    ) [IfConditionEnd]
+                  ) [IfCondition]
+                  IfStatementStart(
+                  ) [IfStatementStart]
+                  BracedStatementType(
+                    BracedStatement(
+                      BracedStatementListElement(
+                        EmptyBracedStatementListHead(
+                        ) [EmptyBracedStatementListHead]
+                        SingleMatchedStatement(
+                          MatchedReturnStatement(
+                            ReturnExpression(
+                              TermExpression(
+                                TermExprListHead(
+                                  TermListHead(
+                                    NumConstFactor(
+                                     0
+                                    ) [NumConstFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [TermExpression]
+                            ) [ReturnExpression]
+                          ) [MatchedReturnStatement]
+                        ) [SingleMatchedStatement]
+                      ) [BracedStatementListElement]
+                    ) [BracedStatement]
+                  ) [BracedStatementType]
+                  IfStatementEnd(
+                  ) [IfStatementEnd]
+                ) [MatchedIfStatement]
+              ) [SingleMatchedStatement]
+            ) [SingleStatementType]
+          ) [StatementListElement]
+        ) [MethodStatements]
+      ) [MethodDeclaration]
+    ) [MethodDeclarationListElement]
+    MethodDeclaration(
+      VoidMethodTypeNamePair(
+       main
+      ) [VoidMethodTypeNamePair]
+      NoMethodFormalParameters(
+      ) [NoMethodFormalParameters]
+      VarDeclListElement(
+        EmptyVarDeclList(
+        ) [EmptyVarDeclList]
+        VariableDeclaration(
+          VarDeclType(
+            Type(
+             int
+            ) [Type]
+          ) [VarDeclType]
+          VarIdentListHead(
+            ScalarVarIdent(
+             localVar
+            ) [ScalarVarIdent]
+          ) [VarIdentListHead]
+        ) [VariableDeclaration]
+      ) [VarDeclListElement]
+      MethodStatements(
+        StatementListElement(
+          EmptyStatementListHead(
+          ) [EmptyStatementListHead]
+          SingleStatementType(
+            SingleMatchedStatement(
+              MatchedAssignmentStatement(
+                AssignmentDesignatorStatement(
+                  AssignmentStatement(
+                    ScalarDesignator(
+                     localVar
+                    ) [ScalarDesignator]
+                    Assignop(
+                    ) [Assignop]
+                    AssignmentExpression(
+                      TermExpression(
+                        TermExprListHead(
+                          TermListHead(
+                            FunctionCallResultFactor(
+                              FunctionCall(
+                                FunctionCallDesignator(
+                                  ScalarDesignator(
+                                   noReturn
+                                  ) [ScalarDesignator]
+                                ) [FunctionCallDesignator]
+                                NoFunctionCallActualParameters(
+                                ) [NoFunctionCallActualParameters]
+                              ) [FunctionCall]
+                            ) [FunctionCallResultFactor]
+                          ) [TermListHead]
+                        ) [TermExprListHead]
+                      ) [TermExpression]
+                    ) [AssignmentExpression]
+                  ) [AssignmentStatement]
+                ) [AssignmentDesignatorStatement]
+              ) [MatchedAssignmentStatement]
+            ) [SingleMatchedStatement]
+          ) [SingleStatementType]
+        ) [StatementListElement]
+      ) [MethodStatements]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListElement]
+) [Program]
+INFO  20:21:13,537 - ===================================
+INFO  20:21:13,539 - Line: 17 - Detected use of Variable localVar: int, Offset: 0, Scope: local
+INFO  20:21:13,539 - Line: 17 - Detected use of Method noReturn: int, Offset: 0, Formal params: 0
+INFO  20:21:13,539 - =====================SYMBOL TABLE DUMP=========================
+INFO  20:21:13,540 - Type int: int
+
+Type char: char
+
+Constant eol: char, Value: 10
+
+Constant null: Class, Value: 0
+
+Method chr: char, Offset: 0, Formal params: 1
+   Variable i: int, Offset: 0, Scope: local, Formal param position: 0
+
+Method ord: int, Offset: 0, Formal params: 1
+   Variable ch: char, Offset: 0, Scope: local, Formal param position: 0
+
+Method len: int, Offset: 0, Formal params: 1
+   Variable arr: Array of notype, Offset: 0, Scope: local, Formal param position: 0
+
+Type bool: bool
+
+Program recovery:
+   Variable something: int, Offset: 0, Scope: global
+   Method noReturn: int, Offset: 0, Formal params: 0
+   Method main: notype, Offset: 0, Formal params: 0
+      Variable localVar: int, Offset: 0, Scope: local
+
+
+INFO  20:21:13,541 - ===================================
+INFO  20:21:13,541 - Parsing successfully completed. Generating output.
+INFO  20:21:13,541 - ===================================
+INFO  20:21:13,541 - Generating bytecode file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\program.obj
+INFO  20:21:13,541 - program.obj already exists, it will be overwritten.

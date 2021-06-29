@@ -1,0 +1,2104 @@
+INFO  20:17:10,623 - ===================================
+INFO  20:17:10,625 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  20:17:10,625 - ===================================
+INFO  20:17:10,715 - ===================================
+INFO  20:17:10,720 - Program(
+  ProgramName(
+   correctSyntax
+  ) [ProgramName]
+  DataDeclListElement(
+    DataDeclListElement(
+      DataDeclListElement(
+        DataDeclListElement(
+          DataDeclListElement(
+            DataDeclListElement(
+              DataDeclListElement(
+                DataDeclListElement(
+                  DataDeclListElement(
+                    DataDeclListElement(
+                      DataDeclListElement(
+                        DataDeclListElement(
+                          DataDeclListElement(
+                            DataDeclListElement(
+                              EmptyDataDeclListHead(
+                              ) [EmptyDataDeclListHead]
+                              ConstDataDecl(
+                                ConstDecl(
+                                  ConstDeclType(
+                                    Type(
+                                     bool
+                                    ) [Type]
+                                  ) [ConstDeclType]
+                                  ConstNameValuePairListHead(
+                                    BoolConstNameValuePair(
+                                     trueConst
+                                     true
+                                    ) [BoolConstNameValuePair]
+                                  ) [ConstNameValuePairListHead]
+                                ) [ConstDecl]
+                              ) [ConstDataDecl]
+                            ) [DataDeclListElement]
+                            ConstDataDecl(
+                              ConstDecl(
+                                ConstDeclType(
+                                  Type(
+                                   bool
+                                  ) [Type]
+                                ) [ConstDeclType]
+                                ConstNameValuePairListHead(
+                                  BoolConstNameValuePair(
+                                   falseConst
+                                   false
+                                  ) [BoolConstNameValuePair]
+                                ) [ConstNameValuePairListHead]
+                              ) [ConstDecl]
+                            ) [ConstDataDecl]
+                          ) [DataDeclListElement]
+                          ConstDataDecl(
+                            ConstDecl(
+                              ConstDeclType(
+                                Type(
+                                 int
+                                ) [Type]
+                              ) [ConstDeclType]
+                              ConstNameValuePairListHead(
+                                NumberConstNameValuePair(
+                                 zeroConst
+                                 0
+                                ) [NumberConstNameValuePair]
+                              ) [ConstNameValuePairListHead]
+                            ) [ConstDecl]
+                          ) [ConstDataDecl]
+                        ) [DataDeclListElement]
+                        ConstDataDecl(
+                          ConstDecl(
+                            ConstDeclType(
+                              Type(
+                               int
+                              ) [Type]
+                            ) [ConstDeclType]
+                            ConstNameValuePairListHead(
+                              NumberConstNameValuePair(
+                               oneConst
+                               1
+                              ) [NumberConstNameValuePair]
+                            ) [ConstNameValuePairListHead]
+                          ) [ConstDecl]
+                        ) [ConstDataDecl]
+                      ) [DataDeclListElement]
+                      ConstDataDecl(
+                        ConstDecl(
+                          ConstDeclType(
+                            Type(
+                             int
+                            ) [Type]
+                          ) [ConstDeclType]
+                          ConstNameValuePairListHead(
+                            NumberConstNameValuePair(
+                             twoConst
+                             2
+                            ) [NumberConstNameValuePair]
+                          ) [ConstNameValuePairListHead]
+                        ) [ConstDecl]
+                      ) [ConstDataDecl]
+                    ) [DataDeclListElement]
+                    ConstDataDecl(
+                      ConstDecl(
+                        ConstDeclType(
+                          Type(
+                           char
+                          ) [Type]
+                        ) [ConstDeclType]
+                        ConstNameValuePairListHead(
+                          CharConstNameValuePair(
+                           mCharConst
+                           m
+                          ) [CharConstNameValuePair]
+                        ) [ConstNameValuePairListHead]
+                      ) [ConstDecl]
+                    ) [ConstDataDecl]
+                  ) [DataDeclListElement]
+                  VarDataDecl(
+                    VariableDeclaration(
+                      VarDeclType(
+                        Type(
+                         int
+                        ) [Type]
+                      ) [VarDeclType]
+                      VarIdentListElement(
+                        VarIdentListHead(
+                          ScalarVarIdent(
+                           intGlobalVar0
+                          ) [ScalarVarIdent]
+                        ) [VarIdentListHead]
+                        ArrayVarIdent(
+                         intGlobalArrayVar0
+                        ) [ArrayVarIdent]
+                      ) [VarIdentListElement]
+                    ) [VariableDeclaration]
+                  ) [VarDataDecl]
+                ) [DataDeclListElement]
+                ClassDataDecl(
+                  ClassDeclaration(
+                    ClassName(
+                      ClassType(
+                       BaseClass
+                      ) [ClassType]
+                    ) [ClassName]
+                    ClassVarDeclListElement(
+                      VarDeclListElement(
+                        EmptyVarDeclList(
+                        ) [EmptyVarDeclList]
+                        VariableDeclaration(
+                          VarDeclType(
+                            Type(
+                             int
+                            ) [Type]
+                          ) [VarDeclType]
+                          VarIdentListHead(
+                            ScalarVarIdent(
+                             firstBaseField
+                            ) [ScalarVarIdent]
+                          ) [VarIdentListHead]
+                        ) [VariableDeclaration]
+                      ) [VarDeclListElement]
+                      VariableDeclaration(
+                        VarDeclType(
+                          Type(
+                           int
+                          ) [Type]
+                        ) [VarDeclType]
+                        VarIdentListHead(
+                          ScalarVarIdent(
+                           secondBaseField
+                          ) [ScalarVarIdent]
+                        ) [VarIdentListHead]
+                      ) [VariableDeclaration]
+                    ) [ClassVarDeclListElement]
+                    ClassMethodDeclarations(
+                      MethodDeclarationListElement(
+                        MethodDeclarationListElement(
+                          MethodDeclarationListElement(
+                            MethodDeclarationListElement(
+                              EmptyMethodDeclarationListHead(
+                              ) [EmptyMethodDeclarationListHead]
+                              MethodDeclaration(
+                                TypeMethodTypeNamePair(
+                                  Type(
+                                   int
+                                  ) [Type]
+                                 getFirstBaseFieldMethod
+                                ) [TypeMethodTypeNamePair]
+                                NoMethodFormalParameters(
+                                ) [NoMethodFormalParameters]
+                                EmptyVarDeclList(
+                                ) [EmptyVarDeclList]
+                                MethodStatements(
+                                  StatementListElement(
+                                    EmptyStatementListHead(
+                                    ) [EmptyStatementListHead]
+                                    SingleStatementType(
+                                      SingleMatchedStatement(
+                                        MatchedReturnStatement(
+                                          ReturnExpression(
+                                            TermExpression(
+                                              TermExprListHead(
+                                                TermListHead(
+                                                  VarFactor(
+                                                    ScalarDesignator(
+                                                     firstBaseField
+                                                    ) [ScalarDesignator]
+                                                  ) [VarFactor]
+                                                ) [TermListHead]
+                                              ) [TermExprListHead]
+                                            ) [TermExpression]
+                                          ) [ReturnExpression]
+                                        ) [MatchedReturnStatement]
+                                      ) [SingleMatchedStatement]
+                                    ) [SingleStatementType]
+                                  ) [StatementListElement]
+                                ) [MethodStatements]
+                              ) [MethodDeclaration]
+                            ) [MethodDeclarationListElement]
+                            MethodDeclaration(
+                              VoidMethodTypeNamePair(
+                               setFirstBaseFieldMethod
+                              ) [VoidMethodTypeNamePair]
+                              MethodFormalParameters(
+                                FormParametersListHead(
+                                  ScalarFormalParameter(
+                                    Type(
+                                     int
+                                    ) [Type]
+                                   firstFormalParam
+                                  ) [ScalarFormalParameter]
+                                ) [FormParametersListHead]
+                              ) [MethodFormalParameters]
+                              EmptyVarDeclList(
+                              ) [EmptyVarDeclList]
+                              MethodStatements(
+                                StatementListElement(
+                                  EmptyStatementListHead(
+                                  ) [EmptyStatementListHead]
+                                  SingleStatementType(
+                                    SingleMatchedStatement(
+                                      MatchedAssignmentStatement(
+                                        AssignmentDesignatorStatement(
+                                          AssignmentStatement(
+                                            ObjectAccessDesignator(
+                                              ScalarDesignator(
+                                               this
+                                              ) [ScalarDesignator]
+                                             firstBaseField
+                                            ) [ObjectAccessDesignator]
+                                            Assignop(
+                                            ) [Assignop]
+                                            AssignmentExpression(
+                                              TermExpression(
+                                                TermExprListHead(
+                                                  TermListHead(
+                                                    VarFactor(
+                                                      ScalarDesignator(
+                                                       firstFormalParam
+                                                      ) [ScalarDesignator]
+                                                    ) [VarFactor]
+                                                  ) [TermListHead]
+                                                ) [TermExprListHead]
+                                              ) [TermExpression]
+                                            ) [AssignmentExpression]
+                                          ) [AssignmentStatement]
+                                        ) [AssignmentDesignatorStatement]
+                                      ) [MatchedAssignmentStatement]
+                                    ) [SingleMatchedStatement]
+                                  ) [SingleStatementType]
+                                ) [StatementListElement]
+                              ) [MethodStatements]
+                            ) [MethodDeclaration]
+                          ) [MethodDeclarationListElement]
+                          MethodDeclaration(
+                            TypeMethodTypeNamePair(
+                              Type(
+                               int
+                              ) [Type]
+                             getSecondBaseFieldMethod
+                            ) [TypeMethodTypeNamePair]
+                            NoMethodFormalParameters(
+                            ) [NoMethodFormalParameters]
+                            EmptyVarDeclList(
+                            ) [EmptyVarDeclList]
+                            MethodStatements(
+                              StatementListElement(
+                                EmptyStatementListHead(
+                                ) [EmptyStatementListHead]
+                                SingleStatementType(
+                                  SingleMatchedStatement(
+                                    MatchedReturnStatement(
+                                      ReturnExpression(
+                                        TermExpression(
+                                          TermExprListHead(
+                                            TermListHead(
+                                              VarFactor(
+                                                ObjectAccessDesignator(
+                                                  ScalarDesignator(
+                                                   this
+                                                  ) [ScalarDesignator]
+                                                 secondBaseField
+                                                ) [ObjectAccessDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [TermExpression]
+                                      ) [ReturnExpression]
+                                    ) [MatchedReturnStatement]
+                                  ) [SingleMatchedStatement]
+                                ) [SingleStatementType]
+                              ) [StatementListElement]
+                            ) [MethodStatements]
+                          ) [MethodDeclaration]
+                        ) [MethodDeclarationListElement]
+                        MethodDeclaration(
+                          VoidMethodTypeNamePair(
+                           setSecondBaseFieldMethod
+                          ) [VoidMethodTypeNamePair]
+                          MethodFormalParameters(
+                            FormParametersListHead(
+                              ScalarFormalParameter(
+                                Type(
+                                 int
+                                ) [Type]
+                               secondBaseField
+                              ) [ScalarFormalParameter]
+                            ) [FormParametersListHead]
+                          ) [MethodFormalParameters]
+                          EmptyVarDeclList(
+                          ) [EmptyVarDeclList]
+                          MethodStatements(
+                            StatementListElement(
+                              EmptyStatementListHead(
+                              ) [EmptyStatementListHead]
+                              SingleStatementType(
+                                SingleMatchedStatement(
+                                  MatchedAssignmentStatement(
+                                    AssignmentDesignatorStatement(
+                                      AssignmentStatement(
+                                        ObjectAccessDesignator(
+                                          ScalarDesignator(
+                                           this
+                                          ) [ScalarDesignator]
+                                         secondBaseField
+                                        ) [ObjectAccessDesignator]
+                                        Assignop(
+                                        ) [Assignop]
+                                        AssignmentExpression(
+                                          TermExpression(
+                                            TermExprListHead(
+                                              TermListHead(
+                                                VarFactor(
+                                                  ScalarDesignator(
+                                                   secondBaseField
+                                                  ) [ScalarDesignator]
+                                                ) [VarFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [TermExpression]
+                                        ) [AssignmentExpression]
+                                      ) [AssignmentStatement]
+                                    ) [AssignmentDesignatorStatement]
+                                  ) [MatchedAssignmentStatement]
+                                ) [SingleMatchedStatement]
+                              ) [SingleStatementType]
+                            ) [StatementListElement]
+                          ) [MethodStatements]
+                        ) [MethodDeclaration]
+                      ) [MethodDeclarationListElement]
+                    ) [ClassMethodDeclarations]
+                  ) [ClassDeclaration]
+                ) [ClassDataDecl]
+              ) [DataDeclListElement]
+              ClassDataDecl(
+                ExtendedClassDeclaration(
+                  ClassName(
+                    ClassType(
+                     ExtendedClass0
+                    ) [ClassType]
+                  ) [ClassName]
+                  BaseClassName(
+                    Type(
+                     BaseClass
+                    ) [Type]
+                  ) [BaseClassName]
+                  ClassVarDeclListElement(
+                    EmptyVarDeclList(
+                    ) [EmptyVarDeclList]
+                    VariableDeclaration(
+                      VarDeclType(
+                        Type(
+                         int
+                        ) [Type]
+                      ) [VarDeclType]
+                      VarIdentListHead(
+                        ScalarVarIdent(
+                         firstExtended0Field
+                        ) [ScalarVarIdent]
+                      ) [VarIdentListHead]
+                    ) [VariableDeclaration]
+                  ) [ClassVarDeclListElement]
+                  ExtendedClassSplitter(
+                  ) [ExtendedClassSplitter]
+                  ClassMethodDeclarations(
+                    MethodDeclarationListElement(
+                      MethodDeclarationListElement(
+                        EmptyMethodDeclarationListHead(
+                        ) [EmptyMethodDeclarationListHead]
+                        MethodDeclaration(
+                          TypeMethodTypeNamePair(
+                            Type(
+                             int
+                            ) [Type]
+                           mulBaseFirstField
+                          ) [TypeMethodTypeNamePair]
+                          NoMethodFormalParameters(
+                          ) [NoMethodFormalParameters]
+                          EmptyVarDeclList(
+                          ) [EmptyVarDeclList]
+                          MethodStatements(
+                            StatementListElement(
+                              EmptyStatementListHead(
+                              ) [EmptyStatementListHead]
+                              SingleStatementType(
+                                SingleMatchedStatement(
+                                  MatchedReturnStatement(
+                                    ReturnExpression(
+                                      TermExpression(
+                                        TermExprListHead(
+                                          TermListElement(
+                                            TermListHead(
+                                              VarFactor(
+                                                ObjectAccessDesignator(
+                                                  ScalarDesignator(
+                                                   this
+                                                  ) [ScalarDesignator]
+                                                 firstBaseField
+                                                ) [ObjectAccessDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListHead]
+                                            MulopMultiply(
+                                            ) [MulopMultiply]
+                                            VarFactor(
+                                              ScalarDesignator(
+                                               firstExtended0Field
+                                              ) [ScalarDesignator]
+                                            ) [VarFactor]
+                                          ) [TermListElement]
+                                        ) [TermExprListHead]
+                                      ) [TermExpression]
+                                    ) [ReturnExpression]
+                                  ) [MatchedReturnStatement]
+                                ) [SingleMatchedStatement]
+                              ) [SingleStatementType]
+                            ) [StatementListElement]
+                          ) [MethodStatements]
+                        ) [MethodDeclaration]
+                      ) [MethodDeclarationListElement]
+                      MethodDeclaration(
+                        TypeMethodTypeNamePair(
+                          Type(
+                           int
+                          ) [Type]
+                         mulBaseSecondField
+                        ) [TypeMethodTypeNamePair]
+                        NoMethodFormalParameters(
+                        ) [NoMethodFormalParameters]
+                        EmptyVarDeclList(
+                        ) [EmptyVarDeclList]
+                        MethodStatements(
+                          StatementListElement(
+                            EmptyStatementListHead(
+                            ) [EmptyStatementListHead]
+                            SingleStatementType(
+                              SingleMatchedStatement(
+                                MatchedReturnStatement(
+                                  ReturnExpression(
+                                    TermExpression(
+                                      TermExprListHead(
+                                        TermListElement(
+                                          TermListHead(
+                                            VarFactor(
+                                              ScalarDesignator(
+                                               secondBaseField
+                                              ) [ScalarDesignator]
+                                            ) [VarFactor]
+                                          ) [TermListHead]
+                                          MulopMultiply(
+                                          ) [MulopMultiply]
+                                          VarFactor(
+                                            ObjectAccessDesignator(
+                                              ScalarDesignator(
+                                               this
+                                              ) [ScalarDesignator]
+                                             firstExtended0Field
+                                            ) [ObjectAccessDesignator]
+                                          ) [VarFactor]
+                                        ) [TermListElement]
+                                      ) [TermExprListHead]
+                                    ) [TermExpression]
+                                  ) [ReturnExpression]
+                                ) [MatchedReturnStatement]
+                              ) [SingleMatchedStatement]
+                            ) [SingleStatementType]
+                          ) [StatementListElement]
+                        ) [MethodStatements]
+                      ) [MethodDeclaration]
+                    ) [MethodDeclarationListElement]
+                  ) [ClassMethodDeclarations]
+                ) [ExtendedClassDeclaration]
+              ) [ClassDataDecl]
+            ) [DataDeclListElement]
+            ClassDataDecl(
+              ExtendedClassDeclaration(
+                ClassName(
+                  ClassType(
+                   ExtendedClass1
+                  ) [ClassType]
+                ) [ClassName]
+                BaseClassName(
+                  Type(
+                   BaseClass
+                  ) [Type]
+                ) [BaseClassName]
+                ClassVarDeclListElement(
+                  EmptyVarDeclList(
+                  ) [EmptyVarDeclList]
+                  VariableDeclaration(
+                    VarDeclType(
+                      Type(
+                       int
+                      ) [Type]
+                    ) [VarDeclType]
+                    VarIdentListHead(
+                      ScalarVarIdent(
+                       firstExtended1Field
+                      ) [ScalarVarIdent]
+                    ) [VarIdentListHead]
+                  ) [VariableDeclaration]
+                ) [ClassVarDeclListElement]
+                ExtendedClassSplitter(
+                ) [ExtendedClassSplitter]
+                ClassMethodDeclarations(
+                  MethodDeclarationListElement(
+                    MethodDeclarationListElement(
+                      EmptyMethodDeclarationListHead(
+                      ) [EmptyMethodDeclarationListHead]
+                      MethodDeclaration(
+                        TypeMethodTypeNamePair(
+                          Type(
+                           int
+                          ) [Type]
+                         getFirstBaseFieldMethod
+                        ) [TypeMethodTypeNamePair]
+                        NoMethodFormalParameters(
+                        ) [NoMethodFormalParameters]
+                        EmptyVarDeclList(
+                        ) [EmptyVarDeclList]
+                        MethodStatements(
+                          StatementListElement(
+                            EmptyStatementListHead(
+                            ) [EmptyStatementListHead]
+                            SingleStatementType(
+                              SingleMatchedStatement(
+                                MatchedReturnStatement(
+                                  ReturnExpression(
+                                    TermExpression(
+                                      TermExprListHead(
+                                        TermListHead(
+                                          VarFactor(
+                                            ScalarDesignator(
+                                             firstExtended1Field
+                                            ) [ScalarDesignator]
+                                          ) [VarFactor]
+                                        ) [TermListHead]
+                                      ) [TermExprListHead]
+                                    ) [TermExpression]
+                                  ) [ReturnExpression]
+                                ) [MatchedReturnStatement]
+                              ) [SingleMatchedStatement]
+                            ) [SingleStatementType]
+                          ) [StatementListElement]
+                        ) [MethodStatements]
+                      ) [MethodDeclaration]
+                    ) [MethodDeclarationListElement]
+                    MethodDeclaration(
+                      VoidMethodTypeNamePair(
+                       setFirstBaseFieldMethod
+                      ) [VoidMethodTypeNamePair]
+                      MethodFormalParameters(
+                        FormParametersListHead(
+                          ScalarFormalParameter(
+                            Type(
+                             int
+                            ) [Type]
+                           firstFormalParam
+                          ) [ScalarFormalParameter]
+                        ) [FormParametersListHead]
+                      ) [MethodFormalParameters]
+                      EmptyVarDeclList(
+                      ) [EmptyVarDeclList]
+                      MethodStatements(
+                        StatementListElement(
+                          EmptyStatementListHead(
+                          ) [EmptyStatementListHead]
+                          SingleStatementType(
+                            SingleMatchedStatement(
+                              MatchedAssignmentStatement(
+                                AssignmentDesignatorStatement(
+                                  AssignmentStatement(
+                                    ObjectAccessDesignator(
+                                      ScalarDesignator(
+                                       this
+                                      ) [ScalarDesignator]
+                                     firstExtended1Field
+                                    ) [ObjectAccessDesignator]
+                                    Assignop(
+                                    ) [Assignop]
+                                    AssignmentExpression(
+                                      TermExpression(
+                                        TermExprListHead(
+                                          TermListHead(
+                                            VarFactor(
+                                              ScalarDesignator(
+                                               firstFormalParam
+                                              ) [ScalarDesignator]
+                                            ) [VarFactor]
+                                          ) [TermListHead]
+                                        ) [TermExprListHead]
+                                      ) [TermExpression]
+                                    ) [AssignmentExpression]
+                                  ) [AssignmentStatement]
+                                ) [AssignmentDesignatorStatement]
+                              ) [MatchedAssignmentStatement]
+                            ) [SingleMatchedStatement]
+                          ) [SingleStatementType]
+                        ) [StatementListElement]
+                      ) [MethodStatements]
+                    ) [MethodDeclaration]
+                  ) [MethodDeclarationListElement]
+                ) [ClassMethodDeclarations]
+              ) [ExtendedClassDeclaration]
+            ) [ClassDataDecl]
+          ) [DataDeclListElement]
+          ClassDataDecl(
+            ExtendedClassDeclaration(
+              ClassName(
+                ClassType(
+                 ExtendedExtendedClass1
+                ) [ClassType]
+              ) [ClassName]
+              BaseClassName(
+                Type(
+                 ExtendedClass1
+                ) [Type]
+              ) [BaseClassName]
+              ClassEmptyVarDeclList(
+              ) [ClassEmptyVarDeclList]
+              ExtendedClassSplitter(
+              ) [ExtendedClassSplitter]
+              NoClassMethodDeclarations(
+              ) [NoClassMethodDeclarations]
+            ) [ExtendedClassDeclaration]
+          ) [ClassDataDecl]
+        ) [DataDeclListElement]
+        ClassDataDecl(
+          ClassDeclaration(
+            ClassName(
+              ClassType(
+               NestedClassLevel1
+              ) [ClassType]
+            ) [ClassName]
+            ClassVarDeclListElement(
+              EmptyVarDeclList(
+              ) [EmptyVarDeclList]
+              VariableDeclaration(
+                VarDeclType(
+                  Type(
+                   BaseClass
+                  ) [Type]
+                ) [VarDeclType]
+                VarIdentListHead(
+                  ArrayVarIdent(
+                   baseClassArray
+                  ) [ArrayVarIdent]
+                ) [VarIdentListHead]
+              ) [VariableDeclaration]
+            ) [ClassVarDeclListElement]
+            ClassMethodDeclarations(
+              MethodDeclarationListElement(
+                EmptyMethodDeclarationListHead(
+                ) [EmptyMethodDeclarationListHead]
+                MethodDeclaration(
+                  VoidMethodTypeNamePair(
+                   initialize
+                  ) [VoidMethodTypeNamePair]
+                  NoMethodFormalParameters(
+                  ) [NoMethodFormalParameters]
+                  VarDeclListElement(
+                    VarDeclListElement(
+                      EmptyVarDeclList(
+                      ) [EmptyVarDeclList]
+                      VariableDeclaration(
+                        VarDeclType(
+                          Type(
+                           ExtendedClass0
+                          ) [Type]
+                        ) [VarDeclType]
+                        VarIdentListHead(
+                          ScalarVarIdent(
+                           classInstance0
+                          ) [ScalarVarIdent]
+                        ) [VarIdentListHead]
+                      ) [VariableDeclaration]
+                    ) [VarDeclListElement]
+                    VariableDeclaration(
+                      VarDeclType(
+                        Type(
+                         ExtendedExtendedClass1
+                        ) [Type]
+                      ) [VarDeclType]
+                      VarIdentListHead(
+                        ScalarVarIdent(
+                         classInstance1
+                        ) [ScalarVarIdent]
+                      ) [VarIdentListHead]
+                    ) [VariableDeclaration]
+                  ) [VarDeclListElement]
+                  MethodStatements(
+                    StatementListElement(
+                      StatementListElement(
+                        StatementListElement(
+                          StatementListElement(
+                            StatementListElement(
+                              StatementListElement(
+                                StatementListElement(
+                                  StatementListElement(
+                                    StatementListElement(
+                                      StatementListElement(
+                                        StatementListElement(
+                                          StatementListElement(
+                                            EmptyStatementListHead(
+                                            ) [EmptyStatementListHead]
+                                            SingleStatementType(
+                                              SingleMatchedStatement(
+                                                MatchedAssignmentStatement(
+                                                  AssignmentDesignatorStatement(
+                                                    AssignmentStatement(
+                                                      ScalarDesignator(
+                                                       baseClassArray
+                                                      ) [ScalarDesignator]
+                                                      Assignop(
+                                                      ) [Assignop]
+                                                      AssignmentExpression(
+                                                        TermExpression(
+                                                          TermExprListHead(
+                                                            TermListHead(
+                                                              NewArrayObjectFactor(
+                                                                Type(
+                                                                 BaseClass
+                                                                ) [Type]
+                                                                TermExpression(
+                                                                  TermExprListHead(
+                                                                    TermListHead(
+                                                                      NumConstFactor(
+                                                                       4
+                                                                      ) [NumConstFactor]
+                                                                    ) [TermListHead]
+                                                                  ) [TermExprListHead]
+                                                                ) [TermExpression]
+                                                              ) [NewArrayObjectFactor]
+                                                            ) [TermListHead]
+                                                          ) [TermExprListHead]
+                                                        ) [TermExpression]
+                                                      ) [AssignmentExpression]
+                                                    ) [AssignmentStatement]
+                                                  ) [AssignmentDesignatorStatement]
+                                                ) [MatchedAssignmentStatement]
+                                              ) [SingleMatchedStatement]
+                                            ) [SingleStatementType]
+                                          ) [StatementListElement]
+                                          SingleStatementType(
+                                            SingleMatchedStatement(
+                                              MatchedAssignmentStatement(
+                                                AssignmentDesignatorStatement(
+                                                  AssignmentStatement(
+                                                    ArrayAccessDesignator(
+                                                      ScalarDesignator(
+                                                       baseClassArray
+                                                      ) [ScalarDesignator]
+                                                      TermExpression(
+                                                        TermExprListHead(
+                                                          TermListHead(
+                                                            NumConstFactor(
+                                                             0
+                                                            ) [NumConstFactor]
+                                                          ) [TermListHead]
+                                                        ) [TermExprListHead]
+                                                      ) [TermExpression]
+                                                    ) [ArrayAccessDesignator]
+                                                    Assignop(
+                                                    ) [Assignop]
+                                                    AssignmentExpression(
+                                                      TermExpression(
+                                                        TermExprListHead(
+                                                          TermListHead(
+                                                            NewObjectFactor(
+                                                              Type(
+                                                               BaseClass
+                                                              ) [Type]
+                                                            ) [NewObjectFactor]
+                                                          ) [TermListHead]
+                                                        ) [TermExprListHead]
+                                                      ) [TermExpression]
+                                                    ) [AssignmentExpression]
+                                                  ) [AssignmentStatement]
+                                                ) [AssignmentDesignatorStatement]
+                                              ) [MatchedAssignmentStatement]
+                                            ) [SingleMatchedStatement]
+                                          ) [SingleStatementType]
+                                        ) [StatementListElement]
+                                        SingleStatementType(
+                                          SingleMatchedStatement(
+                                            MatchedAssignmentStatement(
+                                              AssignmentDesignatorStatement(
+                                                AssignmentStatement(
+                                                  ScalarDesignator(
+                                                   classInstance0
+                                                  ) [ScalarDesignator]
+                                                  Assignop(
+                                                  ) [Assignop]
+                                                  AssignmentExpression(
+                                                    TermExpression(
+                                                      TermExprListHead(
+                                                        TermListHead(
+                                                          NewObjectFactor(
+                                                            Type(
+                                                             ExtendedClass0
+                                                            ) [Type]
+                                                          ) [NewObjectFactor]
+                                                        ) [TermListHead]
+                                                      ) [TermExprListHead]
+                                                    ) [TermExpression]
+                                                  ) [AssignmentExpression]
+                                                ) [AssignmentStatement]
+                                              ) [AssignmentDesignatorStatement]
+                                            ) [MatchedAssignmentStatement]
+                                          ) [SingleMatchedStatement]
+                                        ) [SingleStatementType]
+                                      ) [StatementListElement]
+                                      SingleStatementType(
+                                        SingleMatchedStatement(
+                                          MatchedAssignmentStatement(
+                                            AssignmentDesignatorStatement(
+                                              AssignmentStatement(
+                                                ArrayAccessDesignator(
+                                                  ScalarDesignator(
+                                                   baseClassArray
+                                                  ) [ScalarDesignator]
+                                                  TermExpression(
+                                                    TermExprListHead(
+                                                      TermListHead(
+                                                        NumConstFactor(
+                                                         1
+                                                        ) [NumConstFactor]
+                                                      ) [TermListHead]
+                                                    ) [TermExprListHead]
+                                                  ) [TermExpression]
+                                                ) [ArrayAccessDesignator]
+                                                Assignop(
+                                                ) [Assignop]
+                                                AssignmentExpression(
+                                                  TermExpression(
+                                                    TermExprListHead(
+                                                      TermListHead(
+                                                        VarFactor(
+                                                          ScalarDesignator(
+                                                           classInstance0
+                                                          ) [ScalarDesignator]
+                                                        ) [VarFactor]
+                                                      ) [TermListHead]
+                                                    ) [TermExprListHead]
+                                                  ) [TermExpression]
+                                                ) [AssignmentExpression]
+                                              ) [AssignmentStatement]
+                                            ) [AssignmentDesignatorStatement]
+                                          ) [MatchedAssignmentStatement]
+                                        ) [SingleMatchedStatement]
+                                      ) [SingleStatementType]
+                                    ) [StatementListElement]
+                                    SingleStatementType(
+                                      SingleMatchedStatement(
+                                        MatchedAssignmentStatement(
+                                          AssignmentDesignatorStatement(
+                                            AssignmentStatement(
+                                              ArrayAccessDesignator(
+                                                ScalarDesignator(
+                                                 baseClassArray
+                                                ) [ScalarDesignator]
+                                                TermExpression(
+                                                  TermExprListHead(
+                                                    TermListHead(
+                                                      NumConstFactor(
+                                                       2
+                                                      ) [NumConstFactor]
+                                                    ) [TermListHead]
+                                                  ) [TermExprListHead]
+                                                ) [TermExpression]
+                                              ) [ArrayAccessDesignator]
+                                              Assignop(
+                                              ) [Assignop]
+                                              AssignmentExpression(
+                                                TermExpression(
+                                                  TermExprListHead(
+                                                    TermListHead(
+                                                      NewObjectFactor(
+                                                        Type(
+                                                         ExtendedClass1
+                                                        ) [Type]
+                                                      ) [NewObjectFactor]
+                                                    ) [TermListHead]
+                                                  ) [TermExprListHead]
+                                                ) [TermExpression]
+                                              ) [AssignmentExpression]
+                                            ) [AssignmentStatement]
+                                          ) [AssignmentDesignatorStatement]
+                                        ) [MatchedAssignmentStatement]
+                                      ) [SingleMatchedStatement]
+                                    ) [SingleStatementType]
+                                  ) [StatementListElement]
+                                  SingleStatementType(
+                                    SingleMatchedStatement(
+                                      MatchedAssignmentStatement(
+                                        AssignmentDesignatorStatement(
+                                          AssignmentStatement(
+                                            ScalarDesignator(
+                                             classInstance1
+                                            ) [ScalarDesignator]
+                                            Assignop(
+                                            ) [Assignop]
+                                            AssignmentExpression(
+                                              TermExpression(
+                                                TermExprListHead(
+                                                  TermListHead(
+                                                    NewObjectFactor(
+                                                      Type(
+                                                       ExtendedExtendedClass1
+                                                      ) [Type]
+                                                    ) [NewObjectFactor]
+                                                  ) [TermListHead]
+                                                ) [TermExprListHead]
+                                              ) [TermExpression]
+                                            ) [AssignmentExpression]
+                                          ) [AssignmentStatement]
+                                        ) [AssignmentDesignatorStatement]
+                                      ) [MatchedAssignmentStatement]
+                                    ) [SingleMatchedStatement]
+                                  ) [SingleStatementType]
+                                ) [StatementListElement]
+                                SingleStatementType(
+                                  SingleMatchedStatement(
+                                    MatchedAssignmentStatement(
+                                      AssignmentDesignatorStatement(
+                                        AssignmentStatement(
+                                          ObjectAccessDesignator(
+                                            ScalarDesignator(
+                                             classInstance1
+                                            ) [ScalarDesignator]
+                                           firstBaseField
+                                          ) [ObjectAccessDesignator]
+                                          Assignop(
+                                          ) [Assignop]
+                                          AssignmentExpression(
+                                            TermExpression(
+                                              TermExprListHead(
+                                                TermListHead(
+                                                  NumConstFactor(
+                                                   10
+                                                  ) [NumConstFactor]
+                                                ) [TermListHead]
+                                              ) [TermExprListHead]
+                                            ) [TermExpression]
+                                          ) [AssignmentExpression]
+                                        ) [AssignmentStatement]
+                                      ) [AssignmentDesignatorStatement]
+                                    ) [MatchedAssignmentStatement]
+                                  ) [SingleMatchedStatement]
+                                ) [SingleStatementType]
+                              ) [StatementListElement]
+                              SingleStatementType(
+                                SingleMatchedStatement(
+                                  MatchedAssignmentStatement(
+                                    AssignmentDesignatorStatement(
+                                      AssignmentStatement(
+                                        ObjectAccessDesignator(
+                                          ScalarDesignator(
+                                           classInstance1
+                                          ) [ScalarDesignator]
+                                         firstExtended1Field
+                                        ) [ObjectAccessDesignator]
+                                        Assignop(
+                                        ) [Assignop]
+                                        AssignmentExpression(
+                                          TermExpression(
+                                            TermExprListHead(
+                                              TermListHead(
+                                                NumConstFactor(
+                                                 2
+                                                ) [NumConstFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [TermExpression]
+                                        ) [AssignmentExpression]
+                                      ) [AssignmentStatement]
+                                    ) [AssignmentDesignatorStatement]
+                                  ) [MatchedAssignmentStatement]
+                                ) [SingleMatchedStatement]
+                              ) [SingleStatementType]
+                            ) [StatementListElement]
+                            SingleStatementType(
+                              SingleMatchedStatement(
+                                MatchedAssignmentStatement(
+                                  AssignmentDesignatorStatement(
+                                    AssignmentStatement(
+                                      ArrayAccessDesignator(
+                                        ScalarDesignator(
+                                         baseClassArray
+                                        ) [ScalarDesignator]
+                                        TermExpression(
+                                          TermExprListHead(
+                                            TermListHead(
+                                              NumConstFactor(
+                                               3
+                                              ) [NumConstFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [TermExpression]
+                                      ) [ArrayAccessDesignator]
+                                      Assignop(
+                                      ) [Assignop]
+                                      AssignmentExpression(
+                                        TermExpression(
+                                          TermExprListHead(
+                                            TermListHead(
+                                              VarFactor(
+                                                ScalarDesignator(
+                                                 classInstance1
+                                                ) [ScalarDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [TermExpression]
+                                      ) [AssignmentExpression]
+                                    ) [AssignmentStatement]
+                                  ) [AssignmentDesignatorStatement]
+                                ) [MatchedAssignmentStatement]
+                              ) [SingleMatchedStatement]
+                            ) [SingleStatementType]
+                          ) [StatementListElement]
+                          SingleStatementType(
+                            SingleMatchedStatement(
+                              MatchedAssignmentStatement(
+                                AssignmentDesignatorStatement(
+                                  AssignmentStatement(
+                                    ObjectAccessDesignator(
+                                      ArrayAccessDesignator(
+                                        ScalarDesignator(
+                                         baseClassArray
+                                        ) [ScalarDesignator]
+                                        TermExpression(
+                                          TermExprListHead(
+                                            TermListHead(
+                                              NumConstFactor(
+                                               1
+                                              ) [NumConstFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [TermExpression]
+                                      ) [ArrayAccessDesignator]
+                                     firstBaseField
+                                    ) [ObjectAccessDesignator]
+                                    Assignop(
+                                    ) [Assignop]
+                                    AssignmentExpression(
+                                      TermExpression(
+                                        TermExprListHead(
+                                          TermListHead(
+                                            NumConstFactor(
+                                             8
+                                            ) [NumConstFactor]
+                                          ) [TermListHead]
+                                        ) [TermExprListHead]
+                                      ) [TermExpression]
+                                    ) [AssignmentExpression]
+                                  ) [AssignmentStatement]
+                                ) [AssignmentDesignatorStatement]
+                              ) [MatchedAssignmentStatement]
+                            ) [SingleMatchedStatement]
+                          ) [SingleStatementType]
+                        ) [StatementListElement]
+                        SingleStatementType(
+                          SingleMatchedStatement(
+                            MatchedAssignmentStatement(
+                              AssignmentDesignatorStatement(
+                                AssignmentStatement(
+                                  ObjectAccessDesignator(
+                                    ScalarDesignator(
+                                     classInstance0
+                                    ) [ScalarDesignator]
+                                   firstExtended0Field
+                                  ) [ObjectAccessDesignator]
+                                  Assignop(
+                                  ) [Assignop]
+                                  AssignmentExpression(
+                                    TermExpression(
+                                      TermExprListHead(
+                                        TermListHead(
+                                          NumConstFactor(
+                                           4
+                                          ) [NumConstFactor]
+                                        ) [TermListHead]
+                                      ) [TermExprListHead]
+                                    ) [TermExpression]
+                                  ) [AssignmentExpression]
+                                ) [AssignmentStatement]
+                              ) [AssignmentDesignatorStatement]
+                            ) [MatchedAssignmentStatement]
+                          ) [SingleMatchedStatement]
+                        ) [SingleStatementType]
+                      ) [StatementListElement]
+                      SingleStatementType(
+                        SingleMatchedStatement(
+                          MatchedPrintStatement(
+                            TermExpression(
+                              TermExprListHead(
+                                TermListHead(
+                                  FunctionCallResultFactor(
+                                    FunctionCall(
+                                      FunctionCallDesignator(
+                                        ObjectAccessDesignator(
+                                          ScalarDesignator(
+                                           classInstance0
+                                          ) [ScalarDesignator]
+                                         mulBaseFirstField
+                                        ) [ObjectAccessDesignator]
+                                      ) [FunctionCallDesignator]
+                                      NoFunctionCallActualParameters(
+                                      ) [NoFunctionCallActualParameters]
+                                    ) [FunctionCall]
+                                  ) [FunctionCallResultFactor]
+                                ) [TermListHead]
+                              ) [TermExprListHead]
+                            ) [TermExpression]
+                            NoPrintStatementAdditionalParameter(
+                            ) [NoPrintStatementAdditionalParameter]
+                          ) [MatchedPrintStatement]
+                        ) [SingleMatchedStatement]
+                      ) [SingleStatementType]
+                    ) [StatementListElement]
+                  ) [MethodStatements]
+                ) [MethodDeclaration]
+              ) [MethodDeclarationListElement]
+            ) [ClassMethodDeclarations]
+          ) [ClassDeclaration]
+        ) [ClassDataDecl]
+      ) [DataDeclListElement]
+      ClassDataDecl(
+        ClassDeclaration(
+          ClassName(
+            ClassType(
+             NestedClassLevel0
+            ) [ClassType]
+          ) [ClassName]
+          ClassVarDeclListElement(
+            EmptyVarDeclList(
+            ) [EmptyVarDeclList]
+            VariableDeclaration(
+              VarDeclType(
+                Type(
+                 NestedClassLevel1
+                ) [Type]
+              ) [VarDeclType]
+              VarIdentListHead(
+                ScalarVarIdent(
+                 nestedClassLevel1
+                ) [ScalarVarIdent]
+              ) [VarIdentListHead]
+            ) [VariableDeclaration]
+          ) [ClassVarDeclListElement]
+          ClassMethodDeclarations(
+            MethodDeclarationListElement(
+              EmptyMethodDeclarationListHead(
+              ) [EmptyMethodDeclarationListHead]
+              MethodDeclaration(
+                VoidMethodTypeNamePair(
+                 initialize
+                ) [VoidMethodTypeNamePair]
+                NoMethodFormalParameters(
+                ) [NoMethodFormalParameters]
+                EmptyVarDeclList(
+                ) [EmptyVarDeclList]
+                MethodStatements(
+                  StatementListElement(
+                    StatementListElement(
+                      EmptyStatementListHead(
+                      ) [EmptyStatementListHead]
+                      SingleStatementType(
+                        SingleMatchedStatement(
+                          MatchedAssignmentStatement(
+                            AssignmentDesignatorStatement(
+                              AssignmentStatement(
+                                ScalarDesignator(
+                                 nestedClassLevel1
+                                ) [ScalarDesignator]
+                                Assignop(
+                                ) [Assignop]
+                                AssignmentExpression(
+                                  TermExpression(
+                                    TermExprListHead(
+                                      TermListHead(
+                                        NewObjectFactor(
+                                          Type(
+                                           NestedClassLevel1
+                                          ) [Type]
+                                        ) [NewObjectFactor]
+                                      ) [TermListHead]
+                                    ) [TermExprListHead]
+                                  ) [TermExpression]
+                                ) [AssignmentExpression]
+                              ) [AssignmentStatement]
+                            ) [AssignmentDesignatorStatement]
+                          ) [MatchedAssignmentStatement]
+                        ) [SingleMatchedStatement]
+                      ) [SingleStatementType]
+                    ) [StatementListElement]
+                    SingleStatementType(
+                      SingleMatchedStatement(
+                        MatchedAssignmentStatement(
+                          FuncCallDesignatorStatement(
+                            FunctionCall(
+                              FunctionCallDesignator(
+                                ObjectAccessDesignator(
+                                  ScalarDesignator(
+                                   nestedClassLevel1
+                                  ) [ScalarDesignator]
+                                 initialize
+                                ) [ObjectAccessDesignator]
+                              ) [FunctionCallDesignator]
+                              NoFunctionCallActualParameters(
+                              ) [NoFunctionCallActualParameters]
+                            ) [FunctionCall]
+                          ) [FuncCallDesignatorStatement]
+                        ) [MatchedAssignmentStatement]
+                      ) [SingleMatchedStatement]
+                    ) [SingleStatementType]
+                  ) [StatementListElement]
+                ) [MethodStatements]
+              ) [MethodDeclaration]
+            ) [MethodDeclarationListElement]
+          ) [ClassMethodDeclarations]
+        ) [ClassDeclaration]
+      ) [ClassDataDecl]
+    ) [DataDeclListElement]
+    ClassDataDecl(
+      ClassDeclaration(
+        ClassName(
+          ClassType(
+           NestingClass
+          ) [ClassType]
+        ) [ClassName]
+        ClassVarDeclListElement(
+          EmptyVarDeclList(
+          ) [EmptyVarDeclList]
+          VariableDeclaration(
+            VarDeclType(
+              Type(
+               NestedClassLevel0
+              ) [Type]
+            ) [VarDeclType]
+            VarIdentListHead(
+              ScalarVarIdent(
+               nestedClassLevel0
+              ) [ScalarVarIdent]
+            ) [VarIdentListHead]
+          ) [VariableDeclaration]
+        ) [ClassVarDeclListElement]
+        ClassMethodDeclarations(
+          MethodDeclarationListElement(
+            EmptyMethodDeclarationListHead(
+            ) [EmptyMethodDeclarationListHead]
+            MethodDeclaration(
+              VoidMethodTypeNamePair(
+               initialize
+              ) [VoidMethodTypeNamePair]
+              NoMethodFormalParameters(
+              ) [NoMethodFormalParameters]
+              EmptyVarDeclList(
+              ) [EmptyVarDeclList]
+              MethodStatements(
+                StatementListElement(
+                  StatementListElement(
+                    EmptyStatementListHead(
+                    ) [EmptyStatementListHead]
+                    SingleStatementType(
+                      SingleMatchedStatement(
+                        MatchedAssignmentStatement(
+                          AssignmentDesignatorStatement(
+                            AssignmentStatement(
+                              ScalarDesignator(
+                               nestedClassLevel0
+                              ) [ScalarDesignator]
+                              Assignop(
+                              ) [Assignop]
+                              AssignmentExpression(
+                                TermExpression(
+                                  TermExprListHead(
+                                    TermListHead(
+                                      NewObjectFactor(
+                                        Type(
+                                         NestedClassLevel0
+                                        ) [Type]
+                                      ) [NewObjectFactor]
+                                    ) [TermListHead]
+                                  ) [TermExprListHead]
+                                ) [TermExpression]
+                              ) [AssignmentExpression]
+                            ) [AssignmentStatement]
+                          ) [AssignmentDesignatorStatement]
+                        ) [MatchedAssignmentStatement]
+                      ) [SingleMatchedStatement]
+                    ) [SingleStatementType]
+                  ) [StatementListElement]
+                  SingleStatementType(
+                    SingleMatchedStatement(
+                      MatchedAssignmentStatement(
+                        FuncCallDesignatorStatement(
+                          FunctionCall(
+                            FunctionCallDesignator(
+                              ObjectAccessDesignator(
+                                ScalarDesignator(
+                                 nestedClassLevel0
+                                ) [ScalarDesignator]
+                               initialize
+                              ) [ObjectAccessDesignator]
+                            ) [FunctionCallDesignator]
+                            NoFunctionCallActualParameters(
+                            ) [NoFunctionCallActualParameters]
+                          ) [FunctionCall]
+                        ) [FuncCallDesignatorStatement]
+                      ) [MatchedAssignmentStatement]
+                    ) [SingleMatchedStatement]
+                  ) [SingleStatementType]
+                ) [StatementListElement]
+              ) [MethodStatements]
+            ) [MethodDeclaration]
+          ) [MethodDeclarationListElement]
+        ) [ClassMethodDeclarations]
+      ) [ClassDeclaration]
+    ) [ClassDataDecl]
+  ) [DataDeclListElement]
+  MethodDeclarationListElement(
+    EmptyMethodDeclarationListHead(
+    ) [EmptyMethodDeclarationListHead]
+    MethodDeclaration(
+      VoidMethodTypeNamePair(
+       main
+      ) [VoidMethodTypeNamePair]
+      NoMethodFormalParameters(
+      ) [NoMethodFormalParameters]
+      VarDeclListElement(
+        VarDeclListElement(
+          VarDeclListElement(
+            VarDeclListElement(
+              EmptyVarDeclList(
+              ) [EmptyVarDeclList]
+              VariableDeclaration(
+                VarDeclType(
+                  Type(
+                   NestingClass
+                  ) [Type]
+                ) [VarDeclType]
+                VarIdentListHead(
+                  ArrayVarIdent(
+                   nestingClassLocalArray
+                  ) [ArrayVarIdent]
+                ) [VarIdentListHead]
+              ) [VariableDeclaration]
+            ) [VarDeclListElement]
+            VariableDeclaration(
+              VarDeclType(
+                Type(
+                 int
+                ) [Type]
+              ) [VarDeclType]
+              VarIdentListHead(
+                ScalarVarIdent(
+                 arrayBaseSize
+                ) [ScalarVarIdent]
+              ) [VarIdentListHead]
+            ) [VariableDeclaration]
+          ) [VarDeclListElement]
+          VariableDeclaration(
+            VarDeclType(
+              Type(
+               int
+              ) [Type]
+            ) [VarDeclType]
+            VarIdentListHead(
+              ScalarVarIdent(
+               arraySize
+              ) [ScalarVarIdent]
+            ) [VarIdentListHead]
+          ) [VariableDeclaration]
+        ) [VarDeclListElement]
+        VariableDeclaration(
+          VarDeclType(
+            Type(
+             int
+            ) [Type]
+          ) [VarDeclType]
+          VarIdentListHead(
+            ScalarVarIdent(
+             arrayCnt
+            ) [ScalarVarIdent]
+          ) [VarIdentListHead]
+        ) [VariableDeclaration]
+      ) [VarDeclListElement]
+      MethodStatements(
+        StatementListElement(
+          StatementListElement(
+            StatementListElement(
+              StatementListElement(
+                StatementListElement(
+                  StatementListElement(
+                    StatementListElement(
+                      StatementListElement(
+                        EmptyStatementListHead(
+                        ) [EmptyStatementListHead]
+                        SingleStatementType(
+                          SingleMatchedStatement(
+                            MatchedAssignmentStatement(
+                              AssignmentDesignatorStatement(
+                                AssignmentStatement(
+                                  ScalarDesignator(
+                                   arrayBaseSize
+                                  ) [ScalarDesignator]
+                                  Assignop(
+                                  ) [Assignop]
+                                  AssignmentExpression(
+                                    TermExpression(
+                                      TermExprListHead(
+                                        TermListHead(
+                                          NumConstFactor(
+                                           2
+                                          ) [NumConstFactor]
+                                        ) [TermListHead]
+                                      ) [TermExprListHead]
+                                    ) [TermExpression]
+                                  ) [AssignmentExpression]
+                                ) [AssignmentStatement]
+                              ) [AssignmentDesignatorStatement]
+                            ) [MatchedAssignmentStatement]
+                          ) [SingleMatchedStatement]
+                        ) [SingleStatementType]
+                      ) [StatementListElement]
+                      SingleStatementType(
+                        SingleMatchedStatement(
+                          MatchedAssignmentStatement(
+                            AssignmentDesignatorStatement(
+                              AssignmentStatement(
+                                ScalarDesignator(
+                                 arraySize
+                                ) [ScalarDesignator]
+                                Assignop(
+                                ) [Assignop]
+                                AssignmentExpression(
+                                  TermExpression(
+                                    TermExprListHead(
+                                      TermListElement(
+                                        TermListHead(
+                                          VarFactor(
+                                            ScalarDesignator(
+                                             twoConst
+                                            ) [ScalarDesignator]
+                                          ) [VarFactor]
+                                        ) [TermListHead]
+                                        MulopMultiply(
+                                        ) [MulopMultiply]
+                                        VarFactor(
+                                          ScalarDesignator(
+                                           arrayBaseSize
+                                          ) [ScalarDesignator]
+                                        ) [VarFactor]
+                                      ) [TermListElement]
+                                    ) [TermExprListHead]
+                                  ) [TermExpression]
+                                ) [AssignmentExpression]
+                              ) [AssignmentStatement]
+                            ) [AssignmentDesignatorStatement]
+                          ) [MatchedAssignmentStatement]
+                        ) [SingleMatchedStatement]
+                      ) [SingleStatementType]
+                    ) [StatementListElement]
+                    SingleStatementType(
+                      SingleMatchedStatement(
+                        MatchedAssignmentStatement(
+                          AssignmentDesignatorStatement(
+                            AssignmentStatement(
+                              ScalarDesignator(
+                               nestingClassLocalArray
+                              ) [ScalarDesignator]
+                              Assignop(
+                              ) [Assignop]
+                              AssignmentExpression(
+                                TermExpression(
+                                  TermExprListHead(
+                                    TermListHead(
+                                      NewArrayObjectFactor(
+                                        Type(
+                                         NestingClass
+                                        ) [Type]
+                                        TermExpression(
+                                          TermExprListHead(
+                                            TermListHead(
+                                              VarFactor(
+                                                ScalarDesignator(
+                                                 arraySize
+                                                ) [ScalarDesignator]
+                                              ) [VarFactor]
+                                            ) [TermListHead]
+                                          ) [TermExprListHead]
+                                        ) [TermExpression]
+                                      ) [NewArrayObjectFactor]
+                                    ) [TermListHead]
+                                  ) [TermExprListHead]
+                                ) [TermExpression]
+                              ) [AssignmentExpression]
+                            ) [AssignmentStatement]
+                          ) [AssignmentDesignatorStatement]
+                        ) [MatchedAssignmentStatement]
+                      ) [SingleMatchedStatement]
+                    ) [SingleStatementType]
+                  ) [StatementListElement]
+                  SingleStatementType(
+                    SingleMatchedStatement(
+                      MatchedAssignmentStatement(
+                        AssignmentDesignatorStatement(
+                          AssignmentStatement(
+                            ScalarDesignator(
+                             arrayCnt
+                            ) [ScalarDesignator]
+                            Assignop(
+                            ) [Assignop]
+                            AssignmentExpression(
+                              TermExpression(
+                                TermExprListHead(
+                                  TermListHead(
+                                    NumConstFactor(
+                                     0
+                                    ) [NumConstFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [TermExpression]
+                            ) [AssignmentExpression]
+                          ) [AssignmentStatement]
+                        ) [AssignmentDesignatorStatement]
+                      ) [MatchedAssignmentStatement]
+                    ) [SingleMatchedStatement]
+                  ) [SingleStatementType]
+                ) [StatementListElement]
+                SingleStatementType(
+                  SingleMatchedStatement(
+                    MatchedDoWhileStatement(
+                      DoWhileStatementStart(
+                      ) [DoWhileStatementStart]
+                      BracedStatementType(
+                        BracedStatement(
+                          BracedStatementListElement(
+                            BracedStatementListElement(
+                              BracedStatementListElement(
+                                EmptyBracedStatementListHead(
+                                ) [EmptyBracedStatementListHead]
+                                SingleMatchedStatement(
+                                  MatchedAssignmentStatement(
+                                    AssignmentDesignatorStatement(
+                                      AssignmentStatement(
+                                        ArrayAccessDesignator(
+                                          ScalarDesignator(
+                                           nestingClassLocalArray
+                                          ) [ScalarDesignator]
+                                          TermExpression(
+                                            TermExprListHead(
+                                              TermListHead(
+                                                VarFactor(
+                                                  ScalarDesignator(
+                                                   arrayCnt
+                                                  ) [ScalarDesignator]
+                                                ) [VarFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [TermExpression]
+                                        ) [ArrayAccessDesignator]
+                                        Assignop(
+                                        ) [Assignop]
+                                        AssignmentExpression(
+                                          TermExpression(
+                                            TermExprListHead(
+                                              TermListHead(
+                                                NewObjectFactor(
+                                                  Type(
+                                                   NestingClass
+                                                  ) [Type]
+                                                ) [NewObjectFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [TermExpression]
+                                        ) [AssignmentExpression]
+                                      ) [AssignmentStatement]
+                                    ) [AssignmentDesignatorStatement]
+                                  ) [MatchedAssignmentStatement]
+                                ) [SingleMatchedStatement]
+                              ) [BracedStatementListElement]
+                              SingleMatchedStatement(
+                                MatchedAssignmentStatement(
+                                  FuncCallDesignatorStatement(
+                                    FunctionCall(
+                                      FunctionCallDesignator(
+                                        ObjectAccessDesignator(
+                                          ArrayAccessDesignator(
+                                            ScalarDesignator(
+                                             nestingClassLocalArray
+                                            ) [ScalarDesignator]
+                                            TermExpression(
+                                              TermExprListHead(
+                                                TermListHead(
+                                                  VarFactor(
+                                                    ScalarDesignator(
+                                                     arrayCnt
+                                                    ) [ScalarDesignator]
+                                                  ) [VarFactor]
+                                                ) [TermListHead]
+                                              ) [TermExprListHead]
+                                            ) [TermExpression]
+                                          ) [ArrayAccessDesignator]
+                                         initialize
+                                        ) [ObjectAccessDesignator]
+                                      ) [FunctionCallDesignator]
+                                      NoFunctionCallActualParameters(
+                                      ) [NoFunctionCallActualParameters]
+                                    ) [FunctionCall]
+                                  ) [FuncCallDesignatorStatement]
+                                ) [MatchedAssignmentStatement]
+                              ) [SingleMatchedStatement]
+                            ) [BracedStatementListElement]
+                            SingleMatchedStatement(
+                              MatchedAssignmentStatement(
+                                PostIncDesignatorStatement(
+                                  ScalarDesignator(
+                                   arrayCnt
+                                  ) [ScalarDesignator]
+                                ) [PostIncDesignatorStatement]
+                              ) [MatchedAssignmentStatement]
+                            ) [SingleMatchedStatement]
+                          ) [BracedStatementListElement]
+                        ) [BracedStatement]
+                      ) [BracedStatementType]
+                      DoWhileCondition(
+                        DoWhileConditionStart(
+                        ) [DoWhileConditionStart]
+                        ConditionListHead(
+                          CondTermListHead(
+                            RelationalCondFact(
+                              TermExpression(
+                                TermExprListHead(
+                                  TermListHead(
+                                    VarFactor(
+                                      ScalarDesignator(
+                                       arrayCnt
+                                      ) [ScalarDesignator]
+                                    ) [VarFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [TermExpression]
+                              RelopLess(
+                              ) [RelopLess]
+                              TermExpression(
+                                TermExprListHead(
+                                  TermListHead(
+                                    VarFactor(
+                                      ScalarDesignator(
+                                       arraySize
+                                      ) [ScalarDesignator]
+                                    ) [VarFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [TermExpression]
+                            ) [RelationalCondFact]
+                          ) [CondTermListHead]
+                        ) [ConditionListHead]
+                        DoWhileConditionEnd(
+                        ) [DoWhileConditionEnd]
+                      ) [DoWhileCondition]
+                      DoWhileStatementEnd(
+                      ) [DoWhileStatementEnd]
+                    ) [MatchedDoWhileStatement]
+                  ) [SingleMatchedStatement]
+                ) [SingleStatementType]
+              ) [StatementListElement]
+              SingleStatementType(
+                SingleMatchedStatement(
+                  MatchedAssignmentStatement(
+                    FuncCallDesignatorStatement(
+                      FunctionCall(
+                        FunctionCallDesignator(
+                          ObjectAccessDesignator(
+                            ArrayAccessDesignator(
+                              ObjectAccessDesignator(
+                                ObjectAccessDesignator(
+                                  ObjectAccessDesignator(
+                                    ArrayAccessDesignator(
+                                      ScalarDesignator(
+                                       nestingClassLocalArray
+                                      ) [ScalarDesignator]
+                                      TermExpression(
+                                        TermExprListHead(
+                                          TermListHead(
+                                            NumConstFactor(
+                                             1
+                                            ) [NumConstFactor]
+                                          ) [TermListHead]
+                                        ) [TermExprListHead]
+                                      ) [TermExpression]
+                                    ) [ArrayAccessDesignator]
+                                   nestedClassLevel0
+                                  ) [ObjectAccessDesignator]
+                                 nestedClassLevel1
+                                ) [ObjectAccessDesignator]
+                               baseClassArray
+                              ) [ObjectAccessDesignator]
+                              TermExpression(
+                                TermExprListHead(
+                                  TermListHead(
+                                    NumConstFactor(
+                                     3
+                                    ) [NumConstFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [TermExpression]
+                            ) [ArrayAccessDesignator]
+                           setFirstBaseFieldMethod
+                          ) [ObjectAccessDesignator]
+                        ) [FunctionCallDesignator]
+                        FunctionCallActualParameters(
+                          ActualParametersListHead(
+                            ActualParameter(
+                              TermExpression(
+                                TermExprListHead(
+                                  TermListHead(
+                                    NumConstFactor(
+                                     5
+                                    ) [NumConstFactor]
+                                  ) [TermListHead]
+                                ) [TermExprListHead]
+                              ) [TermExpression]
+                            ) [ActualParameter]
+                          ) [ActualParametersListHead]
+                        ) [FunctionCallActualParameters]
+                      ) [FunctionCall]
+                    ) [FuncCallDesignatorStatement]
+                  ) [MatchedAssignmentStatement]
+                ) [SingleMatchedStatement]
+              ) [SingleStatementType]
+            ) [StatementListElement]
+            SingleStatementType(
+              SingleMatchedStatement(
+                MatchedPrintStatement(
+                  TermExpression(
+                    TermExprListHead(
+                      TermListHead(
+                        FunctionCallResultFactor(
+                          FunctionCall(
+                            FunctionCallDesignator(
+                              ObjectAccessDesignator(
+                                ArrayAccessDesignator(
+                                  ObjectAccessDesignator(
+                                    ObjectAccessDesignator(
+                                      ObjectAccessDesignator(
+                                        ArrayAccessDesignator(
+                                          ScalarDesignator(
+                                           nestingClassLocalArray
+                                          ) [ScalarDesignator]
+                                          TermExpression(
+                                            TermExprListHead(
+                                              TermListHead(
+                                                NumConstFactor(
+                                                 1
+                                                ) [NumConstFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [TermExpression]
+                                        ) [ArrayAccessDesignator]
+                                       nestedClassLevel0
+                                      ) [ObjectAccessDesignator]
+                                     nestedClassLevel1
+                                    ) [ObjectAccessDesignator]
+                                   baseClassArray
+                                  ) [ObjectAccessDesignator]
+                                  TermExpression(
+                                    TermExprListHead(
+                                      TermListHead(
+                                        NumConstFactor(
+                                         3
+                                        ) [NumConstFactor]
+                                      ) [TermListHead]
+                                    ) [TermExprListHead]
+                                  ) [TermExpression]
+                                ) [ArrayAccessDesignator]
+                               getFirstBaseFieldMethod
+                              ) [ObjectAccessDesignator]
+                            ) [FunctionCallDesignator]
+                            NoFunctionCallActualParameters(
+                            ) [NoFunctionCallActualParameters]
+                          ) [FunctionCall]
+                        ) [FunctionCallResultFactor]
+                      ) [TermListHead]
+                    ) [TermExprListHead]
+                  ) [TermExpression]
+                  NoPrintStatementAdditionalParameter(
+                  ) [NoPrintStatementAdditionalParameter]
+                ) [MatchedPrintStatement]
+              ) [SingleMatchedStatement]
+            ) [SingleStatementType]
+          ) [StatementListElement]
+          SingleStatementType(
+            SingleMatchedStatement(
+              MatchedPrintStatement(
+                TermExpression(
+                  TermExprListHead(
+                    TermListHead(
+                      VarFactor(
+                        ObjectAccessDesignator(
+                          ArrayAccessDesignator(
+                            ObjectAccessDesignator(
+                              ObjectAccessDesignator(
+                                ObjectAccessDesignator(
+                                  ArrayAccessDesignator(
+                                    ScalarDesignator(
+                                     nestingClassLocalArray
+                                    ) [ScalarDesignator]
+                                    TermExpression(
+                                      TermExprListHead(
+                                        TermListHead(
+                                          NumConstFactor(
+                                           1
+                                          ) [NumConstFactor]
+                                        ) [TermListHead]
+                                      ) [TermExprListHead]
+                                    ) [TermExpression]
+                                  ) [ArrayAccessDesignator]
+                                 nestedClassLevel0
+                                ) [ObjectAccessDesignator]
+                               nestedClassLevel1
+                              ) [ObjectAccessDesignator]
+                             baseClassArray
+                            ) [ObjectAccessDesignator]
+                            TermExpression(
+                              TermExprListHead(
+                                TermListHead(
+                                  NumConstFactor(
+                                   3
+                                  ) [NumConstFactor]
+                                ) [TermListHead]
+                              ) [TermExprListHead]
+                            ) [TermExpression]
+                          ) [ArrayAccessDesignator]
+                         firstBaseField
+                        ) [ObjectAccessDesignator]
+                      ) [VarFactor]
+                    ) [TermListHead]
+                  ) [TermExprListHead]
+                ) [TermExpression]
+                NoPrintStatementAdditionalParameter(
+                ) [NoPrintStatementAdditionalParameter]
+              ) [MatchedPrintStatement]
+            ) [SingleMatchedStatement]
+          ) [SingleStatementType]
+        ) [StatementListElement]
+      ) [MethodStatements]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListElement]
+) [Program]
+INFO  20:17:11,186 - ===================================
+INFO  20:17:11,187 - Line: 19 - Detected use of Field firstBaseField: int, Offset: 1
+INFO  20:17:11,187 - Line: 23 - Detected use of Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+INFO  20:17:11,188 - Line: 23 - Detected use of Field firstBaseField: int, Offset: 1
+INFO  20:17:11,188 - Line: 23 - Detected use of Variable firstFormalParam: int, Offset: 1, Scope: local, Formal param position: 1
+INFO  20:17:11,188 - Line: 27 - Detected use of Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+INFO  20:17:11,188 - Line: 27 - Detected use of Field secondBaseField: int, Offset: 2
+INFO  20:17:11,188 - Line: 31 - Detected use of Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+INFO  20:17:11,188 - Line: 31 - Detected use of Field secondBaseField: int, Offset: 2
+INFO  20:17:11,188 - Line: 31 - Detected use of Variable secondBaseField: int, Offset: 1, Scope: local, Formal param position: 1
+INFO  20:17:11,188 - Line: 41 - Detected use of Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+INFO  20:17:11,189 - Line: 41 - Detected use of Field firstBaseField: int, Offset: 1
+INFO  20:17:11,189 - Line: 41 - Detected use of Field firstExtended0Field: int, Offset: 3
+INFO  20:17:11,189 - Line: 45 - Detected use of Field secondBaseField: int, Offset: 2
+INFO  20:17:11,189 - Line: 45 - Detected use of Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+INFO  20:17:11,189 - Line: 45 - Detected use of Field firstExtended0Field: int, Offset: 3
+INFO  20:17:11,189 - Line: 54 - Detected use of Field firstExtended1Field: int, Offset: 3
+INFO  20:17:11,189 - Line: 58 - Detected use of Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+INFO  20:17:11,189 - Line: 58 - Detected use of Field firstExtended1Field: int, Offset: 3
+INFO  20:17:11,189 - Line: 58 - Detected use of Variable firstFormalParam: int, Offset: 1, Scope: local, Formal param position: 1
+INFO  20:17:11,189 - Line: 74 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,201 - Line: 75 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,201 - Line: 75 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,201 - Line: 77 - Detected use of Variable classInstance0: Class, Offset: 1, Scope: local
+INFO  20:17:11,201 - Line: 79 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,201 - Line: 79 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,201 - Line: 79 - Detected use of Variable classInstance0: Class, Offset: 1, Scope: local
+INFO  20:17:11,202 - Line: 81 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,202 - Line: 81 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,202 - Line: 83 - Detected use of Variable classInstance1: Class, Offset: 2, Scope: local
+INFO  20:17:11,202 - Line: 84 - Detected use of Variable classInstance1: Class, Offset: 2, Scope: local
+INFO  20:17:11,202 - Line: 84 - Detected use of Field firstBaseField: int, Offset: 1
+INFO  20:17:11,202 - Line: 85 - Detected use of Variable classInstance1: Class, Offset: 2, Scope: local
+INFO  20:17:11,202 - Line: 85 - Detected use of Field firstExtended1Field: int, Offset: 3
+INFO  20:17:11,202 - Line: 86 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,202 - Line: 86 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,202 - Line: 86 - Detected use of Variable classInstance1: Class, Offset: 2, Scope: local
+INFO  20:17:11,202 - Line: 88 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,202 - Line: 88 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,202 - Line: 88 - Detected use of Field firstBaseField: int, Offset: 1
+INFO  20:17:11,202 - Line: 89 - Detected use of Variable classInstance0: Class, Offset: 1, Scope: local
+INFO  20:17:11,202 - Line: 89 - Detected use of Field firstExtended0Field: int, Offset: 3
+INFO  20:17:11,202 - Line: 91 - Detected use of Variable classInstance0: Class, Offset: 1, Scope: local
+INFO  20:17:11,202 - Line: 91 - Detected use of Method mulBaseFirstField: int, Offset: 0, Formal params: 1
+INFO  20:17:11,202 - Line: 101 - Detected use of Field nestedClassLevel1: Class, Offset: 1
+INFO  20:17:11,203 - Line: 102 - Detected use of Field nestedClassLevel1: Class, Offset: 1
+INFO  20:17:11,203 - Line: 102 - Detected use of Method initialize: notype, Offset: 0, Formal params: 1
+INFO  20:17:11,203 - Line: 112 - Detected use of Field nestedClassLevel0: Class, Offset: 1
+INFO  20:17:11,203 - Line: 113 - Detected use of Field nestedClassLevel0: Class, Offset: 1
+INFO  20:17:11,203 - Line: 113 - Detected use of Method initialize: notype, Offset: 0, Formal params: 1
+INFO  20:17:11,203 - Line: 127 - Detected use of Variable arrayBaseSize: int, Offset: 1, Scope: local
+INFO  20:17:11,203 - Line: 128 - Detected use of Variable arraySize: int, Offset: 2, Scope: local
+INFO  20:17:11,203 - Line: 128 - Detected use of Constant twoConst: int, Value: 2
+INFO  20:17:11,203 - Line: 128 - Detected use of Variable arrayBaseSize: int, Offset: 1, Scope: local
+INFO  20:17:11,203 - Line: 131 - Detected use of Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+INFO  20:17:11,203 - Line: 131 - Detected use of Variable arraySize: int, Offset: 2, Scope: local
+INFO  20:17:11,203 - Line: 133 - Detected use of Variable arrayCnt: int, Offset: 3, Scope: local
+INFO  20:17:11,204 - Line: 136 - Detected use of Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+INFO  20:17:11,217 - Line: 136 - Detected use of Variable arrayCnt: int, Offset: 3, Scope: local
+INFO  20:17:11,217 - Line: 136 - Detected use of Element of Array nestingClassLocalArray[]: Class
+INFO  20:17:11,217 - Line: 137 - Detected use of Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+INFO  20:17:11,217 - Line: 137 - Detected use of Variable arrayCnt: int, Offset: 3, Scope: local
+INFO  20:17:11,217 - Line: 137 - Detected use of Element of Array nestingClassLocalArray[]: Class
+INFO  20:17:11,217 - Line: 137 - Detected use of Method initialize: notype, Offset: 0, Formal params: 1
+INFO  20:17:11,217 - Line: 138 - Detected use of Variable arrayCnt: int, Offset: 3, Scope: local
+INFO  20:17:11,217 - Line: 139 - Detected use of Variable arrayCnt: int, Offset: 3, Scope: local
+INFO  20:17:11,217 - Line: 139 - Detected use of Variable arraySize: int, Offset: 2, Scope: local
+INFO  20:17:11,217 - Line: 141 - Detected use of Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+INFO  20:17:11,217 - Line: 141 - Detected use of Element of Array nestingClassLocalArray[]: Class
+INFO  20:17:11,217 - Line: 141 - Detected use of Field nestedClassLevel0: Class, Offset: 1
+INFO  20:17:11,217 - Line: 141 - Detected use of Field nestedClassLevel1: Class, Offset: 1
+INFO  20:17:11,217 - Line: 141 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,217 - Line: 141 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,217 - Line: 141 - Detected use of Method setFirstBaseFieldMethod: notype, Offset: 0, Formal params: 2
+INFO  20:17:11,217 - Line: 142 - Detected use of Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+INFO  20:17:11,217 - Line: 142 - Detected use of Element of Array nestingClassLocalArray[]: Class
+INFO  20:17:11,217 - Line: 142 - Detected use of Field nestedClassLevel0: Class, Offset: 1
+INFO  20:17:11,217 - Line: 142 - Detected use of Field nestedClassLevel1: Class, Offset: 1
+INFO  20:17:11,217 - Line: 142 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,218 - Line: 142 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,218 - Line: 142 - Detected use of Method getFirstBaseFieldMethod: int, Offset: 0, Formal params: 1
+INFO  20:17:11,218 - Line: 143 - Detected use of Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+INFO  20:17:11,218 - Line: 143 - Detected use of Element of Array nestingClassLocalArray[]: Class
+INFO  20:17:11,218 - Line: 143 - Detected use of Field nestedClassLevel0: Class, Offset: 1
+INFO  20:17:11,218 - Line: 143 - Detected use of Field nestedClassLevel1: Class, Offset: 1
+INFO  20:17:11,218 - Line: 143 - Detected use of Field baseClassArray: Array of Class, Offset: 1
+INFO  20:17:11,218 - Line: 143 - Detected use of Element of Array baseClassArray[]: Class
+INFO  20:17:11,218 - Line: 143 - Detected use of Field firstBaseField: int, Offset: 1
+INFO  20:17:11,218 - =====================SYMBOL TABLE DUMP=========================
+INFO  20:17:11,218 - Type int: int
+
+Type char: char
+
+Constant eol: char, Value: 10
+
+Constant null: Class, Value: 0
+
+Method chr: char, Offset: 0, Formal params: 1
+   Variable i: int, Offset: 0, Scope: local, Formal param position: 0
+
+Method ord: int, Offset: 0, Formal params: 1
+   Variable ch: char, Offset: 0, Scope: local, Formal param position: 0
+
+Method len: int, Offset: 0, Formal params: 1
+   Variable arr: Array of notype, Offset: 0, Scope: local, Formal param position: 0
+
+Type bool: bool
+
+Program correctSyntax:
+   Constant trueConst: bool, Value: 1
+   Constant falseConst: bool, Value: 0
+   Constant zeroConst: int, Value: 0
+   Constant oneConst: int, Value: 1
+   Constant twoConst: int, Value: 2
+   Constant mCharConst: char, Value: 109
+   Variable intGlobalVar0: int, Offset: 0, Scope: global
+   Variable intGlobalArrayVar0: Array of int, Offset: 1, Scope: global
+   Type BaseClass: Class, Num fields: 3
+      Field $mvt_ptr_BaseClass: int, Offset: 0
+      Field firstBaseField: int, Offset: 1
+      Field secondBaseField: int, Offset: 2
+      Method getFirstBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setFirstBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable firstFormalParam: int, Offset: 1, Scope: local, Formal param position: 1
+      Method getSecondBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setSecondBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable secondBaseField: int, Offset: 1, Scope: local, Formal param position: 1
+   Type ExtendedClass0: Class, Num fields: 4
+      Field $mvt_ptr_ExtendedClass0: int, Offset: 0
+      Field firstBaseField: int, Offset: 1
+      Field secondBaseField: int, Offset: 2
+      Field firstExtended0Field: int, Offset: 3
+      Method getFirstBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setFirstBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable firstFormalParam: int, Offset: 1, Scope: local, Formal param position: 1
+      Method getSecondBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setSecondBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable secondBaseField: int, Offset: 1, Scope: local, Formal param position: 1
+      Method mulBaseFirstField: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method mulBaseSecondField: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+   Type ExtendedClass1: Class, Num fields: 4
+      Field $mvt_ptr_ExtendedClass1: int, Offset: 0
+      Field firstBaseField: int, Offset: 1
+      Field secondBaseField: int, Offset: 2
+      Field firstExtended1Field: int, Offset: 3
+      Method getFirstBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setFirstBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable firstFormalParam: int, Offset: 1, Scope: local, Formal param position: 1
+      Method getSecondBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setSecondBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable secondBaseField: int, Offset: 1, Scope: local, Formal param position: 1
+   Type ExtendedExtendedClass1: Class, Num fields: 4
+      Field $mvt_ptr_ExtendedExtendedClass1: int, Offset: 0
+      Field firstBaseField: int, Offset: 1
+      Field secondBaseField: int, Offset: 2
+      Field firstExtended1Field: int, Offset: 3
+      Method getFirstBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setFirstBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable firstFormalParam: int, Offset: 1, Scope: local, Formal param position: 1
+      Method getSecondBaseFieldMethod: int, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+      Method setSecondBaseFieldMethod: notype, Offset: 0, Formal params: 2
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable secondBaseField: int, Offset: 1, Scope: local, Formal param position: 1
+   Type NestedClassLevel1: Class, Num fields: 2
+      Field $mvt_ptr_NestedClassLevel1: int, Offset: 0
+      Field baseClassArray: Array of Class, Offset: 1
+      Method initialize: notype, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+         Variable classInstance0: Class, Offset: 1, Scope: local
+         Variable classInstance1: Class, Offset: 2, Scope: local
+   Type NestedClassLevel0: Class, Num fields: 2
+      Field $mvt_ptr_NestedClassLevel0: int, Offset: 0
+      Field nestedClassLevel1: Class, Offset: 1
+      Method initialize: notype, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+   Type NestingClass: Class, Num fields: 2
+      Field $mvt_ptr_NestingClass: int, Offset: 0
+      Field nestedClassLevel0: Class, Offset: 1
+      Method initialize: notype, Offset: 0, Formal params: 1
+         Variable this: this, Offset: 0, Scope: local, Formal param position: 0
+   Method main: notype, Offset: 0, Formal params: 0
+      Variable nestingClassLocalArray: Array of Class, Offset: 0, Scope: local
+      Variable arrayBaseSize: int, Offset: 1, Scope: local
+      Variable arraySize: int, Offset: 2, Scope: local
+      Variable arrayCnt: int, Offset: 3, Scope: local
+
+
+INFO  20:17:11,248 - ===================================
+INFO  20:17:11,248 - Parsing successfully completed. Generating output.
+INFO  20:17:11,248 - ===================================
+INFO  20:17:11,248 - Generating bytecode file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\program.obj
+INFO  20:17:11,249 - program.obj already exists, it will be overwritten.

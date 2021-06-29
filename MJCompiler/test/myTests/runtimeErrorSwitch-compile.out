@@ -1,0 +1,189 @@
+INFO  20:20:55,461 - ===================================
+INFO  20:20:55,463 - Compiling source file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\test304.mj
+INFO  20:20:55,463 - ===================================
+INFO  20:20:55,549 - ===================================
+INFO  20:20:55,551 - Program(
+  ProgramName(
+   recovery
+  ) [ProgramName]
+  DataDeclListElement(
+    EmptyDataDeclListHead(
+    ) [EmptyDataDeclListHead]
+    VarDataDecl(
+      VariableDeclaration(
+        VarDeclType(
+          Type(
+           int
+          ) [Type]
+        ) [VarDeclType]
+        VarIdentListHead(
+          ScalarVarIdent(
+           something
+          ) [ScalarVarIdent]
+        ) [VarIdentListHead]
+      ) [VariableDeclaration]
+    ) [VarDataDecl]
+  ) [DataDeclListElement]
+  MethodDeclarationListElement(
+    EmptyMethodDeclarationListHead(
+    ) [EmptyMethodDeclarationListHead]
+    MethodDeclaration(
+      VoidMethodTypeNamePair(
+       main
+      ) [VoidMethodTypeNamePair]
+      NoMethodFormalParameters(
+      ) [NoMethodFormalParameters]
+      VarDeclListElement(
+        EmptyVarDeclList(
+        ) [EmptyVarDeclList]
+        VariableDeclaration(
+          VarDeclType(
+            Type(
+             int
+            ) [Type]
+          ) [VarDeclType]
+          VarIdentListHead(
+            ScalarVarIdent(
+             localVar
+            ) [ScalarVarIdent]
+          ) [VarIdentListHead]
+        ) [VariableDeclaration]
+      ) [VarDeclListElement]
+      MethodStatements(
+        StatementListElement(
+          EmptyStatementListHead(
+          ) [EmptyStatementListHead]
+          SingleStatementType(
+            SingleMatchedStatement(
+              MatchedAssignmentStatement(
+                AssignmentDesignatorStatement(
+                  AssignmentStatement(
+                    ScalarDesignator(
+                     localVar
+                    ) [ScalarDesignator]
+                    Assignop(
+                    ) [Assignop]
+                    AssignmentExpression(
+                      SwitchExpression(
+                        SwitchExpressionStart(
+                        ) [SwitchExpressionStart]
+                        SwitchStatementExpression(
+                          TermExpression(
+                            TermExprListHead(
+                              TermListHead(
+                                NumConstFactor(
+                                 1
+                                ) [NumConstFactor]
+                              ) [TermListHead]
+                            ) [TermExprListHead]
+                          ) [TermExpression]
+                        ) [SwitchStatementExpression]
+                        EmptySwitchCaseListHead(
+                        ) [EmptySwitchCaseListHead]
+                        SwitchDefaultCase(
+                          SwitchDefaultCaseStart(
+                          ) [SwitchDefaultCaseStart]
+                          StatementListElement(
+                            EmptyStatementListHead(
+                            ) [EmptyStatementListHead]
+                            SingleStatementType(
+                              SingleMatchedStatement(
+                                MatchedIfStatement(
+                                  IfCondition(
+                                    IfConditionStart(
+                                    ) [IfConditionStart]
+                                    ConditionListHead(
+                                      CondTermListHead(
+                                        SingleCondFact(
+                                          TermExpression(
+                                            TermExprListHead(
+                                              TermListHead(
+                                                BoolConstFactor(
+                                                 false
+                                                ) [BoolConstFactor]
+                                              ) [TermListHead]
+                                            ) [TermExprListHead]
+                                          ) [TermExpression]
+                                        ) [SingleCondFact]
+                                      ) [CondTermListHead]
+                                    ) [ConditionListHead]
+                                    IfConditionEnd(
+                                    ) [IfConditionEnd]
+                                  ) [IfCondition]
+                                  IfStatementStart(
+                                  ) [IfStatementStart]
+                                  BracedStatementType(
+                                    BracedStatement(
+                                      BracedStatementListElement(
+                                        EmptyBracedStatementListHead(
+                                        ) [EmptyBracedStatementListHead]
+                                        SingleMatchedStatement(
+                                          MatchedYieldStatement(
+                                            YieldExpression(
+                                              TermExpression(
+                                                TermExprListHead(
+                                                  TermListHead(
+                                                    NumConstFactor(
+                                                     1
+                                                    ) [NumConstFactor]
+                                                  ) [TermListHead]
+                                                ) [TermExprListHead]
+                                              ) [TermExpression]
+                                            ) [YieldExpression]
+                                          ) [MatchedYieldStatement]
+                                        ) [SingleMatchedStatement]
+                                      ) [BracedStatementListElement]
+                                    ) [BracedStatement]
+                                  ) [BracedStatementType]
+                                  IfStatementEnd(
+                                  ) [IfStatementEnd]
+                                ) [MatchedIfStatement]
+                              ) [SingleMatchedStatement]
+                            ) [SingleStatementType]
+                          ) [StatementListElement]
+                        ) [SwitchDefaultCase]
+                      ) [SwitchExpression]
+                    ) [AssignmentExpression]
+                  ) [AssignmentStatement]
+                ) [AssignmentDesignatorStatement]
+              ) [MatchedAssignmentStatement]
+            ) [SingleMatchedStatement]
+          ) [SingleStatementType]
+        ) [StatementListElement]
+      ) [MethodStatements]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListElement]
+) [Program]
+INFO  20:20:55,579 - ===================================
+INFO  20:20:55,580 - Line: 12 - Detected use of Variable localVar: int, Offset: 0, Scope: local
+INFO  20:20:55,581 - =====================SYMBOL TABLE DUMP=========================
+INFO  20:20:55,582 - Type int: int
+
+Type char: char
+
+Constant eol: char, Value: 10
+
+Constant null: Class, Value: 0
+
+Method chr: char, Offset: 0, Formal params: 1
+   Variable i: int, Offset: 0, Scope: local, Formal param position: 0
+
+Method ord: int, Offset: 0, Formal params: 1
+   Variable ch: char, Offset: 0, Scope: local, Formal param position: 0
+
+Method len: int, Offset: 0, Formal params: 1
+   Variable arr: Array of notype, Offset: 0, Scope: local, Formal param position: 0
+
+Type bool: bool
+
+Program recovery:
+   Variable something: int, Offset: 0, Scope: global
+   Method main: notype, Offset: 0, Formal params: 0
+      Variable localVar: int, Offset: 0, Scope: local
+
+
+INFO  20:20:55,583 - ===================================
+INFO  20:20:55,584 - Parsing successfully completed. Generating output.
+INFO  20:20:55,584 - ===================================
+INFO  20:20:55,584 - Generating bytecode file: H:\Fakultet\Semestar 7\PP\MJCompiler\test\program.obj
+INFO  20:20:55,584 - program.obj already exists, it will be overwritten.

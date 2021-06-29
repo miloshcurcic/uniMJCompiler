@@ -1,0 +1,34 @@
+//Test 302
+// all errors
+program recovery
+
+int someVar error, someVar, someVar error;
+
+class TestClass extends SomeClass + error {
+    int someField error, someField, someField error;
+}
+
+{
+	void main()
+	{
+        someVar = - -a;
+        someVar = a +;
+
+        someVar = a + b + someVar error;
+    }
+
+    void someMethod(int someParam error, int someParam, int someParam error) {
+        if (someVar && && error) {
+
+        }
+
+        if (>=) {
+
+        }
+
+        if (someVar >= someVar || someVar error) {
+
+        }
+    }
+}
+

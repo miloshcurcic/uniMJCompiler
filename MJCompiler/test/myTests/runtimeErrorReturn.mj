@@ -1,0 +1,20 @@
+//Test 302
+// all errors
+program recovery
+
+int something;
+
+{
+    int noReturn() {
+        if (false) {
+            return 0;
+        }
+    }
+
+	void main()
+        int localVar;
+	{
+	    localVar = noReturn();
+    }
+}
+
